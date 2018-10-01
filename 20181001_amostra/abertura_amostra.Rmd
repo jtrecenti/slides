@@ -466,4 +466,4 @@ class: inverse, middle
 - https://abj.org.br
 - https://github.com/jtrecenti
 
-Apresentação: https://jtrecenti.github.io/amostra/
+Apresentação: https://jtrecenti.github.io/slides/amostra/
