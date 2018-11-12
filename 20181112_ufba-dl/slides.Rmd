@@ -158,6 +158,7 @@ It's a computational library
 - Developed in Google Brain for neural network research
 - Open Source
 - Automatic Differentiation
+- Uses GPU
 
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/AutomaticDifferentiationNutshell.png/1280px-AutomaticDifferentiationNutshell.png)
 
