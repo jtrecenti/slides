@@ -1,0 +1,382 @@
+---
+title: "The role of Statistics in the world of Big Data"
+date: "Salvador, 2018"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(echo=FALSE, warning=FALSE, message=FALSE,
+                      out.width = "90%", fig.align = "center")
+```
+
+class: class: center, middle
+
+# Data janitor
+
+```{r}
+knitr::include_graphics("imgs/jtrecenti.png")
+```
+
+---
+class: center, middle
+
+```{r}
+knitr::include_graphics("imgs/cursor.png")
+```
+
+---
+class: middle, center
+
+### Food for thought
+
+```{r warning=FALSE, message=FALSE, fig.width=10, fig.height=6, out.width="80%"}
+library(tidyverse)
+p <- tibble::tribble(
+   ~ano, ~vagas_br, ~form_bra, ~form_eua,
+  2004L,1334L,407L,544L,
+  2005L,1356L,456L,603L,
+  2006L,1296L,474L,606L,
+  2007L,1429L,469L,610L,
+  2008L,1766L,440L,715L,
+  2009L,1673L,404L,747L,
+  2010L,1836L,471L,849L,
+  2011L,1972L,459L,1078L,
+  2012L,1954L,425L,1345L,
+  2013L,1798L,448L,1656L,
+  2014L,1787L,386L,1937L,
+  2015L,1789L,453L,2305L,
+  2016L,1817L,364L,2758L
+) %>% 
+  select(-vagas_br) %>% 
+  gather(tipo_form, form, starts_with("form")) %>% 
+  mutate(tipo_form = if_else(tipo_form == "form_bra", "Brazil", "USA")) %>% 
+  ggplot(aes(x = ano, y = form, colour = tipo_form)) + 
+  geom_line(size = 2) +
+  geom_point(size = 3) +
+  scale_colour_viridis_d(begin = 0.4, end = 0.8) +
+  scale_y_continuous(breaks = 500 * 0:10) +
+  theme_minimal(16) +
+  labs(colour = "Country",
+       x = "Year", y = "Bachelors degree",
+       title = "Statistics: Brazil vs USA",
+       caption = "Source: INEP and ASA") +
+  theme(legend.position = "bottom")
+p
+```
+
+---
+
+## New era?
+
+- Data variety increased.
+- Important data today:
+
+```{r echo=FALSE, out.width="23%", fig.align='default'}
+knitr::include_graphics(c("imgs/friends.jpg", "imgs/acordao.png", "imgs/wave.png"))
+```
+
+---
+
+## Deep Learning
+
+- Recent popularity and hype.
+- Astonishing case studies.
+- Different terminology
+
+```{r echo=FALSE, out.width='70%'}
+knitr::include_graphics("imgs/deepl.png")
+```
+
+---
+
+## Problem
+
+- Many (too much?) people using.
+
+--
+
+- Market is demanding.
+
+--
+
+- We don't learn that in undergrad courses
+
+--
+
+- Are we becoming obsolete?
+
+---
+class: inverse, middle, center
+
+# Depression
+
+---
+
+## Marketing and venn diagrams
+
+```{r}
+knitr::include_graphics("imgs/diff.png")
+```
+
+---
+
+## Marketing and venn diagrams
+
+```{r, out.width="80%"}
+knitr::include_graphics("imgs/dsvenn1.png")
+```
+
+---
+
+## Marketing and venn diagrams
+
+```{r}
+knitr::include_graphics("imgs/dsvenn2.png")
+```
+
+---
+
+## Marketing and venn diagrams
+
+```{r, out.width="80%"}
+knitr::include_graphics("imgs/dsvenn3.png")
+```
+
+
+---
+
+## Depression
+
+```{r}
+knitr::include_graphics("imgs/quit.png")
+```
+
+---
+
+## Depression 2
+
+```{r}
+knitr::include_graphics("imgs/dead.png")
+```
+
+---
+class:inverse
+
+## Don't panic!
+
+```{r, out.width="70%"}
+knitr::include_graphics("imgs/panic.jpg")
+```
+
+---
+
+## Don't panic!
+
+- The definition of Data Science does not matter.
+
+--
+
+- What we should learn is how to **DO** data science
+
+```{r}
+knitr::include_graphics("imgs/data-science.png")
+```
+
+---
+
+## Don't panic!
+
+### There are many false cognates.
+
+--
+
+### Our course IS useful.
+
+--
+
+### We need to adapt our mindset and develop ourselves.
+
+---
+
+## Logistic regression
+
+```{r}
+knitr::include_graphics("imgs/glm.png")
+```
+
+---
+
+## Deviance function
+
+$$
+D(y,\hat\mu(x)) = \sum_{i=1}^n 2\left[y_i\log\frac{y_i}{\hat\mu_i(x_i)} + (1-y_i)\log\left(\frac{1-y_i}{1-\hat\mu_i(x_i)}\right)\right]
+$$
+
+$$
+= 2 D_{KL}\left(y||\hat\mu(x)\right),
+$$
+
+where $D_{KL}(p||q) = \sum_i p_i\log\frac{p_i}{q_i}$ is the Kullback-Leibler divergence.
+
+---
+
+## Deep learning
+
+```{r echo=FALSE, out.width='100%'}
+knitr::include_graphics("imgs/y1.png")
+```
+
+
+- Linear transformation of $x$, add bias and apply nonlinear function.
+
+$$f(x) = \sigma(wx + b)$$
+
+- Coincidence?
+
+---
+
+## Loss function
+
+$$
+D_{KL}(p(x)||q(x))
+$$
+
+Conclusão: rede neural com uma camada é equivalente à regressão logística.
+
+```{r, out.width="20%", fig.align="center"}
+knitr::include_graphics("imgs/thinking.png")
+```
+
+
+--
+
+## Questions
+
+- If it's the same thing, why it's gaining so much popularity?
+
+- Do I have to study deep learning and related things?
+
+---
+class: inverse, center, middle
+
+# What's my role?
+
+---
+class: center, middle
+
+# We are the leaders of data science
+
+---
+
+## Where we are
+
+```{r}
+knitr::include_graphics("imgs/img01.png")
+```
+
+---
+
+## Including data science
+
+```{r}
+knitr::include_graphics("imgs/img02.png")
+```
+
+---
+class: center, middle
+
+# What we want?
+
+---
+
+## Aumentar registros
+
+```{r, fig.height=6}
+knitr::include_graphics("imgs/img03.png")
+```
+
+---
+
+## More bachelors, less evasion
+
+```{r}
+knitr::include_graphics("imgs/img04.png")
+```
+
+---
+
+## Bring data scientists to us
+
+```{r}
+knitr::include_graphics("imgs/img05.png")
+```
+
+---
+class: inverse, center, middle
+
+# What we should do?
+
+---
+
+# What do you want?
+
+--
+
+## LEARN (L)
+
+- Learn many things, write papers, exercise your curiosity
+
+--
+
+## RESOLVE (R)
+
+- Earn money, create your startup, raise a family
+
+--
+
+## SHARE (S)
+
+- Share your profession, be relevant on the web, help the community
+
+---
+
+# Focus
+
+--
+## 1. [LSR] Integrate communities
+
+--
+## 2. [SLR] Be relevant on the web
+
+--
+## 3. [LRS] Study, learn, update, use R
+
+--
+## 4. [RSL] Use what the university give to you
+
+--
+## 5. [RLS] Be relevant in the university
+
+---
+
+# Stalk me
+
+- CONRE-3: [jtrecenti@conre3.org.br](mailto:jtrecenti@conre3.org.br)
+- Curso-R: [jtrecenti@curso-r.com](mailto:jtrecenti@curso-r.com)
+- ABJ: [jtrecenti@abj.org.br](mailto:jtrecenti@abj.org.br)
+- Platipus: [jtrecenti@platipus.com.br](mailto:jtrecenti@platipus.com.br)
+
+## Pages
+
+- https://curso-r.com
+- https://abj.org.br
+- https://github.com/jtrecenti
+
+Slides: https://jtrecenti.github.io/slides/ufba-rt/
