@@ -34,7 +34,7 @@ class: middle, center
 
 ### Food for thought
 
-&lt;img src="abertura_amostra_files/figure-html/unnamed-chunk-3-1.png" width="80%" style="display: block; margin: auto;" /&gt;
+&lt;img src="abertura_amostra_files/figure-html/unnamed-chunk-3-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -57,9 +57,9 @@ class: middle, center
 
 ---
 
-## Problem
+## Problems
 
-- Many (too much?) people using.
+- Many (too many?) people using it acritically.
 
 --
 
@@ -67,11 +67,11 @@ class: middle, center
 
 --
 
-- We don't learn that in undergrad courses
+- We don't learn that in undergrad courses (or do we?)
 
 --
 
-- Are we becoming obsolete?
+### Are statisticians becoming obsolete?
 
 ---
 class: inverse, middle, center
@@ -89,12 +89,6 @@ class: inverse, middle, center
 ## Marketing and venn diagrams
 
 &lt;img src="imgs/dsvenn1.png" width="80%" style="display: block; margin: auto;" /&gt;
-
----
-
-## Marketing and venn diagrams
-
-&lt;img src="imgs/dsvenn2.png" width="90%" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -126,11 +120,11 @@ class:inverse
 
 ## Don't panic!
 
-- The definition of Data Science does not matter.
+- The definition of Data Science does not really matter.
 
 --
 
-- What we should learn is how to **DO** data science
+- What we should discuss is how to actually **DO** data science
 
 &lt;img src="imgs/data-science.png" width="90%" style="display: block; margin: auto;" /&gt;
 
@@ -152,21 +146,9 @@ class:inverse
 
 ## Logistic regression
 
-&lt;img src="imgs/glm.png" width="90%" style="display: block; margin: auto;" /&gt;
+&lt;img src="imgs/glm.png" width="90%" height="80%" style="display: block; margin: auto;" /&gt;
 
----
-
-## Deviance function
-
-$$
-D(y,\hat\mu(x)) = \sum_{i=1}^n 2\left[y_i\log\frac{y_i}{\hat\mu_i(x_i)} + (1-y_i)\log\left(\frac{1-y_i}{1-\hat\mu_i(x_i)}\right)\right]
-$$
-
-$$
-= 2 D_{KL}\left(y||\hat\mu(x)\right),
-$$
-
-where `\(D_{KL}(p||q) = \sum_i p_i\log\frac{p_i}{q_i}\)` is the Kullback-Leibler divergence.
+`$$\mathbb E(Y_i) = g^{-1}(\alpha + x_i\beta)$$`
 
 ---
 
@@ -174,33 +156,11 @@ where `\(D_{KL}(p||q) = \sum_i p_i\log\frac{p_i}{q_i}\)` is the Kullback-Leibler
 
 &lt;img src="imgs/y1.png" width="100%" style="display: block; margin: auto;" /&gt;
 
-
-- Linear transformation of `\(x\)`, add bias and apply nonlinear function.
-
 `$$f(x) = \sigma(wx + b)$$`
-
-- Coincidence?
-
----
-
-## Loss function
-
-$$
-D_{KL}(p(x)||q(x))
-$$
-
-Conclusão: rede neural com uma camada é equivalente à regressão logística.
-
-&lt;img src="imgs/thinking.png" width="20%" style="display: block; margin: auto;" /&gt;
-
 
 --
 
-## Questions
-
-- If it's the same thing, why it's gaining so much popularity?
-
-- Do I have to study deep learning and related things?
+- Coincidence?
 
 ---
 class: inverse, center, middle
@@ -210,7 +170,19 @@ class: inverse, center, middle
 ---
 class: center, middle
 
-# We are the leaders of data science
+# we give data science direction
+
+--
+
+In a Gradient Descent optimization, the **gradient** gives the direction, and the **learning rate** gives the size of the step.
+
+`$$\beta_{\text{new}} = \beta_{\text{old}} - \alpha\nabla_\beta(\text{loss})$$`
+
+--
+
+In data science, statisticians' role is to be the **gradient**, and computer scientists' role is to be the **learning rate**.
+
+`$$DS_{\text{new}} = DS_{\text{old}} - cs * stat (errors)$$`
 
 ---
 
@@ -231,26 +203,26 @@ class: center, middle
 
 ---
 
-## Aumentar registros
+## More registered statisticians (CONRE)
 
 &lt;img src="imgs/img03.png" width="90%" style="display: block; margin: auto;" /&gt;
 
 ---
 
-## More bachelors, less evasion
+## More undergrad courses, less evasion
 
 &lt;img src="imgs/img04.png" width="90%" style="display: block; margin: auto;" /&gt;
 
 ---
 
-## Bring data scientists to us
+## Work with other data scientists
 
 &lt;img src="imgs/img05.png" width="90%" style="display: block; margin: auto;" /&gt;
 
 ---
 class: inverse, center, middle
 
-# What we should do?
+# What should we do?
 
 ---
 
@@ -285,7 +257,7 @@ class: inverse, center, middle
 ## 2. [SLR] Be relevant on the web
 
 --
-## 3. [LRS] Study, learn, update, use R
+## 3. [LRS] Study, learn, update, use R (and python)
 
 --
 ## 4. [RSL] Use what the university give to you
@@ -298,17 +270,17 @@ class: inverse, center, middle
 # Stalk me
 
 - CONRE-3: [jtrecenti@conre3.org.br](mailto:jtrecenti@conre3.org.br)
-- Curso-R: [jtrecenti@curso-r.com](mailto:jtrecenti@curso-r.com)
-- ABJ: [jtrecenti@abj.org.br](mailto:jtrecenti@abj.org.br)
-- Platipus: [jtrecenti@platipus.com.br](mailto:jtrecenti@platipus.com.br)
 
-## Pages
+Pages:
 
 - https://curso-r.com
 - https://abj.org.br
-- https://github.com/jtrecenti
 
 Slides: https://jtrecenti.github.io/slides/ufba-rt/
+
+--
+
+&lt;img src="imgs/causality.jpg" width="90%" style="display: block; margin: auto;" /&gt;
     </textarea>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({

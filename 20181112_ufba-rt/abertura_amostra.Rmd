@@ -36,7 +36,7 @@ class: middle, center
 
 ### Food for thought
 
-```{r warning=FALSE, message=FALSE, fig.width=10, fig.height=6, out.width="80%"}
+```{r warning=FALSE, message=FALSE, fig.width=10, fig.height=6, out.width="100%"}
 library(tidyverse)
 p <- tibble::tribble(
    ~ano, ~vagas_br, ~form_bra, ~form_eua,
@@ -96,9 +96,9 @@ knitr::include_graphics("imgs/deepl.png")
 
 ---
 
-## Problem
+## Problems
 
-- Many (too much?) people using.
+- Many (too many?) people using it acritically.
 
 --
 
@@ -106,11 +106,11 @@ knitr::include_graphics("imgs/deepl.png")
 
 --
 
-- We don't learn that in undergrad courses
+- We don't learn that in undergrad courses (or do we?)
 
 --
 
-- Are we becoming obsolete?
+### Are statisticians becoming obsolete?
 
 ---
 class: inverse, middle, center
@@ -131,14 +131,6 @@ knitr::include_graphics("imgs/diff.png")
 
 ```{r, out.width="80%"}
 knitr::include_graphics("imgs/dsvenn1.png")
-```
-
----
-
-## Marketing and venn diagrams
-
-```{r}
-knitr::include_graphics("imgs/dsvenn2.png")
 ```
 
 ---
@@ -179,11 +171,11 @@ knitr::include_graphics("imgs/panic.jpg")
 
 ## Don't panic!
 
-- The definition of Data Science does not matter.
+- The definition of Data Science does not really matter.
 
 --
 
-- What we should learn is how to **DO** data science
+- What we should discuss is how to actually **DO** data science
 
 ```{r}
 knitr::include_graphics("imgs/data-science.png")
@@ -207,23 +199,11 @@ knitr::include_graphics("imgs/data-science.png")
 
 ## Logistic regression
 
-```{r}
+```{r, out.height="80%"}
 knitr::include_graphics("imgs/glm.png")
 ```
 
----
-
-## Deviance function
-
-$$
-D(y,\hat\mu(x)) = \sum_{i=1}^n 2\left[y_i\log\frac{y_i}{\hat\mu_i(x_i)} + (1-y_i)\log\left(\frac{1-y_i}{1-\hat\mu_i(x_i)}\right)\right]
-$$
-
-$$
-= 2 D_{KL}\left(y||\hat\mu(x)\right),
-$$
-
-where $D_{KL}(p||q) = \sum_i p_i\log\frac{p_i}{q_i}$ is the Kullback-Leibler divergence.
+$$\mathbb E(Y_i) = g^{-1}(\alpha + x_i\beta)$$
 
 ---
 
@@ -233,35 +213,11 @@ where $D_{KL}(p||q) = \sum_i p_i\log\frac{p_i}{q_i}$ is the Kullback-Leibler div
 knitr::include_graphics("imgs/y1.png")
 ```
 
-
-- Linear transformation of $x$, add bias and apply nonlinear function.
-
 $$f(x) = \sigma(wx + b)$$
-
-- Coincidence?
-
----
-
-## Loss function
-
-$$
-D_{KL}(p(x)||q(x))
-$$
-
-Conclusão: rede neural com uma camada é equivalente à regressão logística.
-
-```{r, out.width="20%", fig.align="center"}
-knitr::include_graphics("imgs/thinking.png")
-```
-
 
 --
 
-## Questions
-
-- If it's the same thing, why it's gaining so much popularity?
-
-- Do I have to study deep learning and related things?
+- Coincidence?
 
 ---
 class: inverse, center, middle
@@ -271,7 +227,19 @@ class: inverse, center, middle
 ---
 class: center, middle
 
-# We are the leaders of data science
+# we give data science direction
+
+--
+
+In a Gradient Descent optimization, the **gradient** gives the direction, and the **learning rate** gives the size of the step.
+
+$$\beta_{\text{new}} = \beta_{\text{old}} - \alpha\nabla_\beta(\text{loss})$$
+
+--
+
+In data science, statisticians' role is to be the **gradient**, and computer scientists' role is to be the **learning rate**.
+
+$$DS_{\text{new}} = DS_{\text{old}} - cs * stat (errors)$$
 
 ---
 
@@ -296,7 +264,7 @@ class: center, middle
 
 ---
 
-## Aumentar registros
+## More registered statisticians (CONRE)
 
 ```{r, fig.height=6}
 knitr::include_graphics("imgs/img03.png")
@@ -304,7 +272,7 @@ knitr::include_graphics("imgs/img03.png")
 
 ---
 
-## More bachelors, less evasion
+## More undergrad courses, less evasion
 
 ```{r}
 knitr::include_graphics("imgs/img04.png")
@@ -312,7 +280,7 @@ knitr::include_graphics("imgs/img04.png")
 
 ---
 
-## Bring data scientists to us
+## Work with other data scientists
 
 ```{r}
 knitr::include_graphics("imgs/img05.png")
@@ -321,7 +289,7 @@ knitr::include_graphics("imgs/img05.png")
 ---
 class: inverse, center, middle
 
-# What we should do?
+# What should we do?
 
 ---
 
@@ -356,7 +324,7 @@ class: inverse, center, middle
 ## 2. [SLR] Be relevant on the web
 
 --
-## 3. [LRS] Study, learn, update, use R
+## 3. [LRS] Study, learn, update, use R (and python)
 
 --
 ## 4. [RSL] Use what the university give to you
@@ -368,15 +336,18 @@ class: inverse, center, middle
 
 # Stalk me
 
-- CONRE-3: [jtrecenti@conre3.org.br](mailto:jtrecenti@conre3.org.br)
-- Curso-R: [jtrecenti@curso-r.com](mailto:jtrecenti@curso-r.com)
-- ABJ: [jtrecenti@abj.org.br](mailto:jtrecenti@abj.org.br)
-- Platipus: [jtrecenti@platipus.com.br](mailto:jtrecenti@platipus.com.br)
+- email: [jtrecenti@conre3.org.br](mailto:jtrecenti@conre3.org.br)
 
-## Pages
+Pages:
 
 - https://curso-r.com
 - https://abj.org.br
-- https://github.com/jtrecenti
 
 Slides: https://jtrecenti.github.io/slides/ufba-rt/
+
+--
+
+```{r}
+knitr::include_graphics("imgs/causality.jpg")
+```
+
