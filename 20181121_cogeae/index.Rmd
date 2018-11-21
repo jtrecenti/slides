@@ -390,7 +390,7 @@ class: middle, center
 - ABJ: [relacionamento@abj.org.br](mailto:relacionamento@abj.org.br)
 - Site: https://abj.org.br
 - Códigos: https://github.com/abjur
-- Slides: https://jtrecenti.github.io/slides/201811-cogeae/
+- Slides: https://jtrecenti.github.io/slides/cogeae/
 
 --
 
