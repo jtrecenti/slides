@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Jurimetria</title>
+    <meta charset="utf-8">
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Jurimetria
+## ciência de dados aplicada ao direito
+### Future Law, 2018
+
+---
+
+
+
+
+class: class: center, middle
+
+# faxineiro de dados
+
+&lt;img src="imgs/jtrecenti.png" width="99%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Objetivos
+
+### Pesquisa empírica em direito
+
+--
+
+### Jurimetria
+
+--
+
+### Exemplos
+
+--
+
+### Um pouco de coisas técnicas :)
+
+---
+
+# Referências
+
+- [Research Design: Qualitative, Quantitative and Mixed Methods Approaches](https://www.amazon.com/Research-Design-Qualitative-Quantitative-Approaches/dp/1452226105)
+- [Jurimetria: como a estatística pode reinventar o direito](https://www.saraiva.com.br/jurimetria-como-a-estatistica-pode-reinventar-o-direito-9325227.html)
+- [R para ciência de dados](https://r4ds.had.co.nz)
+- [R para jurimetria](https://abjur.github.com/r4jurimetrics)
+
+---
+class: inverse, middle, center
+
+# Pesquisa empírica em direito
+
+---
+
+# Fluxo geral de pesquisa
+
+&lt;img src="imgs/metodologia-1.png" width="99%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Desenho da metodologia
+
+&lt;img src="imgs/convergente.png" width="99%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# O que faz um estatístico?
+
+### Gráficos e tabelas
+
+--
+
+### Conta mentiras com números
+
+--
+
+### Tortura dados até eles fornecerem informações
+
+---
+
+# Resposta
+
+&lt;img src="imgs/bruxaria.jpeg" width="80%" style="display: block; margin: auto;" /&gt;
+
+Bruxaria :D
+
+---
+
+# Na verdade está mais pra isso
+
+&lt;img src="imgs/bruxaria-2.jpeg" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Alguns estatísticos famosos
+
+&lt;img src="imgs/vidente.jpeg" width="99%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Alguns estatísticos famosos
+
+&lt;img src="imgs/polvo.jpeg" width="80%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Alguns estatísticos famosos
+
+&lt;img src="imgs/mick.jpeg" width="99%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Diferenças entre bruxos e estatísticos
+
+- O estatístico utiliza dados para aprender sobre um fenômeno.
+- O estatístico sempre assume que está errado.
+- Assim, é capaz de medir o erro cometido e controlar a incerteza.
+
+---
+
+# Como trabalhamos
+
+&lt;img src="imgs/data-science.png" width="99%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Programação
+
+&lt;img src="imgs/cropped-rstudio.png" width="40%" style="display: block; margin: auto;" /&gt;&lt;img src="imgs/python.png" width="40%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Wrap-up
+
+--
+
+### É importante definir hipóteses e desenhar pesquisa
+
+--
+
+### Precisa ser exequível
+
+--
+
+### Estatística é fundamental
+
+---
+class: inverse, middle, center
+
+# Jurimetria
+
+---
+
+# Definição
+
+- estatística aplicada ao direito
+
+- empirismo aplicado ao direito
+
+&lt;img src="imgs/diferenca.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Esferas
+
+&lt;img src="imgs/esferas.png" width="99%" style="display: block; margin: auto;" /&gt;
+
+---
+
+
+&lt;img src="imgs/jurimetria_empresas.png" width="99%" style="display: block; margin: auto;" /&gt;
+
+---
+
+
+&lt;img src="imgs/missoes_abj.png" width="99%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Pesquisa jurimétrica: o que coletar?
+
+--
+
+### Escopo regional
+
+Importante pois a dificuldade de uma pesquisa é proporcional à quantidade de tribunais analisados
+
+--
+
+### Escopo temporal
+
+- Estudos retrospectivo ou prospectivo?
+- Ou: processos mortos ou processos nascidos?
+
+--
+
+### Corte do tema
+
+- Primeira ou segunda instância?
+- Quais classes e assuntos?
+- Quais tipos de partes?
+
+---
+
+# Estudos prospectivos e retrospectivos
+
+&lt;img src="imgs/tempos.png" width="99%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Coleta
+
+&lt;img src="imgs/download_esaj.png" width="90%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Faxina
+
+&lt;img src="imgs/tidy_esaj.png" width="90%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Modelagem
+
+&lt;img src="imgs/model_esaj.png" width="90%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Tipos de dados
+
+### Populacional
+
+### Amostra
+
+&lt;img src="imgs/acordao.png" width="40%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Problemas: acesso
+
+&lt;img src="imgs/captcha.png" width="99%" style="display: block; margin: auto;" /&gt;
+
+
+```r
+decryptr::decrypt("imgs/captcha.png", "rfb")
+```
+
+```
+## [1] "warabj"
+```
+
+
+---
+
+# Problemas: qualidade
+
+&lt;img src="imgs/cifra.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Wrap-up
+
+### Jurimetria é muito útil para pesquisa e prática
+
+--
+
+### É importante delimitar bem o escopo
+
+--
+
+### Os dados são ruins e difíceis de acessar
+
+---
+class: inverse, center, middle
+
+# Exemplos
+
+---
+
+&lt;img src="imgs/varas_emp.png" width="110%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Observatório da insolvência
+
+&lt;img src="imgs/observatorio.png" width="99%" style="display: block; margin: auto;" /&gt;
+
+---
+
+&lt;img src="imgs/ml.png" width="120%" style="display: block; margin: auto;" /&gt;
+
+---
+
+&lt;img src="imgs/ml2.png" width="99%" style="display: block; margin: auto;" /&gt;
+
+---
+
+&lt;img src="imgs/camaras.png" width="99%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Boletim ABJ
+
+&lt;img src="imgs/boletim.png" width="99%" style="display: block; margin: auto;" /&gt;
+
+---
+
+&lt;img src="imgs/waze.png" width="99%" style="display: block; margin: auto;" /&gt;
+
+---
+
+&lt;img src="imgs/adocao.png" width="99%" style="display: block; margin: auto;" /&gt;
+
+---
+
+&lt;img src="imgs/drogas.png" width="99%" style="display: block; margin: auto;" /&gt;
+
+---
+class: middle, center
+
+# Exemplo prático
+
+(no R)
+
+---
+
+# Stalk me
+
+- Julio: [jtrecenti@abj.org.br](mailto:jtrecenti@abj.org.br)
+- ABJ: [relacionamento@abj.org.br](mailto:relacionamento@abj.org.br)
+- Site: https://abj.org.br
+- Códigos: https://github.com/abjur
+- Slides: https://jtrecenti.github.io/slides/cogeae/
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script>
+(function() {
+  var i, text, code, codes = document.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+})();
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
