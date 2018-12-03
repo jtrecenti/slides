@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Deep Learning using R</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Curso-R" />
+    <meta name="date" content="2018-12-03" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Deep Learning using R
+### Curso-R
+### 2018-12-03
+
+---
+
+
+
+
+# Goals
+
+* What are deep neural networks and how they work?
+* What software we can use to train these models and how they relate with each other?
+* How train deep learning models for some prediction problems?
+
+---
+
+# Requisites
+
+* Linear regression
+* Logistic regression
+* R: pipe (`%&gt;%`)
+
+---
+
+# References
+
+* [Deep Learning Book](https://www.deeplearningbook.org)
+* [Deep Learning with R](https://www.manning.com/books/deep-learning-with-r)
+* [Tensorflow for R Blog](https://blogs.rstudio.com/tensorflow/)
+* [Keras examples](https://keras.rstudio.com/articles/examples/index.html)
+* [Colah's blog](http://colah.github.io)
+
+![](https://images-na.ssl-images-amazon.com/images/I/61fim5QqaqL._SX373_BO1,204,203,200_.jpg)
+
+---
+
+# Why "Deep" Learning?
+
+* We use many composite nonlinear operations, called *layers*, to learn a representation
+* The number of layers is the model depth
+* Nowadays we have models with more than 100 layers
+
+--
+
+## Alternative names
+
+- layered representations learning
+- hierarchical representations learning
+
+---
+
+# Layers
+
+![](https://user-images.githubusercontent.com/4706822/48164108-b9013200-e2c8-11e8-86ef-652bd7f6b19a.png)
+
+---
+
+# Deep Learning
+
+![](https://user-images.githubusercontent.com/4706822/48164481-c834af80-e2c9-11e8-97d9-6cf234454aa2.png)
+
+---
+
+# Deep Learning
+
+![](https://user-images.githubusercontent.com/4706822/48164502-d5ea3500-e2c9-11e8-8dea-150dff09131b.png)
+
+---
+
+# Deep Learning
+
+![](https://user-images.githubusercontent.com/4706822/48164527-e4d0e780-e2c9-11e8-91b5-1490cd3eca92.png)
+
+---
+
+# Relation to Generalized Linear Models
+
+- Linear regression: single layer neural network, no activation
+- Logistic regression: single layer neural netork, logit activation
+
+---
+
+# Logistic regression
+
+&lt;img src="imgs/glm.png" width="968" /&gt;
+
+---
+
+## Deviance function
+
+`$$D(y,\hat\mu(x)) = \sum_{i=1}^n 2\left[y_i\log\frac{y_i}{\hat\mu_i(x_i)} + (1-y_i)\log\left(\frac{1-y_i}{1-\hat\mu_i(x_i)}\right)\right]$$`
+
+`$$= 2 D_{KL}\left(y||\hat\mu(x)\right),$$`
+
+where `\(D_{KL}(p||q) = \sum_i p_i\log\frac{p_i}{q_i}\)` is the Kullback-Leibler divergence.
+
+---
+
+## Deep learning
+
+&lt;img src="imgs/y1.png" width="100%" /&gt;
+
+
+- Linear transformation of `\(x\)`, add bias and add some nonlinear activation.
+
+`$$f(x) = \sigma(wx + b)$$`
+
+---
+
+## Loss function
+
+`$$D_{KL}(p(x)||q(x))$$`
+
+--
+
+&lt;img src="imgs/thinking.png" width="20%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Optimization: Stochastic Gradient Descent
+
+```
+for(i in 1:num_epochs) {
+  grads &lt;- compute_gradient(data, params)
+  params &lt;- params - learning_rate * grads
+}
+```
+
+---
+
+# SGD
+
+&lt;img src="https://user-images.githubusercontent.com/4706822/48280375-870fdd00-e43a-11e8-868d-c5afa9e7c257.png" style="width: 90%"&gt;
+&lt;img src="https://user-images.githubusercontent.com/4706822/48280383-8d05be00-e43a-11e8-96e8-7f55b697ef6f.png" style="width: 90%"&gt;
+
+---
+
+## TensorFlow
+
+It's a computational library
+
+- Developed in Google Brain for neural network research
+- Open Source
+- Automatic Differentiation
+- Uses GPU
+
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/AutomaticDifferentiationNutshell.png/1280px-AutomaticDifferentiationNutshell.png)
+
+---
+
+## Tensor
+
+(2d)
+
+
+```
+##       Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+##  [1,]          5.1         3.5          1.4         0.2       1
+##  [2,]          4.9         3.0          1.4         0.2       1
+##  [3,]          4.7         3.2          1.3         0.2       1
+##  [4,]          4.6         3.1          1.5         0.2       1
+##  [5,]          5.0         3.6          1.4         0.2       1
+##  [6,]          5.4         3.9          1.7         0.4       1
+##  [7,]          4.6         3.4          1.4         0.3       1
+##  [8,]          5.0         3.4          1.5         0.2       1
+##  [9,]          4.4         2.9          1.4         0.2       1
+## [10,]          4.9         3.1          1.5         0.1       1
+```
+
+---
+
+
+## Tensor
+
+(3d)
+
+![](https://github.com/curso-r/deep-learning-R/blob/master/3d-tensor.png?raw=true)
+
+---
+
+## Tensor
+
+(4d)
+
+&lt;img src="https://github.com/curso-r/deep-learning-R/blob/master/4d-tensor.png?raw=true" style="width: 60%"&gt;
+
+---
+
+## TensorFlow
+
+.pull-left[
+  ![](https://github.com/curso-r/deep-learning-R/blob/master/flow.gif?raw=true)
+]
+
+.pull-right[
+  - Define the graph
+  - Compile and optimize
+  - Execute
+  - Nodes are calculations
+  - the tensors *flow* along the nodes.
+]
+
+---
+
+## Keras
+
+* API used to specify deep learning models in a intuitive flavor.
+* Created by François Chollet (@fchollet).
+
+&lt;img src="https://pbs.twimg.com/profile_images/831025272589676544/3g6BrXCE_400x400.jpg" style="width: 40%;"&gt;
+
+* Originally implemented in `python`.
+
+---
+
+## Keras for R
+
+![](imgs/keras.svg)&lt;!-- --&gt;
+
+---
+
+## Keras + R
+
+* R package: [`keras`](https://github.com/rstudio/keras).
+* Based in [reticulate](https://github.com/rstudio/reticulate).
+* Developed by JJ Allaire (CEO at RStudio).
+* R-like syntax using `%&gt;%`.
+
+&lt;img src="https://i.ytimg.com/vi/D8yF9AtTTuQ/maxresdefault.jpg" style="width: 40%;"&gt;
+
+---
+
+
+# Example 01
+
+---
+
+# Activation
+
+![](https://user-images.githubusercontent.com/4706822/48278301-48772400-e434-11e8-9487-641d2a79c2f8.png)
+
+---
+
+# Activation problems
+
+![](https://user-images.githubusercontent.com/4706822/48278617-334ec500-e435-11e8-8fcc-8838d2cc4590.png)
+
+&lt;img src="https://user-images.githubusercontent.com/4706822/48278771-a0625a80-e435-11e8-97b7-031015b1d165.png" style="position: fixed; top: 330px; left: 300px; width: 50%;"&gt;
+
+---
+
+# Example 02
+
+---
+
+# Example 03
+
+---
+
+# Convolutions
+
+&lt;img src="https://user-images.githubusercontent.com/4706822/48281225-10281380-e43d-11e8-9879-6a7e1b51df15.gif" style="position: fixed; top: 200px; left: 50px; width: 30%"&gt;
+
+--
+
+&lt;img src="https://user-images.githubusercontent.com/4706822/48281225-10281380-e43d-11e8-9879-6a7e1b51df15.gif" style="position: fixed; top: 200px; left: 300px; width: 30%"&gt;
+
+&lt;img src="https://user-images.githubusercontent.com/4706822/48281225-10281380-e43d-11e8-9879-6a7e1b51df15.gif" style="position: fixed; top: 200px; left: 600px; width: 30%"&gt;
+
+---
+
+# Convolutions
+
+![](https://user-images.githubusercontent.com/4706822/48296585-99f8d080-e47f-11e8-9d91-23c5f6a55f03.png)
+
+---
+
+# Max Pooling 
+
+![](https://user-images.githubusercontent.com/4706822/48281479-df94a980-e43d-11e8-9dcf-e67d7ba053e4.png)
+
+---
+
+# Convolutions
+
+![](https://user-images.githubusercontent.com/4706822/48281946-6bf39c00-e43f-11e8-845c-2d08570d85a6.png)
+
+---
+
+# Binary Cross-Entropy
+
+![](https://user-images.githubusercontent.com/4706822/48296375-34a3e000-e47d-11e8-9ecd-510d722f9c7f.png)
+
+---
+
+# Example 04
+
+---
+
+# Categorical Cross-Entropy
+
+![](https://cdn-images-1.medium.com/max/1600/1*AlbV9jz2k3Ll1wEMCljdSg.png)
+
+---
+
+# Example 05
+
+---
+
+
+# Stalk me
+
+- Curso-R: [jtrecenti@curso-r.com](mailto:jtrecenti@curso-r.com)
+- CONRE-3: [jtrecenti@conre3.org.br](mailto:jtrecenti@conre3.org.br)
+
+## Pages: 
+
+- https://curso-r.com
+- https://curso-r.com/blog
+- https://curso-r.com/material
+- https://github.com/curso-r
+
+Presentation: https://jtrecenti.github.io/slides/ime-dl/
+
+Code: https://github.com/jtrecenti/slides
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script>
+(function() {
+  var i, text, code, codes = document.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+})();
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
