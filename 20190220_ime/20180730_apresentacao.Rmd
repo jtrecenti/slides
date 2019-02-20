@@ -1,0 +1,305 @@
+---
+title: "Estatística é `r emo::ji('heart')`"
+author: "Julio Trecenti"
+date: "2019-02-20"
+output:
+  xaringan::moon_reader:
+    self_contained: true
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+library(emo)
+```
+
+<style type="text/css">
+.remark-slide-content {
+    font-size: 25px;
+    padding: 1em 4em 1em 4em;
+}
+</style>
+
+---
+class: middle
+
+# Julio Trecenti
+
+<style type="text/css">
+td {
+  vertical-align: center;
+}
+</style>
+<small>Faxineiro de dados</small>
+<table style="border:none;border-color:none;">
+<tr>
+<td><img style="border:none;height:60px" src='img/ime.png' /></td>
+<td>Doutorando em Estatística no IME-USP</td>
+</tr>
+<tr>
+<td><img style="border:none;height:50px" src='img/abj.png' /></td>
+<td>Secretário-geral da Associação Brasileira de Jurimetria</td>
+</tr>
+<tr>
+<td><img style="border:none;height:50px" src='img/terranova.png' /></td>
+<td>Sócio da Terranova Consultoria</td>
+</tr>
+<tr>
+<td><img style="border:none;height:50px" src='img/curso-r.png' /></td>
+<td>Sócio da Curso-R</td>
+</tr>
+<tr>
+<td><img style="border:none;height:50px" src='img/conre3.jpg' /></td>
+<td>Presidente do CONRE-3</td>
+</tr>
+</table>
+
+---
+class: inverse, middle
+
+## Tips & tricks para graduação
+
+--
+
+## Atuação do CONRE
+
+---
+class: middle, center, inverse
+
+# Tips and tricks
+
+---
+class: middle, center, inverse
+
+# O que você quer?
+
+--
+
+## APRENDER (A)
+
+--
+
+## RESOLVER (R)
+
+--
+
+## PARTILHAR (P)
+
+---
+# 1. [APR] Faça parte e monte comunidades
+
+--
+
+## Entre nos grupos
+
+- Montar whatsapp da turma e grupo do face
+- Montar google drive compartilhado
+- Facebook: Big Data Brasil, R Brasil - Programadores, Estatística Brasil, ...
+- Telegram: [t.me/rbrasil](t.me/rbrasil), [t.me/datasciencepython](t.me/datasciencepython), ...
+
+--
+
+## Participe dos eventos
+
+- meetups
+- hackathons
+- conferências
+
+---
+class: inverse
+
+# 2. [PAR] Seja relevante na web
+
+--
+
+## Faça um blog nerd
+
+- Pacote [`blogdown`](https://bookdown.org/yihui/blogdown/) ou [`radix`](https://radixpub.github.io/radix-r/)
+- MANTENHA ATUALIZADO
+- Exemplo: http://curso-r.com
+
+--
+
+## Responda perguntas
+
+- Facebook
+- Fóruns (Stackoverflow, Cross Validated, ...)
+
+---
+
+# 3. [ARP] Estude, aprenda, se atualize
+
+--
+
+## A estatística evolui com o mundo
+
+--
+
+## O bacharelado é só a base
+
+--
+
+## **O seu curso já está desatualizado!**
+
+--
+
+## Existem cursos online de altíssima qualidade
+
+- Coursera, edX, Udacity, Stanford, Curso-R
+
+---
+
+# Estatística na prática
+
+```{r, out.width="100%", echo=FALSE}
+knitr::include_graphics("img/ds.png")
+```
+
+---
+
+# Aprenda R e python
+
+--
+
+## Curva de aprendizado rápida
+
+--
+
+## Vocês têm os melhores professores possíveis
+
+--
+
+## Diferencial no mercado
+
+--
+
+## Você se dará bem na faculdade
+
+--
+
+- Você também pode estudar scala, C++ etc.
+
+---
+class: inverse
+
+# 4. [RPA] Aproveite a universidade
+
+--
+
+## Faça parte das entidades
+
+CAMAT, IMEJr, AAAMAT, Comissão de Trote, ...
+
+--
+
+## Ajude a comunidade
+
+Festas, eventos, palestras
+
+--
+
+## Divulgue nossa profissão
+
+Dê likes no face, divulgue eventos, ajude as entidades, ...
+
+---
+
+# 5. [RAP] Apareça na universidade
+
+--
+
+## Converse com os professores
+
+Eles não correrão atrás de você!
+
+--
+
+## O mercado está de olho na universidade
+
+--
+
+## Não perca seus amigos
+
+---
+class: middle
+
+# Resumo
+
+--
+## 1. [APR] Faça parte e monte comunidades
+
+--
+## 2. [PAR] Seja relevante na web
+
+--
+## 3. [ARP] Estude, aprenda, atualize, use R
+
+--
+## 4. [RPA] Aproveite a universidade
+
+--
+## 5. [RAP] Apareça na universidade
+
+---
+class: middle, center, inverse
+
+# Atuação do CONRE
+
+---
+background-image: url(img/img01.png)
+
+---
+background-image: url(img/img02.png)
+
+---
+background-image: url(img/img03.png)
+
+---
+background-image: url(img/img04.png)
+
+---
+background-image: url(img/img05.png)
+
+---
+background-image: url(img/img06.png)
+
+---
+class: inverse
+
+# Atuação do CONRE
+
+--
+
+## Comunicação
+
+- Bases de dados de alunos
+- StatJobs
+- Posts nas mídias
+- Eventos
+
+--
+
+## Fiscalização
+
+- Pesquisa de mercado
+- Cadastro positivo
+
+---
+class: middle
+
+# Boa sorte!
+
+## Apresentação
+
+https://jtrecenti.github.com/slides/ime2019
+
+## Me stalkeia
+
+- CONRE-3: jtrecenti@conre3.org.br
+- Curso-R: jtrecenti@curso-r.com
+- ABJ: jtrecenti@abj.org.br
+- Terranova: jtrecenti@trnv.com.br
+- Github: https://github.com/jtrecenti
