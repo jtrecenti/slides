@@ -1,0 +1,172 @@
+---
+title: "Generalized Linear Models Using TensorFlow"
+author: "Julio Trecenti"
+date: "`r Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    css: [default, metropolis, metropolis-fonts]
+    self_contained: true
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+<style type="text/css">
+.remark-slide-content {
+    font-size: 25px;
+    padding: 1em 4em 1em 4em;
+}
+</style>
+
+# What do we want?
+
+.large[
+
+$$\hat{\boldsymbol \beta} = (\mathbf X^\top\mathbf X)^{-1}\mathbf X^\top\mathbf y$$
+
+]
+
+--
+
+## What are we going to do?
+
+- We are going to compute this thing in parallel.
+- **Spoiler**: Our proposal is faster when the number of variables $p/N$ is large enough.
+
+---
+
+# Generalized linear models
+
+## Iterated Weighted Least Squares (IWLS)
+
+$$\boldsymbol\beta^{(m+1)} = (\mathbf X^{\top}\mathbf W^{(m)}\mathbf X)^{-1}\mathbf X^{\top}\mathbf W^{(m)} \mathbf z^{(m)}$$
+
+where
+
+$$\mathbf z = \boldsymbol \eta + \mathbf W^{-\frac 1 2}\mathbf V^{-\frac 1 2}(\mathbf y - \boldsymbol \mu)$$
+
+--
+
+but
+
+$$\begin{aligned}
+(\mathbf X^{\top}\mathbf W\mathbf X)^{-1}\mathbf X^{\top}\mathbf W \mathbf z &= ((\mathbf X^{\top}\mathbf W^{\frac1 2})(\mathbf W^{\frac1 2}\mathbf X))^{-1} (\mathbf X^{\top}\mathbf W^{\frac1 2})(\mathbf W^{\frac1 2} \mathbf z) \\
+&= (\mathbf A^\top\mathbf A)^{-1}\mathbf A^\top \mathbf b 
+\end{aligned}$$
+
+---
+
+# How is it actually done?
+
+## QR Decomposition
+
+$$\mathbf A = \mathbf Q\mathbf R,$$
+
+where $\mathbf Q^\top\mathbf Q = \mathbf I$ and $\mathbf R$ is triangular.
+
+--
+
+Then
+
+$$\begin{aligned}
+(\mathbf A^\top\mathbf A)^{-1}\mathbf A^\top \mathbf b &= ((\mathbf Q \mathbf R)^\top (\mathbf Q \mathbf R))^{-1} (\mathbf Q\mathbf R)^\top \mathbf b \\
+&= (\mathbf R^\top \mathbf Q^\top\mathbf Q\mathbf R)^{-1}\mathbf R^\top \mathbf Q^\top \mathbf b\\
+&= \mathbf R^{-1}(\mathbf R)^{-1}\mathbf R^{\top}\mathbf Q^\top\mathbf b \\
+&= \mathbf R^{-1}\mathbf Q^\top\mathbf b.
+\end{aligned}$$
+
+---
+
+# Actual implementation
+
+- Uses `LINPACK` algorithm, implemented in `Fortran` language.
+- Called by `C_Cdqrls`, implemented in `C` language.
+- Single threaded.
+- You can see what is done running `.lm.fit`. 
+- Source code [here](https://github.com/SurajGupta/r-source/blob/master/src/library/stats/src/lm.c) and [here](https://github.com/SurajGupta/r-source/blob/a28e609e72ed7c47f6ddfbb86c85279a0750f0b7/src/appl/dqrls.f).
+
+--
+
+### Alternative: `parglm` package
+
+- Implemented in `C++` language, also using `LINPACK`.
+- Multi-threaded.
+- Additional cost: $O(Mp^2+p^3)$, where $M$ is the number of threads.
+- You can see what is done running `parglm:::parallelglm`. 
+- Source code [here](https://github.com/boennecd/parglm/blob/master/src/parallel_qr.cpp)
+
+---
+
+# TensorFlow
+
+- Is multi-threaded by default.
+- Can take advantage of Graphics Processing Units (GPUs)
+
+--
+
+## `tensorglm` package
+
+- Uses QR decomposition from TensorFlow
+- Implements tensorglm
+
+---
+
+# Computation
+
+```{r, echo=FALSE, out.width="80%"}
+knitr::include_graphics("img/TensorBoard.png")
+```
+
+---
+
+# Results
+
+```{r, echo=FALSE, out.width="100%"}
+knitr::include_graphics("img/grafico_bench_1.png")
+```
+
+---
+
+# Results - Square root
+
+```{r, echo=FALSE, out.width="100%"}
+knitr::include_graphics("img/grafico_bench_sqrt_1.png")
+```
+
+--
+
+Rule of thumb: $p/N > \sqrt 5$
+
+---
+
+# Known Issues
+
+- Does not compute $p$-values and confidence intervals yet.
+- Does not control tolerance.
+- The results differ by the order of $10^{-5}$.
+
+---
+
+# Next steps
+
+- More tests.
+- Submit to CRAN.
+
+## Future
+
+- Implementation in Torch.
+- Implement LASSO alternative.
+
+---
+
+# Links
+
+- Presentation: https://jtrecenti.github.com/slides/emr2019
+- GitHub: https://github.com/tensorglm
+- Email: [jtrecenti@curso-r.com](mailto:jtrecenti@curso-r.com)
+
+## References
+
+- [TensorFlow]().
+- [QR Decomposition]().
