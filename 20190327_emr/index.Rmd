@@ -4,6 +4,7 @@ author: "Julio Trecenti"
 date: "`r Sys.Date()`"
 output:
   xaringan::moon_reader:
+    mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"
     css: [default, metropolis, metropolis-fonts]
     self_contained: true
     nature:
@@ -32,7 +33,7 @@ $$\hat{\boldsymbol \beta} = (\mathbf X^\top\mathbf X)^{-1}\mathbf X^\top\mathbf 
 ## What are we going to do?
 
 - We are going to compute this thing in parallel.
-- **Spoiler**: Our proposal is faster when the number of variables $p/N$ is large enough.
+- **Spoiler**: Our proposal is faster when $p/N$ is large enough.
 
 ---
 
@@ -94,21 +95,33 @@ $$\begin{aligned}
 - Multi-threaded.
 - Additional cost: $O(Mp^2+p^3)$, where $M$ is the number of threads.
 - You can see what is done running `parglm:::parallelglm`. 
-- Source code [here](https://github.com/boennecd/parglm/blob/master/src/parallel_qr.cpp)
+- Source code [here](https://github.com/boennecd/parglm/blob/master/src/parallel_qr.cpp).
 
 ---
 
 # TensorFlow
 
-- Is multi-threaded by default.
+- Runs in parallel by default.
 - Can take advantage of Graphics Processing Units (GPUs)
 
 --
 
 ## `tensorglm` package
 
-- Uses QR decomposition from TensorFlow
-- Implements tensorglm
+- Uses QR decomposition from TensorFlow.
+- Implements `glm.fit` method using it.
+- The new call should be
+
+```{r eval=FALSE}
+glm(y ~ X, method = "tensorglm")
+```
+
+or
+
+```{r eval=FALSE}
+glmtf(y ~ X)
+```
+
 
 ---
 
@@ -156,6 +169,7 @@ Rule of thumb: $p/N > \sqrt 5$
 ## Future
 
 - Implementation in Torch.
+- Implement gradient descent for out-memory databases (very large $N$)
 - Implement LASSO alternative.
 
 ---
