@@ -6,7 +6,7 @@ output:
   xaringan::moon_reader:
     mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"
     css: [default, metropolis, metropolis-fonts]
-    self_contained: true
+    self_contained: false
     nature:
       highlightStyle: github
       highlightLines: true
