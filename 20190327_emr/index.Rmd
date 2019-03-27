@@ -177,7 +177,7 @@ Rule of thumb: $p > 5\sqrt N$
 # Links
 
 - Presentation: https://jtrecenti.github.com/slides/emr2019
-- GitHub: https://github.com/tensorglm
+- GitHub: https://github.com/jtrecenti/tensorglm
 - Email: [jtrecenti@curso-r.com](mailto:jtrecenti@curso-r.com)
 
 ## References
