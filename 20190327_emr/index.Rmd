@@ -33,7 +33,7 @@ $$\hat{\boldsymbol \beta} = (\mathbf X^\top\mathbf X)^{-1}\mathbf X^\top\mathbf 
 ## What are we going to do?
 
 - We are going to compute this thing in parallel.
-- **Spoiler**: Our proposal is faster when $p/N$ is large enough.
+- **Spoiler**: Our proposal is faster when the number of predictors is large.
 
 ---
 
@@ -113,7 +113,7 @@ $$\begin{aligned}
 - The new call should be
 
 ```{r eval=FALSE}
-glm(y ~ X, method = "tensorglm")
+glm(y ~ X, method = "glmtf.fit")
 ```
 
 or
@@ -149,7 +149,7 @@ knitr::include_graphics("img/grafico_bench_sqrt_1.png")
 
 --
 
-Rule of thumb: $p/N > \sqrt 5$
+Rule of thumb: $p > 5\sqrt N$
 
 ---
 
@@ -157,7 +157,7 @@ Rule of thumb: $p/N > \sqrt 5$
 
 - Does not compute $p$-values and confidence intervals yet.
 - Does not control tolerance.
-- The results differ by the order of $10^{-5}$.
+- The results may differ by the order of $10^{-6}$.
 
 ---
 
@@ -182,5 +182,5 @@ Rule of thumb: $p/N > \sqrt 5$
 
 ## References
 
-- [TensorFlow]().
-- [QR Decomposition]().
+- [TensorFlow](https://www.tensorflow.org/).
+- [QR Decomposition](https://www.tensorflow.org/api_docs/python/tf/linalg/qr).
