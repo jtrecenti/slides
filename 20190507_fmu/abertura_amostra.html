@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FMU</title>
+    <meta charset="utf-8">
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# FMU
+### São Paulo, 2019-05-07
+
+---
+
+
+
+
+class: class: center, middle
+
+# Julio Trecenti
+
+&lt;style type="text/css"&gt;
+td {
+  vertical-align: center;
+}
+&lt;/style&gt;
+&lt;small&gt;Faxineiro de dados&lt;/small&gt;
+&lt;table style="border:none;border-color:none;"&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;img style="border:none;height:60px" src='imgs/ime.png' /&gt;&lt;/td&gt;
+&lt;td&gt;Doutorando em Estatística no IME-USP&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;img style="border:none;height:50px" src='imgs/abj.png' /&gt;&lt;/td&gt;
+&lt;td&gt;Secretário-geral da Associação Brasileira de Jurimetria&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;img style="border:none;height:50px" src='imgs/terranova.png' /&gt;&lt;/td&gt;
+&lt;td&gt;Sócio da Terranova Consultoria&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;img style="border:none;height:50px" src='imgs/curso-r.png' /&gt;&lt;/td&gt;
+&lt;td&gt;Sócio da Curso-R&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;img style="border:none;height:50px" src='imgs/conre3.jpg' /&gt;&lt;/td&gt;
+&lt;td&gt;Presidente do CONRE-3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+
+---
+class: middle, center
+
+### Provocação
+
+&lt;img src="abertura_amostra_files/figure-html/unnamed-chunk-1-1.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+--
+
+### R7: Mercado procura por cientistas de dados e promete salários de mais de R$ 20 mil
+
+[http://bit.ly/r7-ds](http://bit.ly/r7-ds)
+
+---
+
+## Novos tempos?
+
+- Nos últimos anos os tipos de dados mudaram.
+- Coisas muito importantes no mercado hoje em dia:
+
+&lt;img src="imgs/friends.jpg" width="23%" /&gt;&lt;img src="imgs/acordao.png" width="23%" /&gt;&lt;img src="imgs/wave.png" width="23%" /&gt;
+
+---
+
+## Deep Learning
+
+- Popularidade recente da área de deep learning.
+
+- Promete fazer muitas coisas.
+
+- Tem um linguajar diferente do que estamos acostumados.
+
+&lt;img src="imgs/deepl.png" width="70%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Problemas
+
+- Muita, muita gente usando.
+
+--
+
+- Mercado está pedindo. Só se fala nisso.
+
+--
+
+- Não aprendemos nada disso na faculdade
+
+--
+
+- O que estudamos é ultrapassado?
+
+---
+class: inverse, middle, center
+
+# Depressão
+
+---
+
+## Marketing e diagramas de venn
+
+&lt;img src="imgs/diff.png" width="90%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Marketing e diagramas de venn
+
+&lt;img src="imgs/dsvenn1.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Marketing e diagramas de venn
+
+&lt;img src="imgs/dsvenn2.png" width="90%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Marketing e diagramas de venn
+
+&lt;img src="imgs/dsvenn3.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+## Depressão
+
+&lt;img src="imgs/quit.png" width="90%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Depressão 2
+
+&lt;img src="imgs/dead.png" width="90%" style="display: block; margin: auto;" /&gt;
+
+---
+class:inverse
+
+## Não entre em pânico!
+
+&lt;img src="imgs/panic.jpg" width="70%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Não entre em pânico!
+
+- Mais importante do que **definir** ciência de dados é **fazer** ciência de dados
+
+&lt;img src="imgs/data-science.png" width="90%" style="display: block; margin: auto;" /&gt;
+
+--
+
+- Existem muitos falsos cognatos.
+
+--
+
+- A maioria das coisas que estudamos é útil.
+
+--
+
+- Ainda assim, vale à pena estudar os conceitos.
+
+--
+
+## QUESTIONE
+
+---
+
+## Regressão logística
+
+&lt;img src="imgs/glm.png" width="90%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Função Deviance
+
+$$
+D(y,\hat\mu(x)) = \sum_{i=1}^n 2\left[y_i\log\frac{y_i}{\hat\mu_i(x_i)} + (1-y_i)\log\left(\frac{1-y_i}{1-\hat\mu_i(x_i)}\right)\right]
+$$
+
+$$
+= 2 D_{KL}\left(y||\hat\mu(x)\right),
+$$
+
+onde `\(D_{KL}(p||q) = \sum_i p_i\log\frac{p_i}{q_i}\)` é a divergência de Kullback-Leibler.
+
+---
+
+## Deep learning
+
+&lt;img src="imgs/y1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+
+- Faz uma combinação linear inputs `\(x\)`, adiciona um viés (*bias*) e depois aplica uma função de ativação não linear.
+
+`$$f(x) = \sigma(wx + b)$$`
+
+- Coincidência?
+
+---
+
+## Função de custo
+
+$$
+D_{KL}(p(x)||q(x))
+$$
+
+Conclusão: rede neural com uma camada é equivalente à regressão logística.
+
+&lt;img src="imgs/thinking.png" width="20%" style="display: block; margin: auto;" /&gt;
+
+
+--
+
+## Dúvidas
+
+- Se é a mesma coisa, por que está ganhando tanta popularidade?
+
+- Devo estudar deep learning ou posso continuar fazendo regressão logística?
+
+---
+class: inverse, center, middle
+
+# Qual é o meu papel?
+
+---
+class: center, middle
+
+# Somos os líderes da ciência de dados!
+
+---
+
+## Onde estamos
+
+&lt;img src="imgs/img01.png" width="90%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Ciência de dados
+
+&lt;img src="imgs/img02.png" width="90%" style="display: block; margin: auto;" /&gt;
+
+---
+class: center, middle
+
+# O que queremos?
+
+---
+
+## Aumentar registros
+
+&lt;img src="imgs/img03.png" width="90%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Mais formados, menos evasão
+
+&lt;img src="imgs/img04.png" width="90%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Trazer os cientistas de dados
+
+&lt;img src="imgs/img05.png" width="90%" style="display: block; margin: auto;" /&gt;
+
+---
+class: inverse, center, middle
+
+# O que devemos fazer?
+
+---
+
+# O que você quer?
+
+--
+
+## APRENDER (A)
+
+- Saber muitas coisas, escrever artigos, pôr sua curiosidade em prática
+
+--
+
+## RESOLVER (R)
+
+- Ganhar dinheiro, fazer sua empresa crescer, construir uma família
+
+--
+
+## PARTILHAR (P)
+
+- Divulgar a profissão, ser relevante nas redes, ajudar a comunidade
+
+---
+
+# Focos
+
+--
+## 1. [APR] Faça parte e monte comunidades
+
+--
+## 2. [PAR] Seja relevante na web
+
+--
+## 3. [ARP] Estude, aprenda, atualize, use R
+
+--
+## 4. [RPA] Aproveite a universidade
+
+--
+## 5. [RAP] Apareça na universidade
+
+---
+class: inverse, middle
+
+# E o conselho?
+
+---
+
+# O que estamos fazendo?
+
+## Fiscalização
+
+- Pesquisas Eleitorais
+
+--
+
+## Comunicação
+
+- **Inbound**: Fazer os estatísticos procurarem o CONRE
+- **Outbound**: Levar o CONRE aos estatísticos
+
+--
+
+## Próximos passos
+
+---
+
+# Fiscalização: pesqEle
+
+- http://pesqele.conre3.org.br/app/
+
+&lt;img src="imgs/pesqele.png" width="90%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Comunicação: atividades
+
+- Coleta de dados de formandos
+- Funil de comunicação
+- Visitas nas universidades
+- Resolução 325
+
+&lt;img src="imgs/carteirinha.jpg" width="50%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Me stalkeia
+
+- CONRE-3: [jtrecenti@conre3.org.br](mailto:jtrecenti@conre3.org.br)
+- Curso-R: [jtrecenti@curso-r.com](mailto:jtrecenti@curso-r.com)
+- ABJ: [jtrecenti@abj.org.br](mailto:jtrecenti@abj.org.br)
+- Platipus: [jtrecenti@platipus.com.br](mailto:jtrecenti@platipus.com.br)
+
+## Páginas: 
+
+- https://curso-r.com
+- https://abj.org.br
+- https://github.com/jtrecenti
+
+Apresentação: https://jtrecenti.github.com/slides/fmu/
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script>
+(function() {
+  var i, text, code, codes = document.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+})();
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
