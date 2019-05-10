@@ -1,0 +1,441 @@
+---
+title: "Programação em ciência de dados: academia, mercado e futuro profissionais"
+date: "São Paulo, 2019-05-10"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(echo=FALSE, warning=FALSE, message=FALSE,
+                      out.width = "90%", fig.align = "center")
+```
+
+class: class: center, middle
+
+<style type="text/css">
+.remark-slide-content {
+    font-size: 25px;
+    padding: 1em 4em 1em 4em;
+}
+</style>
+
+
+# Julio Trecenti
+
+<style type="text/css">
+td {
+  vertical-align: center;
+}
+</style>
+<small>Faxineiro de dados</small>
+<table style="border:none;border-color:none;">
+<tr>
+<td><img style="border:none;height:60px" src='imgs/ime.png' /></td>
+<td>Doutorando em Estatística no IME-USP</td>
+</tr>
+<tr>
+<td><img style="border:none;height:50px" src='imgs/abj.png' /></td>
+<td>Secretário-geral da Associação Brasileira de Jurimetria</td>
+</tr>
+<tr>
+<td><img style="border:none;height:50px" src='imgs/terranova.png' /></td>
+<td>Sócio da Terranova Consultoria</td>
+</tr>
+<tr>
+<td><img style="border:none;height:50px" src='imgs/curso-r.png' /></td>
+<td>Sócio da Curso-R</td>
+</tr>
+<tr>
+<td><img style="border:none;height:50px" src='imgs/conre3.jpg' /></td>
+<td>Presidente do CONRE-3</td>
+</tr>
+</table>
+
+---
+class: middle, center
+
+# Provocação
+
+```{r warning=FALSE, message=FALSE, fig.width=10, fig.height=6, out.width="95%"}
+library(tidyverse)
+p <- tibble::tribble(
+   ~ano, ~vagas_br, ~form_bra, ~form_eua,
+  2004L,1334L,407L,544L,
+  2005L,1356L,456L,603L,
+  2006L,1296L,474L,606L,
+  2007L,1429L,469L,610L,
+  2008L,1766L,440L,715L,
+  2009L,1673L,404L,747L,
+  2010L,1836L,471L,849L,
+  2011L,1972L,459L,1078L,
+  2012L,1954L,425L,1345L,
+  2013L,1798L,448L,1656L,
+  2014L,1787L,386L,1937L,
+  2015L,1789L,453L,2305L,
+  2016L,1817L,364L,2758L
+) %>% 
+  select(-vagas_br) %>% 
+  gather(tipo_form, form, starts_with("form")) %>% 
+  mutate(tipo_form = if_else(tipo_form == "form_bra", "Brasil", "EUA")) %>% 
+  ggplot(aes(x = ano, y = form, colour = tipo_form)) + 
+  geom_line(size = 2) +
+  geom_point(size = 3) +
+  scale_colour_viridis_d(begin = 0.4, end = 0.8) +
+  scale_y_continuous(breaks = 500 * 0:10) +
+  theme_minimal(16) +
+  labs(colour = "País",
+       x = "Ano", y = "Formandos",
+       title = "Quantidade de formandos em estatística",
+       caption = "Fonte: INEP e ASA") +
+  theme(legend.position = "bottom")
+p
+```
+
+---
+
+# Provocação
+
+### Todo cientista de dados...
+
+1. Deve ser programador
+1. Deve saber programar em alguma linguagem
+1. Deve saber o que programas de computador fazem
+
+--
+
+### Todo cientista de dados...
+
+1. Deve ser estatístico
+1. Deve saber estatística
+1. Deve saber o que modelos estatísticos fazem
+
+
+---
+class: inverse, middle, center
+
+## Por que o hype?
+
+---
+class: center, middle
+
+## Vivemos em uma era cada vez mais digital
+
+---
+## Analisar dados economiza e gera dinheiro
+
+.pull-left[
+  ![](http://s2.glbimg.com/r4qJtLeZ1EICmU_t1r9rSwrZkT8=/695x0/s.glbimg.com/po/tt2/f/original/2015/11/06/veja-motivos-e-solucoes-para-erros-de-pontuacao-no-seu-perfil-do-waze.png)
+  
+  ![](https://cdn.pixabay.com/photo/2013/01/29/22/06/facebook-76658_1280.png)
+]
+
+.pull-right[
+  ![](https://e3ba6e8732e83984.cdn.gocache.net/uploads/image/file/158835/regular_logo99jobs2.png)
+]
+
+  ![](http://g-ec2.images-amazon.com/images/G/01/social/api-share/amazon_logo_500500._V323939215_.png)
+
+---
+## Problemas historicamente muito difíceis foram resolvidos nos últimos anos
+
+<img src="https://user-images.githubusercontent.com/4706822/45316157-aa86dc00-b50c-11e8-9d3a-1069322a0846.png" style = "display: block; margin-left: auto;
+margin-right: auto; width: 50%;">
+
+---
+class: inverse, middle, center
+
+# Perigo do hype
+
+---
+
+## É preciso estudar e se aprofundar 
+
+![](https://user-images.githubusercontent.com/4706822/45318130-5979e680-b512-11e8-87aa-3f4f1629574d.png)
+
+---
+## O marketing pode ser maior do que o produto
+
+<br>
+<br>
+
+<img src="imgs/venn.png" style = "display: block; margin-left: auto; margin-right: auto; width: 80%;">
+
+---
+
+## Data Science é só hype?
+
+--
+
+# Não!
+
+--
+
+* Todos os setores estão se digitalizando.
+
+* Muito do que foi produzido é realmente útil e não vai deixar de ser usado.
+
+* Ainda tem muito a ser aprimorado.
+
+---
+
+## Não entre em pânico!
+
+Mais importante do que **definir** ciência de dados é **fazer** ciência de dados.
+
+<img src="imgs/ciclo-ciencia-de-dados.png" style = "display: block; margin-left: auto; margin-right: auto;">
+
+
+---
+
+## Habilidades importantes para cientistas de dados
+
+* Curiosidade
+
+* Análise crítica
+
+* Comunicação
+
+* Modelagem
+
+* Programação
+
+
+<img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" style=" display: block; margin-left: auto; margin-right: auto;" width = "200px" height = "200px">
+
+---
+
+## Habilidades importantes para cientistas de dados
+
+* Curiosidade
+
+* Análise crítica
+
+* Comunicação
+
+* Modelagem
+
+* **Programação**
+
+<img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" style=" display: block; margin-left: auto; margin-right: auto;" width = "200px" height = "200px">
+
+---
+
+class: inverse, middle, center
+
+# Por que programar?
+
+---
+## O computador é a ferramenta do cientista de dados
+
+<img src="imgs/parafuso.jpeg" style="display: block; margin-left: auto; margin-right: auto; width: 70%"> 
+
+---
+## Precisamos nos comunicar com o computador
+
+<img src="imgs/diagrama-programacao.png" style="display: block; margin-left: auto; margin-right: auto; width: 90%"> 
+
+---
+## Point-click vs linguagens de programação
+
+<br>
+
+.pull-left[
+<img src = "imgs/chave-de-fenda.jpg" style="width:80%">
+]
+
+--
+
+.pull-right[
+<img src = "imgs/chave-de-fenda-r.jpg" style="width:80%">
+]
+
+---
+class: center, middle
+
+### Por que programar é legal?
+
+--
+
+# 1. Código é texto
+
+--
+
+# 2. Código é legível
+
+--
+
+# 3. Código é aberto
+
+---
+class: middle, center, inverse
+
+# Código é texto
+
+---
+class: middle, center
+
+### Copiar & Colar 
+
+<img src="https://camo.githubusercontent.com/c8400b8b8aa5d9eb50641b3a1c47088cb9103f8b/687474703a2f2f7777772e6a6f736f66746563682e636f6d2f696d616765732f636f70792d70617374652e706e67" style="width: 100%">
+
+---
+class: middle, center
+
+### Stack Overflow
+
+<img src="https://user-images.githubusercontent.com/4706822/44841420-acea5b80-ac19-11e8-8205-f17c01fbb803.png" style="width: 70%">
+
+---
+class: middle, center, inverse
+
+# Código é legível
+
+---
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+library(magrittr)
+library(magick)
+library(ggplot2)
+library(dplyr)
+library(viridis)
+```
+
+```{r, eval = FALSE, echo = TRUE}
+image_read("https://jeroen.github.io/images/frink.png") %>%
+  image_rotate(270) %>%
+  image_background("blue") %>%
+  image_border("red", "10x10") %>%
+  image_annotate(
+    "Liguagens de programação ainda\nsão linguagens!", 
+    color = "white", size = 30)
+```
+
+--
+
+.pull-left[
+<img src = "https://jeroen.github.io/images/frink.png">
+]
+
+
+--
+
+.pull-right[
+```{r, eval = TRUE, echo = FALSE}
+image_read("https://jeroen.github.io/images/frink.png") %>%
+  image_rotate(270) %>%
+  image_background("blue", flatten = TRUE) %>%
+  image_border("red", "10x10") %>%
+  image_annotate("Liguagens de programação ainda\nsão linguagens!", 
+                 color = "white", size = 30)
+```
+]
+
+
+---
+class: center, middle
+
+## Código te dá confiança de que está certo!
+
+<img src="https://user-images.githubusercontent.com/4706822/44843506-dbb70080-ac1e-11e8-892b-744a60bafaeb.png" style="width:80%;">
+
+---
+class: middle, center, inverse
+
+# Código é aberto
+
+---
+class: middle
+
+# As linguagens de programação modernas são open-source
+
+--
+
+## Democrático
+
+* Estudantes podem usar as mesmas ferramentas que os profissionais
+* Todos podem usar as melhores ferramentas independente do poder financeiro
+* Qualquer um pode reproduzir as suas análises
+
+--
+
+## Aberto
+
+* Você pode corrigir problemas
+* Você pode desenvolver suas próprias ferramentas
+
+---
+class: inverse, center, middle
+
+# Futuro
+
+---
+class: inverse, center, middle
+
+# O que devemos fazer?
+
+---
+
+# O que você quer?
+
+--
+
+## APRENDER (A)
+
+- Saber muitas coisas, escrever artigos, pôr sua curiosidade em prática
+
+--
+
+## RESOLVER (R)
+
+- Ganhar dinheiro, fazer sua empresa crescer, construir uma família
+
+--
+
+## PARTILHAR (P)
+
+- Divulgar a profissão, ser relevante nas redes, ajudar a comunidade
+
+---
+
+# Focos
+
+--
+## 1. [APR] Faça parte e monte comunidades
+
+--
+## 2. [ARP] Estude, aprenda, leia, programe
+
+--
+## 3. [RAP] Aproveite o que a academia oferece
+
+--
+## 4. [RPA] Apareça na universidade
+
+--
+## 5. [PRA] Seja relevante na web
+
+--
+## 6. [PAR] Ensine, oriente, divulgue nossa profissão
+
+---
+
+# Me stalkeia
+
+- Curso-R: [jtrecenti@curso-r.com](mailto:jtrecenti@curso-r.com)
+- CONRE-3: [jtrecenti@conre3.org.br](mailto:jtrecenti@conre3.org.br)
+- ABJ: [jtrecenti@abj.org.br](mailto:jtrecenti@abj.org.br)
+- Terranova: [jtrecenti@trnv.com.br](mailto:jtrecenti@trnv.com.br)
+
+## Páginas: 
+
+- https://curso-r.com
+- https://abj.org.br
+- https://github.com/jtrecenti
+
+Apresentação: https://jtrecenti.github.com/slides/insper/
