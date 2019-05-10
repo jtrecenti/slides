@@ -370,6 +370,15 @@ class: middle
 * Você pode desenvolver suas próprias ferramentas
 
 ---
+
+# Novo paradigma para programadores
+
+```{r, out.width="60%"}
+knitr::include_graphics("imgs/paradigma.png")
+```
+
+
+---
 class: inverse, center, middle
 
 # Futuro
