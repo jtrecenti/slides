@@ -913,12 +913,11 @@ knitr::include_graphics("img/logo-curso-2.png")
 
 ---
 
-# Obrigado!
+# Me stalkeia
 
-## Tese (em andamento)
-
-- https://github.com/jtrecenti/doctorate
-- [jtrecenti@curso-r.com](mailto:jtrecenti@curso-r.com)
+- Apresentação: https://jtrecenti.github.com/slides/ser-dl
+- Contato: [jtrecenti@curso-r.com](mailto:jtrecenti@curso-r.com)
+- Tese (em andamento): https://github.com/jtrecenti/doctorate
 
 ## `decryptr`
 
