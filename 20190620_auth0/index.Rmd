@@ -1,0 +1,506 @@
+---
+title: "auth0 package"
+subtitle: "Secure authentication in shiny apps"
+author: "<br>Julio Trecenti <br> <a href='https://twitter.com/jtrecenti'> <i class='fab  fa-twitter '></i>@jtrecenti</a> <br> <a href='https://github.com/jtrecenti'> <i class='fab  fa-github '></i> jtrecenti</a> <br> <i class='fas  fa-microphone '></i>  <a href='https://curso-r.com'>curso-r.com</a><br>"
+date: "useR 2019 - Tolouse"
+output:
+  xaringan::moon_reader:
+    seal: false
+    css: [default, shinobi, ninjutsu, assets/css.css]
+    lib_dir: libs
+    nature:
+      ratio: "16:10"
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: true
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(echo=FALSE, warning=FALSE, message=FALSE,
+                      fig.align = "center")
+```
+
+class: shuriken-100
+
+.blade1.bg-cyan[
+# What?
+]
+
+.hole.center[
+
+# `auth0`
+
+## Secure authentication in Shiny Apps
+<br/>
+<br/>
+```{r, out.width="100%"}
+knitr::include_graphics(c("img/hello.png"))
+```
+]
+
+
+.blade3.bg-light-blue.yellow.center[
+## https: //github.com/curso-r/auth0
+]
+
+---
+class: split-three, center
+
+.row.left[
+
+# Why?
+
+.center[
+## Connect using MANY providers
+]
+
+
+.pull-left[
+```{r, out.width="80%"}
+knitr::include_graphics(c("img/social.png"))
+```
+]
+
+.pull-right[
+```{r, out.width="70%"}
+knitr::include_graphics(c("img/enterprise.png"))
+```
+]
+
+]
+
+.row.middle[
+##     
+]
+
+.row[
+##  
+]
+
+---
+class: split-three, center
+
+.row.left[
+
+# Why?
+
+.center[
+## Connect using MANY providers
+]
+
+
+.pull-left[
+```{r, out.width="80%"}
+knitr::include_graphics(c("img/social.png"))
+```
+]
+
+.pull-right[
+```{r, out.width="70%"}
+knitr::include_graphics(c("img/enterprise.png"))
+```
+]
+
+]
+
+.row.middle[
+##     
+]
+
+.row.bg-lime.black[
+<br/>
+<br/>
+## FREE (mium)
+]
+
+
+---
+class: split-one
+
+.left[
+# How?
+]
+
+## Use `app.R`
+
+```r
+library(shiny)
+library(auth0)
+
+ui <- fluidPage(
+  h1("Hello, auth0!"), 
+  logoutButton()
+)
+
+server <- function(input, output, session) { }
+
+*shinyAppAuth0(ui, server) ## only difference
+```
+
+---
+class: split-one
+
+.left[
+# How?
+]
+
+## Use `app.R`
+
+```r
+library(shiny)
+library(auth0)
+
+ui <- fluidPage(
+  h1("Hello, auth0!"), 
+  logoutButton()
+)
+
+server <- function(input, output, session) { }
+
+*shinyAppAuth0(ui, server) ## only difference
+```
+
+```{r, out.width="30%"}
+knitr::include_graphics(c("img/notbad.jpg"))
+```
+
+---
+
+# Really, just that?
+
+.right-column[
+No :/
+
+### Create Auth0 account
+
+### Create new Auth0 Application
+
+### Fill connection info in `_auth0.yml` file
+
+.left[
+```{r eval=FALSE, echo=TRUE}
+name: myApp
+shiny_config:
+  local_url: http://localhost:8100
+  remote_url: https://johndoe.shinyapps.io/myapp
+auth0_config:
+  api_url: https://<USERNAME>.auth0.com
+  credentials:
+    key: <CLIENT ID>
+    secret: <CLIENT SECRET> 
+```
+
+]
+]
+
+.left-column[
+
+]
+
+---
+
+# Really, just that?
+
+.right-column[
+No :/
+
+### Create Auth0 account
+
+### Create new Auth0 Application
+
+### Fill connection info in `_auth0.yml` file
+
+.left[
+```{r eval=FALSE, echo=TRUE}
+name: myApp
+shiny_config:
+  local_url: http://localhost:8100
+  remote_url: https://johndoe.shinyapps.io/myapp
+auth0_config:
+  api_url: https://<USERNAME>.auth0.com
+  credentials:
+    key: <CLIENT ID>
+    secret: <CLIENT SECRET> 
+```
+
+]
+]
+
+.left-column[
+
+```{r out.width="100%"}
+knitr::include_graphics(c("img/okay.png"))
+```
+
+]
+
+---
+
+# Really, just that?
+
+.right-column[
+No :/
+
+### Create Auth0 account
+
+### Create new Auth0 Application
+
+### Fill connection info in `_auth0.yml` file
+
+.left[
+```{r eval=FALSE, echo=TRUE}
+name: myApp
+shiny_config:
+  local_url: http://localhost:8100
+  remote_url: https://johndoe.shinyapps.io/myapp
+auth0_config:
+  api_url: https://<USERNAME>.auth0.com
+  credentials:
+    key: <CLIENT ID>
+    secret: <CLIENT SECRET> 
+```
+
+]
+]
+
+.left-column[
+
+```{r out.width="100%"}
+knitr::include_graphics(c("img/okay.png"))
+```
+
+]
+
+---
+
+# Really, just that?
+
+.right-column[
+No :/
+
+### Create Auth0 account
+
+### Create new Auth0 Application
+
+### Fill connection info in `_auth0.yml` file
+
+.left[
+```{r eval=FALSE, echo=TRUE}
+name: myApp
+shiny_config:
+  local_url: http://localhost:8100
+  remote_url: https://johndoe.shinyapps.io/myapp
+auth0_config:
+  api_url: https://<USERNAME>.auth0.com
+  credentials:
+    key: <CLIENT ID>
+    secret: <CLIENT SECRET> 
+```
+
+]
+]
+
+.left-column[
+
+```{r out.width="100%"}
+knitr::include_graphics(c("img/okay.png"))
+```
+
+]
+
+---
+class: split-three
+
+.row.bg-cyan.middle.left[
+# .white[More?]
+
+.center[
+## `logoutButton()`
+
+### log out button
+
+]
+]
+
+.row.bg-light-blue.center[
+<br/>
+## `session$userData$auth0_info`
+
+### Capture user info
+]
+
+.row.bg-cyan.center[
+<br/>
+## `use_auth0()`
+
+### Create `_auth0.yml` file
+]
+
+---
+class: split-three
+
+.row.bg-cyan.middle.left[
+# .white[More?]
+
+.center[
+## `logoutButton()`
+
+### log out button
+
+]
+]
+
+.row.bg-light-blue.center[
+<br/>
+## `session$userData$auth0_info`
+
+### Capture user info
+]
+
+.row.bg-cyan.center[
+<br/>
+## `use_auth0()`
+
+### Create `_auth0.yml` file
+]
+
+---
+class: center split-three
+
+.row.bg-green.left[
+# Do you need help?
+<br/>
+
+.white.center[
+# YES PLZ
+]
+
+]
+
+.row.bg-lime[
+<br/>
+<br/>
+# Make `ui.R/server.R` work
+]
+
+.row.bg-green[
+<br/>
+<br/>
+# Implement Auth0's user .yellow[**API**]
+]
+
+---
+class: center split-three
+
+.row.bg-pink.left[
+
+# .yellow[Where?]
+.center[
+## .white[**CRAN**]
+
+```r
+install.packages("auth0")
+```
+
+]
+]
+
+.row.bg-purple[
+<br/>
+## .white[**GitHub**]
+
+```r
+remotes::install_github("curso-r/auth0")
+```
+]
+
+.row.bg-pink[
+<br/>
+## .white[**Issues**]
+
+```{r eval=FALSE, echo=TRUE}
+https://github.com/curso-r/auth0/issues
+```
+
+]
+
+---
+class: center middle
+
+# Who's to blame?
+
+<br/>
+<br/>
+
+.pull-left[
+
+### .red[Julio Trecenti] ([@jtrecenti](https://github.com/jtrecenti), cre)
+
+```{r, echo=FALSE, out.width="40%"}
+knitr::include_graphics("img/jubs.jpeg")
+```
+
+### Curso-R team ([@curso-r](https://github.com/curso-r), aut)
+
+```{r, echo=FALSE, out.width="80%"}
+knitr::include_graphics("img/cursor.png")
+```
+
+]
+
+.pull-right[
+
+### Dean Attali ([@daattali](https://github.com/daattali), ctb)
+
+```{r, echo=FALSE, out.width="40%"}
+knitr::include_graphics(c("img/dean.jpeg"))
+```
+
+### José Jesus ([@jjesusfilho](https://github.com/jjesusfilho), ctb)
+
+```{r, echo=FALSE, out.width="40%"}
+knitr::include_graphics(c("img/jose.png"))
+```
+
+]
+
+---
+class: center middle
+
+# Who's to blame?
+
+<br/>
+<br/>
+
+.pull-left[
+
+### .red[Julio Trecenti] ([@jtrecenti](https://github.com/jtrecenti), cre)
+
+```{r, echo=FALSE, out.width="40%"}
+knitr::include_graphics("img/jubs.jpeg")
+```
+
+### Curso-R team ([@curso-r](https://github.com/curso-r), aut)
+
+```{r, echo=FALSE, out.width="80%"}
+knitr::include_graphics("img/cursor.png")
+```
+
+]
+
+.pull-right[
+
+### Dean Attali ([@daattali](https://github.com/daattali), ctb)
+
+```{r, echo=FALSE, out.width="40%"}
+knitr::include_graphics(c("img/dean.jpeg"))
+```
+
+### José Jesus ([@jjesusfilho](https://github.com/jjesusfilho), ctb)
+
+```{r, echo=FALSE, out.width="40%"}
+knitr::include_graphics(c("img/jose.png"))
+```
+
+]
