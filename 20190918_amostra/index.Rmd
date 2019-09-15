@@ -1,0 +1,215 @@
+---
+title: "Fazendo listas usando o R"
+subtitle: "usando rmarkdown"
+author: "Julio Trecenti"
+institute: "Curso-R"
+date: "2019-09-18"
+output:
+  xaringan::moon_reader:
+    css: ["default", "metropolis", "metropolis-fonts"]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r include=FALSE}
+knitr::opts_chunk$set(
+  fig.align = "center", 
+  echo = FALSE
+)
+```
+
+# Motivação
+
+## Listas dão trabalho...
+
+```{r}
+knitr::include_graphics("https://media.giphy.com/media/mrDWoakCsKCfS/giphy.gif")
+```
+
+---
+
+# Motivação
+
+### Perdemos tempo juntando coisas de diferentes lugares
+
+```{r}
+knitr::include_graphics("https://media.giphy.com/media/hhjfuAcwCGFOM/giphy.gif")
+```
+
+---
+
+# Motivação
+
+### Perdemos tempo com formatação
+
+```{r}
+knitr::include_graphics("https://media.giphy.com/media/13V60VgE2ED7oc/giphy.gif")
+```
+
+---
+
+# Motivação
+
+### É difícil trabalhar com versões
+
+
+.font150[lista2.docx]
+
+--
+
+.font150[lista2_final.docx]
+
+--
+
+.font150[lista2_final_arrumado.docx]
+
+--
+
+.font150[lista2_final_arrumado_20190918.docx]
+
+--
+
+.font150[lista2_final_arrumado_20190918-v2.docx]
+
+---
+
+# Motivação
+
+### Muito retrabalho e trabalho manual
+
+```{r}
+knitr::include_graphics("https://media1.tenor.com/images/903d98f426842a6d8aabea62516859f6/tenor.gif?itemid=7401366")
+```
+
+---
+
+# Agenda
+
+.font150[Setup & Organizar projetos]
+
+--
+
+.font150[Tips & tricks para RMarkdown]
+
+- Documento HTML
+- Documento PDF
+- Documemnto Word
+- `{pagedown}`
+
+--
+
+.font150[Trabalhar em grupo usando Git/Github]
+
+--
+
+.font150[Extras]
+
+---
+
+# Links para estudos
+
+## Português
+
+- .font150[[Zen do R](https://curso-r.github.io/zen-do-r/), by [Caio Lente](https://lente.dev)]
+- .font150[[Primeiros passos com Git e GitHub](bit.ly/rladiesGit), by [Beatriz Milz](https://beatrizmilz.com/)]
+- .font150[[Site da Curso-R](https://curso-r.com)]
+
+## Inglês
+
+- .font150[[Happy git with R](https://happygitwithr.com/), by [Jenny Bryan](https://jennybryan.org/)]
+- .font150[[Rmardown, the definitive guide](https://bookdown.org/yihui/rmarkdown/), by [Yihui Xie](https://yihui.name/)]
+
+---
+
+# Setup
+
+- .font150[Vamos usar o RStudio Cloud]
+- .font150[Acesse esse link: [http://bit.ly/amostra-listas](http://bit.ly/amostra-listas)]
+- .font150[Crie uma conta]
+- .font150[Instale pacotes]:
+
+```{r echo=TRUE, eval=FALSE}
+install.packages("devtools")
+install.packages("tidyverse")
+install.packages("rmarkdown")
+install.packages("bookdown")
+install.packages("pagedown")
+```
+
+---
+
+# Projetos
+
+### Organização de arquivos e pastas
+
+.font200[`usethis::create_package("nomePacote")`]
+
+.font200[`usethis::use_vignette("lista1")`]
+
+.font200[`usethis::use_data_raw("dados")`]
+
+.font200[`usethis::use_data(dados_arrumados)`]
+
+---
+
+# Git/GitHub
+
+.font200[Vamos para]
+
+.font200[[bit.ly/rladiesGit](bit.ly/rladiesGit)]
+
+---
+
+# Extras
+
+### Nós usamos a estrutura de __pacotes__. 
+
+- Existem outras estruturas disponíveis.
+- Veja no [Efficient R](https://csgillespie.github.io/efficientR/set-up.html#project-management)
+
+--
+
+### __Não__ é exatamente online
+
+- Talvez essa não seja a estrutura ideal se você deseja trabalhar online
+- __Alternativas__: Overleaf e Google Docs
+
+--
+
+## Word é **complicado**
+
+- Muitos bugs
+- Tabelas são difíceis de fazer funcionar
+- Alternativa: pacote `{officer}`
+
+---
+
+class: inverse, center
+
+# Stalk me
+
+.font200[Apresentação]
+
+Material: [github.com/curso-r/201909-amostra-listas](github.com/curso-r/201909-amostra-listas)
+
+Slides: [jtrecenti.github.com/slides/amostra2019](jtrecenti.github.com/slides/amostra2019)
+
+.font200[Eu/Curso-R]
+
+[github.com/jtrecenti](github.com/jtrecenti)
+
+[twitter.com/jtrecenti](twitter.com/jtrecenti)
+
+[linkedin.com/in/jtrecenti](linkedin.com/in/jtrecenti)
+
+[curso-r.com](curso-r.com)
+
+```{r, out.width="40%"}
+knitr::include_graphics("https://d33wubrfki0l68.cloudfront.net/9b0699f18268059bdd2e5c21538a29eade7cbd2b/af827/assets/logo-curso-2.png")
+```
+
+
+
