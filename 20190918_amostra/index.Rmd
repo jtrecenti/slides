@@ -193,19 +193,19 @@ class: inverse, center
 
 .font200[Apresentação]
 
-Material: [github.com/curso-r/201909-amostra-listas](github.com/curso-r/201909-amostra-listas)
+Material: [github.com/curso-r/201909-amostra-listas](https://github.com/curso-r/201909-amostra-listas)
 
-Slides: [jtrecenti.github.com/slides/amostra2019](jtrecenti.github.com/slides/amostra2019)
+Slides: [jtrecenti.github.com/slides/amostra2019](https://jtrecenti.github.com/slides/amostra2019)
 
 .font200[Eu/Curso-R]
 
-[github.com/jtrecenti](github.com/jtrecenti)
+[github.com/jtrecenti](https://github.com/jtrecenti)
 
-[twitter.com/jtrecenti](twitter.com/jtrecenti)
+[twitter.com/jtrecenti](https://twitter.com/jtrecenti)
 
-[linkedin.com/in/jtrecenti](linkedin.com/in/jtrecenti)
+[linkedin.com/in/jtrecenti](https://linkedin.com/in/jtrecenti)
 
-[curso-r.com](curso-r.com)
+[curso-r.com](https://curso-r.com)
 
 ```{r, out.width="40%"}
 knitr::include_graphics("https://d33wubrfki0l68.cloudfront.net/9b0699f18268059bdd2e5c21538a29eade7cbd2b/af827/assets/logo-curso-2.png")
