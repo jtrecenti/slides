@@ -114,7 +114,7 @@ knitr::include_graphics("https://media1.tenor.com/images/903d98f426842a6d8aabea6
 ## Português
 
 - .font150[[Zen do R](https://curso-r.github.io/zen-do-r/), by [Caio Lente](https://lente.dev)]
-- .font150[[Primeiros passos com Git e GitHub](bit.ly/rladiesGit), by [Beatriz Milz](https://beatrizmilz.com/)]
+- .font150[[Primeiros passos com Git e GitHub](https://bit.ly/rladiesGit), by [Beatriz Milz](https://beatrizmilz.com/)]
 - .font150[[Site da Curso-R](https://curso-r.com)]
 
 ## Inglês
@@ -159,7 +159,7 @@ install.packages("pagedown")
 
 .font200[Vamos para]
 
-.font200[[bit.ly/rladiesGit](bit.ly/rladiesGit)]
+.font200[[bit.ly/rladiesGit](https://bit.ly/rladiesGit)]
 
 ---
 
