@@ -109,7 +109,7 @@ class: center, middle, inverse, title-slide
 ## Português
 
 - .font150[[Zen do R](https://curso-r.github.io/zen-do-r/), by [Caio Lente](https://lente.dev)]
-- .font150[[Primeiros passos com Git e GitHub](bit.ly/rladiesGit), by [Beatriz Milz](https://beatrizmilz.com/)]
+- .font150[[Primeiros passos com Git e GitHub](https://bit.ly/rladiesGit), by [Beatriz Milz](https://beatrizmilz.com/)]
 - .font150[[Site da Curso-R](https://curso-r.com)]
 
 ## Inglês
@@ -155,7 +155,7 @@ install.packages("pagedown")
 
 .font200[Vamos para]
 
-.font200[[bit.ly/rladiesGit](bit.ly/rladiesGit)]
+.font200[[bit.ly/rladiesGit](https://bit.ly/rladiesGit)]
 
 ---
 
@@ -189,19 +189,19 @@ class: inverse, center
 
 .font200[Apresentação]
 
-Material: [github.com/curso-r/201909-amostra-listas](github.com/curso-r/201909-amostra-listas)
+Material: [github.com/curso-r/201909-amostra-listas](https://github.com/curso-r/201909-amostra-listas)
 
-Slides: [jtrecenti.github.com/slides/amostra2019](jtrecenti.github.com/slides/amostra2019)
+Slides: [jtrecenti.github.com/slides/amostra2019](https://jtrecenti.github.com/slides/amostra2019)
 
 .font200[Eu/Curso-R]
 
-[github.com/jtrecenti](github.com/jtrecenti)
+[github.com/jtrecenti](https://github.com/jtrecenti)
 
-[twitter.com/jtrecenti](twitter.com/jtrecenti)
+[twitter.com/jtrecenti](https://twitter.com/jtrecenti)
 
-[linkedin.com/in/jtrecenti](linkedin.com/in/jtrecenti)
+[linkedin.com/in/jtrecenti](https://linkedin.com/in/jtrecenti)
 
-[curso-r.com](curso-r.com)
+[curso-r.com](https://curso-r.com)
 
 &lt;img src="https://d33wubrfki0l68.cloudfront.net/9b0699f18268059bdd2e5c21538a29eade7cbd2b/af827/assets/logo-curso-2.png" width="40%" style="display: block; margin: auto;" /&gt;
     </textarea>
@@ -250,7 +250,24 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
     deleted = true;
   });
-})();</script>
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
 
 <script>
 (function() {
