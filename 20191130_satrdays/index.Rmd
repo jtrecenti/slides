@@ -27,7 +27,7 @@ class: middle, center
 
 ## .gray[secure*] .deep-orange[authentication in shiny apps]
 
-<a href='https//curso-r.github.com/auth0', target="_blank">
+<a href='https://curso-r.github.com/auth0', target="_blank">
 
 ```{r}
 knitr::include_graphics("img/logo.png")
@@ -35,7 +35,7 @@ knitr::include_graphics("img/logo.png")
 
 </a>
 
-## .blue[satRdays]
+## .blue[satRday]
 
 ### Insper .red[(] São Paulo, 2019
 ---
