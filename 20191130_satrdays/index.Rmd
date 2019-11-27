@@ -25,7 +25,7 @@ class: middle, center
 
 ## auth0 package
 
-## .gray[Secure] .deep-orange[authentication in shiny apps]
+## .gray[secure*] .deep-orange[authentication in shiny apps]
 
 <a href='https//curso-r.github.com/auth0', target="_blank">
 
@@ -47,9 +47,8 @@ class: shuriken-100
 
 .hole.center[
 
-# `auth0`
+# now you can do this!
 
-## Secure authentication in Shiny Apps
 <br/>
 <br/>
 ```{r, out.width="100%"}
@@ -147,8 +146,8 @@ library(shiny)
 library(auth0)
 
 ui <- fluidPage(
-  h1("Hello, auth0!"), 
-  logoutButton()
+  h1("Olar"), 
+  logoutButton("tchau")
 )
 
 server <- function(input, output, session) { }
@@ -170,8 +169,8 @@ library(shiny)
 library(auth0)
 
 ui <- fluidPage(
-  h1("Hello, auth0!"), 
-  logoutButton()
+  h1("Olar"), 
+  logoutButton("tchau")
 )
 
 server <- function(input, output, session) { }
@@ -290,14 +289,14 @@ class: split-four
 
 
 ---
-# Example
+# Examples
 
 ```{r}
 knitr::include_graphics("img/example2.png")
 ```
 
 ---
-# Example
+# Examples
 
 ```{r}
 knitr::include_graphics("img/example.png")
@@ -306,13 +305,15 @@ knitr::include_graphics("img/example.png")
 ---
 class: center split-three
 
-.row.bg-green.left[
+.row.bg-white.left[
 # Do you need help?
-<br/>
 
-.white.center[
-# YES PLZ
-]
+
+```{r, out.height="10%", out.width="25%"}
+
+knitr::include_graphics("img/yes.gif")
+
+```
 
 ]
 
@@ -405,6 +406,10 @@ knitr::include_graphics("img/bob2.png")
 
 ```{r}
 knitr::include_graphics("img/bob3.png")
+```
+
+```{r, out.width="30%"}
+knitr::include_graphics("img/love.gif")
 ```
 
 
