@@ -289,16 +289,17 @@ class: split-four
 
 
 ---
+
 # Examples
 
-```{r}
+```{r, out.width="90%"}
 knitr::include_graphics("img/example2.png")
 ```
 
 ---
 # Examples
 
-```{r}
+```{r, out.width="70%"}
 knitr::include_graphics("img/example.png")
 ```
 
@@ -384,7 +385,7 @@ https://curso-r.github.io/auth0
 
 ## I'm not a security expert!
 
-```{r}
+```{r, out.width="80%"}
 knitr::include_graphics("img/bob1.png")
 ```
 
@@ -394,7 +395,7 @@ knitr::include_graphics("img/bob1.png")
 
 ## I'm not a security expert!
 
-```{r}
+```{r, out.width="90%"}
 knitr::include_graphics("img/bob2.png")
 ```
 
