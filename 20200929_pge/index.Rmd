@@ -1,0 +1,312 @@
+---
+title: "Jurimetria"
+subtitle: "ciência de dados aplicada ao direito"
+date: "Mundo, 2020"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: "css/xaringan-themer.css"
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r, child="00-preamble.Rmd"}
+
+```
+
+---
+## Conteúdo
+
+<center>
+<img src = "img/conteudo.png" width = "80%">
+</center>   
+
+---
+## Introdução ao R
+
+.pull-left[
+<br>
+- R e RStudio
+
+- Trabalhando com projetos
+
+- Objetos e funções
+
+- Pacotes
+]
+
+.pull-right[
+<center>
+<img src="img/arte_comunidade.png">
+<a href = "https://github.com/allisonhorst/stats-illustrations" target = "blank_"> <img src = "img/ref_horst.png" width = "75%" style = "margin-top: -30px;"> </a>
+</center>
+]
+
+---
+## Importação
+
+.pull-left[
+<br>
+- Arquivos de texto
+
+- Arquivos do excel
+
+- Arquivos de outros softwares (SAS, SPSS)
+
+- Conexão com banco de dados
+]
+
+.pull-right[
+<br>
+<center>
+<img src="img/arte_janitor.png">
+<a href = "https://github.com/allisonhorst/stats-illustrations" target = "blank_"> <img src = "img/ref_horst.png" width = "75%" style = "margin-top: -30px;"> </a>
+</center>
+]
+
+---
+## Manipulação
+
+.pull-left[
+<br>
+- Selecionar colunas
+
+- Filtrar linhas
+
+- Criar ou modificar colunas
+
+- Agrupar e sumarizar
+
+- Juntar tabelas
+]
+
+.pull-right[
+<center>
+<img src="img/arte_dplyr.png">
+<a href = "https://github.com/allisonhorst/stats-illustrations" target = "blank_"> <img src = "img/ref_horst.png" width = "75%" style = "margin-top: -30px;"> </a>
+</center>
+]
+
+---
+## Visualização
+
+<center>
+<img src="img/arte_ggplot2.png" width = 70%>
+<a href = "https://github.com/allisonhorst/stats-illustrations" target = "blank_"> <img src = "img/ref_horst.png" width = "35%" style = "margin-top: -30px;"> </a>
+</center>
+
+---
+## Comunicação
+
+- Relatórios automatizados
+- Dashboards estáticos
+
+<center>
+<img src="img/arte_rmarkdown.png" width = 70%>
+<a href = "https://github.com/allisonhorst/stats-illustrations" target = "blank_"> <img src = "img/ref_horst.png" width = "35%" style = "margin-top: -30px;"> </a>
+</center>
+
+---
+
+## Material
+
+<center>
+
+<br>
+
+Temos um material em português disponível nesta página:
+
+<br>
+
+<a href='https://curso-r.com/material'>https://curso-r.com/material</a>
+
+<br>
+<br>
+
+Também temos um blog: 
+
+<br>
+
+<a href='http://curso-r.com/blog/'>http://curso-r.com/blog/ </a>
+
+</center>
+
+<a href="https://www.curso-r.com/blog/2019-07-15-comunidade/">
+<img src="img/post-comunidade.png" style="position: fixed; bottom: 80px; left: 180px" width = 170px height = 280px></img>
+</a>
+
+<a href="https://www.curso-r.com/blog/2017-07-29-segundo-menor-dl/">
+<img src="img/post-deep-learning.png" style="position: fixed; bottom: 78px; left: 380px" width = 170px height = 275px></img>
+</a>
+
+<a href="https://www.curso-r.com/blog/2017-05-01-as-paletas-de-cores-da-marvel-vs-dc/">
+<img src="img/post-marvel.png" style="position: fixed; bottom: 82px; left: 570px" width = 170px height = 277px></img>
+</a>
+
+---
+
+## Referência
+
+<br>
+<center>
+<a href = "https://r4ds.had.co.nz">
+<img src="img/r4ds.png" width = 40%> 
+</a>
+</center>
+
+---
+class: middle, center
+
+# `r blue("Introdução")`
+
+### As vantagens de analisar dados usando linguagens de programação
+
+---
+class: middle, center
+
+### As principais linguagens para ciência de dados são
+# Código Aberto
+
+---
+# O que significa ser código aberto?
+
+<br>
+
+1. Acesso gratuito.
+
+2. Todos podem usar as melhores ferramentas independentemente do poder financeiro.
+
+3. Estudantes podem usar as mesmas ferramentas que os profissionais.
+
+4. Possibilita a existência de uma comunidade ativa.
+
+5. Você pode corrigir problemas e aprimorar a linguagem.
+
+6. Você pode desenvovler suas próprias ferramentas.
+
+---
+class: middle, center
+# O código é texto
+
+---
+# Podemos copiar e colar
+
+<br>
+<center>
+<img src="img/copy-paste.png" style="width: 70%">
+</center>
+
+---
+class: middle, center
+# O código é uma linguagem
+
+---
+# Podemos documentar a nossa análise
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+library(magrittr)
+library(magick)
+library(ggplot2)
+library(dplyr)
+library(viridis)
+```
+
+```{r frink, eval = FALSE}
+image_read("https://jeroen.github.io/images/frink.png") %>%
+  image_rotate(270) %>%
+  image_background("blue", flatten = TRUE) %>%
+  image_border("red", "10x10") %>%
+  image_annotate("Linguagens de programação ainda\nsão linguagens!",
+                 color = "white", size = 30)
+```
+
+--
+
+.pull-left[
+#### Entrada
+<img src = "https://jeroen.github.io/images/frink.png" style="width:25%">
+]
+
+--
+
+.pull-right[
+#### Saída
+```{r frink-out, ref.label="frink", echo=FALSE}
+
+```
+
+]
+
+---
+class: middle, center
+
+# `r blue("Introdução")`
+### Por que o R?
+
+---
+
+## O ciclo da ciência de dados
+
+<img src="img/ciclo-ciencia-de-dados.png" style = "display: block; margin-left: auto; margin-right: auto;">
+
+---
+
+## O ciclo da ciência de dados com o R
+
+<img src="img/ciclo-ciencia-de-dados-pacotes.png" style = "display: block; margin-left: auto; margin-right: auto;">
+
+---
+class: middle, center
+
+# `r blue("Introdução")`
+### Guia da(o) mochileira(o)
+
+---
+# Pratique
+
+### O objetivo do curso é ajudar a quebrar inércia da etapa inicial de aprendizado. Assim como um idioma, o único jeito de aprender uma linguagem de programação é praticando.
+
+<img src="https://media.giphy.com/media/o0vwzuFwCGAFO/giphy.gif" style = "display: block; margin-left: auto; margin-right: auto;">
+
+---
+# Pedindo ajuda
+
+.pull-left[
+<br>
+
+- Documentação do R
+- [Discourse Curso-r](https://discourse.curso-r.com)
+- Google
+- Stack Overflow
+]
+
+.pull-right[
+<img src="img/stack.png">
+]
+
+---
+# Regras, boas práticas e estilo
+
+<br>
+
+Na grande maioria das vezes, você poderá resolver uma tarefa de diversas maneiras. Isso porque, apesar de existirem várias **regras**, linguagens de programação também possuem **boas práticas** e **estilos**.
+
+- Regras: devem ser seguidas para o código funcionar (sintaxe, vocabulário)
+
+- Boas práticas: recomenda-se seguir para a criação de códigos legíveis (espaçamento, nomes, organização)
+
+- Estilo: cada um pode escolher aquele com o qual se sentir mais à vontade (tipos de indentação, formatação)
+
+---
+
+# Obrigado!
+
+## Apresentações: 
+
+### Parte 1: http://bit.ly/pge-abj-1
+
+### Parte 2: http://bit.ly/pge-abj-2
+
+### Contato: [jtrecenti@abj.org.br](mailto:jtrecenti@abj.org.br)
