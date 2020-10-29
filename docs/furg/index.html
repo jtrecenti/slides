@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Jurimetria</title>
+    <meta charset="utf-8" />
+    <script src="site_libs/header-attrs-2.5/header-attrs.js"></script>
+    <link href="site_libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+    <script src="site_libs/anchor-sections-1.0/anchor-sections.js"></script>
+    <script src="site_libs/clipboard-2.0.6/clipboard.min.js"></script>
+    <link href="site_libs/xaringanExtra-clipboard-0.2.3.9000/xaringanExtra-clipboard.css" rel="stylesheet" />
+    <script src="site_libs/xaringanExtra-clipboard-0.2.3.9000/xaringanExtra-clipboard.js"></script>
+    <script>window.xaringanExtraClipboard(null, {"button":"Copy Code","success":"Copied!","error":"Press Ctrl+C to Copy"})</script>
+    <link rel="stylesheet" href="css/xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Jurimetria
+## ciência de dados aplicada ao direito
+### Mundo, 2020
+
+---
+
+
+
+
+
+
+
+
+
+
+---
+## Conteúdo
+
+&lt;center&gt;
+&lt;img src = "img/conteudo.png" width = "80%"&gt;
+&lt;/center&gt;   
+
+---
+## Introdução ao R
+
+.pull-left[
+&lt;br&gt;
+- R e RStudio
+
+- Trabalhando com projetos
+
+- Objetos e funções
+
+- Pacotes
+]
+
+.pull-right[
+&lt;center&gt;
+&lt;img src="img/arte_comunidade.png"&gt;
+&lt;a href = "https://github.com/allisonhorst/stats-illustrations" target = "blank_"&gt; &lt;img src = "img/ref_horst.png" width = "75%" style = "margin-top: -30px;"&gt; &lt;/a&gt;
+&lt;/center&gt;
+]
+
+---
+## Importação
+
+.pull-left[
+&lt;br&gt;
+- Arquivos de texto
+
+- Arquivos do excel
+
+- Arquivos de outros softwares (SAS, SPSS)
+
+- Conexão com banco de dados
+]
+
+.pull-right[
+&lt;br&gt;
+&lt;center&gt;
+&lt;img src="img/arte_janitor.png"&gt;
+&lt;a href = "https://github.com/allisonhorst/stats-illustrations" target = "blank_"&gt; &lt;img src = "img/ref_horst.png" width = "75%" style = "margin-top: -30px;"&gt; &lt;/a&gt;
+&lt;/center&gt;
+]
+
+---
+## Manipulação
+
+.pull-left[
+&lt;br&gt;
+- Selecionar colunas
+
+- Filtrar linhas
+
+- Criar ou modificar colunas
+
+- Agrupar e sumarizar
+
+- Juntar tabelas
+]
+
+.pull-right[
+&lt;center&gt;
+&lt;img src="img/arte_dplyr.png"&gt;
+&lt;a href = "https://github.com/allisonhorst/stats-illustrations" target = "blank_"&gt; &lt;img src = "img/ref_horst.png" width = "75%" style = "margin-top: -30px;"&gt; &lt;/a&gt;
+&lt;/center&gt;
+]
+
+---
+## Visualização
+
+&lt;center&gt;
+&lt;img src="img/arte_ggplot2.png" width = 70%&gt;
+&lt;a href = "https://github.com/allisonhorst/stats-illustrations" target = "blank_"&gt; &lt;img src = "img/ref_horst.png" width = "35%" style = "margin-top: -30px;"&gt; &lt;/a&gt;
+&lt;/center&gt;
+
+---
+## Comunicação
+
+- Relatórios automatizados
+- Dashboards estáticos
+
+&lt;center&gt;
+&lt;img src="img/arte_rmarkdown.png" width = 70%&gt;
+&lt;a href = "https://github.com/allisonhorst/stats-illustrations" target = "blank_"&gt; &lt;img src = "img/ref_horst.png" width = "35%" style = "margin-top: -30px;"&gt; &lt;/a&gt;
+&lt;/center&gt;
+
+---
+
+## Material
+
+&lt;center&gt;
+
+&lt;br&gt;
+
+Temos um material em português disponível nesta página:
+
+&lt;br&gt;
+
+&lt;a href='https://curso-r.com/material'&gt;https://curso-r.com/material&lt;/a&gt;
+
+&lt;br&gt;
+&lt;br&gt;
+
+Também temos um blog: 
+
+&lt;br&gt;
+
+&lt;a href='http://curso-r.com/blog/'&gt;http://curso-r.com/blog/ &lt;/a&gt;
+
+&lt;/center&gt;
+
+&lt;a href="https://www.curso-r.com/blog/2019-07-15-comunidade/"&gt;
+&lt;img src="img/post-comunidade.png" style="position: fixed; bottom: 80px; left: 180px" width = 170px height = 280px&gt;&lt;/img&gt;
+&lt;/a&gt;
+
+&lt;a href="https://www.curso-r.com/blog/2017-07-29-segundo-menor-dl/"&gt;
+&lt;img src="img/post-deep-learning.png" style="position: fixed; bottom: 78px; left: 380px" width = 170px height = 275px&gt;&lt;/img&gt;
+&lt;/a&gt;
+
+&lt;a href="https://www.curso-r.com/blog/2017-05-01-as-paletas-de-cores-da-marvel-vs-dc/"&gt;
+&lt;img src="img/post-marvel.png" style="position: fixed; bottom: 82px; left: 570px" width = 170px height = 277px&gt;&lt;/img&gt;
+&lt;/a&gt;
+
+---
+
+## Referência
+
+&lt;br&gt;
+&lt;center&gt;
+&lt;a href = "https://r4ds.had.co.nz"&gt;
+&lt;img src="img/r4ds.png" width = 40%&gt; 
+&lt;/a&gt;
+&lt;/center&gt;
+
+---
+class: middle, center
+
+# <span style="color:#6495ed; font-weight: bold;">Introdução</span>
+
+### As vantagens de analisar dados usando linguagens de programação
+
+---
+class: middle, center
+
+### As principais linguagens para ciência de dados são
+# Código Aberto
+
+---
+# O que significa ser código aberto?
+
+&lt;br&gt;
+
+1. Acesso gratuito.
+
+2. Todos podem usar as melhores ferramentas independentemente do poder financeiro.
+
+3. Estudantes podem usar as mesmas ferramentas que os profissionais.
+
+4. Possibilita a existência de uma comunidade ativa.
+
+5. Você pode corrigir problemas e aprimorar a linguagem.
+
+6. Você pode desenvovler suas próprias ferramentas.
+
+---
+class: middle, center
+# O código é texto
+
+---
+# Podemos copiar e colar
+
+&lt;br&gt;
+&lt;center&gt;
+&lt;img src="img/copy-paste.png" style="width: 70%"&gt;
+&lt;/center&gt;
+
+---
+class: middle, center
+# O código é uma linguagem
+
+---
+# Podemos documentar a nossa análise
+
+
+
+
+```r
+image_read("https://jeroen.github.io/images/frink.png") %&gt;%
+  image_rotate(270) %&gt;%
+  image_background("blue", flatten = TRUE) %&gt;%
+  image_border("red", "10x10") %&gt;%
+  image_annotate("Linguagens de programação ainda\nsão linguagens!",
+                 color = "white", size = 30)
+```
+
+--
+
+.pull-left[
+#### Entrada
+&lt;img src = "https://jeroen.github.io/images/frink.png" style="width:25%"&gt;
+]
+
+--
+
+.pull-right[
+#### Saída
+&lt;img src="index_files/figure-html/frink-out-1.png" width="620" /&gt;
+
+]
+
+---
+class: middle, center
+
+# <span style="color:#6495ed; font-weight: bold;">Introdução</span>
+### Por que o R?
+
+---
+
+## O ciclo da ciência de dados
+
+&lt;img src="img/ciclo-ciencia-de-dados.png" style = "display: block; margin-left: auto; margin-right: auto;"&gt;
+
+---
+
+## O ciclo da ciência de dados com o R
+
+&lt;img src="img/ciclo-ciencia-de-dados-pacotes.png" style = "display: block; margin-left: auto; margin-right: auto;"&gt;
+
+---
+class: middle, center
+
+# <span style="color:#6495ed; font-weight: bold;">Introdução</span>
+### Guia da(o) mochileira(o)
+
+---
+# Pratique
+
+### O objetivo do curso é ajudar a quebrar inércia da etapa inicial de aprendizado. Assim como um idioma, o único jeito de aprender uma linguagem de programação é praticando.
+
+&lt;img src="https://media.giphy.com/media/o0vwzuFwCGAFO/giphy.gif" style = "display: block; margin-left: auto; margin-right: auto;"&gt;
+
+---
+# Pedindo ajuda
+
+.pull-left[
+&lt;br&gt;
+
+- Documentação do R
+- [Discourse Curso-r](https://discourse.curso-r.com)
+- Google
+- Stack Overflow
+]
+
+.pull-right[
+&lt;img src="img/stack.png"&gt;
+]
+
+---
+# Regras, boas práticas e estilo
+
+&lt;br&gt;
+
+Na grande maioria das vezes, você poderá resolver uma tarefa de diversas maneiras. Isso porque, apesar de existirem várias **regras**, linguagens de programação também possuem **boas práticas** e **estilos**.
+
+- Regras: devem ser seguidas para o código funcionar (sintaxe, vocabulário)
+
+- Boas práticas: recomenda-se seguir para a criação de códigos legíveis (espaçamento, nomes, organização)
+
+- Estilo: cada um pode escolher aquele com o qual se sentir mais à vontade (tipos de indentação, formatação)
+
+---
+
+# Obrigado!
+
+## Apresentações: 
+
+### Parte 1: http://bit.ly/abj-furg-1
+
+### Parte 2: http://bit.ly/abj-furg-2
+
+### Contato: [jtrecenti@abj.org.br](mailto:jtrecenti@abj.org.br)
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
