@@ -188,7 +188,7 @@ class: inverse
 
 ## Faça parte das entidades
 
-CAMAT, IMEJr, AAAMAT, Comissão de Recepção, ...
+Centro acadêmico, LEG, ...
 
 --
 
