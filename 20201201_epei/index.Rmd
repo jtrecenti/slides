@@ -1,0 +1,377 @@
+---
+title: "Estatística e Empreendedorismo"
+date: "2020-12-01"
+output:
+  xaringan::moon_reader:
+    self_contained: true
+    # lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+library(emo)
+```
+
+class: middle
+
+# Julio Trecenti
+
+<style type="text/css">
+td {
+  vertical-align: center;
+}
+</style>
+<small>Faxineiro de dados</small>
+<table style="border:none;border-color:none;">
+<tr>
+<td><img style="border:none;height:60px" src='img/ime.png' /></td>
+<td>Doutorando em Estatística no IME-USP</td>
+</tr>
+<tr>
+<td><img style="border:none;height:50px" src='img/abj.png' /></td>
+<td>Diretor da Associação Brasileira de Jurimetria</td>
+</tr>
+<td><img style="border:none;height:50px" src='img/platipus.png' /></td>
+<td>Sócio da Terranova Consultoria</td>
+</tr>
+<tr>
+<td><img style="border:none;height:50px" src='img/curso-r.png' /></td>
+<td>Sócio da Curso-R</td>
+</tr>
+</table>
+
+
+---
+class: inverse, middle
+
+# Definição 
+
+> Empreender é ter **autonomia** para usar as melhores competências para criar algo **diferente** e com **valor**, com comprometimento, pela **dedicação** de tempo e esforço necessários, assumindo os **riscos** financeiros, físicos e sociais.
+> 
+> Marcos Hashimoto
+
+---
+background-image: url(img/empreender2.png)
+background-size: cover
+class: center, bottom, inverse
+
+---
+class: inverse
+
+# Passo zero
+
+Você está preparada para...
+
+## `r ji('heart')` Fazer de suas vidas profissional e pessoal uma só?
+
+## `r ji('watch')` Trabalhar em períodos nada usuais?
+
+## ☹️ Lidar bem com **frustrações**?
+
+## 🤔 Tomar decisões importantes?
+
+---
+class: inverse
+
+# Empreendedorismo afeta suas relações!
+
+Você precisa de
+
+## Amigos e familiares que te apoiam
+
+## Pessoas que não dependam diretamente de você
+
+(Ou que tenham noção dos riscos)
+
+---
+background-image: url("img/jobs.png")
+background-size: cover
+class: center, bottom, inverse
+
+---
+
+# Mais opções
+
+--
+
+## Consultoria genérica
+
+--
+
+## Consultoria especializada
+
+--
+
+## Startup
+
+---
+class: inverse
+
+# Consultoria genérica
+
+--
+## Usualmente ligada à academia
+
+--
+## Clientes: acadêmicos, pequenas/grandes empresas
+
+--
+## Utilização de estatística "pura"
+
+--
+## Demanda frequente
+
+--
+## Remuneração estável (?)
+
+--
+## Exemplo: Curso-R
+
+---
+class: inverse
+
+# Consultoria especializada
+
+--
+## Foco em uma ou mais áreas (risco de fraude, jurimetria, marketing, ...)
+
+--
+## Foco em grandes empresas
+
+--
+## Busca de diferenciais de mercado
+
+--
+## Alto risco
+
+--
+## Exemplo: Terranova
+
+---
+class: inverse
+
+# Startup / ___tech
+
+--
+## Produto ou serviço com escala
+
+--
+## Ideia inovadora
+
+--
+## Equipes interdisciplinares
+
+--
+## Estude: MVP, incubadora, aceleradora, canvas, investidor anjo, venture capital, ...
+
+--
+## Exemplos
+
+---
+background-image: url(img/ds.png)
+background-size: 55%
+
+# Atividades
+
+## Funcionário
+
+
+---
+class: inverse
+
+# Atividades
+
+## Empreendedor
+
+- Interação com cliente
+- Elaboração de propostas
+- Networking
+- Trabalhos administrativos
+- Planejamento
+- Pesquisa de mercado
+- ...
+
+---
+class: middle, center, inverse
+
+# Tips and tricks
+
+---
+
+# 1. Faça seu networking
+
+--
+
+## Entre nos grupos
+
+- Facebook: Big Data Brasil, R Brasil - Programadores, Estatística Brasil, ...
+- Telegram: [t.me/rbrasiloficial](t.me/rbrasiloficial), [t.me/datasciencepython](t.me/datasciencepython)
+- Instagram, Twitter, YouTube, Twitch, TikTok...
+
+--
+
+## Participe dos eventos
+
+- meetups
+- hackathons / datathons
+- conferências
+
+---
+class: inverse
+
+# 2. Seja relevante na web
+
+--
+
+## Faça um blog nerd
+
+- Pacote [`blogdown`](https://bookdown.org/yihui/blogdown/)
+- MANTENHA ATUALIZADO
+- Exemplos: http://curso-r.com, http://abj.org.br
+
+--
+
+## Responda perguntas
+
+- Facebook
+- Fóruns (Stackoverflow, Cross Validated, ...)
+
+---
+
+# 3. Estude, aprenda, atualize
+
+--
+
+## A estatística evolui com o mundo
+
+--
+
+## Nós sempre estamos desatualizados!
+
+--
+
+## Existem cursos online de altíssima qualidade
+
+- Coursera, edX, Udacity, Stanford, Curso-R `r ji('happy')`
+
+
+---
+
+# 4. Aprenda a programar AGORA
+
+--
+
+## Curva de aprendizado rápida
+
+--
+
+## Aumenta produtividade
+
+--
+
+## Diferencial no mercado
+
+--
+
+## Você se dará bem na faculdade
+
+---
+
+# 5. Você não ficará sem emprego
+
+
+---
+class: middle, center, inverse
+
+# **Você não ficará sem emprego**
+
+--
+
+## Não tenha medo de ousar
+
+--
+
+## O medo não é conselheiro de ninguém
+
+--
+
+## Não aceite esmola
+
+--
+
+## Todo mundo precisa de você
+
+---
+
+# 6. Finja que esses termos são importantes
+
+--
+
+## BigData, Data Science, NoSQL, Hadoop, Data Visualization, Analytics, Deep Learning, Computação Cognitiva, ...
+
+--
+
+## Não subestime o poder da comunicação
+
+---
+class: middle
+
+# 7. Aproveite a universidade
+
+--
+
+## Faça parte das entidades
+
+Centro acadêmico, atividades da pós, ...
+
+--
+
+## Ajude a comunidade
+
+Festas, eventos, palestras
+
+--
+
+## Divulgue nossa profissão
+
+Dê likes no face, divulgue eventos, ajude as entidades, dê palestras nas feiras de profissão :)
+
+---
+class: inverse
+
+# 8. Apareça na universidade
+
+--
+
+## Converse com os professores
+
+Eles não correrão atrás de você `r ji('happy')`
+
+--
+
+## O mercado está de olho na universidade
+
+--
+
+## Não perca seus amigos
+
+---
+class: middle
+
+# Boa sorte!
+
+## Apresentação
+
+[https://jtrecenti.github.com/slides/epei](https://jtrecenti.github.com/slides/epei)
+
+## Contato
+
+- Curso-R: [jtrecenti@curso-r.com](mailto:jtrecenti@curso-r.com)
+- ABJ: [jtrecenti@abj.org.br](mailto:jtrecenti@abj.org.br)
+- Terranova: [jtrecenti@trnv.com.br](mailto:jtrecenti@trnv.com.br)
+
+
