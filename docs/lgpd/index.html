@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Jurimetria,</title>
+    <meta charset="utf-8" />
+    <script src="site_libs/header-attrs-2.5/header-attrs.js"></script>
+    <script src="site_libs/clipboard-2.0.6/clipboard.min.js"></script>
+    <link href="site_libs/xaringanExtra-clipboard-0.2.4/xaringanExtra-clipboard.css" rel="stylesheet" />
+    <script src="site_libs/xaringanExtra-clipboard-0.2.4/xaringanExtra-clipboard.js"></script>
+    <script>window.xaringanExtraClipboard(null, {"button":"Copy Code","success":"Copied!","error":"Press Ctrl+C to Copy"})</script>
+    <link rel="stylesheet" href="css/xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Jurimetria,
+## LGPD e dados abertos
+### Mundo, 2020
+
+---
+
+
+
+
+
+
+
+
+
+
+class: middle
+
+## O que é jurimetria?
+
+--
+
+## Jurimetria e inteligência artificial
+
+--
+
+## Jurimetria e LGPD
+
+---
+
+# O que é jurimetria?
+
+- Jurimetria é a estatística aplicada ao direito
+
+--
+
+- A principal diferença entre pensamento abstrato e o pensamento jurimétrico é a **concretude**
+
+--
+
+- A Jurimetria é **complementar** ao pensamento do Direito
+
+&lt;img src="https://r.abj.org.br/assets/logo-home.png" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+# Como funciona?
+
+&lt;img src="img/ciclo-azul.png" width="804" /&gt;
+
+---
+
+# Exemplo
+
+&lt;img src="https://github.com/abjur/covidTJSP/raw/master/man/figures/README-simple-plot-1.png" width="90%" /&gt;
+
+https://github.com/abjur/covidTJSP
+
+---
+class: inverse, middle
+
+# Jurimetria e inteligência artificial
+
+---
+# Dois paradigmas
+
+&lt;img src="img/paradigmas.png" width="1276" /&gt;
+
+
+---
+# Dois paradigmas
+
+![](https://christophm.github.io/interpretable-ml-book/images/programing-ml.png)&lt;!-- --&gt;
+
+.font30[
+*Imagem retirada do livro [Interpretable Machine Learning](https://christophm.github.io/interpretable-ml-book/).
+
+]
+
+
+---
+# Na jurimetria não é diferente
+
+&lt;img src="img/ml-jurimetria.png" width="1015" /&gt;
+
+
+---
+class: center, inverse, middle
+
+# Jurimetria e LGPD
+
+--
+
+.pull-left[
+
+### Interpretação de modelos complexos 
+
+### (mais estatístico)
+
+]
+
+.pull-right[
+
+### Dados abertos e dados pessoais 
+
+### (mais jurídico)
+
+]
+
+
+---
+# Interpretação de modelos simples
+
+.pull-left[
+
+![](https://curso-r.github.io/main-regressao-linear/slides/02-regressao-linear_files/figure-html/unnamed-chunk-13-1.png)&lt;!-- --&gt;
+
+`$$y = \beta_0 + \beta_1 x$$`
+
+]
+
+
+.pull-right[
+
+### Interpretação matemática
+
+`\(\beta_0\)` é o lugar em que a reta cruza o eixo `\(Y\)`.
+
+
+`\(\beta_1\)` é a derivada de `\(Y\)` em relação ao `\(X\)`. É quanto `\(Y\)` varia quando `\(X\)` varia em 1 unidade.
+
+### Interpretação estatística
+
+`\(\beta_0\)` é a distância percorrida esperada quando o carro está parado (X = 0).
+
+`\(\beta_1\)` é o efeito médio na distância por variar 1 ml/h na velocidade do carro.
+
+]
+
+---
+
+# Interpretação de modelos complexos
+
+![](https://christophm.github.io/interpretable-ml-book/images/ice-cervical-centered-1.png)&lt;!-- --&gt;
+
+
+---
+# Interpretação de modelos complexos
+
+.pull-left[
+
+- Mostra efeitos aproximados de modelos complexos
+- É uma das áreas da estatística que mais crescem nos últimos anos, junto com causalidade e avanços em métodos de otimização ou regularização
+- [Livro sobre o assunto](https://christophm.github.io/interpretable-ml-book/)
+
+]
+
+.pull-right[
+
+&lt;img src="https://christophm.github.io/interpretable-ml-book/images/title_page.jpg" width="90%" /&gt;
+
+]
+
+
+---
+# Jurimetria e dados abertos
+
+**Afirmação**: se dados são públicos, eles devem ser acessíveis!
+
+&lt;img src="https://memegenerator.net/img/instances/23908591.jpg" style="display: block; margin: auto;" /&gt;
+
+---
+# Como é hoje?
+
+- Cada tribunal tem um sistema
+
+--
+
+- Diversos tipos de bloqueios (captchas, IP etc)
+
+&lt;img src="https://d33wubrfki0l68.cloudfront.net/3d6ba738372922bd5b9972d82611e92c74798e22/0748c/img/blog/captcha-conv/captcha_conv.gif" style="display: block; margin: auto;" /&gt;
+
+
+--
+
+- Os bloqueios não **impedem** o acesso automatizado aos dados; apenas **especializam**
+
+--
+
+- Muitas das lawtechs hoje são especializadas na extração e obtenção de dados.
+
+--
+
+- Faria muito mais sentido disponibilizar através de uma API.
+
+---
+# Como será no futuro?
+
+- [Resolução 331 CNJ](https://atos.cnj.jus.br/atos/detalhar/3428)
+
+--
+
+- [CNJ Inova](https://www.cnj-inova.com). Nós vencemos!
+
+--
+
+- Existe um conflito nos princípios da publicidade dos dados e dos dados pessoais.
+
+&gt; Art. 11. Ato da Presidência disporá sobre as informações que serão disponibilizadas por meio de API pública para consulta aos metadados do DataJud, resguardados o sigilo e a confidencialidade das informações, nos termos da legislação processual e da Lei Geral de Proteção de Dados.
+
+- **Quais dados são públicos, e quais são pessoais?**
+
+--
+
+Eu não sei. O que acham?
+
+---
+
+# Obrigado!
+
+### Link: http://bit.ly/abj-lgpd
+
+### Contato: [jtrecenti@abj.org.br](mailto:jtrecenti@abj.org.br)
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
