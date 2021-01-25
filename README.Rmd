@@ -60,8 +60,8 @@ fs::dir_ls("docs") %>%
     name = basename(name)
   ) %>% 
   dplyr::left_join(aux_datas, "name") %>% 
-  dplyr::mutate(link = stringr::str_replace(
-    value, "^docs/", "https://jtrecenti.github.io/slides/"
+  dplyr::mutate(link = paste0(
+    "https://jtrecenti.github.io/slides/", value 
   )) %>% 
   dplyr::select(Data = data, Titulo = titulo, Link = link) %>% 
   knitr::kable()
