@@ -1,5 +1,5 @@
 ---
-title: "Café jurimétrico"
+title: "Café Jurimétrico"
 subtitle: "Atualizações e novidades"
 date: "Janeiro 2021"
 output:
@@ -16,13 +16,126 @@ output:
 
 ```
 
-# Novidades
+# Novidades 2021!
 
+- Novo site
+
+- Lab ABJ
+
+- Forum
+
+- Novo mecanismo de associação
+
+- Observatórios
+
+- Nova área de associado
 
 ---
 
-# Obrigado!
+# Novo site
 
-### Link: http://bit.ly/abj-lgpd
+- Páginas dos cases foram mantidas para não quebrar na troca de versão
 
-### Contato: [jtrecenti@abj.org.br](mailto:jtrecenti@abj.org.br)
+- Nova página de benefícios para associados
+
+- Construído usando R
+
+.center[
+## https://abj.org.br
+]
+
+---
+
+# Lab ABJ
+
+- Nosso blog acadêmico. É possível utilizar para citação.
+
+- Associados têm prioridade na publicação de textos.
+
+- **Open source**: construído utilizando Distill
+
+- Pretendemos adicionar pelo menos 1 texto mensal da ABJ, além dos textos de contribuições externas.
+
+.center[
+
+## https://lab.abj.org.br
+
+]
+
+---
+
+# Forum
+
+- Utiliza a tecnologia Discourse, que é open source.
+
+- Ainda está em construção
+
+- No início será aberto, e no futuro possivelmente teremos partes exclusivas para associados.
+
+- Se tiver sugestões, entre em contato em [contato@abj.org.br](mailto:contato@abj.org.br)
+
+.center[
+
+## https://forum.abj.org.br
+
+]
+
+---
+
+# Novo mecanismo de associação
+
+- Tecnologia GlueUp
+
+- Para a ABJ, facilita gestão interna
+
+- Para o associado, facilita gestão do cadastro e acompanhamento de eventos
+
+- Precisaremos trocar o mecanismo de pagamento de todos os associados
+
+.center[
+
+## https://app.glueup.com/my/profile/
+
+]
+
+---
+
+# Observatórios
+
+- Novo site, construído em R
+
+- Observatórios contínuos: novo formato de patrocínio
+
+- Dashboards interativos
+
+.center[
+
+## https://obs.abj.org.br
+
+]
+
+---
+
+# Área do associado
+
+- Construído em R, com tecnologia Shiny
+
+- Ainda em construção
+
+- Acesso exclusivo releases dos eventos, bases de dados
+
+- Boletim 2020: jurisprudência TJSP
+
+.center[
+
+## https://abjur.shinyapps.io/associados
+
+]
+
+---
+
+# Thanks!
+
+### Link: http://bit.ly/abj-cafe-202101
+
+### Contato: [contato@abj.org.br](mailto:contato@abj.org.br)
