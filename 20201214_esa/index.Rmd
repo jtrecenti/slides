@@ -198,6 +198,16 @@ class: middle, center
 <img src="img/copy-paste.png" style="width: 70%">
 </center>
 
+
+---
+# Reprodutibilidade
+
+```{r, out.width="100%", echo=FALSE}
+knitr::include_graphics("https://github.com/allisonhorst/stats-illustrations/raw/master/rstats-artwork/reproducibility_court.png")
+```
+
+
+
 ---
 class: middle, center
 # O código é uma linguagem
@@ -266,7 +276,7 @@ class: middle, center
 ---
 # Pratique
 
-### O objetivo do curso é ajudar a quebrar inércia da etapa inicial de aprendizado. Assim como um idioma, o único jeito de aprender uma linguagem de programação é praticando.
+### O objetivo de hoje é ajudar a quebrar inércia da etapa inicial de aprendizado. Assim como um idioma, o único jeito de aprender uma linguagem de programação é praticando.
 
 <img src="https://media.giphy.com/media/o0vwzuFwCGAFO/giphy.gif" style = "display: block; margin-left: auto; margin-right: auto;">
 

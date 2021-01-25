@@ -24,13 +24,13 @@ dd %>%
   mutate(proporcao = n / sum(n)) %>% 
   ungroup() %>% 
   # gráfico
-  ggplot(aes(x = proporcao, y = camara, fill = reformou)) +
+  ggplot() +
+  aes(x = proporcao, y = camara, fill = reformou) +
   geom_col() +
   scale_x_continuous(labels = scales::percent) +
   scale_fill_viridis_d(begin = 0.2, end = 0.8) +
   theme_minimal(12) +
   theme(legend.position = "bottom")
-
 
 
 # modelagem ---------------------------------------------------------------
