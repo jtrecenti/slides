@@ -1,0 +1,21 @@
+
+```{r, include=FALSE}
+`%>%` <- magrittr::`%>%`
+blue <- function(x) {
+  glue::glue(
+    '<span style="color:#6495ed; font-weight: bold;">{x}</span>'
+  ) %>% 
+    htmltools::HTML()
+}
+
+options(width = 85)
+```
+
+```{r include=FALSE}
+# install.packages("devtools")
+# devtools::install_github("gadenbuie/xaringanExtra")
+```
+
+```{r xaringanExtra-clipboard, echo=FALSE}
+xaringanExtra::use_clipboard()
+```

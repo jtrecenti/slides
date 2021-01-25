@@ -1,0 +1,28 @@
+---
+title: "Café jurimétrico"
+subtitle: "Atualizações e novidades"
+date: "Janeiro 2021"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: "css/xaringan-themer.css"
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r, child="00-preamble.Rmd"}
+
+```
+
+# Novidades
+
+
+---
+
+# Obrigado!
+
+### Link: http://bit.ly/abj-lgpd
+
+### Contato: [jtrecenti@abj.org.br](mailto:jtrecenti@abj.org.br)
