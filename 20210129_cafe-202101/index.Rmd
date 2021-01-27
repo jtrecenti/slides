@@ -78,6 +78,8 @@ output:
 
 ## https://forum.abj.org.br
 
+## (em breve)
+
 ]
 
 ---
@@ -129,6 +131,8 @@ output:
 .center[
 
 ## https://abjur.shinyapps.io/associados
+
+## (em breve)
 
 ]
 
