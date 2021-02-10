@@ -3,6 +3,8 @@
 library(keras)
 library(abind)
 library(zeallot)
+pdev <- tensorflow::tf$config$list_physical_devices("GPU")
+tensorflow::tf$config$experimental$set_memory_growth(pdev[[1]], TRUE)
 
 # Banco de dados ----------------------------------------------------------
 c(c(x_train, y_train), c(x_test, y_test)) %<-% dataset_mnist()
@@ -25,6 +27,7 @@ x_test <- abind(x_test, along = 4)
 plot(as.raster(x_train[1,,,]))
 
 # Model ------------------------------------------------------
+
 
 input <- layer_input(shape = c(28, 28, 1))
 
