@@ -48,4 +48,5 @@ contato comigo pelo Telegram ([jtrecenti](https://t.me/jtrecenti)).
 | 2020-12-01 | Estatística e Empreendedorismo                                            | [aqui](https://jtrecenti.github.io/slides/docs/epei/index.html)            |
 | 2020-12-14 | Jurimetria                                                                | [aqui](https://jtrecenti.github.io/slides/docs/esa/index.html)             |
 | 2020-12-15 | Jurimetria,                                                               | [aqui](https://jtrecenti.github.io/slides/docs/lgpd/index.html)            |
-| 2021-01-29 | Café jurimétrico                                                          | [aqui](https://jtrecenti.github.io/slides/docs/cafe-202101/index.html)     |
+| 2021-01-29 | Café Jurimétrico                                                          | [aqui](https://jtrecenti.github.io/slides/docs/cafe-202101/index.html)     |
+| 2021-02-10 | Deep Learning com o R                                                     | [aqui](https://jtrecenti.github.io/slides/docs/ufrn2021/index.html)        |
