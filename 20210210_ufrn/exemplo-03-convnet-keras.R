@@ -28,7 +28,6 @@ plot(as.raster(x_train[1,,,]))
 
 # Model ------------------------------------------------------
 
-
 input <- layer_input(shape = c(28, 28, 1))
 
 output <- input %>% 

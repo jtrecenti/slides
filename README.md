@@ -50,3 +50,4 @@ contato comigo pelo Telegram ([jtrecenti](https://t.me/jtrecenti)).
 | 2020-12-15 | Jurimetria,                                                               | [aqui](https://jtrecenti.github.io/slides/docs/lgpd/index.html)            |
 | 2021-01-29 | Café Jurimétrico                                                          | [aqui](https://jtrecenti.github.io/slides/docs/cafe-202101/index.html)     |
 | 2021-02-10 | Deep Learning com o R                                                     | [aqui](https://jtrecenti.github.io/slides/docs/ufrn2021/index.html)        |
+| 2021-03-03 | Integração de dados                                                       | [aqui](https://jtrecenti.github.io/slides/docs/futurelaw2021/index.html)   |

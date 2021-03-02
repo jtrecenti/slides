@@ -15,6 +15,8 @@ y <- apply(X, 1, sum) + rnorm(n_row)
 
 qplot(X[,1], y) + geom_smooth(method = "lm")
 
+lm( y ~ X - 1)
+
 # Defining the model ------------------------------------------------------
 
 input <- layer_input(n_col)
@@ -54,3 +56,4 @@ model %>%
 y_hat <- predict(model, X)
 Metrics::rmse(y, y_hat)
 
+model$weights

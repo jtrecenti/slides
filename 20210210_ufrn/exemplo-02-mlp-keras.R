@@ -76,6 +76,7 @@ ggplot(data.frame(X = X, y = y), aes(x = X, y = y)) +
 
 # Adicionando não linearidades --------------------------------------------
 
+
 input <- layer_input(n_col)
 output <- input %>% 
   layer_dense(units = 100, activation = "relu") %>%

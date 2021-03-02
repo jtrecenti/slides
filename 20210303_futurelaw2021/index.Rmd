@@ -5,7 +5,7 @@ date: "Future Law, 2021"
 output:
   xaringan::moon_reader:
     lib_dir: libs
-    css: ["default"]
+    css: ["css/xaringan-themer.css", "default"]
     nature:
       highlightStyle: github
       highlightLines: true
@@ -54,8 +54,6 @@ td {
 
 ## Parte I: Conceitual
 
-### Jurimetria
-
 ### Tidy data
 
 ### Joins
@@ -76,14 +74,13 @@ td {
 
 ]
 
-
 ---
 
 # Referências
 
-- [Research Design: Qualitative, Quantitative and Mixed Methods Approaches](https://www.amazon.com/Research-Design-Qualitative-Quantitative-Approaches/dp/1452226105)
 - [Jurimetria: como a estatística pode reinventar o direito](https://www.saraiva.com.br/jurimetria-como-a-estatistica-pode-reinventar-o-direito-9325227.html)
 - [R para ciência de dados](https://r4ds.had.co.nz)
+- [Livro da Curso-R](https://livro.curso-r.com)
 - [R para jurimetria](https://abjur.github.com/r4jurimetrics)
 
 ---
@@ -98,135 +95,211 @@ knitr::include_graphics("img/ciclo-ciencia-de-dados.png")
 
 # Tidy data
 
+Uma base *tidy* é uma base fácil de se trabalhar, isto é, fácil de se fazer manipulação de dados, fácil de se criar visualizações, fácil de se ajustar modelos e por aí vai.
+
+--
+
+.pull-left[
+
+As propriedades mais importantes de uma base *tidy* são:
+
+- cada coluna é uma variável.
+- cada linha é uma observação.
+- cada célula é um valor.
+
+Essa definição proporciona uma maneira consistente de se referir a variáveis (nomes de colunas) e observações (índices das linhas).
+
+]
+
+.pull-right[
+
+```{r, fig.cap="Imagem retirada do livro R4DS."}
+knitr::include_graphics("img/tidy-1.png")
+```
+
+]
+
+
 ---
 
 # Unidade amostral
 
+Unidade amostral é o que define as observações de uma base de dados. Por exemplo, uma base pode ter como unidade amostral processos, ou como unidade amostral decisões, já que é possível ter mais de uma decisão por processo.
+
+Cabe à pessoa gestora dos dados decidir como esses dados devem ser disponibilizados para análise.
+
+Usualmente, a unidade amostral precisa de um **número identificador único** para permitir a integração com outras bases de dados.
+
 ---
 
 # Exercício
+
+.pull-left[
+
+Meu interesse é calcular a taxa de reforma de decisões nas câmaras criminais em São Paulo.
+
+a) O estudo é prospectivo ou retrospectivo?
+
+b) Qual é a unidade amostral?
+
+c) Quais são as colunas da base de dados para permitir a análise desejada?
+
+]
+
+.pull-right[
+
+```{r}
+knitr::include_graphics("https://abj.org.br/img/cases/camaras.png")
+```
+
+]
 
 ---
 
 # Join
 
+Join é a tarefa de juntar bases de dados pelas __linhas__ que compartilham __variáveis__ com __valores__ em comum.
+
+Exemplos: 
+
+- Juntar base de processos com variáveis socioeconômicas
+- Juntar base de processos com base de movimentações / pagamentos
+- Juntar base de processos com base de comarcas
+
 ---
 
 # Tipos de join
 
+```{r, fig.cap="Imagem retirada do livro R4DS.", out.width="40%", fig.align="center"}
+knitr::include_graphics("https://d33wubrfki0l68.cloudfront.net/9c12ca9e12ed26a7c5d2aa08e36d2ac4fb593f1e/79980/diagrams/join-outer.png")
+```
+
+
+
 ---
 
 # Exercício
+
+Queremos fazer um mapa das comarcas de São Paulo com cores proporcionais ao número de processos. Em mãos, tenho __três__ bases: uma base de __processos__, outra base com a relação de __comarcas e municípios__ e uma base com os __mapas__ dos municípios.
+
+.pull-left[
+
+a) O que eu preciso fazer com a base de processos?
+
+b) Como juntar a base de processos com a base de comarcas/municípios
+
+c) Como juntar a base de comarcas/municipios com a base que contém os mapas?
+
+d) O que preciso fazer com os mapas?
+
+]
+
+
+.pull-right[
+
+```{r}
+knitr::include_graphics("img/maps.png")
+```
+
+]
 
 ---
 
 # Partial matching
 
-- Record Linkage
+No caso dos mapas acima, nem sempre temos os valores batendo exatamente. Por exemplo, "Mogi-Mirim" pode estar escrito na forma "Mogi Mirim". 
+
+Quando fazemos o join diretamente com os dados assim, os programas são incapazes de reconhecer que estamos trabalhando com a mesma comarca.
+
+Nesse caso, temos duas alternativas:
+
+- Adicionar rotinas de arrumação de dados: caixa alta/baixa, acentos, traços, padronização do número de caracteres, entre outros.
+
+- Utilizar mecanismos de partial matching, como Fuzzy Join (por distância de Levenshtein, Jaccard etc), ou de forma mais sofisticada com Record Linkage
+
+```{r, echo=TRUE, eval=FALSE}
+stringdist::stringdist("Mogi-Mirim", "Mogi-Mirim")
+stringdist::stringdist("Mogi-Mirim", "Mogi Mirim")
+```
+
+    [1] 0    
+    [1] 1
 
 ---
 
 # Exercício
 
----
-class: center, inverse, middle
+.pull-left[
 
-# Integração de dados internos e externos
+Temos duas bases de processos judiciais e queremos juntá-las. Uma vem da base interna do escritório / dejur e outra vem dos tribunais. Ambas têm como unidade amostral o processo, identificadas pelo número CNJ dos processos.
 
----
+Ao fazer o join das bases, no entanto, obervamos 0 matchings. O que fazer?
 
-# Problema de negócio
+]
 
-- minha base interna está ruim
+.pull-right[
+
+```{r}
+knitr::include_graphics("img/processos-join.png")
+```
+
+]
+
 
 ---
 
 # Wrap-up
 
-### a
+### Sempre queremos deixar nossas bases no formato tidy
 
 --
 
-### b
+### Nem sempre é possível automatizar processos de integração
 
 --
 
-### c
+### Conhecimentos em programação geralmente ajudam
 
 ---
 class: inverse, center, middle
 
-# Exemplos
+# Cases
 
 ---
 
-# Migração de sistema
-
----
-
-# Enriquecimento de dados
-
----
-
-# Varas empresariais
-
-```{r, out.width="110%"}
-knitr::include_graphics("imgs/varas_emp.png")
-```
-
----
-
-# Observatório da insolvência
+# Terravista
 
 ```{r}
-knitr::include_graphics("imgs/observatorio.png")
+knitr::include_graphics("img/terravista.png")
 ```
+
+https://trnv.shinyapps.io/mock/
 
 ---
 
-```{r, out.width="120%"}
-knitr::include_graphics("imgs/ml.png")
-```
-
----
+# Observatórios da ABJ
 
 ```{r}
-knitr::include_graphics("imgs/ml2.png")
+knitr::include_graphics("img/observatorio.png")
 ```
+
 
 ---
 
-```{r}
-knitr::include_graphics("imgs/camaras.png")
+# Um pouco de programação
+
+Exemplo dos mapas
+
+```{r, out.width="50%"}
+knitr::include_graphics("img/cat.gif")
 ```
 
----
-
-# Boletim ABJ
-
-```{r}
-knitr::include_graphics("imgs/boletim.png")
-```
-
----
-
-```{r}
-knitr::include_graphics("imgs/drogas.png")
-```
-
----
-class: middle, center
-
-# Exemplo prático
-
-(no R)
 
 ---
 
 # Stalk me
 
 - Julio: [jtrecenti@abj.org.br](mailto:jtrecenti@abj.org.br)
-- ABJ: [relacionamento@abj.org.br](mailto:relacionamento@abj.org.br)
+- ABJ: [contato@abj.org.br](mailto:contato@abj.org.br)
 - Site: https://abj.org.br
-- Códigos: https://github.com/abjur
 - Slides: https://jtrecenti.github.io/slides/futurelaw2021/

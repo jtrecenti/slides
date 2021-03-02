@@ -49,6 +49,8 @@ tictoc::toc()
 
 # evaluate --------------------------------------------------------------------
 
+model$parameters
+
 y_hat <- model(X)
 
 ggplot(data.frame(X = as.numeric(X), y = as.numeric(y)), aes(X, y)) + 
