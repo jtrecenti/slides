@@ -1,0 +1,232 @@
+---
+title: "Integração de dados"
+subtitle: "ciência de dados aplicada ao direito"
+date: "Future Law, 2021"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: ["default"]
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(echo=FALSE, warning=FALSE, message=FALSE,
+                      out.width = "99%", fig.align = "center")
+```
+
+class: middle
+
+<style type="text/css">
+td {
+  vertical-align: center;
+}
+</style>
+<small>Faxineiro de dados</small>
+<table style="border:none;border-color:none;">
+<tr>
+<td><img style="border:none;height:60px" src='img/ime.png' /></td>
+<td>Doutorando em Estatística no IME-USP</td>
+</tr>
+<tr>
+<td><img style="border:none;height:50px" src='img/abj.png' /></td>
+<td>Secretário-geral da Associação Brasileira de Jurimetria</td>
+</tr>
+<tr>
+<td><img style="border:none;height:50px" src='img/terranova.png' /></td>
+<td>Sócio da Terranova Consultoria</td>
+</tr>
+<tr>
+<td><img style="border:none;height:50px" src='img/curso-r.png' /></td>
+<td>Sócio da Curso-R</td>
+</tr>
+</table>
+
+---
+
+# Objetivos
+
+.pull-left[
+
+## Parte I: Conceitual
+
+### Jurimetria
+
+### Tidy data
+
+### Joins
+
+### Unidade amostral
+
+]
+
+--
+
+.pull-right[
+
+## Parte II: Prática
+
+### Cases
+
+### Um pouco de programação
+
+]
+
+
+---
+
+# Referências
+
+- [Research Design: Qualitative, Quantitative and Mixed Methods Approaches](https://www.amazon.com/Research-Design-Qualitative-Quantitative-Approaches/dp/1452226105)
+- [Jurimetria: como a estatística pode reinventar o direito](https://www.saraiva.com.br/jurimetria-como-a-estatistica-pode-reinventar-o-direito-9325227.html)
+- [R para ciência de dados](https://r4ds.had.co.nz)
+- [R para jurimetria](https://abjur.github.com/r4jurimetrics)
+
+---
+
+# Como trabalhamos
+
+```{r}
+knitr::include_graphics("img/ciclo-ciencia-de-dados.png")
+```
+
+---
+
+# Tidy data
+
+---
+
+# Unidade amostral
+
+---
+
+# Exercício
+
+---
+
+# Join
+
+---
+
+# Tipos de join
+
+---
+
+# Exercício
+
+---
+
+# Partial matching
+
+- Record Linkage
+
+---
+
+# Exercício
+
+---
+class: center, inverse, middle
+
+# Integração de dados internos e externos
+
+---
+
+# Problema de negócio
+
+- minha base interna está ruim
+
+---
+
+# Wrap-up
+
+### a
+
+--
+
+### b
+
+--
+
+### c
+
+---
+class: inverse, center, middle
+
+# Exemplos
+
+---
+
+# Migração de sistema
+
+---
+
+# Enriquecimento de dados
+
+---
+
+# Varas empresariais
+
+```{r, out.width="110%"}
+knitr::include_graphics("imgs/varas_emp.png")
+```
+
+---
+
+# Observatório da insolvência
+
+```{r}
+knitr::include_graphics("imgs/observatorio.png")
+```
+
+---
+
+```{r, out.width="120%"}
+knitr::include_graphics("imgs/ml.png")
+```
+
+---
+
+```{r}
+knitr::include_graphics("imgs/ml2.png")
+```
+
+---
+
+```{r}
+knitr::include_graphics("imgs/camaras.png")
+```
+
+---
+
+# Boletim ABJ
+
+```{r}
+knitr::include_graphics("imgs/boletim.png")
+```
+
+---
+
+```{r}
+knitr::include_graphics("imgs/drogas.png")
+```
+
+---
+class: middle, center
+
+# Exemplo prático
+
+(no R)
+
+---
+
+# Stalk me
+
+- Julio: [jtrecenti@abj.org.br](mailto:jtrecenti@abj.org.br)
+- ABJ: [relacionamento@abj.org.br](mailto:relacionamento@abj.org.br)
+- Site: https://abj.org.br
+- Códigos: https://github.com/abjur
+- Slides: https://jtrecenti.github.io/slides/futurelaw2021/
