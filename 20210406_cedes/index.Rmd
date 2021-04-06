@@ -308,7 +308,7 @@ __Resultado__: Tomando como base as classificações temporárias definidas pela
 
 __Objetivo__: Aprimorar a taxonomia de assuntos envolvendo educação.
 
-```{r taxonomia, out.width='100%', fig.cap="Reclassificações dos assuntos. Na parte da esquerda, a taxonomia atual. Na direita, a taxonomia proposta após análise dos casos."}
+```{r taxonomia, out.width='100%', fig.cap="Reclassificações dos assuntos. Na parte da esquerda, a taxonomia atual. Na direita, a taxonomia proposta após análise dos casos. Pesquisa realizada em parceria com Instituto Articule."}
 "img/taxonomia.png" %>% 
   magick::image_read() %>% 
   crop(top = 100, bottom = 10)
