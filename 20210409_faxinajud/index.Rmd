@@ -23,6 +23,24 @@ knitr::opts_chunk$set(
 )
 ```
 
+```{r, echo=FALSE}
+library(magrittr)
+metathis::meta() %>% 
+  metathis::meta_description("FaxinaJud | CNJ") %>% 
+  metathis::meta_name("github-repo" = "jtrecenti/slides") %>% 
+  metathis::meta_viewport() %>%
+  metathis::meta_social(
+    title = "FaxinaJud",
+    url = "https://jtrecenti.github.io/slides/faxinajud",
+    image = "https://jtrecenti.github.io/slides/faxinajud/img/painel.png",
+    image_alt = "Ferramenta para acompanhamento de inconsistências do judiciário",
+    og_type = "website",
+    og_author = c("Julio Trecenti"),
+    twitter_card_type = "summary",
+    twitter_creator = "@jtrecenti"
+  )
+```
+
 # Identificação do problema
 
 ### Inconsistências são vivas e precisam ser monitoradas continuamente.
