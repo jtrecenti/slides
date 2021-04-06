@@ -51,7 +51,8 @@ aux_datas <- fs::dir_ls(".", regexp = "^20") %>%
 pegar_titulo <- . %>% 
   xml2::read_html(encoding = "UTF-8") %>% 
   xml2::xml_find_first("//title") %>% 
-  xml2::xml_text()
+  xml2::xml_text() %>% 
+  stringr::str_remove_all("\\.[a-z]+\\[|\\]")
 
 fs::dir_ls("docs") %>% 
   purrr::map_chr(fs::dir_ls, glob = "*.html") %>% 

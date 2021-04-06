@@ -1,0 +1,134 @@
+---
+title: ".green[FaxinaJud]"
+subtitle: "<hr/>"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: ["css/xaringan-themer.css", "default"]
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(
+  echo=FALSE, 
+  warning=FALSE, 
+  message=FALSE,
+  out.width = "99%", 
+  fig.align = "center"
+)
+```
+
+# Identificação do problema
+
+### Inconsistências são vivas e precisam ser monitoradas continuamente.
+
+### O que puder ser automatizado, deve ser automatizado.
+
+### O trabalho de arrumar os dados precisa ser distribuído nos tribunais e unidades judiciárias.
+
+---
+
+# Solução
+
+### Plataforma online e interativa
+
+### Ferramenta de código aberto, podendo ser auditada e desenvolvida de forma colaborativa
+
+### Ferramenta modular, podendo mapear mais inconsistências
+
+---
+
+# Painel geral
+
+- Atualizado periodicamente
+- Possibilidade de download das inconsistências completas
+
+```{r}
+knitr::include_graphics(c("img/painel.png"))
+```
+
+---
+
+# Validador de arquivos
+
+- Arquivo JSON ou XML
+- Em alguns casos, a plataforma sugere correções baseadas nos dados
+
+```{r}
+knitr::include_graphics(c("img/incos.png"))
+```
+
+---
+
+# Inconsistências mapeadas
+
+### Informações básicas
+
+- Dígito verificador inconsistente com o número do processo (Res. 65 CNJ).
+- Número CNJ do processo não bate com a Justiça ou o Tribunal (Res. 65 CNJ).
+- Código do órgão não bate com os órgãos oficiais (Anexo II Res. 76 CNJ)
+- Identificador de processo eletrônico fora do padrão.
+- Identificador de sistema processual fora do padrão.
+- Valor negativo ou muito alto para os padrões do Tribunal.
+
+### Classe/assunto
+
+- Código CNJ da classe não bate com a TPU (Res. 46 CNJ).
+- Assunto genérico
+- Assunto vazio ou inválido
+
+### Partes
+
+- Processo com parte sem documento
+
+---
+
+# Inconsistências mapeadas
+
+### Movimentações
+
+- Código pai está faltante na movimentação local.
+- Tempo desde última movimentação acima de 3 anos.
+- Existência de processos com graus vazios ou inválidos
+- Existência de processos com Movimentos vazios ou inválidos
+- Existência de movimentos de caso novo
+- Existência de movimentos de último nível da árvore de movimentos da TPU
+- Existência de processos com partes do polo ativo sem nome
+- Existência de processos com partes do polo passivo sem nome
+- Existência de processos com movimento de remessa sem complementos
+- Existência de processos com movimento de audiência sem complementos
+
+---
+
+# Melhorias futuras
+
+- Adicionar mais inconsistências
+- Reduzir limitação no tamanho dos arquivos
+- Realizar testes e corrigir eventuais erros
+- Aumentar eficiência do código, para rodar mais rápido
+
+---
+
+# Agradecimentos
+
+### Andre Assumpção, Bruno Daleffi, Caio Lente
+
+Pelo desenvolvimento do FaxinaJud no Desafio de Dados do CNJ
+
+### Equipe do DPJ (Igor, Fillipe, Rodrigo, Rodrigo)
+
+Pelas reuniões de *live coding* onde adaptamos a versão inicial da ferramenta para as necessidades do judiciário
+
+---
+
+# Obrigado!
+
+- Julio: [jtrecenti@abj.org.br](mailto:jtrecenti@abj.org.br)
+- ABJ: [contato@abj.org.br](mailto:contato@abj.org.br)
+- Site: https://abj.org.br
+- Slides: https://jtrecenti.github.io/slides/faxinajud/
