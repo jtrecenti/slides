@@ -53,4 +53,4 @@ contato comigo pelo Telegram ([jtrecenti](https://t.me/jtrecenti)).
 | 2021-03-03 | Integração de dados                                                       | [aqui](https://jtrecenti.github.io/slides/docs/futurelaw2021/index.html)   |
 | 2021-03-31 | Introdução à Jurimetria                                                   | [aqui](https://jtrecenti.github.io/slides/docs/jurimetria/index.html)      |
 | 2021-04-06 | Introdução à Jurimetria                                                   | [aqui](https://jtrecenti.github.io/slides/docs/cedes/index.html)           |
-| 2021-04-09 | FaxinaJud                                                                 | [aqui](https://jtrecenti.github.io/slides/docs/faxinajud/index.html)       |
+| 2021-04-09 | Webinar de aprimoramento do DataJud                                       | [aqui](https://jtrecenti.github.io/slides/docs/faxinajud/index.html)       |
