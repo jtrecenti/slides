@@ -31,9 +31,6 @@ h1, h2, h3, h4 {
 .remark-slide-content {
   background-color: #ffffff;
   font-size: 20px;
-
-
-
   padding: 1em 4em 1em 4em;
 }
 .remark-slide-content h1 {
@@ -85,14 +82,18 @@ a, a > code {
 .inverse h1, .inverse h2, .inverse h3 {
   color: #E5E8EB;
 }
+.title-slide {
+  background-image: url(../img/cover.jpg);
+  background-size: contain;
+  text-shadow: 0 0 0px #333;
+  padding-top: 300px;
+  text-align: left;
+}
 .title-slide, .title-slide h1, .title-slide h2, .title-slide h3 {
-  color: #E5E8EB;
+  color: black;
 }
 .title-slide {
   background-color: #414487;
-
-
-
 }
 .title-slide .remark-slide-number {
   display: none;

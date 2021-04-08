@@ -1,16 +1,16 @@
 ---
-title: ".green[FaxinaJud]"
-subtitle: "<hr/>"
+title: "Webinar de aprimoramento do DataJud"
+subtitle: "Modulo 3 - Faxinajud"
 output:
   xaringan::moon_reader:
     lib_dir: libs
-    css: ["css/xaringan-themer.css", "default"]
+    css: ["default", "css/xaringan-themer.css"]
     nature:
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
+      ratio: '16:9'
 ---
-
 
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
@@ -66,7 +66,7 @@ metathis::meta() %>%
 - Atualizado periodicamente
 - Possibilidade de download das inconsistências completas
 
-```{r}
+```{r, out.width="70%"}
 knitr::include_graphics(c("img/painel.png"))
 ```
 
@@ -77,7 +77,7 @@ knitr::include_graphics(c("img/painel.png"))
 - Arquivo JSON ou XML
 - Em alguns casos, a plataforma sugere correções baseadas nos dados
 
-```{r}
+```{r, out.width="70%"}
 knitr::include_graphics(c("img/incos.png"))
 ```
 
@@ -126,9 +126,8 @@ knitr::include_graphics(c("img/incos.png"))
 # Melhorias futuras
 
 - Adicionar mais inconsistências
-- Reduzir limitação no tamanho dos arquivos
 - Realizar testes e corrigir eventuais erros
-- Aumentar eficiência do código, para rodar mais rápido
+- Atualizar tabelas das Resoluções 76/CNJ.
 
 ---
 
@@ -138,7 +137,7 @@ knitr::include_graphics(c("img/incos.png"))
 
 Pelo desenvolvimento do FaxinaJud no Desafio de Dados do CNJ
 
-### Equipe do DPJ (Igor, Filipe, Ricardo Sampaio, Ricardo Rosa)
+### Equipe do DPJ: Igor Stemler, Filipe Pereira, Ricardo Sampaio, Ricardo Rosa
 
 Pelas reuniões de *live coding* onde adaptamos a versão inicial da ferramenta para as necessidades do judiciário
 
@@ -146,7 +145,24 @@ Pelas reuniões de *live coding* onde adaptamos a versão inicial da ferramenta 
 
 # Obrigado!
 
-- Julio: [jtrecenti@abj.org.br](mailto:jtrecenti@abj.org.br)
 - ABJ: [contato@abj.org.br](mailto:contato@abj.org.br)
 - Site: https://abj.org.br
 - Slides: https://jtrecenti.github.io/slides/faxinajud/
+
+# Mais informações:
+
+[https://www.cnj.jus.br/sistemas/datajud](https://www.cnj.jus.br/sistemas/datajud)
+
+.pull-left[
+
+]
+
+.pull-right[
+
+```{r, out.width="80%"}
+knitr::include_graphics("img/pc.png")
+```
+
+]
+
+
