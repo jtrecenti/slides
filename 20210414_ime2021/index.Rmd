@@ -1,7 +1,7 @@
 ---
 title: "Estatística é `r emo::ji('heart')`"
 author: "Julio Trecenti"
-date: "2020-04-14"
+date: "2021-04-14"
 output:
   xaringan::moon_reader:
     self_contained: true
