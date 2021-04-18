@@ -2,7 +2,6 @@
 title: ".green[Introdução à Jurimetria]"
 subtitle: "<hr/>"
 author: "Julio Trecenti"
-institute: "Associação Brasileira de Jurimetria"
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -416,7 +415,6 @@ class: inverse, middle
 
 ### Parte II: pesquisa
 
-
 ---
 
 # Estruturas e fontes de dados
@@ -444,9 +442,20 @@ class: inverse, middle
 - __Pasta digital__: contém todos os autos do processo, incluindo petição inicial, contestação e outros documentos não publicáveis. Os documentos só estão disponíveis em processos digitais, com acesso somente a advogados e pesquisadores credenciados.
 
 ---
+
+# Ciclo da ciência de dados
+
+Como funciona na prática
+
+```{r}
+knitr::include_graphics("img/ciclo-ciencia-de-dados.png")
+```
+
+
+---
 class: inverse, middle
 
-### Parte III: corporativo
+### Parte III: negócios
 
 # Jurimetria corporativa
 
@@ -463,21 +472,46 @@ knitr::include_graphics("img/jurimetria_empresas.png")
 
 .pull-left[
 
-- __Dados internos__ estão disponíveis nas bases da empresa ou escritório de advocacia.
+### Dados internos
+
+Estão disponíveis nas bases da empresa ou escritório de advocacia.
 
 ]
 
 .pull.right[
 
-- __Dados externos__ são os dados do judiciário, obtidos na forma que definimos anteriormente. 
+### Dados externos
 
+Dados do judiciário, obtidos na forma que definimos anteriormente. 
 
 ]
 
 ---
+
+# Exemplo: painel de controle
+
+Painel interativo, modular e customizado de acordo com as necessidades do cliente, contendo análises estratégicas, automações e curadoria da base de dados interna.
+
+```{r, out.width="80%"}
+knitr::include_graphics("img/painel-controle.png")
+```
+
+
+---
+
+# Exemplo: mapa estratégico
+
+Extração e análise de dados provenientes dos tribunais para obter estatísticas de resultado e tempo dos processos de acordo com juiz, assunto e outras características do processo.
+
+```{r, out.width="60%"}
+knitr::include_graphics("img/mapa-estrategico.png")
+```
+
+
+---
 class: inverse, middle
 
-### Parte III: corporativo
+### Parte III: negócios
 
 # Jurimetria e Inteligência Artificial
 
@@ -512,7 +546,7 @@ knitr::include_graphics("img/ia_direita.png")
 
 # Aplicações de IA na jurimetria (1)
 
-```{r}
+```{r, out.width="80%"}
 knitr::include_graphics("img/regras_juridicas.png")
 ```
 
@@ -523,16 +557,6 @@ knitr::include_graphics("img/regras_juridicas.png")
 
 ```{r}
 knitr::include_graphics("img/regras_jurimetria.png")
-```
-
----
-
-# E a ciência de dados?
-
-- Importante não é saber __o que é__, e sim __saber fazer__.
-
-```{r}
-knitr::include_graphics("img/ciclo-ciencia-de-dados.png")
 ```
 
 ---
@@ -553,4 +577,4 @@ knitr::include_graphics("img/ciclo-ciencia-de-dados.png")
 - Julio: [jtrecenti@abj.org.br](mailto:jtrecenti@abj.org.br)
 - ABJ: [contato@abj.org.br](mailto:contato@abj.org.br)
 - Site: https://abj.org.br
-- Slides: https://jtrecenti.github.io/slides/futurelaw2021/
+- Slides: https://jtrecenti.github.io/slides/docs/jurimetria/
