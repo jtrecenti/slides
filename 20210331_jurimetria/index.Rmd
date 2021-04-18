@@ -7,6 +7,7 @@ output:
     lib_dir: libs
     css: ["css/xaringan-themer.css", "default"]
     nature:
+      ratio: "16:9"
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
@@ -300,7 +301,7 @@ class: inverse, middle
 
 __Objetivo__: Analisar o tempo dos processos relacionados à adoção no Brasil.
 
-```{r adocao, out.width='90%', fig.cap="Na parte vermelha, o gráfico mostra a distribuição das idades das crianças disponíveis em abrigos. Na parte azul, o gráfico mostra a distribuição das idades máximas que os pretendentes à adoção aceitam."}
+```{r adocao, out.width='60%', fig.cap="Na parte vermelha, o gráfico mostra a distribuição das idades das crianças disponíveis em abrigos. Na parte azul, o gráfico mostra a distribuição das idades máximas que os pretendentes à adoção aceitam."}
 "img/adocao.png" %>% 
   magick::image_read() %>% 
   crop(top = 100, bottom = 110)
@@ -314,7 +315,7 @@ __Resultado__: Lei 13.509/2017, com medidas que podem reduzir o tempo de process
 
 __Objetivo__: Mapear os maiores litigantes em ações consumeristas.
 
-```{r ml, out.width='85%', fig.cap="Proporção acumulada do total de processos consumeristas pela quantidade de litigantes, ordenando-se pelos maiores litigantes em sete unidades federativas."}
+```{r ml, out.width='65%', fig.cap="Proporção acumulada do total de processos consumeristas pela quantidade de litigantes, ordenando-se pelos maiores litigantes em sete unidades federativas."}
 "img/cnjml.png" %>% 
   magick::image_read() %>% 
   crop(top = 110, bottom = 100)
@@ -328,7 +329,7 @@ __Resultado__: Integração entre sistema Consumidor.gov.br e Processo Judicial 
 
 __Objetivo__: Analisar variabilidade da taxa de reforma das Câmaras Criminais.
 
-```{r camaras, out.width='70%', fig.cap="Proporções de cada decisão em recursos de apelação contra o Ministério Público no Tribunal de Justiça de São Paulo. A cor mais escura mostra a proporção de recursos negados, a intermediária mostra a proporção de recursos parcialmente providos e a mais clara mostra a proporção de recursos providos."}
+```{r camaras, out.width='50%', fig.cap="Proporções de cada decisão em recursos de apelação contra o Ministério Público no Tribunal de Justiça de São Paulo. A cor mais escura mostra a proporção de recursos negados, a intermediária mostra a proporção de recursos parcialmente providos e a mais clara mostra a proporção de recursos providos."}
 "img/camaras.png" %>% 
   magick::image_read() %>% 
   crop(top = 50, bottom = 120)
@@ -343,7 +344,7 @@ __Resultado__: Alta variabilidade nas taxas de recursos negados, que vai de 16% 
 
 __Objetivo__: Estudar critérios objetivos para definir porte e tráfico de drogas.
 
-```{r drogas, out.width='100%', fig.cap="Proporção de casos que seriam reclassificados em caso de utilização de quantidade de gramas de maconha para classificar o porte da droga como porte para uso (parte de cima) ou porte para tráfico (parte de baixo)."}
+```{r drogas, out.width='80%', fig.cap="Proporção de casos que seriam reclassificados em caso de utilização de quantidade de gramas de maconha para classificar o porte da droga como porte para uso (parte de cima) ou porte para tráfico (parte de baixo)."}
 "img/drogas.png" %>% 
   magick::image_read() %>% 
   crop(top = 100, bottom = 10)
@@ -357,7 +358,7 @@ __Resultado__: Tomando como base as classificações temporárias definidas pela
 
 __Objetivo__: Compreender empiricamente o processo da insolvência.
 
-```{r observatorio, out.width='70%', fig.cap="Relação entre remuneração do Administrador Judicial (AJ) e valor total da dívida da recuperanda. O valor máximo de remuneração do AJ deve ser de 5% do valor total da dívida."}
+```{r observatorio, out.width='50%', fig.cap="Relação entre remuneração do Administrador Judicial (AJ) e valor total da dívida da recuperanda. O valor máximo de remuneração do AJ deve ser de 5% do valor total da dívida."}
 "img/obsfase2.png" %>% 
   magick::image_read() %>% 
   crop(top = 10, bottom = 10)
@@ -384,17 +385,26 @@ class: inverse, middle
 
 # Exemplo: Covid
 
-```{r out.width="75%"}
+.pull-left[
+
+```{r out.width="100%"}
 knitr::include_graphics("img/covid.png")
 ```
 
+]
+
 --
+
+.pull-right[
 
 - Recorte temporal: 2020-2021
 - Recorte regional: TJSP
 - Escopo: Sentença que menciona palavras relacionadas à Covid.
 
 Base de dados: https://github.com/abjur/covidTJSP
+
+]
+
 
 ---
 
@@ -447,10 +457,11 @@ class: inverse, middle
 
 Como funciona na prática
 
-```{r}
+```{r, out.width="65%"}
 knitr::include_graphics("img/ciclo-ciencia-de-dados.png")
 ```
 
+.small[Fonte: Curso-R e R para Ciência de Dados.]
 
 ---
 class: inverse, middle
@@ -461,7 +472,7 @@ class: inverse, middle
 
 ---
 
-```{r}
+```{r, out.width="80%"}
 knitr::include_graphics("img/jurimetria_empresas.png")
 ```
 
@@ -470,21 +481,15 @@ knitr::include_graphics("img/jurimetria_empresas.png")
 
 # Dados internos e externos
 
-.pull-left[
-
 ### Dados internos
 
 Estão disponíveis nas bases da empresa ou escritório de advocacia.
 
-]
-
-.pull.right[
+--
 
 ### Dados externos
 
 Dados do judiciário, obtidos na forma que definimos anteriormente. 
-
-]
 
 ---
 
