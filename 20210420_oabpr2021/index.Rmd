@@ -147,15 +147,18 @@ knitr::include_graphics("img/associados.png")
 
 ---
 
-# Observatório da insolvência
+# Observatórios da ABJ
 
-__Objetivo__: Compreender empiricamente o processo da insolvência.
-
-```{r observatorio, out.width='50%', fig.cap="Relação entre remuneração do Administrador Judicial (AJ) e valor total da dívida da recuperanda. O valor máximo de remuneração do AJ deve ser de 5% do valor total da dívida."}
-"img/obsfase2.png" %>% 
-  magick::image_read() %>% 
-  crop(top = 10, bottom = 10)
+```{r observatorio, out.width='140%'}
+knitr::include_graphics("img/observatorios_abj.png")
 ```
+
+.center[
+
+### https://obs.abj.org.br
+
+
+]
 
 ---
 class: inverse, middle
