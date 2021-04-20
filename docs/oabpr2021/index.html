@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Observatório da Insolvência</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Julio Trecenti" />
+    <script src="site_libs/header-attrs/header-attrs.js"></script>
+    <link href="site_libs/remark-css/default.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Observatório da Insolvência
+## <hr/>
+### Julio Trecenti
+
+---
+
+
+
+
+
+&lt;style type="text/css"&gt;
+p.caption {
+  font-size: 0.6em;
+}
+&lt;/style&gt;
+
+# Apresentação
+
+&lt;style type="text/css"&gt;
+td {
+  vertical-align: center;
+}
+&lt;/style&gt;
+&lt;small&gt;Julio Trecenti: **faxineiro de dados**&lt;/small&gt;
+&lt;table style="border:none;border-color:none;"&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;img style="border:none;height:60px" src='img/ime.png' /&gt;&lt;/td&gt;
+&lt;td&gt;Doutorando em Estatística no IME-USP&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;img style="border:none;height:50px" src='img/abj.png' /&gt;&lt;/td&gt;
+&lt;td&gt;Secretário-geral da Associação Brasileira de Jurimetria&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;img style="border:none;height:50px" src='img/terranova.png' /&gt;&lt;/td&gt;
+&lt;td&gt;Sócio da Terranova Consultoria&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;img style="border:none;height:50px" src='img/curso-r.png' /&gt;&lt;/td&gt;
+&lt;td&gt;Sócio da Curso-R&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+
+
+---
+class: inverse, middle
+
+### Parte I: ABJ
+
+# Definição
+
+---
+
+# O que é jurimetria?
+
+- Jurimetria é a __estatística__ aplicada ao __direito__.
+
+--
+
+- Fazer jurimetria é pensar o direito de forma __concreta__, colocando nosso objeto de estudo no __tempo__ e no __espaço__.
+
+--
+
+- A jurimetria __complementa__ o estudo clássico do direito, considerando leis, __princípios__ jurídicos e pensamentos abstratos como __hipóteses__ que se manifestam ou não na __realidade__ através das __decisões__ judiciais.
+
+--
+
+&lt;hr/&gt;
+
+.center[
+## Exemplo
+]
+
+.pull-left[
+
+### Estudo clássico
+
+Princípios jurídicos e pensamento de especialistas sobre o valor de indenização por dano moral a ser concedido no contexto de direito do consumidor.
+
+]
+
+--
+
+.pull-right[
+
+### Estudo jurimétrico
+
+Valores típicos de dano moral em sentenças de primeira instância de processos envolvendo direito do consumidor no Tribunal de Justiça de São Paulo em 2020.
+
+]
+
+---
+
+# Regras jurídicas
+
+&lt;img src="img/regras_jurimetria.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# A ABJ
+
+### Reunir e incentivar pessoas pesquisadoras.
+
+--
+
+### Disciplinar a jurimetria como um ramo do conhecimento jurídico.
+
+--
+
+### Colaborar com entidades públicas e privadas com pesquisas aplicadas.
+
+---
+
+# Associados ABJ
+
+&lt;img src="img/associados.png" width="99%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Observatório da insolvência
+
+__Objetivo__: Compreender empiricamente o processo da insolvência.
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="index_files/figure-html/observatorio-1.png" alt="Relação entre remuneração do Administrador Judicial (AJ) e valor total da dívida da recuperanda. O valor máximo de remuneração do AJ deve ser de 5% do valor total da dívida." width="50%" /&gt;
+&lt;p class="caption"&gt;Relação entre remuneração do Administrador Judicial (AJ) e valor total da dívida da recuperanda. O valor máximo de remuneração do AJ deve ser de 5% do valor total da dívida.&lt;/p&gt;
+&lt;/div&gt;
+
+---
+class: inverse, middle
+
+### Parte II: pesquisa
+
+# Fazendo uma pesquisa jurimétrica
+
+---
+
+# Como fazer uma pesquisa jurimétrica?
+
+- Colocamos nosso objeto de estudo no tempo e no espaço.
+
+- Logo, precisamos delimitar a abrangência regional e temporal do estudo.
+
+- Também é necessário definir de forma precisa o escopo do estudo, ou seja, o que define se um caso específico é ou não parte do interesse da pesquisa.
+
+---
+
+# Estruturas e fontes de dados
+
+- __Diários de Justiça__: PDFs gigantescos contendo toda a movimentação judiciária. Não é fácil lista processos a partir desses arquivos. É útil para estudos prospectivos.
+
+--
+
+- __Consulta de jurisprudência__: Ferramentas de pesquisa dos tribunais. É mais fácil de consultar, mas ficamos reféns da qualidade da ferramenta de pesquisa.
+
+--
+
+- __DataJud__: No futuro, teremos uma base de dados acessível e completa disponibilizada pelo CNJ (Resolução 331/2020). 
+
+---
+
+# Estrutura de dados
+
+- __Capa__: contém classe, assunto, vara, comarca, status, indicador de processo digital, local físico, entre outras. 
+
+- __Partes__: contém nomes dos autores e dos réus, advogado e tipo de participação.  
+
+- __Movimentações__: contém datas, títulos e conteúdo de todas as movimentações públicas do processo. São movimentações desde despachos simples, remessas e conclusos até ata de audiências e sentenças completas.
+
+- __Pasta digital__: contém todos os autos do processo, incluindo petição inicial, contestação e outros documentos não publicáveis. Os documentos só estão disponíveis em processos digitais, com acesso somente a advogados e pesquisadores credenciados.
+
+---
+
+# Ciclo da ciência de dados
+
+Como funciona na prática
+
+&lt;img src="img/ciclo-ciencia-de-dados.png" width="85%" style="display: block; margin: auto;" /&gt;
+
+.small[Fonte: Curso-R e R para Ciência de Dados.]
+
+---
+
+# Tipos de empresa
+
+&lt;img src="img/empresas.svg" width="99%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Tipos de empresa
+
+&lt;img src="img/atividade.svg" width="99%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Distribuição
+
+&lt;img src="img/distribuicao.svg" width="99%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Resultados
+
+&lt;img src="img/resultados.png" width="99%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Remunerção AJ
+
+&lt;img src="img/remuneracao_aj.svg" width="90%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Plano Classe 1
+
+&lt;img src="img/classe1_1.svg" width="99%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Plano Classe 1
+
+&lt;img src="img/classe1_2.svg" width="99%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Desfecho
+
+&lt;img src="img/desfechos.png" width="99%" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+# Stalk me
+
+- Julio: [jtrecenti@abj.org.br](mailto:jtrecenti@abj.org.br)
+- ABJ: [contato@abj.org.br](mailto:contato@abj.org.br)
+- Site: https://abj.org.br
+- Slides: https://jtrecenti.github.io/slides/docs/oabpr2021/
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:12",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
