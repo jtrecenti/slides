@@ -2,6 +2,7 @@
 title: "Introdução à Jurimetria"
 subtitle: "<hr/>"
 author: "Julio Trecenti"
+date: "2021-09-02"
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -586,4 +587,4 @@ knitr::include_graphics("img/iml.jpg")
 - Julio: [julioazt@insper.edu.br](mailto:julioazt@insper.edu.br)
 - ABJ: [contato@abj.org.br](mailto:contato@abj.org.br)
 - Site: https://abj.org.br
-- Slides: https://jtrecenti.github.io/slides/docs/jurimetria-insper/
+- Slides: https://jtrecenti.github.io/slides/docs/insper-jurimetria/
