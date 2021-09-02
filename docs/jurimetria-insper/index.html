@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Introdução à Jurimetria</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Julio Trecenti" />
+    <script src="site_libs/header-attrs/header-attrs.js"></script>
+    <link href="site_libs/remark-css/default.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Introdução à Jurimetria
+## <hr/>
+### Julio Trecenti
+
+---
+
+
+
+
+
+&lt;style type="text/css"&gt;
+p.caption {
+  font-size: 0.6em;
+}
+&lt;/style&gt;
+
+
+# Apresentação
+
+&lt;style type="text/css"&gt;
+td {
+  vertical-align: center;
+}
+&lt;/style&gt;
+&lt;small&gt;Julio Trecenti: **faxineiro de dados**&lt;/small&gt;
+&lt;table style="border:none;border-color:none;"&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;img style="border:none;height:60px" src='img/ime.png' /&gt;&lt;/td&gt;
+&lt;td&gt;Doutorando em Estatística no IME-USP&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;img style="border:none;height:50px" src='img/abj.png' /&gt;&lt;/td&gt;
+&lt;td&gt;Secretário-geral da Associação Brasileira de Jurimetria&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;img style="border:none;height:50px" src='img/terranova.png' /&gt;&lt;/td&gt;
+&lt;td&gt;Sócio da Terranova Consultoria&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;img style="border:none;height:50px" src='img/curso-r.png' /&gt;&lt;/td&gt;
+&lt;td&gt;Sócio da Curso-R&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;img style="border:none;height:50px" src='img/insper.png' /&gt;&lt;/td&gt;
+&lt;td&gt;Professor auxiliar no Insper&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+
+---
+
+# Agenda
+
+.pull-left[.center[
+
+## O que é
+
+{{content}}
+
+]]
+
+--
+
+## Exemplos
+
+--
+
+.pull-right[.center[
+
+## Como faz
+
+{{content}}
+
+]]
+
+--
+
+## Tendências
+
+
+---
+class: inverse, middle
+
+# O que é
+
+---
+
+# O que é jurimetria?
+
+- Jurimetria é a __estatística__ aplicada ao __direito__.
+
+--
+
+- Fazer jurimetria é pensar o direito de forma __concreta__, colocando nosso objeto de estudo no __tempo__ e no __espaço__.
+
+--
+
+- A jurimetria __complementa__ o estudo clássico do direito, considerando leis, __princípios__ jurídicos e pensamentos abstratos como __hipóteses__ que se manifestam ou não na __realidade__ através das __decisões__ judiciais.
+
+--
+
+&lt;hr/&gt;
+
+.center[
+## Exemplo
+]
+
+.pull-left[
+
+### Estudo clássico
+
+Princípios jurídicos e pensamento de especialistas sobre o valor de indenização por dano moral a ser concedido no contexto de direito do consumidor.
+
+]
+
+--
+
+.pull-right[
+
+### Estudo jurimétrico
+
+Valores típicos de dano moral em sentenças de primeira instância de processos envolvendo direito do consumidor no Tribunal de Justiça de São Paulo em 2020.
+
+]
+
+---
+
+# Stakeholders
+
+A jurimetria auxilia e complementa os trabalhos de todas as pessoas que atuam no universo do direito.
+
+.pull-left[
+
+### Advocacia e empresas
+
+- Estatística como tecnologia para arguição.
+- Análise de risco, _due diligence_ e provisionamento.
+
+{{content}}
+
+]
+
+--
+
+### Juristas
+
+- Pareceres jurimétricos.
+- Análise da lei na ótica concreta.
+
+--
+
+.pull-right[
+
+### Magistratura
+
+- Melhores práticas para administração judiciária.
+- Aprimoramento das decisões a partir da análise dos dados.
+
+{{content}}
+
+]
+
+--
+
+### Legislativo
+
+- Estudo quantitativo de leis.
+- Análise do impacto regulatório.
+
+
+---
+
+&lt;img src="img/jurimetria_empresas.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Dados internos e externos
+
+### Dados internos
+
+Estão disponíveis nas bases da empresa ou escritório de advocacia.
+
+--
+
+### Dados externos
+
+Dados do judiciário, obtidos na forma que definimos anteriormente. 
+
+
+---
+
+# Painel de controle
+
+Painel interativo, modular e customizado de acordo com as necessidades do cliente, contendo análises estratégicas, automações e curadoria da base de dados interna.
+
+&lt;img src="img/painel-controle.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+# Mapa estratégico
+
+Extração e análise de dados provenientes dos tribunais para obter estatísticas de resultado e tempo dos processos de acordo com juiz, assunto e outras características do processo.
+
+&lt;img src="img/mapa-estrategico.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Pareceres jurimétricos
+
+Pareceres jurídicos sustentados por análises estatísticas robustas.
+
+--
+
+- Argumentos são mais difíceis de rebater, pois mostram a tendência do judiciário.
+
+--
+
+- É interdisciplinar, ligando trabalhos de pessoas da advocacia e da estatística.
+
+--
+
+- Liga com a área de *visual law*, em amplo crescimento na área do direito.
+
+
+---
+class: inverse, middle
+
+# Exemplos
+
+---
+
+# Adoção
+
+__Objetivo__: Analisar o tempo dos processos relacionados à adoção no Brasil.
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="index_files/figure-html/adocao-1.png" alt="Na parte vermelha, o gráfico mostra a distribuição das idades das crianças disponíveis em abrigos. Na parte azul, o gráfico mostra a distribuição das idades máximas que os pretendentes à adoção aceitam." width="60%" /&gt;
+&lt;p class="caption"&gt;Na parte vermelha, o gráfico mostra a distribuição das idades das crianças disponíveis em abrigos. Na parte azul, o gráfico mostra a distribuição das idades máximas que os pretendentes à adoção aceitam.&lt;/p&gt;
+&lt;/div&gt;
+
+__Resultado__: Lei 13.509/2017, com medidas que podem reduzir o tempo de processos relacionados à destituição do poder familiar.
+
+---
+
+# Maiores litigantes
+
+__Objetivo__: Mapear os maiores litigantes em ações consumeristas.
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="index_files/figure-html/ml-1.png" alt="Proporção acumulada do total de processos consumeristas pela quantidade de litigantes, ordenando-se pelos maiores litigantes em sete unidades federativas." width="65%" /&gt;
+&lt;p class="caption"&gt;Proporção acumulada do total de processos consumeristas pela quantidade de litigantes, ordenando-se pelos maiores litigantes em sete unidades federativas.&lt;/p&gt;
+&lt;/div&gt;
+
+__Resultado__: Integração entre sistema Consumidor.gov.br e Processo Judicial Eletrônico (PJe).
+
+---
+
+# Câmaras criminais
+
+__Objetivo__: Analisar variabilidade da taxa de reforma das Câmaras Criminais.
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="index_files/figure-html/camaras-1.png" alt="Proporções de cada decisão em recursos de apelação contra o Ministério Público no Tribunal de Justiça de São Paulo. A cor mais escura mostra a proporção de recursos negados, a intermediária mostra a proporção de recursos parcialmente providos e a mais clara mostra a proporção de recursos providos." width="50%" /&gt;
+&lt;p class="caption"&gt;Proporções de cada decisão em recursos de apelação contra o Ministério Público no Tribunal de Justiça de São Paulo. A cor mais escura mostra a proporção de recursos negados, a intermediária mostra a proporção de recursos parcialmente providos e a mais clara mostra a proporção de recursos providos.&lt;/p&gt;
+&lt;/div&gt;
+
+__Resultado__: Alta variabilidade nas taxas de recursos negados, que vai de 16% na 12ª Câmara Criminal até 81% na 4ª Câmara Criminal.
+
+
+---
+
+# Drogas
+
+__Objetivo__: Estudar critérios objetivos para definir porte e tráfico de drogas.
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="index_files/figure-html/drogas-1.png" alt="Proporção de casos que seriam reclassificados em caso de utilização de quantidade de gramas de maconha para classificar o porte da droga como porte para uso (parte de cima) ou porte para tráfico (parte de baixo)." width="80%" /&gt;
+&lt;p class="caption"&gt;Proporção de casos que seriam reclassificados em caso de utilização de quantidade de gramas de maconha para classificar o porte da droga como porte para uso (parte de cima) ou porte para tráfico (parte de baixo).&lt;/p&gt;
+&lt;/div&gt;
+
+__Resultado__: Tomando como base as classificações temporárias definidas pelas autoridades policiais, é possível propor valores de corte ideais que balanceiam os dois tipos de injustiças.
+
+---
+
+# Observatório da insolvência
+
+__Objetivo__: Compreender empiricamente o processo da insolvência.
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="index_files/figure-html/observatorio-1.png" alt="Relação entre remuneração do Administrador Judicial (AJ) e valor total da dívida da recuperanda. O valor máximo de remuneração do AJ deve ser de 5% do valor total da dívida." width="50%" /&gt;
+&lt;p class="caption"&gt;Relação entre remuneração do Administrador Judicial (AJ) e valor total da dívida da recuperanda. O valor máximo de remuneração do AJ deve ser de 5% do valor total da dívida.&lt;/p&gt;
+&lt;/div&gt;
+
+---
+class: stats
+
+# Dashboard interativo
+
+&lt;img src="img/vivopoc.gif" width="99%" style="display: block; margin: auto;" /&gt;
+
+
+---
+class: inverse, middle
+
+# Como faz
+
+---
+
+# Pesquisa jurimétrica?
+
+- Colocamos nosso objeto de estudo no tempo e no espaço.
+
+- Logo, precisamos delimitar a abrangência regional e temporal do estudo.
+
+- Também é necessário definir de forma precisa o escopo do estudo, ou seja, o que define se um caso específico é ou não parte do interesse da pesquisa.
+
+---
+
+# Exemplo: Covid
+
+.pull-left[
+
+&lt;img src="img/covid.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+--
+
+.pull-right[
+
+- Recorte temporal: 2020-2021
+- Recorte regional: TJSP
+- Escopo: Sentença que menciona palavras relacionadas à Covid.
+
+Base de dados: https://github.com/abjur/covidTJSP
+
+]
+
+
+---
+
+# Estudos prospectivos e retrospectivos
+
+- Estudos __prospectivos__ acompanham processos desde seu __nascimento__, identificado pela data de distribuição, até sua morte, identificada pela sentença, trânsito em julgado, arquivamento, etc. 
+  - Importante em análise de tempos.
+  - Análise de sobrevivência.
+
+--
+
+Já estudos __retrospectivos__ são aqueles que indexam os processos por alguma data de __desfecho__, como uma sentença, um acórdão ou a data de arquivamento. 
+  - Importante para análise de decisões.
+  - Modelos preditivos.
+
+---
+
+# Estruturas e fontes de dados
+
+- __Diários de Justiça__: PDFs gigantescos contendo toda a movimentação judiciária. Não é fácil lista processos a partir desses arquivos. É útil para estudos prospectivos.
+
+--
+
+- __Consulta de jurisprudência__: Ferramentas de pesquisa dos tribunais. É mais fácil de consultar, mas ficamos reféns da qualidade da ferramenta de pesquisa.
+
+--
+
+- __DataJud__: No futuro, teremos uma base de dados acessível e completa disponibilizada pelo CNJ (Resolução 331/2020). 
+
+---
+
+# Estrutura de dados
+
+- __Capa__: contém classe, assunto, vara, comarca, status, indicador de processo digital, local físico, entre outras. 
+
+- __Partes__: contém nomes dos autores e dos réus, advogado e tipo de participação.  
+
+- __Movimentações__: contém datas, títulos e conteúdo de todas as movimentações públicas do processo. São movimentações desde despachos simples, remessas e conclusos até ata de audiências e sentenças completas.
+
+- __Pasta digital__: contém todos os autos do processo, incluindo petição inicial, contestação e outros documentos não publicáveis. Os documentos só estão disponíveis em processos digitais, com acesso somente a advogados e pesquisadores credenciados.
+
+---
+
+# Ciclo da ciência de dados
+
+Como funciona na prática
+
+&lt;img src="img/ciclo-ciencia-de-dados.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+.small[Fonte: Curso-R e R para Ciência de Dados.]
+
+---
+class: inverse, middle
+
+# Tendências
+
+---
+
+# O que é inteligência artificial?
+
+- Hoje a inteligência artificial __está__ machine learning.
+
+--
+
+.pull-left[
+
+&lt;img src="img/ia_esquerda.png" width="99%" style="display: block; margin: auto;" /&gt;
+
+]
+
+--
+
+.pull-right[
+
+&lt;img src="img/ia_direita.png" width="99%" style="display: block; margin: auto;" /&gt;
+
+]
+
+
+---
+
+# Aplicações de IA na jurimetria (1)
+
+&lt;img src="img/regras_juridicas.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+# Aplicações de IA na jurimetria (2)
+
+&lt;img src="img/regras_jurimetria.png" width="99%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Aplicações de IA na jurimetria (3)
+
+### Classificação automática de documentos
+
+- Petições iniciais
+- Decisões
+
+### Processamento de linguagem natural
+
+- Ferramentas de busca
+- Reconhecimento de entidades nomeadas
+- Modelos de tópicos
+
+### Predição de resultados e tempos
+
+- Análise de sobrevivência
+- Modelos preditivos
+
+---
+class: jurimetrics
+
+# Lawtechs
+
+- [AB2L](https://ab2l.org.br/radar-lawtechs/) surgiu em 2017
+- Brasil apresenta um dos maiores mercados mercados
+
+&lt;img src="img/lawtechs.png" width="99%" style="display: block; margin: auto;" /&gt;
+
+---
+class: jurimetrics
+
+# Ciclo de maturidade de dados
+
+&lt;img src="img/maturidade-dados.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+class: jurimetrics
+
+# Cenário atual
+
+- Por conta da dificuldade de acesso aos dados, ainda existe oportunidade para empresas especializadas em __extração de dados__.
+
+- A maior parte das aplicações que vimos hoje são relacionadas a __visualização de dados__, com algumas aplicações pontuais de __modelagem__.
+
+--
+
+- A tomada de __decisão baseada em dados__ ainda é bastante incipente no mercado atual (mesmo que as empresas não falem isso explicitamente).
+
+&gt; Fake it until you make it.
+&gt; 
+&gt; Simon &amp; Garfunkel (?)
+
+---
+class: case
+
+# Aprendizado estatístico interpretável
+
+Art. 20 da LGPD: 
+
+&gt; § 1º O controlador deverá fornecer, sempre que solicitadas, informações claras e adequadas a respeito dos critérios e dos procedimentos utilizados para a decisão automatizada, observados os segredos comercial e industrial.
+
+
+- Conforme obtemos mais dados, conseguimos ajustar modelos cada vez mais complexos.
+
+- Modelos mais complexos são mais difíceis de interpretar: não tem só um `\(X\)` para explicar o `\(Y\)`, e as funções `\(g\)` podem ser bem complicadas de ler por seres humanos.
+
+---
+class: case
+
+# Machine Leaning Interpretável
+
+Uma das áreas de pesquisa que mais cresce na atualidade é a de intepretação de modelos. O problema de *fairness* é igualmente relevante, e também é levada em conta na área de interpretabilidade.
+
+Livro: [Interpretable Machine Learning](https://christophm.github.io/interpretable-ml-book/).
+
+&lt;img src="img/iml.jpg" width="50%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Referências
+
+### [Jurimetria: como a estatística pode reinventar o direito](https://www.saraiva.com.br/jurimetria-como-a-estatistica-pode-reinventar-o-direito-9325227.html)
+### [R para ciência de dados](https://r4ds.had.co.nz)
+
+### [R para jurimetria](https://abjur.github.com/r4jurimetrics)
+
+### [NDTJ](https://ndtj.com.br)
+
+
+---
+
+# Stalk me
+
+- Julio: [julioazt@insper.edu.br](mailto:julioazt@insper.edu.br)
+- ABJ: [contato@abj.org.br](mailto:contato@abj.org.br)
+- Site: https://abj.org.br
+- Slides: https://jtrecenti.github.io/slides/docs/jurimetria-insper/
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:12",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
