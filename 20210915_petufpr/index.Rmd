@@ -21,6 +21,9 @@ knitr::opts_chunk$set(
   echo = FALSE,
   eval = TRUE
 )
+
+xaringanExtra::use_scribble()
+
 ```
 
 # Agenda
@@ -33,7 +36,7 @@ knitr::opts_chunk$set(
 
 --
 
-.pull-right[(Spoiler: `torch` e `keras`/`tensorflow`)]
+.pull-right[(Spoiler: `torch`!)]
 
 --
 
@@ -70,34 +73,6 @@ knitr::opts_chunk$set(
 ![](https://images-na.ssl-images-amazon.com/images/I/61fim5QqaqL._SX373_BO1,204,203,200_.jpg)
 
 ]
-
----
-
-# Por que é importante?
-
-* Muito hype em torno do tema.
-
---
-
-* Mercado de trabalho exige cada vez mais.
-
---
-
-* Uma parte considerável dos avanços na estatística atuais ocorrem no contexto de deep learning.
-
----
-
-# Por que *profundo*?
-
-* Nós usamos uma composição de operações não lineares, chamadas *camadas*, para aprender uma representação do que estamos estudando
-* O número de camadas é o que dá a "profundidade"
-* Hoje em dia temos modelos com centenas de camadas
-
---
-
-## Nome alternativo
-
-- Aprendizado de representação em camadas
 
 ---
 
@@ -213,6 +188,7 @@ for(i in 1:num_epochs) {
 - Google
 - Faz **diferenciação automática**
 - Utiliza GPU
+- É complementado pelo `{keras}`
 
 ]
 
@@ -232,33 +208,12 @@ for(i in 1:num_epochs) {
 
 ---
 
-# Keras
-
-* Especifica modelos deep learning de forma intuitiva.
-* Utiliza o TensorFlow como backend.
-* Implementada originalmente em `python`.
-* Muito utilizada nos dias de hoje
-
-![](https://files.slack.com/files-pri/T65A3BF9R-F01D079V50S/image.png?pub_secret=cdb50d1f12)
-
-
----
-
-### Keras + R
-
-* Pacote: [`keras`](https://github.com/rstudio/keras).
-* Baseado em [reticulate](https://github.com/rstudio/reticulate).
-* Mantido por um brasileiro (Daniel Falbel, @dfalbel).
-* sintaxe tidy, usando o `%>%`.
-
---
-
 ### Torch + R
 
 * Pacote: [`torch`](https://github.com/mlverse/torch).
 * Baseado inteiramente na libtorch, em C e C++. Sem dependência do python.
 * Mantido por um brasileiro (Daniel Falbel, @dfalbel).
-* Em fase inicial de desenvolvimento.
+* Em fase intermediária de desenvolvimento.
 
 ---
 

@@ -6,6 +6,10 @@
     <meta name="author" content="" />
     <meta name="date" content="2021-09-15" />
     <script src="site_libs/header-attrs/header-attrs.js"></script>
+    <script src="site_libs/fabric/fabric.min.js"></script>
+    <link href="site_libs/xaringanExtra-scribble/scribble.css" rel="stylesheet" />
+    <script src="site_libs/xaringanExtra-scribble/scribble.js"></script>
+    <script>document.addEventListener('DOMContentLoaded', function() { window.xeScribble = new Scribble({"pen_color":["#FF0000"],"pen_size":3,"eraser_size":30}) })</script>
     <link rel="stylesheet" href="css/xaringan-themer.css" type="text/css" />
   </head>
   <body>
@@ -32,7 +36,7 @@ class: center, middle, inverse, title-slide
 
 --
 
-.pull-right[(Spoiler: `torch` e `keras`/`tensorflow`)]
+.pull-right[(Spoiler: `torch`!)]
 
 --
 
@@ -69,34 +73,6 @@ class: center, middle, inverse, title-slide
 ![](https://images-na.ssl-images-amazon.com/images/I/61fim5QqaqL._SX373_BO1,204,203,200_.jpg)
 
 ]
-
----
-
-# Por que é importante?
-
-* Muito hype em torno do tema.
-
---
-
-* Mercado de trabalho exige cada vez mais.
-
---
-
-* Uma parte considerável dos avanços na estatística atuais ocorrem no contexto de deep learning.
-
----
-
-# Por que *profundo*?
-
-* Nós usamos uma composição de operações não lineares, chamadas *camadas*, para aprender uma representação do que estamos estudando
-* O número de camadas é o que dá a "profundidade"
-* Hoje em dia temos modelos com centenas de camadas
-
---
-
-## Nome alternativo
-
-- Aprendizado de representação em camadas
 
 ---
 
@@ -206,6 +182,7 @@ for(i in 1:num_epochs) {
 - Google
 - Faz **diferenciação automática**
 - Utiliza GPU
+- É complementado pelo `{keras}`
 
 ]
 
@@ -225,33 +202,12 @@ for(i in 1:num_epochs) {
 
 ---
 
-# Keras
-
-* Especifica modelos deep learning de forma intuitiva.
-* Utiliza o TensorFlow como backend.
-* Implementada originalmente em `python`.
-* Muito utilizada nos dias de hoje
-
-![](https://files.slack.com/files-pri/T65A3BF9R-F01D079V50S/image.png?pub_secret=cdb50d1f12)
-
-
----
-
-### Keras + R
-
-* Pacote: [`keras`](https://github.com/rstudio/keras).
-* Baseado em [reticulate](https://github.com/rstudio/reticulate).
-* Mantido por um brasileiro (Daniel Falbel, @dfalbel).
-* sintaxe tidy, usando o `%&gt;%`.
-
---
-
 ### Torch + R
 
 * Pacote: [`torch`](https://github.com/mlverse/torch).
 * Baseado inteiramente na libtorch, em C e C++. Sem dependência do python.
 * Mantido por um brasileiro (Daniel Falbel, @dfalbel).
-* Em fase inicial de desenvolvimento.
+* Em fase intermediária de desenvolvimento.
 
 ---
 
