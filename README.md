@@ -58,3 +58,4 @@ contato comigo pelo Telegram ([jtrecenti](https://t.me/jtrecenti)).
 | 2021-04-20 | Observatório da Insolvência                                               | [aqui](https://jtrecenti.github.io/slides/docs/oabpr2021/index.html)         |
 | 2021-05-22 | GitHub Actions                                                            | [aqui](https://jtrecenti.github.io/slides/docs/ser2021/apresentacao.html)    |
 | 2021-09-02 | Introdução à Jurimetria                                                   | [aqui](https://jtrecenti.github.io/slides/docs/insper-jurimetria/index.html) |
+| 2021-09-15 | Deep Learning com o {torch}                                               | [aqui](https://jtrecenti.github.io/slides/docs/petufpr2021/index.html)       |

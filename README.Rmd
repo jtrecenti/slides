@@ -40,6 +40,7 @@ aux_datas <- fs::dir_ls(".", regexp = "^20") %>%
     value == "ime" & name == "20200221_ime" ~ "ime2020",
     value == "ufba" & name == "20201024_ufba" ~ "ufba2020",
     value == "ufpr" & name == "20201110_ufpr" ~ "ufpr2020",
+    value == "petufpr" ~ "petufpr2021",
     value == "ufrn" ~ "ufrn2021",
     TRUE ~ value
   )) %>% 
