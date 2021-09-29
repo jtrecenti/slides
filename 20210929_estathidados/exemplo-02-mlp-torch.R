@@ -24,8 +24,6 @@ y <- torch_tensor(matrix(y))
 
 d_hidden <- 100
 
-max(x, 0)
-
 model <- nn_sequential(
   nn_linear(1, d_hidden),
   nn_relu(),

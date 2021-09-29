@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Deep Learning com o R</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="" />
+    <meta name="date" content="2021-09-29" />
+    <script src="site_libs/header-attrs/header-attrs.js"></script>
+    <link rel="stylesheet" href="css/xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Deep Learning com o R
+## Estathidados, 2021
+### <img src = 'https://d33wubrfki0l68.cloudfront.net/9b0699f18268059bdd2e5c21538a29eade7cbd2b/67e5c/img/logo/cursor1-5.png' width = '30%'>
+### 2021-09-29
+
+---
+
+
+
+
+# Agenda
+
+* O que são redes neurais profundas e como elas se relacionam com o que já sabemos ?
+
+--
+
+* Que programas podemos usar para trainar esses modelos e como eles se relacionam?
+
+--
+
+.pull-right[(Spoiler: `torch` e `keras`/`tensorflow`)]
+
+--
+
+&lt;br&gt;&lt;br&gt;
+
+* Como ajustar modelos de deep learning algumas situações específicas?
+
+---
+
+# O que preciso saber?
+
+* Regressão linear
+* Regressão logística
+* R + Pipe! 
+
+--
+
+## `%&gt;% %&gt;% %&gt;% %&gt;% %&gt;% %&gt;% %&gt;% %&gt;% %&gt;% %&gt;% %&gt;% %&gt;%`
+
+---
+
+# Referências
+
+.pull-left[
+
+* [Deep Learning Book](https://www.deeplearningbook.org)
+* [Deep Learning with R](https://www.manning.com/books/deep-learning-with-r)
+* [RStudio AI blog](https://blogs.rstudio.com/ai/)
+
+]
+
+.pull-right[
+
+![](https://images-na.ssl-images-amazon.com/images/I/61fim5QqaqL._SX373_BO1,204,203,200_.jpg)
+
+]
+
+---
+
+# Por que é importante?
+
+* Muito hype em torno do tema.
+
+--
+
+* Mercado de trabalho exige cada vez mais.
+
+--
+
+* Uma parte considerável dos avanços na estatística atuais ocorrem no contexto de deep learning.
+
+---
+
+# Por que *profundo*?
+
+* Nós usamos uma composição de operações não lineares, chamadas *camadas*, para aprender uma representação do que estamos estudando
+* O número de camadas é o que dá a "profundidade"
+* Hoje em dia temos modelos com centenas de camadas
+
+--
+
+## Nomes alternativos
+
+- Aprendizado de representação em camadas
+- Aprendizado de representação em camadas
+
+---
+
+## Modelos lineares generalizados
+
+- Regressão linear: rede neural com uma camada, sem ativação
+- Regressão logística: rede neural com uma camada, com ativação sigmoide (inversa da função logística)
+
+---
+
+# Regressão logística
+
+&lt;img src="imgs/glm.png" width="968" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Regressão logística
+
+Função deviance: equivale à verossimilhança
+
+`$$D(y,\hat\mu(x)) = \sum_{i=1}^n 2\left[y_i\log\frac{y_i}{\hat\mu_i(x_i)} + (1-y_i)\log\left(\frac{1-y_i}{1-\hat\mu_i(x_i)}\right)\right]$$`
+
+`$$= 2 D_{KL}\left(y||\hat\mu(x)\right),$$`
+
+onde `\(D_{KL}(p||q) = \sum_i p_i\log\frac{p_i}{q_i}\)` é a divergência de Kullback-Leibler.
+
+---
+
+# Regressão logística
+
+Ajuste do modelo:
+
+Método de Fisher-Scoring (baseado no Newton-Raphson).
+
+`$$\boldsymbol\beta^{(m+1)}=\boldsymbol\beta^{(m)} + \{\mathcal I_{\beta\beta}^{-1} \}^{(m)}\mathbf U_\beta^{(m)}$$`
+--
+
+Implementação:
+
+Em MLG, equivale a um problema de mínimos quadrados ponderados iterados.
+
+`$$\boldsymbol\beta^{(m+1)} = (\mathbf X^{\top} \mathbf W^{(m)} \mathbf X)^{-1}\mathbf X^{\top} \mathbf W^{(m)}\mathbf z^{(m)},$$`
+`$$\mathbf z = \mathbf X \boldsymbol\beta + \mathbf W^{-1/2}\mathbf V^{-1/2}(\mathbf y -\boldsymbol\mu)$$`
+
+---
+class: center
+
+## Rede neural: como funciona?
+
+![](https://user-images.githubusercontent.com/4706822/48164527-e4d0e780-e2c9-11e8-91b5-1490cd3eca92.png)
+
+---
+
+# Rede neural 1 camada
+
+&lt;img src="imgs/y1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+- Linear transformation of `\(x\)`, add bias and add some nonlinear activation.
+
+`$$f(x) = \sigma(wx + b)$$`
+
+---
+
+## Rede neural 1 camada
+
+Função de perda:
+
+`$$D_{KL}(p(x)||q(x))$$`
+
+--
+
+&lt;img src="imgs/thinking.png" width="20%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Rede neural 1 camada
+
+Ajuste do modelo: Descida de gradiente
+
+`$$\boldsymbol\beta^{(m+1)}=\boldsymbol\beta^{(m)} - \alpha\mathbf U_\beta^{(m)}$$`
+
+--
+
+Implementação super simples:
+
+```
+for(i in 1:num_epochs) {
+  grads &lt;- compute_gradient(data, params)
+  params &lt;- params - learning_rate * grads
+}
+```
+
+---
+
+## Descida estocástica
+
+&lt;img src="https://user-images.githubusercontent.com/4706822/48280375-870fdd00-e43a-11e8-868d-c5afa9e7c257.png" style="width: 90%"&gt;
+
+---
+
+## Bibliotecas computacionais
+
+.pull-left[
+
+#### Tensorflow
+
+- Google
+- Faz **diferenciação automática**
+- Utiliza GPU
+
+]
+
+--
+
+.pull-right[
+
+
+#### Torch
+
+- Facebook
+- Faz **diferenciação automática**
+- Utiliza GPU
+- Possui algumas ferramentas para deep learning
+
+]
+
+---
+
+# Keras
+
+* Especifica modelos deep learning de forma intuitiva.
+* Utiliza o TensorFlow como backend.
+* Implementada originalmente em `python`.
+* Muito utilizada nos dias de hoje
+
+![](https://files.slack.com/files-pri/T65A3BF9R-F01D079V50S/image.png?pub_secret=cdb50d1f12)
+
+
+---
+
+### Keras + R
+
+* Pacote: [`keras`](https://github.com/rstudio/keras).
+* Baseado em [reticulate](https://github.com/rstudio/reticulate).
+* Mantido por um brasileiro (Daniel Falbel, @dfalbel).
+* sintaxe tidy, usando o `%&gt;%`.
+
+--
+
+### Torch + R
+
+* Pacote: [`torch`](https://github.com/mlverse/torch).
+* Baseado inteiramente na libtorch, em C e C++. Sem dependência do python.
+* Mantido por um brasileiro (Daniel Falbel, @dfalbel).
+* Em fase inicial de desenvolvimento.
+
+---
+
+# GPU
+
+Graphical Processing Unit
+
+- Com ela, paralelizamos as computações em maior volume do que é possível com um processador.
+- Resultados 50x, 100x mais rápidos.
+
+![](imgs/nvidia.gif)
+
+---
+
+## Vantagens e desvantagens
+
+### R e python
+
+- Python está mais avançado e tem comunidade maior.
+- Desenvolver em R traz mais aprendizado sobre o tema.
+
+### keras e torch
+
+- `{keras}` tem mais recursos, mas depende do python.
+- `{torch}` tem muito potencial, mas está no começo.
+
+![](imgs/pngwing.com.png)
+
+---
+class: center
+
+## Exemplo 01: Regressão linear
+
+![](https://acegif.com/wp-content/uploads/cat-typing-2.gif)
+
+---
+class: center
+
+## Exemplo 02: MLP
+
+![](https://acegif.com/wp-content/uploads/cat-typing-7.gif)
+
+---
+class: center
+
+# Ativação
+
+![](https://user-images.githubusercontent.com/4706822/48278301-48772400-e434-11e8-9487-641d2a79c2f8.png)
+
+---
+class: center
+
+## Exemplo 03: Convolucionais
+
+![](https://acegif.com/wp-content/uploads/cat-typing-4.gif)
+
+---
+
+# Convoluções
+
+&lt;img src="https://user-images.githubusercontent.com/4706822/48281225-10281380-e43d-11e8-9879-6a7e1b51df15.gif" style="position: fixed; top: 200px; left: 50px; width: 30%"&gt;
+
+--
+
+&lt;img src="https://user-images.githubusercontent.com/4706822/48281225-10281380-e43d-11e8-9879-6a7e1b51df15.gif" style="position: fixed; top: 200px; left: 300px; width: 30%"&gt;
+
+&lt;img src="https://user-images.githubusercontent.com/4706822/48281225-10281380-e43d-11e8-9879-6a7e1b51df15.gif" style="position: fixed; top: 200px; left: 600px; width: 30%"&gt;
+
+---
+class: center
+
+# Max Pooling 
+
+![](https://user-images.githubusercontent.com/4706822/48281479-df94a980-e43d-11e8-9dcf-e67d7ba053e4.png)
+
+---
+
+# Resumo
+
+- Deep learning é como uma regressão não linear estruturada.
+
+--
+
+- Os modelos são flexíveis e a arquitetura é transparente.
+
+--
+
+- GPU ajuda muito no ajuste dos modelos.
+
+--
+
+- Podemos usar `{keras}` e `{torch}` para ajustar os modelos.
+
+
+---
+class: center, inverse
+
+## Curso completo
+
+https://www.curso-r.com/cursos/deep-learning/
+
+## Links
+
+https://curso-r.com
+
+https://curso-r.com/blog
+
+https://github.com/curso-r
+
+Email: [jtrecenti@curso-r.com](mailto:jtrecenti@curso-r.com)
+
+Telegram/github/twitter: @jtrecenti
+
+Código: https://github.com/jtrecenti/slides
+
+Slides: https://jtrecenti.github.io/slides/docs/estathidados
+
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

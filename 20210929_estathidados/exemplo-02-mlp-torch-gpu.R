@@ -19,18 +19,18 @@ qplot(X, y) + geom_smooth(method = "lm")
 
 # Ajustando os modelos ----------------------------------------------------
 
-X <- torch_tensor(X)
-y <- torch_tensor(matrix(y))
+X <- torch_tensor(X, device = "cuda")
+y <- torch_tensor(matrix(y), device = "cuda")
 
 d_hidden <- 100
-
-max(x, 0)
 
 model <- nn_sequential(
   nn_linear(1, d_hidden),
   nn_relu(),
   nn_linear(d_hidden, 1)
 )
+
+model$to(device = "cuda")
 
 # Adicionando não linearidades --------------------------------------------
 
@@ -51,12 +51,12 @@ tictoc::toc()
 
 # evaluate --------------------------------------------------------------------
 
-model$parameters
+y_hat <- model(X)$to(device = "cpu")
 
-y_hat <- model(X)
-
-ggplot(data.frame(X = as.numeric(X), y = as.numeric(y)), aes(X, y)) + 
+ggplot(data.frame(X = as.numeric(X$to(device = "cpu")), 
+                  y = as.numeric(y$to(device = "cpu"))), aes(X, y)) + 
   geom_point() + 
-  geom_point(data = data.frame(X = as.numeric(X), y = as.numeric(y_hat)), colour = "blue")
+  geom_point(data = data.frame(X = as.numeric(X$to(device = "cpu")), 
+                               y = as.numeric(y_hat)), colour = "blue")
 
 
