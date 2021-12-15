@@ -4,7 +4,7 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 Este repositório contém a maioria das apresentações que fiz a partir de
-outubro/2018 que utilizam `{xaringan}`.
+outubro/2018 que utilizam `{xaringan}`!
 
 Muitas das apresentações são de temas repetidos, como recepção de turma
 da estatística, estatística e empreendedorismo, introdução à jurimetria,
