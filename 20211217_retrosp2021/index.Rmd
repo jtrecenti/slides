@@ -2,7 +2,7 @@
 title: "Retrospectiva e plano 2022 ABJ"
 subtitle: "<hr/>"
 author: "Julio Trecenti e Marcelo Guedes Nunes"
-date: "2021-11-16"
+date: "2021-12-17"
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -115,6 +115,7 @@ class: center,middle,inverse
 ## Melhoria de nossos pacotes
 
 ---
+class: center,middle,inverse
 
 # Plano 2022
 
