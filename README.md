@@ -61,3 +61,4 @@ contato comigo pelo Telegram ([jtrecenti](https://t.me/jtrecenti)).
 | 2021-09-15 | Deep Learning com o {torch}                                               | [aqui](https://jtrecenti.github.io/slides/docs/petufpr2021/index.html)       |
 | 2021-09-29 | Deep Learning com o R                                                     | [aqui](https://jtrecenti.github.io/slides/docs/estathidados/index.html)      |
 | 2021-11-16 | Jurimetria: Unichristus                                                   | [aqui](https://jtrecenti.github.io/slides/docs/unichristus/index.html)       |
+| 2021-12-17 | Retrospectiva e plano 2022 ABJ                                            | [aqui](https://jtrecenti.github.io/slides/docs/retrosp2021/index.html)       |
