@@ -4,7 +4,7 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 Este repositório contém a maioria das apresentações que fiz a partir de
-outubro/2018 que utilizam `{xaringan}`!
+outubro/2018 que utilizam `{xaringan}`.
 
 Muitas das apresentações são de temas repetidos, como recepção de turma
 da estatística, estatística e empreendedorismo, introdução à jurimetria,
@@ -62,3 +62,4 @@ contato comigo pelo Telegram ([jtrecenti](https://t.me/jtrecenti)).
 | 2021-09-29 | Deep Learning com o R                                                     | [aqui](https://jtrecenti.github.io/slides/docs/estathidados/index.html)      |
 | 2021-11-16 | Jurimetria: Unichristus                                                   | [aqui](https://jtrecenti.github.io/slides/docs/unichristus/index.html)       |
 | 2021-12-17 | Retrospectiva e plano 2022 ABJ                                            | [aqui](https://jtrecenti.github.io/slides/docs/retrosp2021/index.html)       |
+| 2022-02-01 | Web Scraping: UFCG                                                        | [aqui](https://jtrecenti.github.io/slides/docs/ufcg/index.html)              |
