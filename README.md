@@ -63,3 +63,4 @@ contato comigo pelo Telegram ([jtrecenti](https://t.me/jtrecenti)).
 | 2021-11-16 | Jurimetria: Unichristus                                                   | [aqui](https://jtrecenti.github.io/slides/docs/unichristus/index.html)       |
 | 2021-12-17 | Retrospectiva e plano 2022 ABJ                                            | [aqui](https://jtrecenti.github.io/slides/docs/retrosp2021/index.html)       |
 | 2022-02-01 | Web Scraping: UFCG                                                        | [aqui](https://jtrecenti.github.io/slides/docs/ufcg/index.html)              |
+| 2022-02-21 | Introdução à Jurimetria: Anamatra                                         | [aqui](https://jtrecenti.github.io/slides/docs/anamatra/index.html)          |
