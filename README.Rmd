@@ -42,6 +42,7 @@ aux_datas <- fs::dir_ls(".", regexp = "^20") %>%
     value == "ufpr" & name == "20201110_ufpr" ~ "ufpr2020",
     value == "petufpr" ~ "petufpr2021",
     value == "ufrn" ~ "ufrn2021",
+    value == "google-mci" ~ "google",
     TRUE ~ value
   )) %>% 
   dplyr::mutate(data = lubridate::ymd(stringr::str_sub(name, 1, 10))) %>% 
