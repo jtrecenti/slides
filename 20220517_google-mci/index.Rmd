@@ -1,5 +1,5 @@
 ---
-title: "Impactos do Marco Civil da Internet"
+title: "Impactos do Marco Civil da Internet no Judiciário"
 subtitle: "<hr/>"
 output:
   xaringan::moon_reader:
@@ -11,7 +11,7 @@ output:
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
-knit: pagedown::chrome_print
+# knit: pagedown::chrome_print
 ---
 
 ```{r setup, include=FALSE}
@@ -53,7 +53,7 @@ class: case
 
 # Resumo
 
-A Lei nº 12.965/2014, denominada __Marco Civil da Internet__ (Marco Civil), estabelece, de acordo com seu próprio texto, "princípios, garantias, direitos e deveres para o uso da Internet no Brasil". 
+A Lei nº 12.965/2014, denominada __Marco Civil da Internet__ (MCI), estabelece, de acordo com seu próprio texto, "princípios, garantias, direitos e deveres para o uso da Internet no Brasil". 
 
 - Destaca-se especialmente o art. 19, que discorre sobre o regime de responsabilização dos provedores de aplicações por __conteúdo de terceiros__, gerado por seus usuários. 
 
@@ -73,12 +73,13 @@ class: case
 
 > ...
 
+
 ---
 class: jurimetrics
 
 # Informações iniciais
 
-- No estudo, encontramos um __crescimento descontrolado__ do número de ações relacionadas à remoção de conteúdo gerado por terceiros antes do MCI.
+- No estudo, encontramos um __crescimento__ do número de ações relacionadas à remoção de conteúdo gerado por terceiros antes do MCI.
 
 ```{r}
 knitr::include_graphics("img/mci-volume-tempo.png")
@@ -173,53 +174,10 @@ class: case
 
 # Volume de processos
 
-```{r}
-knitr::include_graphics("img/mci-volume-tempo-total.png")
-```
-
----
-class: case
-
-# Volume esperado de processos
+.small[O advento do Marco Civil evitou o crescimento desordenado das demandas judiciais relacionadas à remoção de conteúdo?]
 
 ```{r}
-knitr::include_graphics("img/mci-volume-esperado.png")
-```
-
----
-class: case
-
-# Tempos
-
-```{r}
-knitr::include_graphics("img/mci-sobrevivencia.png")
-```
-
----
-class: case
-
-# Tempo ao longo dos anos
-
-```{r}
-knitr::include_graphics("img/mci-tempo.png")
-```
-
----
-class: case
-
-# Recorribilidade
-
-```{r}
-knitr::include_graphics("img/mci-recorribilidade.png")
-```
-
----
-class: case
-
-# Tipo de ação
-
-```{r}
-knitr::include_graphics("img/mci-tipo-acao.png")
+knitr::include_graphics("img/mci-volume-tempo-completo.png")
 ```
 
 ---
@@ -227,7 +185,7 @@ class: stats
 
 # Análise contrafactual
 
-__Causalidade__: habilidade de ir além da correlação e estabelecer relações concretas entre as quantidades.
+__Causalidade__: técnicas para além da correlação e estabelecer relações concretas entre as quantidades.
 
 Existem três níveis de causalidade:
 
@@ -249,9 +207,67 @@ class: case
 
 # Análise contrafactual
 
+.small[O advento do Marco Civil evitou o crescimento desordenado das demandas judiciais relacionadas à remoção de conteúdo?]
+
 ```{r}
 knitr::include_graphics("img/mci-contrafactual.png")
 ```
+
+---
+class: case
+
+# Volume esperado de processos
+
+.small[O advento do Marco Civil evitou o crescimento desordenado das demandas judiciais relacionadas à remoção de conteúdo?]
+
+```{r}
+knitr::include_graphics("img/mci-volume-esperado.png")
+```
+
+---
+class: case
+
+# Tempos
+
+.small[O advento do Marco Civil reduziu o tempo de duração dos processos judiciais, contribuindo para a satisfação mais célere dos direitos envolvidos?]
+
+```{r}
+knitr::include_graphics("img/mci-sobrevivencia.png")
+```
+
+---
+class: case
+
+# Tempo ao longo dos anos
+
+.small[O advento do Marco Civil reduziu o tempo de duração dos processos judiciais, contribuindo para a satisfação mais célere dos direitos envolvidos?]
+
+```{r}
+knitr::include_graphics("img/mci-tempo.png")
+```
+
+---
+class: case
+
+# Recorribilidade
+
+.small[O advento do Marco Civil reduziu a proporção de recursos interpostos?]
+
+```{r}
+knitr::include_graphics("img/mci-recorribilidade.png")
+```
+
+---
+class: case
+
+# Tipo de ação
+
+.small[O advento do Marco Civil prejudicou a reparação das vítimas de conteúdo reputado ilícito?]
+
+```{r}
+knitr::include_graphics("img/mci-tipo-acao.png")
+```
+
 
 ---
 class: case
