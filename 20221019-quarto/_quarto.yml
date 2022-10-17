@@ -1,0 +1,3 @@
+project:
+  title: "R Zero to Hero: Quarto"
+  output-dir: "../docs/r-zero-hero/"

@@ -1,0 +1,4 @@
+- source: index.qmd
+  quarto-pub:
+    - id: 86c445a2-9004-4fa2-aa41-920a8865f9fb
+      url: 'https://quartopub.com/sites/jtrecenti/r-zero-to-hero'

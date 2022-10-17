@@ -28,7 +28,7 @@ Fique a vontade para fuçar ou roubar algum slide :) Se quiser, entre em contato
 ```{r tabela, echo=FALSE}
 aux_datas <- fs::dir_ls(".", regexp = "^20") %>% 
   tibble::enframe() %>% 
-  dplyr::mutate(value = stringr::str_extract(value, "(?<=_).*")) %>% 
+  dplyr::mutate(value = stringr::str_extract(value, "(?<=[_-]).*")) %>% 
   dplyr::mutate(value = dplyr::case_when(
     value == "amostra" & name == "20190918_amostra" ~ "amostra2019",
     value == "conre-encontro" ~ "encontro-conre3",
@@ -43,6 +43,7 @@ aux_datas <- fs::dir_ls(".", regexp = "^20") %>%
     value == "petufpr" ~ "petufpr2021",
     value == "ufrn" ~ "ufrn2021",
     value == "google-mci" ~ "google",
+    value == "quarto" ~ "r-zero-hero",
     TRUE ~ value
   )) %>% 
   dplyr::mutate(data = lubridate::ymd(stringr::str_sub(name, 1, 10))) %>% 

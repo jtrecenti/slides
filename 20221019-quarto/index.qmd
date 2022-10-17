@@ -1,0 +1,235 @@
+---
+title: "R: Zero to Hero"
+subtitle: "Relatórios Reprodutíveis com Quarto"
+author: "Julio Trecenti"
+institute: "Insper"
+date: 2022-10-19
+format: 
+  revealjs:
+    theme: [default, custom.scss]
+    highlight-style: arrow
+    footer: "2022"
+    logo: img/logo.png
+    preview-links: auto
+    slide-number: true
+    self-contained: true
+date-format: long
+lang: pt
+---
+
+## Objetivos de aprendizagem
+
+-   Entender as vantagens de programar para ciência de dados
+-   Ler, transformar e visualizar dados com o R
+-   Elaborar um relatório simples com o Quarto
+-   Disponibilizar um relatório no Quarto Pub
+
+::: notes
+Plano
+
+Parte I - Por que programar?
+
+-   Código é aberto, é texto, é linguagem
+-   Atividade
+
+Parte II - Fazendo um relatório
+
+-   Quarto
+-   Atividade
+
+Parte III - Disponibilizando um relatório
+
+-   Quarto pub e outras ferramentas
+-   Atividade
+:::
+
+## Dinâmica
+
+-   Slides para exposição dos conceitos
+
+-   Demonstrações no RStudio
+
+-   Trabalho em grupo no final
+
+# Vantagens ao programar para fazer ciência de dados
+
+## Gratuito!
+
+O conhecimento de experts disponível para você.
+
+![](img/conhecimento.png){fig-align="center"}
+
+::: aside
+[Fonte: Allison Horst](https://allisonhorst.com/)
+:::
+
+
+## Código é texto
+
+Quanto mais você programa, mais __eficiente__ você fica.
+
+![](img/ctrlcv.jpg){fig-align="center"}
+
+::: aside
+[Fonte: drop.com](https://drop.com/buy/stack-overflow-the-key-macropad)
+:::
+
+## Reprodutibilidade
+
+Mais fácil de organizar, entender e reaproveitar seu trabalho.
+
+![](img/reprodut.png){fig-align="center"}
+
+::: aside
+[Fonte: Allison Horst](https://allisonhorst.com/)
+:::
+
+## Comunidade
+
+Fóruns e comunidades sempre te ajudando
+
+![](img/code_hero.jpg){fig-align="center"}
+
+::: aside
+[Fonte: Allison Horst](https://allisonhorst.com/)
+:::
+
+## O ciclo da ciência de dados
+
+O dia-a-dia de quem trabalha com ciência de dados
+
+![](img/ciclo-ciencia-de-dados.png){fig-align="center" width="900"}
+
+::: aside
+[fonte: Livro Curso-R](https://livro.curso-r.com)
+:::
+
+::: aside
+:::
+
+## Vamos ao RStudio! {background-color="#E6E7E8"}
+
+![](img/fox.gif){fig-align="center" width="430"}
+
+# Quarto {.center-title}
+
+## O que é o Quarto?
+
+-   É um **sistema de publicação científica** gratuito e aberto.
+
+-   Permite **misturar texto e código** no mesmo arquivo, chamado **Quarto Markdown** (`.qmd`).
+
+-   Organiza a forma de escrita, as linguagens de programação e os formatos de saída em uma estrutura **unificada**.
+
+-   O documento é processado e gera **HTML, PDF, Word ou outro formato** que você quiser!
+
+## O fluxo do Quarto
+
+A rota do sucesso do Quarto
+
+![](img/fluxo_qmd.png){fig-align="center"}
+
+::: aside
+[Fonte: Allison Horst](https://allisonhorst.com/)
+:::
+
+## Para quem o Quarto é útil?
+
+-   **Para pessoas que já usam R**: o Quarto é quase igual ao RMarkdown. A vantagem do Quarto é apenas ter algumas facilidades a mais (como *autocomplete* de parâmetros no RStudio) e novos templates.
+
+-   **Para pessoas que usam outras linguagens**: No entanto, por ser um software **independente de R**, o Quarto exporta todas as qualidades do RMarkdown para outras linguagens, especialmente Python, Julia e JavaScript.
+
+-   **Para quem não usa programação**: O Quarto é um excelente formato para quem quer escrever artigos, listas de exercícios e até blogs/sites.
+
+## Sintaxe Markdown
+
+Principais marcadores utilizados para formatar texto:
+
+-   uma palavra entre asteriscos fica em itálico: `*texto*` é transformado em *texto*
+
+-   uma palavra entre dois asteríscos fica em negrito: `**texto**` é transformado em **texto**
+
+-   um ou mais hashtags viram títulos: `# Título muito grande`, `## Título grande`, `### Título médio`, `#### Título pequeno`, `##### Título muito pequeno`
+
+-   hiperlinks podem ser criados com a estrutura `[texto](link)`:
+
+-   `[link para site](https://curso-r.com)` é transformado em [link para site](https://curso-r.com).
+
+-   para deixar o texto com `esse formato` (formato de código), apenas coloque o texto entre duas crases.
+
+Material de consulta: [Livro: Ciência de Dados em R - Seção sobre Markdown](https://livro.curso-r.com/9-1-markdown.html)
+
+## Chunks - Campos de código
+
+-   Em um arquivo `.qmd`, precisamos escrever nossos códigos dentro dos *chunks*. Para inserir um chunk, utilize o atalho `CTRL + ALT + I`.
+
+-   É possível adicionar campos de código utilizando a seguinte sintaxe:
+
+```` md
+```{r}`r ''`
+codigo em R aqui
+```
+````
+
+-   Dentro dos chunks você poderá escrever códigos em R como se fosse o nosso script .R tradicional.
+
+Material de consulta: [Livro Curso-R](https://livro.curso-r.com/9-2-r-markdown.html)
+
+## Vamos ao RStudio! {background-color="#E6E7E8"}
+
+![](img/fox.gif){fig-align="center" width="430"}
+
+# Compartilhando
+
+## Compartilhando os resultados
+
+Podemos facilmente enviar os arquivos `.pdf` e `.docx` via e-mail.
+
+No HTML, para disponibilizar dessa forma, precisamos deixá-lo autocontido:
+
+``` {{r}}
+---
+format:
+  html:
+    self-contained: true
+---
+```
+
+## Disponibilizar na internet
+
+Outra forma é disponibilizar o HTML na internet, com serviços como Quarto Pub, Netlify Drop ou GitHub.
+
+Vamos utilizar o **Quarto Pub**. Para outros formatos, ver [os slides aqui](https://curso-r.github.io/main-relatorios/slides/index.html).
+
+![](img/pinguins.png){width="70%" fig-align="center"}
+
+::: aside
+Arte de "Hello, Quarto" keynote by Julia Lowndes and Mine Çetinkaya-Rundel, apresentada na RStudio Conference 2022. Illustrated by Allison Horst.
+:::
+
+## Quarto Pub
+
+O [Quarto Pub](https://quartopub.com/) é um site criado para disponibilizar projetos em Quarto. Ele é totalmente gratuito, mas suas páginas precisam ficar publicamente acessíveis.
+
+Para disponibilizar o seu trabalho no Quarto Pub, rode na **linha de comando**
+
+``` {{bash}}
+quarto publish quarto-pub meu-documento.qmd
+```
+
+Se sua conta não estiver configurada, siga as instruções que ele vai mandar:
+
+``` {{bash}}
+? Publish with account julio.trecenti@gmail.com (Y/n) »
+❯ Press Enter to publish (or type 'n' to use another account)
+```
+
+## Vamos ao RStudio! {background-color="#E6E7E8"}
+
+![](img/fox.gif){fig-align="center" width="430"}
+
+## Obrigado! {background-image="img/fox_bye.gif" background-position-y="bottom 100px;" background-size="200px 200px cover"}
+
+- Se quiser acessar o código e a base de dados, entre aqui: 
+
+- Se quiser usar esse template de apresentações, acesse o [GitHub do padsInsper](https://github.com/padsInsper)
