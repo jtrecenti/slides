@@ -230,6 +230,6 @@ Se sua conta não estiver configurada, siga as instruções que ele vai mandar:
 
 ## Obrigado! {background-image="img/fox_bye.gif" background-position-y="bottom 100px;" background-size="200px 200px cover"}
 
-- Se quiser acessar o código e a base de dados, entre aqui: 
+- Se quiser acessar o código e a base de dados, entre aqui: [link](https://github.com/jtrecenti/slides/tree/master/20221019-quarto)
 
 - Se quiser usar esse template de apresentações, acesse o [GitHub do padsInsper](https://github.com/padsInsper)
