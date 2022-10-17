@@ -12,9 +12,15 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
+.title[
 # .green[Introdução à Jurimetria]
+]
+.subtitle[
 ## <hr/>
+]
+.author[
 ### Julio Trecenti
+]
 
 ---
 
@@ -66,9 +72,9 @@ td {
 
 #### Definição
 
-#### Estatística e ciência de dados
-
 #### Escopo e abrangência
+
+#### Exemplos
 
 {{content}}
 
@@ -81,8 +87,6 @@ td {
 #### Estruturas e fontes de dados
 
 #### Acesso e dados abertos
-
-#### Cases: políticas públicas
 
 --
 
@@ -122,10 +126,6 @@ class: inverse, middle
 --
 
 &lt;hr/&gt;
-
-.center[
-## Exemplo
-]
 
 .pull-left[
 
@@ -183,7 +183,7 @@ Análise de bases de dados de processos, estabelecendo relações entre eles.
 
 - Predição de decisões.
 - Estratégia advocatícia.
-- Caracterização de processos.
+- Caracterização.
 
 
 --
@@ -550,7 +550,7 @@ class: inverse, middle
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
-"ratio": "16:9",
+"ratio": "16:12",
 "highlightStyle": "github",
 "highlightLines": true,
 "countIncrementalSlides": false
@@ -594,6 +594,19 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
 (function() {
   "use strict"
   // Replace <script> tags in slides area to make them executable

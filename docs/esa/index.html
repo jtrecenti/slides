@@ -3,10 +3,10 @@
   <head>
     <title>Jurimetria</title>
     <meta charset="utf-8" />
-    <script src="site_libs/header-attrs-2.5/header-attrs.js"></script>
+    <script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
     <script src="site_libs/clipboard-2.0.6/clipboard.min.js"></script>
-    <link href="site_libs/xaringanExtra-clipboard-0.2.4/xaringanExtra-clipboard.css" rel="stylesheet" />
-    <script src="site_libs/xaringanExtra-clipboard-0.2.4/xaringanExtra-clipboard.js"></script>
+    <link href="site_libs/xaringanExtra-clipboard-0.2.6/xaringanExtra-clipboard.css" rel="stylesheet" />
+    <script src="site_libs/xaringanExtra-clipboard-0.2.6/xaringanExtra-clipboard.js"></script>
     <script>window.xaringanExtraClipboard(null, {"button":"Copy Code","success":"Copied!","error":"Press Ctrl+C to Copy"})</script>
     <link rel="stylesheet" href="css/xaringan-themer.css" type="text/css" />
   </head>
@@ -14,9 +14,12 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
+.title[
 # Jurimetria
-## ciência de dados aplicada ao direito
-### Mundo, 2020
+]
+.subtitle[
+## por que programar?
+]
 
 ---
 
@@ -29,7 +32,6 @@ class: center, middle, inverse, title-slide
 
 
 
----
 ## Conteúdo
 
 &lt;center&gt;
@@ -123,43 +125,6 @@ class: center, middle, inverse, title-slide
 
 ---
 
-## Material
-
-&lt;center&gt;
-
-&lt;br&gt;
-
-Temos um material em português disponível nesta página:
-
-&lt;br&gt;
-
-&lt;a href='https://curso-r.com/material'&gt;https://curso-r.com/material&lt;/a&gt;
-
-&lt;br&gt;
-&lt;br&gt;
-
-Também temos um blog: 
-
-&lt;br&gt;
-
-&lt;a href='http://curso-r.com/blog/'&gt;http://curso-r.com/blog/ &lt;/a&gt;
-
-&lt;/center&gt;
-
-&lt;a href="https://www.curso-r.com/blog/2019-07-15-comunidade/"&gt;
-&lt;img src="img/post-comunidade.png" style="position: fixed; bottom: 80px; left: 180px" width = 170px height = 280px&gt;&lt;/img&gt;
-&lt;/a&gt;
-
-&lt;a href="https://www.curso-r.com/blog/2017-07-29-segundo-menor-dl/"&gt;
-&lt;img src="img/post-deep-learning.png" style="position: fixed; bottom: 78px; left: 380px" width = 170px height = 275px&gt;&lt;/img&gt;
-&lt;/a&gt;
-
-&lt;a href="https://www.curso-r.com/blog/2017-05-01-as-paletas-de-cores-da-marvel-vs-dc/"&gt;
-&lt;img src="img/post-marvel.png" style="position: fixed; bottom: 82px; left: 570px" width = 170px height = 277px&gt;&lt;/img&gt;
-&lt;/a&gt;
-
----
-
 ## Referência
 
 &lt;br&gt;
@@ -189,15 +154,13 @@ class: middle, center
 
 1. Acesso gratuito.
 
-2. Todos podem usar as melhores ferramentas independentemente do poder financeiro.
+2. Estudantes podem usar as mesmas ferramentas que os profissionais.
 
-3. Estudantes podem usar as mesmas ferramentas que os profissionais.
+3. Possibilita a existência de uma __comunidade ativa__.
 
-4. Possibilita a existência de uma comunidade ativa.
+4. Você pode corrigir problemas e aprimorar a linguagem.
 
-5. Você pode corrigir problemas e aprimorar a linguagem.
-
-6. Você pode desenvovler suas próprias ferramentas.
+5. Você pode desenvolver suas próprias ferramentas.
 
 ---
 class: middle, center
@@ -215,9 +178,7 @@ class: middle, center
 ---
 # Reprodutibilidade
 
-&lt;img src="https://github.com/allisonhorst/stats-illustrations/raw/master/rstats-artwork/reproducibility_court.png" width="100%" /&gt;
-
-
+&lt;img src="https://github.com/allisonhorst/stats-illustrations/raw/main/rstats-artwork/reproducibility_court.png" width="100%" /&gt;
 
 ---
 class: middle, center
@@ -230,26 +191,27 @@ class: middle, center
 
 
 ```r
-image_read("https://jeroen.github.io/images/frink.png") %&gt;%
-  image_rotate(270) %&gt;%
-  image_background("blue", flatten = TRUE) %&gt;%
-  image_border("red", "10x10") %&gt;%
+image_read("https://obs.abj.org.br/images/cover.png") |&gt;
+  image_resize("x500") |&gt; 
+  image_rotate(270) |&gt;
+  image_background("blue", flatten = TRUE) |&gt;
+  image_border("red", "10x10") |&gt;
   image_annotate("Linguagens de programação ainda\nsão linguagens!",
-                 color = "white", size = 30)
+                 color = "white", size = 28)
 ```
 
 --
 
 .pull-left[
 #### Entrada
-&lt;img src = "https://jeroen.github.io/images/frink.png" style="width:25%"&gt;
+&lt;img src = "https://obs.abj.org.br/images/cover.png" style="width:80%"&gt;
 ]
 
 --
 
 .pull-right[
 #### Saída
-&lt;img src="index_files/figure-html/frink-out-1.png" width="620" /&gt;
+&lt;img src="index_files/figure-html/frink-out-1.png" width="693" /&gt;
 
 ]
 
@@ -291,9 +253,8 @@ class: middle, center
 &lt;br&gt;
 
 - Documentação do R
-- [Discourse Curso-r](https://discourse.curso-r.com)
 - Google
-- Stack Overflow
+- Stack Overflow e foruns
 ]
 
 .pull-right[
@@ -307,23 +268,16 @@ class: middle, center
 
 Na grande maioria das vezes, você poderá resolver uma tarefa de diversas maneiras. Isso porque, apesar de existirem várias **regras**, linguagens de programação também possuem **boas práticas** e **estilos**.
 
-- Regras: devem ser seguidas para o código funcionar (sintaxe, vocabulário)
+- __Regras__: devem ser seguidas para o código funcionar (sintaxe, vocabulário)
 
-- Boas práticas: recomenda-se seguir para a criação de códigos legíveis (espaçamento, nomes, organização)
+- __Boas práticas__: recomenda-se seguir para a criação de códigos legíveis (espaçamento, nomes, organização)
 
-- Estilo: cada um pode escolher aquele com o qual se sentir mais à vontade (tipos de indentação, formatação)
+- __Estilo__: cada um pode escolher aquele com o qual se sentir mais à vontade (tipos de indentação, formatação)
 
 ---
+class: center, middle
 
 # Obrigado!
-
-## Apresentações: 
-
-### Parte 1: http://bit.ly/abj-esa-1
-
-### Parte 2: http://bit.ly/abj-esa-2
-
-### Contato: [jtrecenti@abj.org.br](mailto:jtrecenti@abj.org.br)
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
@@ -371,6 +325,19 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
 (function() {
   "use strict"
   // Replace <script> tags in slides area to make them executable

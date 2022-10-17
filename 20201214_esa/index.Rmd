@@ -1,7 +1,7 @@
 ---
 title: "Jurimetria"
-subtitle: "ciência de dados aplicada ao direito"
-date: "Mundo, 2020"
+subtitle: "por que programar?"
+date: ""
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -16,7 +16,6 @@ output:
 
 ```
 
----
 ## Conteúdo
 
 <center>
@@ -110,43 +109,6 @@ output:
 
 ---
 
-## Material
-
-<center>
-
-<br>
-
-Temos um material em português disponível nesta página:
-
-<br>
-
-<a href='https://curso-r.com/material'>https://curso-r.com/material</a>
-
-<br>
-<br>
-
-Também temos um blog: 
-
-<br>
-
-<a href='http://curso-r.com/blog/'>http://curso-r.com/blog/ </a>
-
-</center>
-
-<a href="https://www.curso-r.com/blog/2019-07-15-comunidade/">
-<img src="img/post-comunidade.png" style="position: fixed; bottom: 80px; left: 180px" width = 170px height = 280px></img>
-</a>
-
-<a href="https://www.curso-r.com/blog/2017-07-29-segundo-menor-dl/">
-<img src="img/post-deep-learning.png" style="position: fixed; bottom: 78px; left: 380px" width = 170px height = 275px></img>
-</a>
-
-<a href="https://www.curso-r.com/blog/2017-05-01-as-paletas-de-cores-da-marvel-vs-dc/">
-<img src="img/post-marvel.png" style="position: fixed; bottom: 82px; left: 570px" width = 170px height = 277px></img>
-</a>
-
----
-
 ## Referência
 
 <br>
@@ -176,15 +138,13 @@ class: middle, center
 
 1. Acesso gratuito.
 
-2. Todos podem usar as melhores ferramentas independentemente do poder financeiro.
+2. Estudantes podem usar as mesmas ferramentas que os profissionais.
 
-3. Estudantes podem usar as mesmas ferramentas que os profissionais.
+3. Possibilita a existência de uma __comunidade ativa__.
 
-4. Possibilita a existência de uma comunidade ativa.
+4. Você pode corrigir problemas e aprimorar a linguagem.
 
-5. Você pode corrigir problemas e aprimorar a linguagem.
-
-6. Você pode desenvovler suas próprias ferramentas.
+5. Você pode desenvolver suas próprias ferramentas.
 
 ---
 class: middle, center
@@ -203,10 +163,8 @@ class: middle, center
 # Reprodutibilidade
 
 ```{r, out.width="100%", echo=FALSE}
-knitr::include_graphics("https://github.com/allisonhorst/stats-illustrations/raw/master/rstats-artwork/reproducibility_court.png")
+knitr::include_graphics("https://github.com/allisonhorst/stats-illustrations/raw/main/rstats-artwork/reproducibility_court.png")
 ```
-
-
 
 ---
 class: middle, center
@@ -223,20 +181,21 @@ library(dplyr)
 library(viridis)
 ```
 
-```{r frink, eval = FALSE}
-image_read("https://jeroen.github.io/images/frink.png") %>%
-  image_rotate(270) %>%
-  image_background("blue", flatten = TRUE) %>%
-  image_border("red", "10x10") %>%
+```{r frink, eval = FALSE, out.width="60%"}
+image_read("https://obs.abj.org.br/images/cover.png") |>
+  image_resize("x500") |> 
+  image_rotate(270) |>
+  image_background("blue", flatten = TRUE) |>
+  image_border("red", "10x10") |>
   image_annotate("Linguagens de programação ainda\nsão linguagens!",
-                 color = "white", size = 30)
+                 color = "white", size = 28)
 ```
 
 --
 
 .pull-left[
 #### Entrada
-<img src = "https://jeroen.github.io/images/frink.png" style="width:25%">
+<img src = "https://obs.abj.org.br/images/cover.png" style="width:80%">
 ]
 
 --
@@ -287,9 +246,8 @@ class: middle, center
 <br>
 
 - Documentação do R
-- [Discourse Curso-r](https://discourse.curso-r.com)
 - Google
-- Stack Overflow
+- Stack Overflow e foruns
 ]
 
 .pull-right[
@@ -303,20 +261,13 @@ class: middle, center
 
 Na grande maioria das vezes, você poderá resolver uma tarefa de diversas maneiras. Isso porque, apesar de existirem várias **regras**, linguagens de programação também possuem **boas práticas** e **estilos**.
 
-- Regras: devem ser seguidas para o código funcionar (sintaxe, vocabulário)
+- __Regras__: devem ser seguidas para o código funcionar (sintaxe, vocabulário)
 
-- Boas práticas: recomenda-se seguir para a criação de códigos legíveis (espaçamento, nomes, organização)
+- __Boas práticas__: recomenda-se seguir para a criação de códigos legíveis (espaçamento, nomes, organização)
 
-- Estilo: cada um pode escolher aquele com o qual se sentir mais à vontade (tipos de indentação, formatação)
+- __Estilo__: cada um pode escolher aquele com o qual se sentir mais à vontade (tipos de indentação, formatação)
 
 ---
+class: center, middle
 
 # Obrigado!
-
-## Apresentações: 
-
-### Parte 1: http://bit.ly/abj-esa-1
-
-### Parte 2: http://bit.ly/abj-esa-2
-
-### Contato: [jtrecenti@abj.org.br](mailto:jtrecenti@abj.org.br)

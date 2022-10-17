@@ -7,7 +7,7 @@ output:
     lib_dir: libs
     css: ["css/xaringan-themer.css", "default"]
     nature:
-      ratio: "16:9"
+      ratio: "16:12"
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
@@ -78,9 +78,9 @@ td {
 
 #### Definição
 
-#### Estatística e ciência de dados
-
 #### Escopo e abrangência
+
+#### Exemplos
 
 {{content}}
 
@@ -93,8 +93,6 @@ td {
 #### Estruturas e fontes de dados
 
 #### Acesso e dados abertos
-
-#### Cases: políticas públicas
 
 --
 
@@ -134,10 +132,6 @@ class: inverse, middle
 --
 
 <hr/>
-
-.center[
-## Exemplo
-]
 
 .pull-left[
 
@@ -197,7 +191,7 @@ Análise de bases de dados de processos, estabelecendo relações entre eles.
 
 - Predição de decisões.
 - Estratégia advocatícia.
-- Caracterização de processos.
+- Caracterização.
 
 
 --
