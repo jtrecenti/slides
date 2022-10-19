@@ -186,8 +186,6 @@ x |>
   sqrt() |> 
   sum()
 
-# Receita de bolo sem pipe. Tente entender o que é preciso fazer.
-
 # ordenar com arrange()
 
 ancine |> 
