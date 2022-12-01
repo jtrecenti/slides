@@ -3,10 +3,13 @@ title: "Estudo sobre a Ancine"
 format: 
   html:
     code-fold: true
-    self-contained: true
+    self-contained: false
     theme:
       light: flatly
       dark: darkly
+filters:
+  - lightbox
+lightbox: auto
 ---
 
 ```{r}
@@ -47,6 +50,9 @@ dados_grafico <- ancine |>
 ```
 
 ```{r}
+#| lightbox:
+#|   group: r-graph
+#|   description: We see our cars data above
 dados_grafico |> 
   ggplot() +
   aes(x = renda / 1e6, y = titulo) +
@@ -73,6 +79,9 @@ publico_tempo <- ancine |>
 
 ```{r}
 #| message: false
+#| lightbox:
+#|   group: r-graph
+#|   description: We see our cars data above
 publico_tempo |> 
   ggplot() +
   aes(mes, y = publico / 1e6) +

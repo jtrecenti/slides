@@ -67,3 +67,4 @@ contato comigo pelo Telegram ([jtrecenti](https://t.me/jtrecenti)).
 | 2022-03-16 | Estatística é ❤️                                                          | [aqui](https://jtrecenti.github.io/slides/docs/ime2022/index.html)           |
 | 2022-05-17 | Impactos do Marco Civil da Internet no Judiciário                         | [aqui](https://jtrecenti.github.io/slides/docs/google/index.html)            |
 | 2022-10-19 | R: Zero to Hero                                                           | [aqui](https://jtrecenti.github.io/slides/docs/r-zero-hero/index.html)       |
+| 2022-12-01 | R: Zero to Hero                                                           | [aqui](https://jtrecenti.github.io/slides/docs/r-zero-hero-base/index.html)  |
