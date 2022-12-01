@@ -1,0 +1,90 @@
+---
+title: "Estudo sobre a Ancine"
+format: 
+  html:
+    code-fold: true
+    self-contained: true
+    theme:
+      light: flatly
+      dark: darkly
+---
+
+```{r}
+#| message: false
+library(tidyverse)
+```
+
+## Sobre a base da Ancine
+
+A base da ancine é um banco de dados disponibilizado de forma aberta no site da ancine, [neste link](https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/listagem-de-filmes-brasileiros-e-estrangeiros-exibidos-informacoes-por-semana-2009-a-2021.csv).
+
+As colunas da base de dados são descritas abaixo:
+
+```{r}
+ancine <- read_csv("ancine.csv", show_col_types = FALSE)
+# dplyr::glimpse(ancine)
+```
+
+- `titulo`: Nome do filme
+- `dt_lancamento`: Data de lançamento
+- `genero`: Gênero do filme
+- `pais`: País de origem do filme
+- `n_semanas`: Número de semanas em cartaz
+- `publico`: Público total
+- `renda`: Renda total, em reais
+
+Nosso objetivo é gerar duas visualizações sobre a base.
+
+## Lista dos filmes com maior renda
+
+```{r}
+dados_grafico <- ancine |> 
+  filter(publico > 10e6) |> 
+  mutate(
+    titulo = paste0(titulo, " (", year(dt_lancamento), ")"),
+    titulo = fct_reorder(titulo, renda)
+  )
+```
+
+```{r}
+dados_grafico |> 
+  ggplot() +
+  aes(x = renda / 1e6, y = titulo) +
+  geom_col(fill = "#C4161C") +
+  theme_minimal(14) +
+  labs(
+    x = "Renda (R$ milhões)",
+    y = "Filme",
+    title = "Filmes com maior renda",
+    subtitle = "Valores sem ajuste pela inflação",
+    caption = "Fonte: Ancine"
+  )
+```
+
+## Público ao longo do tempo
+
+```{r}
+publico_tempo <- ancine |> 
+  mutate(mes = floor_date(dt_lancamento, "month")) |> 
+  group_by(mes) |> 
+  summarise(publico = sum(publico)) |> 
+  filter(mes < "2022-01-01")
+```
+
+```{r}
+#| message: false
+publico_tempo |> 
+  ggplot() +
+  aes(mes, y = publico / 1e6) +
+  geom_line(size = 1, color = "#BCBEC0") +
+  scale_x_date(date_breaks = "year", date_labels = "%Y") +
+  theme_minimal(14) +
+  geom_smooth(span = .1, color = "#C4161C", se = FALSE) +
+  labs(
+    x = "Mês",
+    y = "Público (milhões)",
+    title = "Público nos cinemas ao longo dos meses",
+    caption = "Fonte: Ancine"
+  )
+```
+
