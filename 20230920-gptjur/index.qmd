@@ -1,0 +1,265 @@
+---
+title: "Aplicações do GPT-4 na Jurimetria"
+subtitle: "Conceitos, aplicações e problemas"
+author: "Julio Trecenti"
+format:
+  revealjs:
+    theme: [default, custom.scss]
+    highlight-style: arrow
+    footer: "2023"
+    preview-links: auto
+    slide-number: true
+    self-contained: true
+    preload-iframes: true
+date-format: long
+lang: pt
+---
+
+## Julio Trecenti
+
+<style type="text/css">
+td {
+  vertical-align: center;
+}
+</style>
+<small>Doutor em estatística pelo IME-USP 🎉</small>
+<table style="border:none;border-color:none;">
+<tr>
+<td><img style="border:none;height:50px" src='img/abj.png' /></td>
+<td>Diretor na Associação Brasileira de Jurimetria</td>
+</tr>
+<tr>
+<td><img style="border:none;height:50px" src='img/terranova.png' /></td>
+<td>Sócio na Terranova Consultoria</td>
+</tr>
+<tr>
+<td><img style="border:none;height:60px;filter:invert(100%);" src='img/ceoe.png' /></td>
+<td>Pós-doc em Jurimetria no CEOE-Unifesp</td>
+</tr>
+<tr>
+<td><img style="border:none;height:50px" src='img/curso-r.png' /></td>
+<td>Sócio na Curso-R</td>
+</tr>
+<tr>
+<td><img style="border:none;height:50px" src='img/insper.png' /></td>
+<td>Professor auxiliar no Insper</td>
+</tr>
+</table>
+
+# Conceitos
+
+## O que é jurimetria?
+
+Jurimetria é a aplicação da **estatística no direito**. Seu objetivo é descobrir **regras jurídicas** que não estão nas leis a partir das **marcas que o Direito deixa no mundo real**.
+
+![](img/ml-jurimetria.png){width=75% fig-align="center"}
+
+## O que são LLMs? {background-image="img/openai-bg.jpg" background-position-y="bottom 100px;" background-size="200px 200px cover" background-opacity=0.2}
+
+<br/>
+<br/>
+<br/>
+
+LLMs (em inglês *Large Language Models*) são **modelos de aprendizado de máquina** treinados para entender e gerar texto humano.
+
+Os LLMs são **modelos generativos**: eles aprendem a prever a próxima palavra de uma frase, dada uma sequência de palavras anteriores. Isso permite que eles sejam usados para gerar textos, códigos, etc.
+
+## Antonio Galves {background-image="img/galves.png" background-position-y="bottom 100px;" background-size="200px 200px cover" background-opacity=0.4}
+
+. . .
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+Aprendi sobre modelos probabilísticos em textos com o professor Antonio Galves.
+
+. . .
+
+No curso Aplicações de processos estocásticos, aprendemos sobre as **cadeias de alcance variável**, uma classe de modelos probabilísticos que estendem as cadeias de Markov.
+
+. . .
+
+**Os LLMs podem ser pensados como cadeias de alcance variável.**
+
+. . .
+
+#### Obrigado, Galves!
+
+## chatGPT
+
+chatGPT é uma variante do modelo GPT-4 treinada especificamente para conversação. Ela pode entender e responder a perguntas, realizar tarefas como extração de texto e até simular diálogos em cenários específicos.
+
+::: {.r-stack}
+
+:::{.fragment .fade-in-then-out}
+![](img/chatgpt-1.png){width=75% fig-align="center"}
+:::
+
+:::{.fragment .fade-in}
+![](img/chatgpt-2.png){width=75% fig-align="center"}
+:::
+
+:::
+
+## OpenAI Playground {background-image="img/playground.png" background-position-y="bottom 100px;" background-size="200px 200px cover" background-opacity=0.1}
+
+OpenAI Playground é uma interface web que permite aos usuários interagir com modelos de linguagem como o GPT-4. É útil para fins de experimentação e teste.
+
+::: {.r-fit-text}
+Acesse aqui:
+
+<https://platform.openai.com/playground>
+
+:::
+
+## API do GPT-4
+
+A API do GPT-4 permite a integração do modelo em aplicativos e serviços, possibilitando a automatização de diversas tarefas, incluindo as jurídicas.
+
+. . .
+
+### Pacote `{openai}`
+
+O pacote `{openai}` é uma biblioteca para R que facilita a interação com a API da OpenAI, permitindo o uso do GPT-4 dentro do ecossistema R.
+
+<iframe src="https://irudnyts.github.io/openai/" width='100%' height='400'></iframe>
+
+# Aplicações
+
+## Cardápio de aplicações
+
+As aplicações de GPT aparecem todos os dias. Vamos ver 3 exemplos:
+
+- Extração de informações
+- Análise de jurisprudência
+- Geração de textos
+
+![](img/aplicacoes-gpt.png){width=40% fig-align="center"}
+
+## Vamos ao R!
+
+![](img/fox.gif){width=40% fig-align="center"}
+
+# Problemas
+
+## Muitos problemas
+
+A aplicação de LLMs é nova e possui diversos problemas e limitações. Vamos ver apenas alguns:
+
+- Validação dos resultados
+- Análise de grandes documentos
+- Privacidade e LGPD
+- Código fechado
+- Pressão do mercado
+- Riscos de tomar decisões automatizadas
+
+## O problema da validação
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+Os textos que saem do GPT podem ser difíceis de validar, pois a resposta "verdadeira" pode ser escrita de diferentes formas.
+
+:::
+
+::: {.column width="50%"}
+
+::: {.fragment .fade-up}
+
+**Possível solução**: Usar o próprio GPT-4 para avaliar
+
+![](img/g-eval.png){width=50%}
+
+<https://arxiv.org/abs/2303.16634>
+
+:::
+
+:::
+
+::::
+
+## O problema dos grandes documentos
+
+A capacidade de processamento e a limitação de tokens do GPT-4 podem ser desafiadoras ao lidar com documentos extensos.
+
+. . .
+
+**Possível solução**: Usar ferramentas de busca com LangChain e concorrentes
+
+![](img/langchain.png){width=75% fig-align="center"}
+
+[Fonte](https://chatgen.ai/blog/langchain/)
+
+## O problema da privacidade: LGPD
+
+O tratamento de dados sensíveis deve estar em conformidade com regulamentações de privacidade, como a LGPD no Brasil.
+
+. . .
+
+**Possível solução**: Aplicar modelos na Nuvem da Azure
+
+![](img/llm_azure.png){width=75% fig-align="center"}
+
+[Fonte](https://techcommunity.microsoft.com/t5/educator-developer-blog/azure-openai-services-in-teaching-and-education/ba-p/3766568)
+
+## O problema do código fechado
+
+A falta de transparência em como os modelos de IA são treinados e funcionam pode ser um problema em termos de confiabilidade e responsabilização.
+
+. . .
+
+**Alternativa**: Utilizar modelos open source, como o [Llama 2](https://ai.meta.com/llama/)
+
+![](img/llama2.png){fig-align="center"}
+
+[Fonte](https://www.dexerto.com/tech/what-is-llama-2-2224223/)
+
+## O problema das decisões automatizadas
+
+O uso indiscriminado de IA para tomar decisões jurídicas pode levar a erros e perpetuação de vieses, como racial e gênero.
+
+. . .
+
+<br/>
+<br/>
+<br/>
+<br/>
+
+#### Ainda não temos uma solução razoável para esse problema
+
+## O problema do mercado
+
+A pressão por resultados rápidos pode levar a adoção apressada de tecnologias, sem a devida validação e testes.
+
+![Imagem de Allison Horst](img/conhecimento.png)
+
+. . .
+
+**Solução**: RESPIRE!
+
+## Por onde começar?
+
+Sugiro começar pelos cursos da <https://DeepLearning.ai>.
+
+Os cursos são sérios, gratuitos e rápidos.
+
+De lá, você pode optar por desenvolver pesquisas mais aprofundadas ou mergulhar na profissão de **engenharia de prompts**!
+
+. . .
+
+::: {.r-fit-text}
+Não se deixe levar pelo hype.
+:::
+
+## Obrigado! {background-image="img/fox_bye.gif" background-position-y="bottom 100px;" background-size="200px 200px cover"}
+
+Se quiser acessar o código, entre aqui:
+
+::: {.r-fit-text}
+<https://github.com/jtrecenti/slides/tree/master/20230920-gptjur>
+:::
+
