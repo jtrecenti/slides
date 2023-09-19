@@ -19,7 +19,7 @@ Fique a vontade para fuçar ou roubar algum slide :) Se quiser, entre em
 contato comigo pelo Telegram ([jtrecenti](https://t.me/jtrecenti)).
 
 | Data       | Titulo                                                                    | Link                                                                         |
-|:-----------|:--------------------------------------------------------------------------|:-----------------------------------------------------------------------------|
+| :--------- | :------------------------------------------------------------------------ | :--------------------------------------------------------------------------- |
 | 2018-10-01 | Abertura                                                                  | [aqui](https://jtrecenti.github.io/slides/docs/amostra/index.html)           |
 | 2018-11-12 | Deep Learning using R                                                     | [aqui](https://jtrecenti.github.io/slides/docs/ufba-dl/index.html)           |
 | 2018-11-12 | The role of Statistics in the world of Big Data                           | [aqui](https://jtrecenti.github.io/slides/docs/ufba-rt/index.html)           |
@@ -68,3 +68,4 @@ contato comigo pelo Telegram ([jtrecenti](https://t.me/jtrecenti)).
 | 2022-05-17 | Impactos do Marco Civil da Internet no Judiciário                         | [aqui](https://jtrecenti.github.io/slides/docs/google/index.html)            |
 | 2022-10-19 | R: Zero to Hero                                                           | [aqui](https://jtrecenti.github.io/slides/docs/r-zero-hero/index.html)       |
 | 2022-12-01 | R: Zero to Hero                                                           | [aqui](https://jtrecenti.github.io/slides/docs/r-zero-hero-base/index.html)  |
+| 2023-09-20 | Aplicações do GPT-4 na Jurimetria                                         | [aqui](https://jtrecenti.github.io/slides/docs/gptjur/index.html)            |
