@@ -11,6 +11,7 @@ format:
     slide-number: true
     self-contained: true
     preload-iframes: true
+    embed-resources: true
 date-format: long
 lang: pt
 ---
@@ -125,7 +126,14 @@ A API do GPT-4 permite a integração do modelo em aplicativos e serviços, poss
 
 O pacote `{openai}` é uma biblioteca para R que facilita a interação com a API da OpenAI, permitindo o uso do GPT-4 dentro do ecossistema R.
 
-<iframe src="https://irudnyts.github.io/openai/" width='100%' height='400'></iframe>
+::: {.r-fit-text}
+
+Acesse aqui:
+
+<https://irudnyts.github.io/openai/>
+
+:::
+
 
 # Aplicações
 
