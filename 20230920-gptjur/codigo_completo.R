@@ -133,6 +133,7 @@ analise_geral$choices$message.content |>
 set.seed(42)
 dados_caso <- dados_cjsg |>
   dplyr::slice_sample(n = 1) |>
+  dplyr::glimpse() |>
   jsonlite::toJSON()
 
 acordao <- openai::create_chat_completion(

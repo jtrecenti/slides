@@ -1,6 +1,6 @@
 ---
-title: "Aplicações do GPT-4 na Jurimetria"
-subtitle: "Conceitos, aplicações e problemas"
+title: "*Large Language Models* no Direito"
+subtitle: "Conceitos, Aplicações e Problemas"
 author: "Julio Trecenti"
 format:
   revealjs:
@@ -51,7 +51,7 @@ td {
 
 ## O que é jurimetria?
 
-Jurimetria é a aplicação da **estatística no direito**. Seu objetivo é descobrir **regras jurídicas** que não estão nas leis a partir das **marcas que o Direito deixa no mundo real**.
+Jurimetria é a aplicação da **estatística no direito**. Ela é usada para descobrir **regras jurídicas** a partir das **marcas que o Direito deixa na sociedade**.
 
 ![](img/ml-jurimetria.png){width=75% fig-align="center"}
 
@@ -65,42 +65,18 @@ LLMs (em inglês *Large Language Models*) são **modelos de aprendizado de máqu
 
 Os LLMs são **modelos generativos**: eles aprendem a prever a próxima palavra de uma frase, dada uma sequência de palavras anteriores. Isso permite que eles sejam usados para gerar textos, códigos, etc.
 
-## Antonio Galves {background-image="img/galves.png" background-position-y="bottom 100px;" background-size="200px 200px cover" background-opacity=0.4}
-
-. . .
-
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-
-Aprendi sobre modelos probabilísticos em textos com o professor Antonio Galves.
-
-. . .
-
-No curso Aplicações de processos estocásticos, aprendemos sobre as **cadeias de alcance variável**, uma classe de modelos probabilísticos que estendem as cadeias de Markov.
-
-. . .
-
-**Os LLMs podem ser pensados como cadeias de alcance variável.**
-
-. . .
-
-#### Obrigado, Galves!
-
 ## chatGPT
 
 chatGPT é uma variante do modelo GPT-4 treinada especificamente para conversação. Ela pode entender e responder a perguntas, realizar tarefas como extração de texto e até simular diálogos em cenários específicos.
 
 ::: {.r-stack}
 
-:::{.fragment .fade-in-then-out}
-![](img/chatgpt-1.png){width=75% fig-align="center"}
+:::{.fragment .fade-out}
+![](img/chatgpt-1.png){width=90% fig-align="center"}
 :::
 
 :::{.fragment .fade-in}
-![](img/chatgpt-2.png){width=75% fig-align="center"}
+![](img/chatgpt-2.png){width=90% fig-align="center"}
 :::
 
 :::
@@ -137,7 +113,7 @@ Acesse aqui:
 
 # Aplicações
 
-## Cardápio de aplicações
+## Um mundo novo
 
 As aplicações de GPT aparecem todos os dias. Vamos ver 3 exemplos:
 
@@ -148,6 +124,12 @@ As aplicações de GPT aparecem todos os dias. Vamos ver 3 exemplos:
 ![](img/aplicacoes-gpt.png){width=40% fig-align="center"}
 
 ## Vamos ao R!
+
+Se quiser acessar o código, entre aqui:
+
+::: {.r-fit-text}
+<https://github.com/jtrecenti/slides/tree/master/20230920-gptjur>
+:::
 
 ![](img/fox.gif){width=40% fig-align="center"}
 
@@ -198,7 +180,7 @@ A capacidade de processamento e a limitação de tokens do GPT-4 podem ser desaf
 
 **Possível solução**: Usar ferramentas de busca com LangChain e concorrentes
 
-![](img/langchain.png){width=75% fig-align="center"}
+![](img/langchain.png){width=65% fig-align="center"}
 
 [Fonte](https://chatgen.ai/blog/langchain/)
 
@@ -237,13 +219,13 @@ O uso indiscriminado de IA para tomar decisões jurídicas pode levar a erros e 
 <br/>
 <br/>
 
-#### Ainda não temos uma solução razoável para esse problema
+#### Ainda não temos uma solução para esse problema.
 
 ## O problema do mercado
 
 A pressão por resultados rápidos pode levar a adoção apressada de tecnologias, sem a devida validação e testes.
 
-![Imagem de Allison Horst](img/conhecimento.png)
+![Imagem de Allison Horst](img/conhecimento.png){width=50% fig-align="center"}
 
 . . .
 
@@ -263,11 +245,30 @@ De lá, você pode optar por desenvolver pesquisas mais aprofundadas ou mergulha
 Não se deixe levar pelo hype.
 :::
 
+# Antonio Galves {auto-animate=true background-color="#999999"}
+
+## Antonio Galves {auto-animate=true background-image="img/galves.png" background-position-y="bottom 100px;" background-size="200px 200px cover" background-opacity=0.4}
+
+. . .
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+Aprendi sobre modelos probabilísticos em textos com o professor Antonio Galves.
+
+. . .
+
+No curso *Aplicações de Processos Estocásticos*, aprendemos sobre as **cadeias de alcance variável**, uma classe de modelos probabilísticos que estendem as cadeias de Markov.
+
+. . .
+
+**Os LLMs podem ser pensados como cadeias de alcance variável.**
+
+. . .
+
+#### Obrigado, Galves!
+
 ## Obrigado! {background-image="img/fox_bye.gif" background-position-y="bottom 100px;" background-size="200px 200px cover"}
-
-Se quiser acessar o código, entre aqui:
-
-::: {.r-fit-text}
-<https://github.com/jtrecenti/slides/tree/master/20230920-gptjur>
-:::
-
