@@ -447,7 +447,13 @@ class: case
 
 chatGPT é uma variante do modelo GPT-4 treinada especificamente para conversação. Ela pode entender e responder a perguntas, realizar tarefas como extração de texto e até simular diálogos em cenários específicos.
 
-![](img/chatgpt-1.png){width=90% fig-align="center"}
+
+```{r}
+#| out.width: "80%"
+#| echo: false
+
+knitr::include_graphics("img/chatgpt-1.png")
+```
 
 ---
 class: case
@@ -456,7 +462,12 @@ class: case
 
 chatGPT é uma variante do modelo GPT-4 treinada especificamente para conversação. Ela pode entender e responder a perguntas, realizar tarefas como extração de texto e até simular diálogos em cenários específicos.
 
-![](img/chatgpt-2.png){width=90% fig-align="center"}
+```{r}
+#| out.width: "80%"
+#| echo: false
+
+knitr::include_graphics("img/chatgpt-2.png")
+```
 
 ---
 class: case
@@ -480,7 +491,13 @@ As aplicações de GPT aparecem todos os dias. Exemplos:
 - Análise de jurisprudência
 - Geração de textos
 
-![](img/aplicacoes-gpt.png){width=40% fig-align="center"}
+```{r}
+#| out.width: "80%"
+#| echo: false
+
+knitr::include_graphics("img/aplicacoes-gpt.png")
+```
+
 
 ---
 class: case
