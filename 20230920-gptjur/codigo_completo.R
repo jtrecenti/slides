@@ -53,6 +53,8 @@ dados_cjsg <- fs::dir_ls("input/cjsg") |>
 
 dplyr::glimpse(dados_cjsg)
 
+View(dados_cjsg)
+
 analisar_caso <- function(txt, tema) {
   analise_caso <- openai::create_chat_completion(
     model = "gpt-4",

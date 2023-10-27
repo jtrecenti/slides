@@ -1,0 +1,517 @@
+---
+title: "Introdução à Jurimetria"
+subtitle: "<hr/>"
+author: "Julio Trecenti"
+date: "2023-10-27"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: ["css/xaringan-themer.css", "default"]
+    nature:
+      ratio: "16:12"
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+
+```{r setup, include=FALSE}
+library(magrittr, include.only = "%>%")
+
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(
+  echo=FALSE,
+  warning=FALSE,
+  message=FALSE,
+  out.width = "99%",
+  fig.align = "center",
+  dpi = 300
+)
+
+crop <- function(im, left = 0, top = 0, right = 0, bottom = 0) {
+  d <- dim(im[[1]]); w <- d[2]; h <- d[3]
+  magick::image_crop(
+    im,
+    glue::glue("{w-left-right}x{h-top-bottom}+{left}+{top}")
+  )
+}
+
+```
+
+```{css}
+p.caption {
+  font-size: 0.6em;
+}
+```
+
+
+# Apresentação
+
+<style type="text/css">
+td {
+  vertical-align: center;
+}
+</style>
+<small>Julio Trecenti: **faxineiro de dados**</small>
+<table style="border:none;border-color:none;">
+<tr>
+<td><img style="border:none;height:60px" src='img/ime.png' /></td>
+<td>Doutor em Estatística pelo IME-USP</td>
+</tr>
+<tr>
+<td><img style="border:none;height:50px" src='img/ceoe.png' /></td>
+<td>Pós-doutorando em Jurimetria no CEOE</td>
+</tr>
+<tr>
+<td><img style="border:none;height:50px" src='img/abj.png' /></td>
+<td>Diretor-técnico na Associação Brasileira de Jurimetria</td>
+</tr>
+<tr>
+<td><img style="border:none;height:50px" src='img/terranova.png' /></td>
+<td>Sócio da Terranova Consultoria</td>
+</tr>
+<tr>
+<td><img style="border:none;height:50px" src='img/insper.png' /></td>
+<td>Professor auxiliar no Insper</td>
+</tr>
+</table>
+
+---
+
+# Agenda
+
+.pull-left[.center[
+
+## O que é
+
+{{content}}
+
+]]
+
+--
+
+## Exemplos
+
+--
+
+.pull-right[.center[
+
+## Como faz
+
+{{content}}
+
+]]
+
+--
+
+## Tendências
+
+
+---
+class: inverse, middle
+
+# O que é
+
+---
+
+# O que é jurimetria?
+
+- Jurimetria é a __estatística__ aplicada ao __direito__.
+
+--
+
+- Fazer jurimetria é pensar o direito de forma __concreta__, colocando nosso objeto de estudo no __tempo__ e no __espaço__.
+
+--
+
+- A jurimetria __complementa__ o estudo clássico do direito, considerando leis, __princípios__ jurídicos e pensamentos abstratos como __hipóteses__ que se manifestam ou não na __realidade__ através das __decisões__ judiciais.
+
+--
+
+<hr/>
+
+.center[
+## Exemplo
+]
+
+.pull-left[
+
+### Estudo clássico
+
+Princípios jurídicos e pensamento de especialistas sobre o valor de indenização por dano moral a ser concedido no contexto de direito do consumidor.
+
+]
+
+--
+
+.pull-right[
+
+### Estudo jurimétrico
+
+Valores típicos de dano moral em sentenças de primeira instância de processos envolvendo direito do consumidor no Tribunal de Justiça de São Paulo em 2020.
+
+]
+
+---
+
+# Stakeholders
+
+A jurimetria auxilia e complementa os trabalhos de todas as pessoas que atuam no universo do direito.
+
+.pull-left[
+
+### Advocacia e empresas
+
+- Estatística como tecnologia para arguição.
+- Análise de risco, _due diligence_ e provisionamento.
+
+{{content}}
+
+]
+
+--
+
+### Juristas
+
+- Pareceres jurimétricos.
+- Análise da lei na ótica concreta.
+
+--
+
+.pull-right[
+
+### Magistratura
+
+- Melhores práticas para administração judiciária.
+- Aprimoramento das decisões a partir da análise dos dados.
+
+{{content}}
+
+]
+
+--
+
+### Legislativo
+
+- Estudo quantitativo de leis.
+- Análise do impacto regulatório.
+
+---
+class: inverse, middle
+
+# Exemplos
+
+---
+
+# Adoção
+
+__Objetivo__: Analisar o tempo dos processos relacionados à adoção no Brasil.
+
+```{r adocao, out.width='60%', fig.cap="Na parte vermelha, o gráfico mostra a distribuição das idades das crianças disponíveis em abrigos. Na parte azul, o gráfico mostra a distribuição das idades máximas que os pretendentes à adoção aceitam."}
+"img/adocao.png" %>%
+  magick::image_read() %>%
+  crop(top = 100, bottom = 110)
+```
+
+__Resultado__: Lei 13.509/2017, com medidas que podem reduzir o tempo de processos relacionados à destituição do poder familiar.
+
+---
+
+# Maiores litigantes
+
+__Objetivo__: Mapear os maiores litigantes em ações consumeristas.
+
+```{r ml, out.width='65%', fig.cap="Proporção acumulada do total de processos consumeristas pela quantidade de litigantes, ordenando-se pelos maiores litigantes em sete unidades federativas."}
+"img/cnjml.png" %>%
+  magick::image_read() %>%
+  crop(top = 110, bottom = 100)
+```
+
+__Resultado__: Integração entre sistema Consumidor.gov.br e Processo Judicial Eletrônico (PJe).
+
+
+---
+
+# Drogas
+
+__Objetivo__: Estudar critérios objetivos para definir porte e tráfico de drogas.
+
+```{r drogas, out.width='80%', fig.cap="Proporção de casos que seriam reclassificados em caso de utilização de quantidade de gramas de maconha para classificar o porte da droga como porte para uso (parte de cima) ou porte para tráfico (parte de baixo)."}
+"img/drogas.png" %>%
+  magick::image_read() %>%
+  crop(top = 100, bottom = 10)
+```
+
+__Resultado__: Tomando como base as classificações temporárias definidas pelas autoridades policiais, é possível propor valores de corte ideais que balanceiam os dois tipos de injustiças. Decisão do STF em 2023.
+
+---
+
+# Câmaras criminais
+
+__Objetivo__: Analisar variabilidade da taxa de reforma das Câmaras Criminais.
+
+```{r camaras, out.width='50%', fig.cap="Proporções de cada decisão em recursos de apelação contra o Ministério Público no Tribunal de Justiça de São Paulo. A cor mais escura mostra a proporção de recursos negados, a intermediária mostra a proporção de recursos parcialmente providos e a mais clara mostra a proporção de recursos providos."}
+"img/camaras.png" %>%
+  magick::image_read() %>%
+  crop(top = 50, bottom = 120)
+```
+
+__Resultado__: Alta variabilidade nas taxas de recursos negados, que vai de 16% na 12ª Câmara Criminal até 81% na 4ª Câmara Criminal.
+
+---
+
+# Observatório da insolvência
+
+__Objetivo__: Compreender empiricamente o processo da insolvência.
+
+```{r observatorio, out.width='50%', fig.cap="Relação entre remuneração do Administrador Judicial (AJ) e valor total da dívida da recuperanda. O valor máximo de remuneração do AJ deve ser de 5% do valor total da dívida."}
+"img/obsfase2.png" %>%
+  magick::image_read() %>%
+  crop(top = 10, bottom = 10)
+```
+
+---
+class: inverse, middle
+
+# Como faz
+
+---
+
+# Pesquisa jurimétrica?
+
+- Colocamos nosso objeto de estudo no tempo e no espaço.
+
+- Logo, precisamos delimitar a abrangência regional e temporal do estudo.
+
+- Também é necessário definir de forma precisa o escopo do estudo, ou seja, o que define se um caso específico é ou não parte do interesse da pesquisa.
+
+---
+
+# Exemplo: Covid
+
+.pull-left[
+
+```{r out.width="80%"}
+knitr::include_graphics("img/covid.png")
+```
+
+]
+
+--
+
+.pull-right[
+
+- Recorte temporal: 2020-2022
+- Recorte regional: TJSP
+- Escopo: Sentença que menciona palavras relacionadas à Covid.
+
+Base de dados: https://github.com/abjur/covidTJSP
+
+]
+
+
+---
+
+# Estudos prospectivos e retrospectivos
+
+- Estudos __prospectivos__ acompanham processos desde seu __nascimento__, identificado pela data de distribuição, até sua morte, identificada pela sentença, trânsito em julgado, arquivamento, etc.
+  - Importante em análise de tempos.
+  - Análise de sobrevivência.
+
+--
+
+Já estudos __retrospectivos__ são aqueles que indexam os processos por alguma data de __desfecho__, como uma sentença, um acórdão ou a data de arquivamento.
+  - Importante para análise de decisões.
+  - Modelos preditivos.
+
+---
+
+# Estruturas e fontes de dados
+
+- __Diários de Justiça__: PDFs gigantescos contendo toda a movimentação judiciária. Não é fácil lista processos a partir desses arquivos. É útil para estudos prospectivos.
+
+--
+
+- __Consulta de jurisprudência__: Ferramentas de pesquisa dos tribunais. É mais fácil de consultar, mas ficamos reféns da qualidade da ferramenta de pesquisa.
+
+--
+
+- __DataJud__: Base de dados acessível e completa disponibilizada pelo CNJ (Resolução 331/2020).
+
+---
+
+# Estrutura de dados
+
+- __Capa__: contém classe, assunto, vara, comarca, status, indicador de processo digital, local físico, entre outras.
+
+- __Partes__: contém nomes dos autores e dos réus, advogado e tipo de participação.
+
+- __Movimentações__: contém datas, títulos e conteúdo de todas as movimentações públicas do processo. São movimentações desde despachos simples, remessas e conclusos até ata de audiências e sentenças completas.
+
+- __Pasta digital__: contém todos os autos do processo, incluindo petição inicial, contestação e outros documentos não publicáveis. Os documentos só estão disponíveis em processos digitais, com acesso somente a advogados e pesquisadores credenciados.
+
+---
+
+# Ciclo da ciência de dados
+
+Como funciona na prática
+
+```{r, out.width="80%"}
+knitr::include_graphics("img/ciclo-ciencia-de-dados.png")
+```
+
+.small[Fonte: Curso-R e R para Ciência de Dados.]
+
+---
+class: inverse, middle
+
+# Tendências
+
+---
+
+# O que é inteligência artificial?
+
+- Hoje a inteligência artificial __está__ machine learning.
+
+--
+
+.pull-left[
+
+```{r}
+knitr::include_graphics("img/ia_esquerda.png")
+```
+
+]
+
+--
+
+.pull-right[
+
+```{r}
+knitr::include_graphics("img/ia_direita.png")
+```
+
+]
+
+
+---
+
+# Aplicações de IA na jurimetria (1)
+
+```{r, out.width="80%"}
+knitr::include_graphics("img/regras_juridicas.png")
+```
+
+
+---
+
+# Aplicações de IA na jurimetria (2)
+
+```{r}
+knitr::include_graphics("img/regras_jurimetria.png")
+```
+
+---
+
+# Aplicações de IA na jurimetria (3)
+
+### Classificação automática de documentos
+
+- Petições iniciais
+- Decisões
+
+### Processamento de linguagem natural
+
+- Ferramentas de busca
+- Reconhecimento de entidades nomeadas
+- Modelos de tópicos
+
+### Predição de resultados e tempos
+
+- Análise de sobrevivência
+- Modelos preditivos
+
+---
+class: case
+
+## O que são Modelos de linguagem?
+
+LLMs (em inglês *Large Language Models*) são **modelos de aprendizado de máquina** treinados para entender e gerar texto humano.
+
+Os LLMs são **modelos generativos**: eles aprendem a prever a próxima palavra de uma frase, dada uma sequência de palavras anteriores. Isso permite que eles sejam usados para gerar textos, códigos, etc.
+
+---
+class: case
+
+## chatGPT
+
+chatGPT é uma variante do modelo GPT-4 treinada especificamente para conversação. Ela pode entender e responder a perguntas, realizar tarefas como extração de texto e até simular diálogos em cenários específicos.
+
+![](img/chatgpt-1.png){width=90% fig-align="center"}
+
+---
+class: case
+
+## chatGPT
+
+chatGPT é uma variante do modelo GPT-4 treinada especificamente para conversação. Ela pode entender e responder a perguntas, realizar tarefas como extração de texto e até simular diálogos em cenários específicos.
+
+![](img/chatgpt-2.png){width=90% fig-align="center"}
+
+---
+class: case
+
+## OpenAI Playground
+
+OpenAI Playground é uma interface web que permite aos usuários interagir com modelos de linguagem como o GPT-4. É útil para fins de experimentação e teste.
+
+Acesse aqui:
+
+<https://platform.openai.com/playground>
+
+---
+class: case
+
+## Um mundo novo
+
+As aplicações de GPT aparecem todos os dias. Exemplos:
+
+- Extração de informações
+- Análise de jurisprudência
+- Geração de textos
+
+![](img/aplicacoes-gpt.png){width=40% fig-align="center"}
+
+---
+class: case
+
+## Muitos problemas
+
+A aplicação de LLMs é nova e possui diversos problemas e limitações:
+
+- Validação dos resultados
+- Análise de grandes documentos
+- Privacidade e LGPD
+- Código fechado
+- Pressão do mercado
+- Riscos de tomar decisões automatizadas
+
+---
+
+# Referências
+
+### [Jurimetria: como a estatística pode reinventar o direito](https://www.saraiva.com.br/jurimetria-como-a-estatistica-pode-reinventar-o-direito-9325227.html)
+### [R para ciência de dados](https://r4ds.had.co.nz)
+
+### [R para jurimetria](https://abjur.github.com/r4jurimetrics)
+
+### [NDTJ](https://ndtj.com.br)
+
+
+---
+
+# Stalk me
+
+- Julio: [jtrecenti@unifesp.br](mailto:jtrecenti@unifesp.br)
+- Site: https://ceoe.org.br
+- Slides: https://jtrecenti.github.io/slides/docs/ufc-ceoe/
