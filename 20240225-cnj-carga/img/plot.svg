@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="httpgd" width="1227.00" height="474.00" viewBox="0 0 981.60 379.20">
+<defs>
+  <style type='text/css'><![CDATA[
+    .httpgd line, .httpgd polyline, .httpgd polygon, .httpgd path, .httpgd rect, .httpgd circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+  ]]></style>
+<clipPath id="c0"><rect x="0.00" y="0.00" width="981.60" height="379.20"/></clipPath>
+<clipPath id="c1"><rect x="124.14" y="8.97" width="848.49" height="318.36"/></clipPath>
+<clipPath id="c2"><rect x="0.00" y="0.00" width="981.60" height="379.20"/></clipPath>
+</defs>
+<rect width="100%" height="100%" style="stroke: none;fill: #FFFFFF;"/>
+<g clip-path="url(#c0)">
+</g><g clip-path="url(#c1)">
+<polyline points="305.55,327.33 305.55,8.97" style="stroke-width: 0.87;stroke: #EBEBEB;stroke-linecap: butt;"/>
+<polyline points="591.24,327.33 591.24,8.97" style="stroke-width: 0.87;stroke: #EBEBEB;stroke-linecap: butt;"/>
+<polyline points="876.93,327.33 876.93,8.97" style="stroke-width: 0.87;stroke: #EBEBEB;stroke-linecap: butt;"/>
+<polyline points="124.14,240.50 972.63,240.50" style="stroke-width: 1.75;stroke: #EBEBEB;stroke-linecap: butt;"/>
+<polyline points="124.14,95.79 972.63,95.79" style="stroke-width: 1.75;stroke: #EBEBEB;stroke-linecap: butt;"/>
+<polyline points="162.71,327.33 162.71,8.97" style="stroke-width: 1.75;stroke: #EBEBEB;stroke-linecap: butt;"/>
+<polyline points="448.40,327.33 448.40,8.97" style="stroke-width: 1.75;stroke: #EBEBEB;stroke-linecap: butt;"/>
+<polyline points="734.08,327.33 734.08,8.97" style="stroke-width: 1.75;stroke: #EBEBEB;stroke-linecap: butt;"/>
+<rect x="162.71" y="189.85" width="314.26" height="101.30" style="stroke-width: 1.07;stroke: none;stroke-linecap: butt;stroke-linejoin: miter;fill: #414487;"/>
+<rect x="162.71" y="45.14" width="657.08" height="101.30" style="stroke-width: 1.07;stroke: none;stroke-linecap: butt;stroke-linejoin: miter;fill: #7AD151;"/>
+<polygon points="468.51,233.65 485.43,233.65 485.34,233.65 485.69,233.63 486.03,233.57 486.35,233.44 486.65,233.27 486.92,233.05 487.15,232.79 487.34,232.49 487.47,232.17 487.56,231.84 487.59,231.49 487.59,231.49 487.59,220.57 487.59,220.57 487.56,220.22 487.47,219.88 487.34,219.56 487.15,219.27 486.92,219.01 486.65,218.79 486.35,218.62 486.03,218.49 485.69,218.42 485.43,218.41 468.51,218.41 468.77,218.42 468.42,218.41 468.07,218.45 467.74,218.55 467.43,218.70 467.14,218.90 466.89,219.14 466.68,219.41 466.52,219.72 466.41,220.05 466.35,220.39 466.35,220.57 466.35,231.49 466.35,231.32 466.35,231.66 466.41,232.01 466.52,232.34 466.68,232.65 466.89,232.92 467.14,233.16 467.43,233.36 467.74,233.51 468.07,233.61 468.42,233.65" style="stroke-width: 0.53;fill: #FFFFFF;fill-opacity: 0.80;" />
+<g><text x="476.97" y="230.05" text-anchor="middle" style="font-family: Arial;font-size: 11.04px;" textLength="14.04px" lengthAdjust="spacingAndGlyphs">11</text></g>
+<polygon points="811.33,88.94 828.25,88.94 828.16,88.94 828.51,88.93 828.85,88.86 829.18,88.73 829.48,88.56 829.75,88.34 829.98,88.08 830.16,87.79 830.30,87.47 830.38,87.13 830.41,86.78 830.41,86.78 830.41,75.86 830.41,75.86 830.38,75.51 830.30,75.18 830.16,74.86 829.98,74.56 829.75,74.30 829.48,74.08 829.18,73.91 828.85,73.78 828.51,73.72 828.25,73.70 811.33,73.70 811.59,73.72 811.24,73.70 810.90,73.74 810.56,73.84 810.25,73.99 809.96,74.19 809.71,74.43 809.51,74.71 809.34,75.01 809.23,75.34 809.18,75.69 809.17,75.86 809.17,86.78 809.18,86.61 809.18,86.96 809.23,87.30 809.34,87.63 809.51,87.94 809.71,88.21 809.96,88.46 810.25,88.65 810.56,88.80 810.90,88.90 811.24,88.94" style="stroke-width: 0.53;fill: #FFFFFF;fill-opacity: 0.80;" />
+<g><text x="819.79" y="85.34" text-anchor="middle" style="font-family: Arial;font-size: 11.04px;" textLength="14.04px" lengthAdjust="spacingAndGlyphs">23</text></g>
+<polyline points="505.53,247.74 505.53,233.26" style="stroke-width: 1.07;stroke: #000000;stroke-opacity: 0.60;stroke-linecap: butt;"/>
+<polyline points="505.53,240.50 476.97,240.50" style="stroke-width: 1.07;stroke: #000000;stroke-opacity: 0.60;stroke-linecap: butt;"/>
+<polyline points="476.97,247.74 476.97,233.26" style="stroke-width: 1.07;stroke: #000000;stroke-opacity: 0.60;stroke-linecap: butt;"/>
+<polyline points="934.07,103.03 934.07,88.56" style="stroke-width: 1.07;stroke: #000000;stroke-opacity: 0.60;stroke-linecap: butt;"/>
+<polyline points="934.07,95.79 705.52,95.79" style="stroke-width: 1.07;stroke: #000000;stroke-opacity: 0.60;stroke-linecap: butt;"/>
+<polyline points="705.52,103.03 705.52,88.56" style="stroke-width: 1.07;stroke: #000000;stroke-opacity: 0.60;stroke-linecap: butt;"/>
+</g><g clip-path="url(#c2)">
+<g><text x="116.07" y="245.75" text-anchor="end" style="font-family: Arial;font-size: 14.40px;fill: #4D4D4D;" textLength="56.02px" lengthAdjust="spacingAndGlyphs">Comum</text></g>
+<g><text x="116.07" y="101.04" text-anchor="end" style="font-family: Arial;font-size: 14.40px;fill: #4D4D4D;" textLength="85.75px" lengthAdjust="spacingAndGlyphs">Empresarial</text></g>
+<g><text x="162.71" y="345.89" text-anchor="middle" style="font-family: Arial;font-size: 14.40px;fill: #4D4D4D;" textLength="9.16px" lengthAdjust="spacingAndGlyphs">0</text></g>
+<g><text x="448.40" y="345.89" text-anchor="middle" style="font-family: Arial;font-size: 14.40px;fill: #4D4D4D;" textLength="18.32px" lengthAdjust="spacingAndGlyphs">10</text></g>
+<g><text x="734.08" y="345.89" text-anchor="middle" style="font-family: Arial;font-size: 14.40px;fill: #4D4D4D;" textLength="18.32px" lengthAdjust="spacingAndGlyphs">20</text></g>
+<g><text x="548.39" y="366.49" text-anchor="middle" style="font-family: Arial;font-size: 18.00px;" textLength="199.79px" lengthAdjust="spacingAndGlyphs">Tempo mediano (dias)</text></g>
+<g><text transform="translate(22.09,168.15) rotate(-90.00)" text-anchor="middle" style="font-family: Arial;font-size: 18.00px;" textLength="152.02px" lengthAdjust="spacingAndGlyphs">Tipo de processo</text></g>
+</g>
+</svg>

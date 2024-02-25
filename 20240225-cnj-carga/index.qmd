@@ -1,0 +1,154 @@
+---
+title: "Carga de trabalho"
+subtitle: "Case, Desafios e Oportunidades"
+author: "Julio Trecenti"
+format:
+  revealjs:
+    theme: [default, custom.scss]
+    highlight-style: arrow
+    footer: "2024"
+    preview-links: auto
+    slide-number: true
+    self-contained: true
+    preload-iframes: true
+    embed-resources: true
+date-format: long
+lang: pt
+---
+
+## Julio Trecenti
+
+<style type="text/css">
+td {
+  vertical-align: center;
+}
+</style>
+<small>Doutor em estatística pelo IME-USP 🎉</small>
+<table style="border:none;border-color:none;">
+<tr>
+<td><img style="border:none;height:50px" src='img/abj.png' /></td>
+<td>Diretor na Associação Brasileira de Jurimetria</td>
+</tr>
+<tr>
+<td><img style="border:none;height:50px" src='img/terranova.png' /></td>
+<td>Sócio na Terranova Consultoria</td>
+</tr>
+<tr>
+<td><img style="border:none;height:60px;filter:invert(100%);" src='img/ceoe.png' /></td>
+<td>Pós-doc em Jurimetria no CEOE-Unifesp</td>
+</tr>
+<tr>
+<td><img style="border:none;height:50px" src='img/curso-r.png' /></td>
+<td>Sócio na Curso-R</td>
+</tr>
+<tr>
+<td><img style="border:none;height:50px" src='img/insper.png' /></td>
+<td>Professor auxiliar no Insper</td>
+</tr>
+</table>
+
+## O que é jurimetria?
+
+Jurimetria é a aplicação da **estatística no direito**. Ela é usada para descobrir **regras jurídicas** a partir das **marcas que o Direito deixa na sociedade**.
+
+![](img/ml-jurimetria.png){width=75% fig-align="center"}
+
+# Case: varas empresariais
+
+## Sobre o estudo
+
+- Estudo pró bono realizado pela ABJ em 2016
+
+- **Objetivo**: estudar a viabilidade de criação de varas empresariais na Comarca de São Paulo.
+
+- **Dados**: 330 mil processos distribuídos nas Varas Cíveis do Foro Central entre 2013 e 2015.
+
+## Detalhes
+
+O Provimento n. 82/2011 do Tribunal de Justiça de São Paulo (TJSP) dispõe em seu artigo 4º que a criação de novas unidades ou a especialização das varas existentes deve obedecer, dentre outros critérios:
+
+> a carga de serviço por juiz nas varas antigas e nas varas novas, que resultar da instalação, entendido, como número mínimo para deflagrar o procedimento de criação, **1.800 processos novos por ano** nas varas cíveis (...)
+
+## Metodologia
+
+Adotamos uma metodologia quantitativa para estimar a complexidade processual através do tempo médio entre movimentações de "concluso para decisão" e "decisão proferida". Ou seja:
+
+$$
+T = \sum_{\text{decisoes}} (T_\text{decisao} - T_\text{movimentacao anterior})
+$$
+
+## Resultados
+
+Processos de direito empresarial tomam o dobro do tempo dos magistrados até serem concluídos.
+
+![](img/plot.svg)
+
+Com base nisso, a ABJ sugeriu a criação de **duas varas** especializadas em direito empresarial.
+
+Hoje, o tribunal conta com 3 varas especializadas, além de varas empresariais regionais.
+
+# Desafios
+
+## Limitação do método quantitativo
+
+- O método quantitativo é limitado para medir a carga de trabalho. A carga de trabalho é um fenômeno complexo e não pode ser resumido a uma única variável.
+
+- Um fator que impacta muito na mensuração de carga de trabalho são os ritos dos processos e diferentes dinâmicas que cada processo pode apresentar.
+
+## Taxonomia
+
+- Ainda é muito difícil definir os tipos processuais.
+
+- Existe um esforço enorme das Tabelas Processuais Unificadas (TPUs), mas elas são i) insuficientes para a complexidade do Direito e ii) não são adotadas corretamente em todos os casos.
+
+## Acesso a dados
+
+- Na pesquisa de 2016, só conseguimos acesso aos dados através de convênio com o TJSP.
+
+- Mesmo dentro dos tribunais, o acesso aos dados pode ser limitado, especialmente se o objetivo for comparar com outros tribunais.
+
+# Oportunidades
+
+## Experimentação
+
+- Os tribunais geram milhares de decisões por dia e podem usar isso para experimentar novas formas de medição de carga de trabalho.
+
+- As metodologias de mensuração podem ser testadas e aprimoradas, com troca de conhecimento através de reuniões periódicas e relatórios.
+
+- Ao final, as metodologias podem ser homologadas pelo CNJ.
+
+## Dados abertos
+
+- O CNJ tem feito um esforço para disponibilizar dados abertos. Isso é uma grande oportunidade para a comunidade de pesquisa e também para os tribunais.
+
+- Futuramente, também teremos decisões e outros documentos processuais abertos. Isso será uma revolução na aplicação da Inteligência Artificial para ajudar a resolver diversos problemas, inclusive o problema da carga de trabalho.
+
+## Estudos qualitativos e quantitativos, juntos
+
+::: {.columns}
+
+:::: {.column width=50%}
+
+- A ciência é a mudança da opinião de quem observa o fenômeno.
+
+- Isso pode ser feito através de estudos qualitativos e quantitativos.
+
+- Existem técnicas que unificam estudos qualitativos e quantitativos, como os descritos por Creswell.
+
+::::
+
+:::: {.column width=50%}
+
+![](https://cheggwriting.wpengine.com/wp-content/uploads/2021/11/1669-Mixed-methods-1.webp)
+
+::::
+
+:::
+
+::: aside
+
+Fonte: [Chegg Writing](https://cheggwriting.wpengine.com/)
+
+:::
+
+## Obrigado! {background-image="img/fox_bye.gif" background-position-y="bottom 100px;" background-size="200px 200px cover"}
