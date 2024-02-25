@@ -70,4 +70,4 @@ contato comigo pelo Telegram ([jtrecenti](https://t.me/jtrecenti)).
 | 2022-12-01 | R: Zero to Hero                                                           | [aqui](https://jtrecenti.github.io/slides/docs/r-zero-hero-base/index.html)  |
 | 2023-09-20 | Large Language Models no Direito                                          | [aqui](https://jtrecenti.github.io/slides/docs/gptjur/index.html)            |
 | 2023-10-27 | Introdução à Jurimetria                                                   | [aqui](https://jtrecenti.github.io/slides/docs/ufc-ceoe/index.html)          |
-| NA         | Carga de trabalho                                                         | [aqui](https://jtrecenti.github.io/slides/docs/carga/index.html)             |
+| 2024-02-25 | Carga de trabalho                                                         | [aqui](https://jtrecenti.github.io/slides/docs/carga/index.html)             |

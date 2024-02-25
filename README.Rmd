@@ -1,6 +1,6 @@
 ---
 output: github_document
-editor_options: 
+editor_options:
   chunk_output_type: console
 ---
 
@@ -17,18 +17,18 @@ knitr::opts_chunk$set(
 library(magrittr)
 ```
 
-Este repositório contém a maioria das apresentações que fiz a partir de outubro/2018 que utilizam `{xaringan}`. 
+Este repositório contém a maioria das apresentações que fiz a partir de outubro/2018 que utilizam `{xaringan}`.
 
-Muitas das apresentações são de temas repetidos, como recepção de turma da estatística, estatística e empreendedorismo, introdução à jurimetria, entre outros. 
+Muitas das apresentações são de temas repetidos, como recepção de turma da estatística, estatística e empreendedorismo, introdução à jurimetria, entre outros.
 
 Não fiz questão de colocar todas as apresentações; aqui estão apenas as que eu consegui montar de forma minimamente organizada.  As datas também não estão necessariamente corretas: utilizei como base a data de modificação do arquivo.
 
 Fique a vontade para fuçar ou roubar algum slide :) Se quiser, entre em contato comigo pelo Telegram ([jtrecenti](https://t.me/jtrecenti)).
 
 ```{r tabela, echo=FALSE}
-aux_datas <- fs::dir_ls(".", regexp = "^20") %>% 
-  tibble::enframe() %>% 
-  dplyr::mutate(value = stringr::str_extract(value, "(?<=[_-]).*")) %>% 
+aux_datas <- fs::dir_ls(".", regexp = "^20") %>%
+  tibble::enframe() %>%
+  dplyr::mutate(value = stringr::str_extract(value, "(?<=[_-]).*")) %>%
   dplyr::mutate(value = dplyr::case_when(
     value == "amostra" & name == "20190918_amostra" ~ "amostra2019",
     value == "conre-encontro" ~ "encontro-conre3",
@@ -45,32 +45,33 @@ aux_datas <- fs::dir_ls(".", regexp = "^20") %>%
     value == "google-mci" ~ "google",
     value == "quarto" & name == "20221019-quarto" ~ "r-zero-hero",
     value == "quarto" ~ "r-zero-hero-base",
+    value == "cnj-carga" ~ "carga",
     TRUE ~ value
-  )) %>% 
-  dplyr::mutate(data = lubridate::ymd(stringr::str_sub(name, 1, 10))) %>% 
+  )) %>%
+  dplyr::mutate(data = lubridate::ymd(stringr::str_sub(name, 1, 10))) %>%
   dplyr::select(
     data, name = value
   )
 
-pegar_titulo <- . %>% 
-  xml2::read_html(encoding = "UTF-8") %>% 
-  xml2::xml_find_first("//title") %>% 
-  xml2::xml_text() %>% 
+pegar_titulo <- . %>%
+  xml2::read_html(encoding = "UTF-8") %>%
+  xml2::xml_find_first("//title") %>%
+  xml2::xml_text() %>%
   stringr::str_remove_all("\\.[a-z]+\\[|\\]")
 
-fs::dir_ls("docs") %>% 
-  purrr::map_chr(fs::dir_ls, glob = "*.html") %>% 
-  tibble::enframe() %>% 
+fs::dir_ls("docs") %>%
+  purrr::map_chr(fs::dir_ls, glob = "*.html") %>%
+  tibble::enframe() %>%
   dplyr::mutate(
     titulo = purrr::map_chr(value, pegar_titulo),
     name = basename(name)
-  ) %>% 
-  dplyr::left_join(aux_datas, "name") %>% 
+  ) %>%
+  dplyr::left_join(aux_datas, "name") %>%
   dplyr::mutate(link = paste0(
     "[aqui](https://jtrecenti.github.io/slides/", value, ")"
-  )) %>% 
-  dplyr::arrange(data) %>% 
-  dplyr::select(Data = data, Titulo = titulo, Link = link) %>% 
+  )) %>%
+  dplyr::arrange(data) %>%
+  dplyr::select(Data = data, Titulo = titulo, Link = link) %>%
   knitr::kable()
 ```
 
