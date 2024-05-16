@@ -72,3 +72,4 @@ contato comigo pelo Telegram ([jtrecenti](https://t.me/jtrecenti)).
 | 2023-10-27 | Introdução à Jurimetria                                                   | [aqui](https://jtrecenti.github.io/slides/docs/ufc-ceoe/index.html)          |
 | 2024-02-25 | Carga de trabalho                                                         | [aqui](https://jtrecenti.github.io/slides/docs/carga/index.html)             |
 | 2024-04-13 | Introdução à Jurimetria                                                   | [aqui](https://jtrecenti.github.io/slides/docs/acm/index.html)               |
+| 2024-05-16 | Jurimetria, Dados Abertos e Proteção de Dados                             | [aqui](https://jtrecenti.github.io/slides/docs/dadocerto/index.html)         |
