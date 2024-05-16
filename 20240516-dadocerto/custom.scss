@@ -1,0 +1,31 @@
+@import url(//db.onlinewebfonts.com/c/3718b9c08dfceed0abb9688dedf38d8d?family=Prelo+Medium);
+
+
+/*-- scss:defaults --*/
+
+$body-bg: #fff;
+$body-color: #414042;
+$link-color: #C4161C;
+$code-color: #27A5A2;
+$code-block-border-color: #009491;
+
+$presentation-heading-color: #C4161C;
+$presentation-font-size-root: 30px;
+
+$font-family-sans-serif: "Prelo Medium";
+
+$presentation-slide-text-align: left;
+
+$code-block-font-size: 1em;
+
+h1 {
+  text-align: center;
+}
+
+/*-- scss:rules --*/
+
+
+.reveal .slide blockquote {
+  border-left: 3px solid $text-muted;
+  padding-left: 0.5em;
+}

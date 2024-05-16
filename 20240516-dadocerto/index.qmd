@@ -1,0 +1,127 @@
+---
+title: "Jurimetria, Dados Abertos e Proteção de Dados"
+subtitle: "Slides para discussão"
+author: "Julio Trecenti"
+format:
+  revealjs:
+    theme: [default, custom.scss]
+    highlight-style: arrow
+    footer: "2023"
+    preview-links: auto
+    slide-number: true
+    preload-iframes: true
+    embed-resources: true
+date-format: long
+lang: pt
+---
+
+## Julio Trecenti
+
+<style type="text/css">
+td {
+  vertical-align: center;
+}
+</style>
+<small>Faxineiro de dados</small>
+<table style="border:none;border-color:none;">
+<tr>
+<td><img style="border:none;height:50px" src='img/insper.png' /></td>
+<td>Professor no Insper</td>
+</tr>
+<tr>
+<td><img style="border:none;height:50px" src='img/abj.png' /></td>
+<td>Diretor na Associação Brasileira de Jurimetria</td>
+</tr>
+<tr>
+<td><img style="border:none;height:50px" src='img/terranova.png' /></td>
+<td>Sócio na Terranova Consultoria</td>
+</tr>
+<tr>
+<td><img style="border:none;height:60px;filter:invert(100%);" src='img/ceoe.png' /></td>
+<td>Pós-doc em Jurimetria no CEOE-Unifesp</td>
+</tr>
+<tr>
+<td><img style="border:none;height:50px" src='img/curso-r.png' /></td>
+<td>Sócio na Curso-R</td>
+</tr>
+</table>
+
+# Conceitos
+
+## O que é jurimetria?
+
+Jurimetria é a aplicação da **estatística no direito**. Ela é usada para descobrir **regras jurídicas** a partir das **marcas que o Direito deixa na sociedade**.
+
+![](img/ml-jurimetria.png){width=75% fig-align="center"}
+
+## Exemplo de aplicação: Art. 19 MCI
+
+![](img/mci.png)
+
+## Escopo
+
+- Em teoria, a jurimetria lida com dados do legislativo, executivo e judiciário
+- Uma parte significativa envolve **dados do judiciário**, que é nosso foco
+
+## Fontes de dados
+
+### Listagem de processos
+
+- **Jurisprudência**: decisões judiciais.
+- **Diários de Justiça**: publicações.
+
+### Consulta de processos
+
+- **Consulta processual**: Disponível publicamente.
+- **Pasta digital**: Acesso restrito às partes e advogados.
+
+## Dados públicos, mas não abertos
+
+- Os dados do judiciário são **públicos**, mas não **abertos** (definição OKFN).
+
+. . .
+
+**Exceções**:
+
+- [Dados abertos do STJ](https://dadosabertos.web.stj.jus.br/)
+- [DataJud](https://www.cnj.jus.br/sistemas/datajud/)
+
+##
+
+![](img/datajud_logo.png)
+
+## Painel
+
+![](img/datajud.png)
+
+## API
+
+![](img/api_datajud.png)
+
+## Vantagens
+
+- Listagem de processos facilitada
+- Diversos novos projetos destravados!
+
+## Problemas
+
+- Não é possível acessar valor da causa
+- Não temos dados das partes
+
+## Enquanto isso, no TJ
+
+![](img/pix.png)
+
+## Pontos de discussão
+
+- LGPD e judiciário: dados públicos ou pessoais?
+
+. . .
+
+- Dados públicos devem ser sempre abertos?
+
+. . .
+
+- Como melhorar a transparência do judiciário?
+
+## Obrigado! {background-image="img/fox_bye.gif" background-position-y="bottom 100px;" background-size="200px 200px cover"}
