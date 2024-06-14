@@ -46,8 +46,6 @@ td {
 </tr>
 </table>
 
-# Conceitos
-
 ## O que é jurimetria?
 
 Jurimetria é a aplicação da **estatística no direito**. Ela é usada para descobrir **regras jurídicas** a partir das **marcas que o Direito deixa na sociedade**.

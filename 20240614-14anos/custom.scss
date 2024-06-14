@@ -1,0 +1,58 @@
+/*-- scss:defaults --*/
+
+$body-bg: #fff;
+$body-color: #414042;
+$link-color: #C4161C;
+$code-color: #27A5A2;
+$code-block-border-color: #009491;
+
+$presentation-heading-color: #C4161C;
+$presentation-font-size-root: 30px;
+
+$font-family-sans-serif: "Prelo Medium";
+
+$presentation-slide-text-align: left;
+
+$code-block-font-size: 1em;
+
+h1 {
+  text-align: center;
+}
+
+/*-- scss:rules --*/
+
+@font-face {font-family: "Prelo Medium";
+    src: url("https://github.com/padsInsper/quarto-insper-theme/raw/main/_extensions/insper/font/prelo.eot"); /* IE9*/
+    src: url("https://github.com/padsInsper/quarto-insper-theme/raw/main/_extensions/insper/font/prelo_ie6.eot") format("embedded-opentype"), /* IE6-IE8 */
+    url("https://github.com/padsInsper/quarto-insper-theme/raw/main/_extensions/insper/font/prelo.woff2"), /* chrome firefox */
+    url("https://github.com/padsInsper/quarto-insper-theme/raw/main/_extensions/insper/font/prelo.woff") format("woff"), /* chrome firefox */
+    url("https://github.com/padsInsper/quarto-insper-theme/raw/main/_extensions/insper/font/prelo.ttf") format("truetype"), /* chrome firefox opera Safari, Android, iOS 4.2+*/
+    url("https://raw.githubusercontent.com/padsInsper/quarto-insper-theme/main/_extensions/insper/font/prelo.svg") format("svg"); /* iOS 4.1- */
+}
+
+
+.reveal .slide blockquote {
+  border-left: 3px solid $text-muted;
+  padding-left: 0.5em;
+}
+
+
+.v-center-container {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  height: 90%;
+}
+
+.center-x{
+  text-align: center;
+}
+
+
+.red {
+  color: #E80724;
+}
+
+.green {
+  color: #3CBFAE;
+}
