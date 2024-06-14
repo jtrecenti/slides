@@ -18,11 +18,6 @@ modificação do arquivo.
 Fique a vontade para fuçar ou roubar algum slide :) Se quiser, entre em
 contato comigo pelo Telegram ([jtrecenti](https://t.me/jtrecenti)).
 
-    #> Warning: There was 1 warning in `dplyr::mutate()`.
-    #> ℹ In argument: `data = lubridate::ymd(stringr::str_sub(name, 1, 10))`.
-    #> Caused by warning:
-    #> !  1 failed to parse.
-
 | Data       | Titulo                                                                    | Link                                                                         |
 | :--------- | :------------------------------------------------------------------------ | :--------------------------------------------------------------------------- |
 | 2018-10-01 | Abertura                                                                  | [aqui](https://jtrecenti.github.io/slides/docs/amostra/index.html)           |
@@ -78,4 +73,4 @@ contato comigo pelo Telegram ([jtrecenti](https://t.me/jtrecenti)).
 | 2024-02-25 | Carga de trabalho                                                         | [aqui](https://jtrecenti.github.io/slides/docs/carga/index.html)             |
 | 2024-04-13 | Introdução à Jurimetria                                                   | [aqui](https://jtrecenti.github.io/slides/docs/acm/index.html)               |
 | 2024-05-16 | Jurimetria, Dados Abertos e Proteção de Dados                             | [aqui](https://jtrecenti.github.io/slides/docs/dadocerto/index.html)         |
-| NA         | 14 anos de jurimetria                                                     | [aqui](https://jtrecenti.github.io/slides/docs/14anos/index.html)            |
+| 2024-06-14 | 14 anos de jurimetria                                                     | [aqui](https://jtrecenti.github.io/slides/docs/14anos/index.html)            |

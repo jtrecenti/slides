@@ -48,7 +48,7 @@ aux_datas <- fs::dir_ls(".", regexp = "^20") %>%
     value == "cnj-carga" ~ "carga",
     TRUE ~ value
   )) %>%
-  dplyr::mutate(data = lubridate::ymd(stringr::str_sub(name, 1, 10))) %>%
+  dplyr::mutate(data = lubridate::ymd(stringr::str_sub(name, 1, 8))) %>%
   dplyr::select(
     data, name = value
   )
