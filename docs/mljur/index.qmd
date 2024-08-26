@@ -1,0 +1,371 @@
+---
+title: "Machine Learning no Direito"
+subtitle: "Conceitos, Aplicações e Problemas"
+author: "Julio Trecenti"
+format:
+  revealjs:
+    theme: [default, custom.scss]
+    highlight-style: arrow
+    footer: "2024"
+    preview-links: auto
+    slide-number: true
+    self-contained: false
+    preload-iframes: true
+    embed-resources: false
+date-format: long
+lang: pt
+---
+
+## Julio Trecenti
+
+<style type="text/css">
+td {
+  vertical-align: center;
+}
+</style>
+<small>Doutor em estatística pelo IME-USP</small>
+<table style="border:none;border-color:none;">
+<tr>
+<td><img style="border:none;height:50px" src='img/abj.png' /></td>
+<td>Diretor na Associação Brasileira de Jurimetria</td>
+</tr>
+<tr>
+<td><img style="border:none;height:50px" src='img/terranova.png' /></td>
+<td>Sócio na Terranova Consultoria</td>
+</tr>
+<tr>
+<td><img style="border:none;height:60px;filter:invert(100%);" src='img/ceoe.png' /></td>
+<td>Pós-doc em Jurimetria no CEOE-Unifesp</td>
+</tr>
+<tr>
+<td><img style="border:none;height:50px" src='img/curso-r.png' /></td>
+<td>Sócio na Curso-R</td>
+</tr>
+<tr>
+<td><img style="border:none;height:50px" src='img/insper.png' /></td>
+<td>Professor TP no Insper</td>
+</tr>
+</table>
+
+# Conceitos
+
+## O que é Machine Learning?
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+![](img/ml_prog.png){width=100%}
+
+:::
+
+::: {.column width="50%"}
+
+![](img/ml_ml.png){width=100%}
+
+:::
+
+::::
+
+## Modelagem preditiva
+
+- Área da estatística destinada à construção de modelos estatísticos capazes de fornecer boas predições para determinado fenômeno.
+
+- Bom livro:
+
+![](img/livro_ml.png){width=80%}
+
+- Outra boa referência: [AME](https://tiagoms.com/publications/ame/)
+
+## E as redes neurais?
+
+![](img/redes_neurais.png)
+
+## E a inteligência artificial?
+
+![](img/ia.png)
+
+A inteligência artificial *está* machine learning nos dias de hoje.
+
+## IA no Direito = Jurimetria?
+
+<center>
+
+![](img/ml_ml.png){width=80%}
+
+</center>
+
+## IA no Direito $\neq$ Jurimetria!
+
+Jurimetria é a aplicação da **estatística no direito**. Ela é usada para descobrir **regras jurídicas** a partir das **marcas que o Direito deixa na sociedade**.
+
+![](img/ml-jurimetria.png){width=75% fig-align="center"}
+
+## Exemplo jurídico: CARF
+
+![](img/carf.png){width=80%}
+
+**Regra**: ?
+
+## Exemplo jurídico: CARF
+
+![](img/carf.png){width=80%}
+
+**Regra**: se valor $\geq$ 100 $\rightarrow$ recurso
+
+## Aplicações de IA no Direito
+
+![](img/aplicacoes.png)
+
+## Detalhe técnico
+
+- Temos inputs e outputs, e queremos predizer um output que ainda não existe a partir de um input que temos em mãos.
+
+- Por exemplo, queremos predizer o resultado de um processo (output) com base nas características do processo (input).
+
+- Geralmente, associamos os inputs à variável $X$ e os outputs à variável $Y$.
+
+- Queremos criar uma função (uma fórmula) $g$ que, dado um input $X$, nos dê um output $Y$.
+
+$$
+Y = g(X)
+$$
+
+## Sobreajuste
+
+Para isso, podemos aplicar um modelo super complexo, que se ajusta perfeitamente aos dados que observamos, como se cada caso fosse um caso...
+
+![](img/overfiting_sem_teste.gif)
+
+## Sobreajuste
+
+...mas quando aplicamos isso no mundo real, os modelos mais complicados não são necessariamente os melhores.
+
+![](img/overfiting_com_teste.gif)
+
+## Erro de generalização
+
+Um modelo de aprendizado estatístico precisa funcionar bem para bases de dados que nós **não observamos**. Para isso, tentamos criar um modelo que se adeque bem aos dados que temos, mas que também funcione bem para dados que não temos.
+
+![](img/alvo.png)
+
+## Treino e teste
+
+- Para lidar com esse problema, separamos nossa base em duas: uma para **treino** e outra para **teste**.
+
+- Na base de treino, ajustamos o modelo. Na base de teste, verificamos se o modelo funciona bem. Dessa forma, não somos enganados pelo sobreajuste.
+
+- Dependendo da complexidade do modelo, muitas vezes precisamos também utilizar uma técnica chamada **validação cruzada**. Essa técnica consiste em ajustar o modelo em várias bases de treino diferentes, avaliando sua qualidade em bases de validação.
+
+## Resumo
+
+- A IA *está* machine learning. Aprendizado de máquinas é o mesmo que aprendizado estatístico.
+
+- A jurimetria vai além da IA aplicada ao Direito.
+
+- Modelos preditivos buscam minimizar o erro de generalização. Para isso, separamos a base em treino e teste.
+
+## Exemplo
+
+Se quiser acessar o código, entre aqui:
+
+::: {.r-fit-text}
+<https://github.com/jtrecenti/slides/tree/master/20240827-mljur>
+:::
+
+![](img/fox.gif){width=40% fig-align="center"}
+
+# Large Language Models
+
+## O que são LLMs? {background-image="img/openai-bg.jpg" background-position-y="bottom 100px;" background-size="200px 200px cover" background-opacity=0.2}
+
+<br/>
+<br/>
+<br/>
+
+LLMs (em inglês *Large Language Models*) são **modelos de aprendizado de máquina** treinados para entender e gerar texto humano.
+
+Os LLMs são **modelos generativos**: eles aprendem a prever a próxima palavra de uma frase, dada uma sequência de palavras anteriores. Isso permite que eles sejam usados para gerar textos, códigos, etc.
+
+## chatGPT
+
+chatGPT é uma interface que usa o modelo GPT. Ela pode entender e responder a perguntas, realizar tarefas como extração de texto e até simular diálogos em cenários específicos.
+
+::: {.r-stack}
+
+:::{.fragment .fade-out}
+![](img/chatgpt-1.png){width=90% fig-align="center"}
+:::
+
+:::{.fragment .fade-in}
+![](img/chatgpt-2.png){width=90% fig-align="center"}
+:::
+
+:::
+
+## OpenAI Playground {background-image="img/playground.png" background-position-y="bottom 100px;" background-size="200px 200px cover" background-opacity=0.1}
+
+OpenAI Playground é uma interface web que permite aos usuários interagir com modelos de linguagem como o GPT-4o. É útil para fins de experimentação e teste.
+
+::: {.r-fit-text}
+Acesse aqui:
+
+<https://platform.openai.com/playground>
+
+:::
+
+## API do GPT-4o
+
+A API do GPT-4o permite a integração do modelo em aplicativos e serviços, possibilitando a automatização de diversas tarefas, incluindo as jurídicas.
+
+. . .
+
+### Pacote `{openai}`
+
+O pacote `{openai}` é uma biblioteca para R que facilita a interação com a API da OpenAI, permitindo o uso do GPT-4 dentro do ecossistema R.
+
+::: {.r-fit-text}
+
+Acesse aqui:
+
+<https://irudnyts.github.io/openai/>
+
+:::
+
+
+# Aplicações
+
+## Um mundo novo
+
+As aplicações de GPT aparecem todos os dias. Vamos ver 3 exemplos:
+
+- Extração de informações
+- Análise de jurisprudência
+- Geração de textos
+
+![](img/aplicacoes-gpt.png){width=40% fig-align="center"}
+
+## Vamos ao R!
+
+Se quiser acessar o código, entre aqui:
+
+::: {.r-fit-text}
+<https://github.com/jtrecenti/slides/tree/master/20240827-mljur>
+:::
+
+![](img/fox.gif){width=40% fig-align="center"}
+
+# Problemas
+
+## Muitos problemas
+
+A aplicação de LLMs é nova e possui diversos problemas e limitações. Vamos ver apenas alguns:
+
+- Validação dos resultados
+- Análise de grandes documentos
+- Privacidade e LGPD
+- Código fechado
+- Pressão do mercado
+- Riscos de tomar decisões automatizadas
+
+## O problema da validação
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+Os textos que saem do GPT podem ser difíceis de validar, pois a resposta "verdadeira" pode ser escrita de diferentes formas.
+
+:::
+
+::: {.column width="50%"}
+
+::: {.fragment .fade-up}
+
+**Possível solução**: Usar o próprio GPT-4 para avaliar
+
+![](img/g-eval.png){width=50%}
+
+<https://arxiv.org/abs/2303.16634>
+
+:::
+
+:::
+
+::::
+
+## O problema dos grandes documentos
+
+A capacidade de processamento e a limitação de tokens do GPT-4 podem ser desafiadoras ao lidar com documentos extensos.
+
+. . .
+
+**Possível solução**: Usar ferramentas de busca com LangChain e concorrentes
+
+![](img/langchain.png){width=65% fig-align="center"}
+
+[Fonte](https://chatgen.ai/blog/langchain/)
+
+## O problema da privacidade: LGPD
+
+O tratamento de dados sensíveis deve estar em conformidade com regulamentações de privacidade, como a LGPD no Brasil.
+
+. . .
+
+**Possível solução**: Aplicar modelos na Nuvem da Azure
+
+![](img/llm_azure.png){width=75% fig-align="center"}
+
+[Fonte](https://techcommunity.microsoft.com/t5/educator-developer-blog/azure-openai-services-in-teaching-and-education/ba-p/3766568)
+
+## O problema do código fechado
+
+A falta de transparência em como os modelos de IA são treinados e funcionam pode ser um problema em termos de confiabilidade e responsabilização.
+
+. . .
+
+**Alternativa**: Utilizar modelos open source, como o [Llama 2](https://ai.meta.com/llama/)
+
+![](img/llama2.png){fig-align="center"}
+
+[Fonte](https://www.dexerto.com/tech/what-is-llama-2-2224223/)
+
+## O problema do mercado
+
+A pressão por resultados rápidos pode levar a adoção apressada de tecnologias, sem a devida validação e testes.
+
+![Imagem de Allison Horst](img/conhecimento.png){width=50% fig-align="center"}
+
+. . .
+
+**Solução**: RESPIRE!
+
+
+## O problema das decisões automatizadas
+
+O uso indiscriminado de IA para tomar decisões jurídicas pode levar a erros e perpetuação de vieses, como racial e gênero.
+
+. . .
+
+<br/>
+<br/>
+<br/>
+<br/>
+
+#### Ainda não temos uma solução para esse problema.
+
+## Por onde começar?
+
+Sugiro começar pelos cursos da <https://DeepLearning.ai>.
+
+Os cursos são sérios, gratuitos e rápidos.
+
+De lá, você pode optar por desenvolver pesquisas mais aprofundadas ou mergulhar na profissão de **engenharia de prompts**!
+
+. . .
+
+::: {.r-fit-text}
+Não se deixe levar pelo hype.
+:::
+
+## Obrigado! {background-image="img/fox_bye.gif" background-position-y="bottom 100px;" background-size="200px 200px cover"}

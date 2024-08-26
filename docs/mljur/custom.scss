@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+@font-face {
+  font-family: "GT Ultra Fine";
+  src: url("fonts/GTUltraFine-Bold.f6fa8a8b.woff");
+}
+
+/*-- scss:defaults --*/
+
+$body-bg: #fff;
+$body-color: #414042;
+$link-color: #C4161C;
+$code-color: #27A5A2;
+$code-block-border-color: #009491;
+
+$presentation-heading-color: #000000;
+$presentation-font-size-root: 30px;
+
+$font-family-serif: "GT Ultra Fine";
+$font-family-sans-serif: "Inter";
+
+$presentation-slide-text-align: left;
+
+$code-block-font-size: 1em;
+
+h1 {
+  text-align: center;
+  font-family: $font-family-serif !important;
+}
+
+h2 {
+  font-family: $font-family-serif !important;
+}
+
+/*-- scss:rules --*/
+
+
+.reveal .slide blockquote {
+  border-left: 3px solid $text-muted;
+  padding-left: 0.5em;
+}
