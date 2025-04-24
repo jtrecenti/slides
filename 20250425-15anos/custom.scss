@@ -1,0 +1,91 @@
+/*-- scss:defaults --*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+@font-face {
+  font-family: "GT Ultra Fine";
+  src: url("/_extensions/insper/font/GTUltraFine-Bold.f6fa8a8b.ttf");
+}
+
+$body-bg: #fff;
+$body-color: #000000;
+$link-color: #E50505;
+$code-color: #3ACC9F;
+$code-block-border-color: #3ACC9F;
+
+$presentation-heading-color: #000000;
+$presentation-font-size-root: 28px;
+
+$presentation-heading-font: "GT Ultra Fine";
+$font-family-sans-serif: "Inter";
+
+$presentation-slide-text-align: left;
+
+
+$code-block-font-size: 1em;
+
+h1 {
+  text-align: center;
+}
+
+/*-- scss:rules --*/
+
+#title-slide {
+  background-image: url("/_extensions/insper/insper-bg.png");
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: 300px;
+  height: 100%;
+}
+
+
+h1.title {
+  text-align: left;
+  /* Vertical alignment doesn't work directly on inline elements */
+  /* We'll use flexbox to achieve vertical centering */
+  display: flex;
+  align-items: center;
+  padding-top: 20%;
+  max-width: 800px;
+}
+
+p.subtitle {
+  text-align: left;
+}
+
+.date {
+  font-size: 21px !important;
+}
+
+.reveal .slide blockquote {
+  border-left: 3px solid $text-muted;
+  padding-left: 0.5em;
+}
+
+.reveal .footer {
+  font-size: 18px !important;
+}
+
+.title-slide > h1 {
+  text-align: left;
+}
+
+.v-center-container {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  height: 90%;
+}
+
+.center-x{
+  text-align: center;
+}
+
+
+.red {
+  color: #E50505;
+}
+
+.green {
+  color: #3ACC9F;
+}

@@ -1,0 +1,230 @@
+---
+title: "15 anos de jurimetria"
+subtitle: "Conceitos, Trajetória e Perspectivas"
+format:
+  revealjs:
+    theme: [default, custom.scss]
+    highlight-style: arrow
+    footer: "2025"
+    preview-links: auto
+    slide-number: true
+    preload-iframes: true
+    embed-resources: true
+date-format: long
+lang: pt
+---
+
+## Julio Trecenti
+
+<style type="text/css">
+td {
+  vertical-align: center;
+}
+</style>
+<small>Doutor em estatística pelo IME-USP</small>
+<table style="border:none;border-color:none;">
+<tr>
+<td><img style="border:none;height:50px" src='img/insper.png' /></td>
+<td>Professor TP no Insper</td>
+</tr>
+<tr>
+<td><img style="border:none;height:50px" src='img/abj.png' /></td>
+<td>Diretor na Associação Brasileira de Jurimetria</td>
+</tr>
+<tr>
+<td><img style="border:none;height:50px" src='img/terranova.png' /></td>
+<td>Sócio na Terranova Consultoria</td>
+</tr>
+<tr>
+<td><img style="border:none;height:60px;filter:invert(100%);" src='img/ceoe.png' /></td>
+<td>Pesquisador em Jurimetria no CEOE-Unifesp</td>
+</tr>
+<tr>
+<td><img style="border:none;height:50px" src='img/curso-r.png' /></td>
+<td>Sócio na Curso-R</td>
+</tr>
+</table>
+
+# Conceitos
+
+## O que é jurimetria?
+
+Jurimetria é a aplicação da **estatística no direito**. Ela é usada para descobrir **regras jurídicas** a partir das **marcas que o Direito deixa na sociedade**.
+
+![](img/ml-jurimetria.png){width=75% fig-align="center"}
+
+## Tipos de aplicações
+
+![](img/esferas.png)
+
+. . .
+
+Obs: separar as coisas em tipos não é tão útil quanto parece.
+
+## Fazendo jurimetria
+
+::: {.incremental}
+
+- Jurimetria é a __estatística__ aplicada ao __direito__.
+
+- Fazer jurimetria é pensar o direito de forma __concreta__, colocando nosso objeto de estudo no __tempo__ e no __espaço__.
+
+- A jurimetria __complementa__ o estudo clássico do direito, considerando leis, __princípios__ jurídicos e pensamentos abstratos como __hipóteses__ que se manifestam ou não na __realidade__ através das __decisões__ judiciais.
+
+:::
+
+. . .
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+### Estudo clássico
+
+Princípios jurídicos e pensamento de especialistas sobre o valor de indenização por dano moral a ser concedido no contexto de direito do consumidor.
+
+:::
+
+::: {.column width="50%"}
+
+### Estudo jurimétrico
+
+Valores típicos de dano moral em sentenças de primeira instância de processos envolvendo direito do consumidor no Tribunal de Justiça de São Paulo em 2020.
+
+:::
+
+::::
+
+## Quem usa?
+
+A jurimetria auxilia e complementa os trabalhos de todas as pessoas que atuam no universo do direito.
+
+::: {.incremental}
+
+::::{.columns}
+
+:::{.column width="50%"}
+
+**Advocacia e empresas**
+
+- Estatística como tecnologia para arguição.
+- Análise de risco, _due diligence_ e provisionamento.
+
+**Juristas**
+
+- Pareceres jurimétricos.
+- Análise da lei na ótica concreta.
+
+:::
+
+:::{.column width="50%"}
+
+**Magistrados**
+
+- Melhores práticas para administração judiciária.
+- Aprimoramento das decisões a partir da análise dos dados.
+
+**Legislativo**
+
+- Estudo quantitativo de leis.
+- Análise do impacto regulatório.
+
+:::
+
+::::
+
+:::
+
+
+# Trajetória
+
+## Linha do tempo
+
+:::{.incremental}
+
+- **2010**: graduação em estatística: primeiro contato. Tudo era mato!
+- **2012**: finalização do [primeiro projeto](https://abj.org.br/pesquisas/adocao/)
+- **2013**: experiências internacionais, congressos ([CELS](https://community.lawschool.cornell.edu/sels/cels-conferences/))
+- **2014**: empresa privada, projetos de jurimetria, [projeto das câmaras](https://abj.org.br/pesquisas/camaras-2/)
+- **2016**: mestrado em estatística, [pesquisa das varas empresariais](https://abj.org.br/pesquisas/varas-empresariais/)
+- **2017**: [pesquisa dos maiores litigantes](https://abj.org.br/pesquisas/maiores-litigantes-2/)
+- **2018**: [observatórios](https://abj.org.br/pesquisas/2a-fase-observatorio-da-insolvencia/), [drogas](https://abj.org.br/pesquisas/drogas-stf/)
+- **2020**: pandemia, [Datajud](https://www.cnj.jus.br/sistemas/datajud/)
+- **2021**: entrada no Insper, novos contatos
+- **2022**: ChatGPT e [TCU](https://portal.tcu.gov.br/licitacoes-e-contratos-do-tcu/licitacoes/etec/)
+- **2023**: finalização doutorado, pós doutorado
+- **2024**: ciência de dados no direito, organização CELS
+- **2025**: juscraper, pesquisa com PGE
+
+:::
+
+# Perspectivas
+
+## Um mundo novo
+
+As aplicações de GPT aparecem todos os dias. Alguns exemplos:
+
+- Extração de informações
+- Análise de jurisprudência
+- Geração de textos
+
+![](img/aplicacoes-gpt.png){width=40% fig-align="center"}
+
+## O que são LLMs? {background-image="img/openai-bg.jpg" background-position-y="bottom 100px;" background-size="200px 200px cover" background-opacity=0.1}
+
+<br/>
+<br/>
+<br/>
+
+LLMs (em inglês *Large Language Models*) são **modelos de aprendizado de máquina** treinados para entender e gerar texto humano.
+
+Os LLMs são **modelos generativos**: eles aprendem a prever a próxima palavra de uma frase, dada uma sequência de palavras anteriores. Isso permite que eles sejam usados para gerar textos, códigos, etc.
+
+## Exemplo de uso
+
+Se quiser acessar o código, entre aqui:
+
+::: {.r-fit-text}
+<https://github.com/jtrecenti/slides/blob/main/openai.ipynb>
+:::
+
+![](img/fox.gif){width=40% fig-align="center"}
+
+## Muitos problemas
+
+A aplicação de LLMs é nova e possui diversos problemas e limitações. Vamos ver apenas alguns:
+
+- Qualidade dos resultados
+- Análise de grandes documentos
+- Privacidade e LGPD
+- Código fechado
+- Pressão do mercado
+- Riscos de tomar decisões automatizadas
+
+## Por onde começar?
+
+Aprenda estatística com seriedade!
+
+. . .
+
+Estude com amigos, forme grupos e fale com seus professores.
+
+. . .
+
+Aprenda a programar! É importante saber programar para saber o que pedir para IA.
+
+. . .
+
+Compartilhe conhecimento. Ensinar é a melhor forma de aprender!
+
+. . .
+
+**Jurimetria**: Temos um livro sendo escrito: <https://livro.abj.org.br>
+
+. . .
+
+**IA**: Sugiro começar pelos cursos da <https://deepLearning.ai>.
+
+. . .
+
+## Obrigado! {background-image="img/fox_bye.gif" background-position-y="bottom 100px;" background-size="200px 200px cover"}
