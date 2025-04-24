@@ -75,3 +75,4 @@ contato comigo pelo Telegram ([jtrecenti](https://t.me/jtrecenti)).
 | 2024-05-16 | Jurimetria, Dados Abertos e Proteção de Dados                             | [aqui](https://jtrecenti.github.io/slides/docs/dadocerto/index.html)         |
 | 2024-06-14 | 14 anos de jurimetria                                                     | [aqui](https://jtrecenti.github.io/slides/docs/14anos/index.html)            |
 | 2024-08-27 | Machine Learning no Direito                                               | [aqui](https://jtrecenti.github.io/slides/docs/mljur/index.html)             |
+| 2025-04-25 | 15 anos de jurimetria                                                     | [aqui](https://jtrecenti.github.io/slides/docs/15anos/index.html)            |
