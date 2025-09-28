@@ -9,7 +9,7 @@ format:
     preview-links: auto
     slide-number: true
     preload-iframes: true
-    embed-resources: true
+    embed-resources: false
 date-format: long
 lang: pt
 ---
