@@ -13,7 +13,7 @@
 
 $font-family-sans-serif: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !default;
 $presentation-font-size-root: 32px !default;
-$presentation-heading-font: "Source Serif 4", "Inter", sans-serif !default;
+$presentation-heading-font: "GT Ultra Fine", "Inter", sans-serif !default;
 $presentation-heading-font-weight: 400 !default;
 $presentation-line-height: 1.34 !default;
 
@@ -105,7 +105,7 @@ body,
 .reveal h4 {
   color: var(--titulo);
   font-weight: 400;
-  font-family: "Source Serif 4", "Inter", sans-serif;
+  font-family: "GT Ultra Fine", "Inter", sans-serif;
   text-transform: none;
   letter-spacing: -0.005em;
   margin: 0 0 0.35rem;
@@ -678,7 +678,7 @@ table .marcado {
   font-weight: 700;
   line-height: 1;
   color: var(--marca);
-  font-family: "Source Serif 4", "Inter", serif;
+  font-family: "GT Ultra Fine", "Inter", serif;
 }
 
 .numerao small {

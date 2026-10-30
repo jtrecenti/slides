@@ -3,7 +3,7 @@
  * cada passo é um fragmento vazio `<span class="fragment passo" data-passo>`, e
  * o avanço do clicker toca a animação correspondente.
  *
- * A galeria de aplicações é a exceção: abre no clique ou nas teclas 1 a 8. As
+ * A galeria de aplicações é a exceção: abre no clique ou nas teclas 1 a 7. As
  * cenas dela são ilustrativas e não usam dados reais.
  */
 (function () {
@@ -93,6 +93,66 @@
       { opacity: 1, y: 0, duration: 0.4, stagger: on ? 0.16 : 0, overwrite: true });
   });
 
+  /* ---------- linha do tempo --------------------------------------------- */
+
+  [0, 1, 2, 3, 4].forEach((i) => {
+    passo("t" + i, (on) => {
+      const item = $(`.tl-item[data-i="${i}"]`);
+      gsap.to(".tl-trilho", { scaleX: (on ? i + 0.6 : i - 0.4) / 5 > 0 ? (on ? i + 0.6 : i - 0.4) / 5 : 0, duration: 0.6, ease: "power2.inOut", overwrite: true });
+      if (on) {
+        gsap.fromTo(item, { autoAlpha: 0, y: 14 }, { autoAlpha: 1, y: 0, duration: 0.5, delay: 0.25, overwrite: true });
+        gsap.fromTo(item.querySelector(".tl-foto, .tl-cnj"), { scale: 0.3 }, { scale: 1, duration: 0.55, delay: 0.25, ease: "back.out(2)" });
+      } else gsap.to(item, { autoAlpha: 0, duration: 0.2, overwrite: true });
+    });
+  });
+
+  /* ---------- tabela dos caminhos, uma linha por vez --------------------- */
+
+  [0, 1, 2, 3].forEach((i) => {
+    passo("r" + i, (on) => gsap.to(document.querySelectorAll("#portas tbody tr")[i], { autoAlpha: on ? 1 : 0, duration: 0.4, overwrite: true }));
+  });
+  function enfase(ids, on) {
+    ids.forEach((id) => {
+      const n = $(id);
+      n.classList.toggle("foco", on);
+      if (on) gsap.fromTo(n, { scale: 1.22 }, { scale: 1, duration: 0.6, ease: "back.out(3)" });
+    });
+  }
+  passo("e-dj", (on) => enfase(["#e-meta", "#e-lim"], on));
+  passo("e-pd", (on) => enfase(["#e-inst", "#e-custo"], on));
+
+  /* ---------- de dado público a dado aberto ------------------------------ */
+
+  function montarMorfo() {
+    const caixa = $("#mf-texto");
+    if (!caixa) return;
+    const palavras = (s, cls) => s.split(" ").map((w) => `<span class="${cls}">${w}</span>`).join("");
+    caixa.innerHTML = `<p class="mf-base">Qualquer pessoa pode <b>acessar</b><span class="mf-pt"><span class="mf-v">.</span><span class="mf-a">,</span></span></p>` +
+      `<div class="mf-cauda"><p>${palavras("Em geral, um registro por vez, numa tela de busca.", "mf-v")}</p>` +
+      `<p>${palavras("usar, modificar e compartilhar para qualquer finalidade, em formato aberto, legível por máquina e sob licença aberta.", "mf-a")}</p></div>`;
+    gsap.set(".mf-a", { autoAlpha: 0, y: 16 });
+    gsap.set("#mf-fonte", { autoAlpha: 0 });
+    const rot = $("#mf-rot"), box = $("#morfo");
+    passo("mf", (on) => {
+      const v = ".mf-v", a = ".mf-a";
+      box.classList.toggle("caso", !on);
+      box.classList.toggle("ideia", on);
+      gsap.to(rot, { autoAlpha: 0, duration: 0.2, overwrite: true, onComplete: () => {
+        rot.textContent = on ? "Dado aberto" : "Dado público";
+        gsap.to(rot, { autoAlpha: 1, duration: 0.3 });
+      } });
+      if (on) {
+        gsap.to(v, { autoAlpha: 0, y: -18, rotation: () => gsap.utils.random(-14, 14), duration: 0.4, stagger: 0.03, overwrite: true });
+        gsap.to(a, { autoAlpha: 1, y: 0, duration: 0.4, stagger: 0.05, delay: 0.45, overwrite: true });
+        gsap.to("#mf-fonte", { autoAlpha: 1, duration: 0.4, delay: 1.3 });
+      } else {
+        gsap.to(a, { autoAlpha: 0, y: 16, duration: 0.2, overwrite: true });
+        gsap.to(v, { autoAlpha: 1, y: 0, rotation: 0, duration: 0.3, delay: 0.1, overwrite: true });
+        gsap.set("#mf-fonte", { autoAlpha: 0 });
+      }
+    });
+  }
+
   /* ---------- arquitetura ------------------------------------------------ */
 
   ["a1", "a2", "a3"].forEach((id) => {
@@ -140,19 +200,95 @@
     return tl;
   }
 
-  /* Passos que acendem em sequência. */
-  function cenaFluxo(c, cfg) {
-    const n = cfg.passos.length, larg = 118, gap = (686 - n * larg) / (n + 1);
-    const caixas = cfg.passos.map((t, i) => {
-      const e = div("c-passo", { left: gap + i * (larg + gap) + "px" }, t, c);
-      gsap.set(e, { opacity: 0.25 });
-      return e;
-    });
+  /* Texto que surge como se estivesse sendo digitado. */
+  function digita(tl, n, texto, dur, pos) {
+    const e = { i: 0 };
+    tl.to(e, { i: texto.length, duration: dur, ease: "none", onUpdate: () => { n.textContent = texto.slice(0, Math.round(e.i)); } }, pos);
+  }
+
+  /* Do processo ao documento: trechos viram campos, campos preenchem o Word. */
+  function cenaDocs(c, cfg) {
+    const doc = div("c-doc", { left: "12px", top: "14px", width: "236px", bottom: "14px" }, null, c);
+    div("c-tit", {}, "Instrução técnica", doc);
+    const linhas = cfg.pares.map(([t]) => div("c-linha", {}, t, doc));
+    const campos = cfg.pares.map(([, k, v], i) =>
+      div("c-mini", { left: "262px", top: 34 + i * 92 + "px" }, `<span>${k}</span><b>${v}</b>`, c));
+    const pag = div("c-doc c-word", { right: "12px", top: "14px", width: "190px", bottom: "14px" }, null, c);
+    div("c-w", {}, "W", pag);
+    div("c-tit", {}, "Documento", pag);
+    const frases = cfg.pares.map(([, , , f]) => div("c-frase", { opacity: 0 }, f, pag));
+    gsap.set(campos, { opacity: 0, x: -30 });
     const tl = gsap.timeline();
-    caixas.forEach((e, i) => {
-      const ruim = (cfg.ruim || []).includes(i);
-      tl.to(e, { opacity: 1, y: -6, borderColor: ruim ? "#e50505" : "#12996f", duration: 0.35 })
-        .to(e, { y: 0, duration: 0.2 });
+    cfg.pares.forEach((_, i) => {
+      tl.to(linhas[i], { backgroundColor: "rgba(18,153,111,.28)", duration: 0.3 })
+        .to(campos[i], { opacity: 1, x: 0, duration: 0.4 }, "-=.05");
+    });
+    cfg.pares.forEach((_, i) => {
+      tl.to(campos[i], { x: 18, duration: 0.2 }, i ? "-=.1" : "+=.2")
+        .to(campos[i], { x: 0, duration: 0.2 })
+        .fromTo(frases[i], { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.3 }, "-=.15");
+    });
+    tl.to(pag, { boxShadow: "0 0 0 3px #1f63c6", duration: 0.3 }).to(pag, { boxShadow: "0 0 0 0 #1f63c6", duration: 0.5 });
+    return tl;
+  }
+
+  /* Um LLM faz o papel de pessoa, conversa com cada plataforma, e outro LLM julga. */
+  function cenaIlab(c, cfg) {
+    const chips = cfg.plataformas.map((p, i) => div("c-plat", { left: 12 + i * 88 + "px" }, p, c));
+    const pessoa = div("c-bolha c-esq", { top: "52px" }, "", c);
+    const bot = div("c-bolha c-dir", { top: "112px" }, "", c);
+    const juiz = div("c-juiz", { opacity: 0 }, "LLM juiz aplica a rubrica", c);
+    div("c-tit c-tab-t", {}, "Base de conversas", c);
+    const linhas = cfg.plataformas.map((p, i) =>
+      div("c-tab-l", { top: 44 + i * 36 + "px", opacity: 0 }, `<span>${p}</span><b>${cfg.notas[i]}</b>`, c));
+    const tl = gsap.timeline();
+    cfg.plataformas.forEach((p, i) => {
+      const r = i === 0 ? 1 : 0.42;
+      tl.set(chips, { backgroundColor: "transparent", color: "inherit" })
+        .set(chips[i], { backgroundColor: "#e50505", color: "#ffffff" })
+        .set([pessoa, bot], { textContent: "", opacity: 0 })
+        .set(juiz, { opacity: 0, scale: 1.3 })
+        .to(pessoa, { opacity: 1, duration: 0.15 });
+      digita(tl, pessoa, cfg.pergunta, 1.1 * r);
+      tl.to(bot, { opacity: 1, duration: 0.15 }, "+=.1");
+      digita(tl, bot, cfg.respostas[i], 1.3 * r);
+      tl.to(juiz, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(2)" }, "+=.1")
+        .to(linhas[i], { opacity: 1, duration: 0.25 })
+        .to({}, { duration: 0.25 });
+    });
+    return tl;
+  }
+
+  /* Decisões dos três países passam pela leitura clínica, com relógio e escala. */
+  function cenaPembro(c, cfg) {
+    const paises = cfg.paises.map((p, i) => div("c-pais", { top: 34 + i * 96 + "px" }, p, c));
+    const leitor = div("c-doc c-leitor", {}, null, c);
+    div("c-tit", {}, "Anotador", leitor);
+    const doc = div("c-dec", { opacity: 0 }, "Decisão", leitor);
+    const rel = div("c-relogio", {}, "00:00", leitor);
+    const esc = div("c-escala", {}, null, c);
+    div("c-tit", {}, "Benefício clínico", esc);
+    const blocos = div("c-blocos", {}, null, esc);
+    const bs = [1, 2, 3, 4, 5].map((n) => div("c-bloco", {}, String(n), blocos));
+    const oms = div("c-oms", {}, "Lista da OMS: ", esc);
+    const res = div("c-res", {}, "", c);
+    const tl = gsap.timeline();
+    cfg.casos.forEach((k, i) => {
+      const t = { s: 0 };
+      tl.set(bs, { backgroundColor: "transparent", color: "inherit" })
+        .set(oms, { textContent: "Lista da OMS: " })
+        .to(paises[k.pais], { backgroundColor: "#12996f", color: "#ffffff", duration: 0.2 })
+        .fromTo(doc, { opacity: 0, x: -150 }, { opacity: 1, x: 0, duration: 0.5, ease: "power2.out" })
+        .to(t, { s: k.seg, duration: 0.9, ease: "none", onUpdate: () => {
+          const v = Math.round(t.s);
+          rel.textContent = `${String(Math.floor(v / 60)).padStart(2, "0")}:${String(v % 60).padStart(2, "0")}`;
+        } });
+      tl.to(bs.slice(0, k.nota), { backgroundColor: "#c96a10", color: "#ffffff", duration: 0.15, stagger: 0.1 })
+        .set(oms, { textContent: "Lista da OMS: " + k.oms })
+        .to({}, { duration: 0.25 })
+        .to(doc, { opacity: 0, x: 150, duration: 0.3 })
+        .to(paises[k.pais], { backgroundColor: "transparent", color: "inherit", duration: 0.15 }, "-=.2")
+        .set(res, { textContent: `${i + 1} de ${cfg.casos.length} casos anotados, com tempo registrado` });
     });
     return tl;
   }
@@ -189,19 +325,22 @@
   }
 
   const APPS = [
+    { nome: "Auditoria de IA nas eleições", onde: "InternetLab e LabDados",
+      resumo: "Um LLM simula uma pessoa e conversa com cinco plataformas de IA sobre as eleições de 2026. Outro LLM, o juiz, anota cada conversa por uma rubrica.",
+      cena: cenaIlab, cfg: { plataformas: ["Gemini", "ChatGPT", "Claude", "DeepSeek", "Grok"],
+        pergunta: "Como funciona o voto na urna eletrônica?",
+        respostas: ["O eleitor se identifica e digita...", "Primeiro, você vai à sua seção...", "A urna registra o voto e...", "O voto é registrado de forma...", "Na cabine, digite o número..."],
+        notas: ["nota A", "nota B", "nota A", "nota C", "nota B"] } },
     { nome: "Classificador de assuntos", onde: "PGE-SP e Insper",
       resumo: "Lê a petição inicial, propõe o assunto e mostra a probabilidade. Abaixo do limiar, a peça é sinalizada para revisão. Roda 100% local, sem enviar dados para fora.",
       cena: cenaClassifica, cfg: { bins: ["Saúde", "Tributário", "Servidor", "Revisão humana"],
         docs: [{ t: "petição 1", bin: 0, p: "0,93" }, { t: "petição 2", bin: 1, p: "0,88" }, { t: "petição 3", bin: 3, p: "0,41" }] } },
-    { nome: "Metadados de representações", onde: "TCU",
-      resumo: "Extrai de instruções técnicas sobre compras públicas se o caso foi conhecido, se houve cautelar e qual foi o mérito. Comparamos vários modelos na mesma tarefa.",
-      cena: cenaExtrai, cfg: { pares: [["Conhecer a representação...", "admissibilidade", "sim"], ["...indeferir a medida cautelar...", "cautelar", "não concedida"], ["...considerá-la procedente...", "mérito", "procedente"]] } },
+    { nome: "Da instrução ao documento", onde: "TCU",
+      resumo: "Extrai metadados de instruções sobre compras públicas, como admissibilidade, cautelar e mérito, e usa esses dados para gerar documentos em Word.",
+      cena: cenaDocs, cfg: { pares: [["Conhecer a representação...", "admissibilidade", "sim", "A representação foi conhecida."], ["...indeferir a cautelar...", "cautelar", "não concedida", "A cautelar não foi concedida."], ["...considerá-la procedente...", "mérito", "procedente", "No mérito, é procedente."]] } },
     { nome: "Petições iniciais", onde: "Iniciação científica do Pedro",
       resumo: "Transforma petições em tabela com valores de dano moral e material, tipo de autor e réu, CNPJ, causa de pedir e fundamentos legais, com esquema Pydantic e Gemini.",
       cena: cenaExtrai, cfg: { pares: [["...danos morais de R$ 10.000...", "vl_dano_moral", "10.000"], ["...em face do BANCO...", "reu_pj", "sim"], ["...cobrança indevida...", "causa_pedir", "cobrança"], ["...arts. 186 e 927 do CC...", "fundamento_legal", "CC 186, 927"]] } },
-    { nome: "Raspador de preços que se conserta", onde: "TCC de Luiz Otávio, Insper",
-      resumo: "Coleta preços de supermercados para um índice complementar ao IPCA. Quando o site muda, um LLM propõe nova estratégia, que só entra após validação independente.",
-      cena: cenaFluxo, cfg: { passos: ["Coleta diária", "Site muda e a coleta falha", "LLM propõe nova estratégia", "Validação independente", "Coleta volta"], ruim: [1] } },
     { nome: "Efeito dos Temas 6 e 1234", onde: "CCD Saúde, FGV",
       resumo: "Mede se os precedentes do STF mudaram o volume de ações, as decisões e a fundamentação. Combina DataJud, documentos do Jus.br e estruturação validada contra codificação humana.",
       cena: cenaAntesDepois, cfg: { marco: "precedentes do STF", valores: [0.82, 0.86, 0.84, 0.66, 0.6, 0.57] } },
@@ -209,11 +348,9 @@
       resumo: "Compara os núcleos técnicos que apoiam juízes em saúde. A pergunta: a conclusão depende do estado que analisou o caso?",
       cena: cenaDiverge, cfg: { entrada: "Mesma tecnologia em saúde", saidas: [["NatJus do estado A: favorável", false], ["NatJus do estado B: desfavorável", true]] } },
     { nome: "Pembrolizumabe na América Latina", onde: "LabDados, FGV",
-      resumo: "Avaliadores leem decisões da Costa Rica, Guatemala e Uruguai num anotador próprio, que registra a pontuação clínica e o tempo gasto em cada caso.",
-      cena: cenaFluxo, cfg: { passos: ["Coleta nos três países", "Amostra de decisões", "Leitura no anotador", "Pontuação clínica", "Base do estudo"] } },
-    { nome: "IA generativa e eleições", onde: "InternetLab e LabDados",
-      resumo: "Automatiza perguntas sobre temas eleitorais às ferramentas de IA generativa e guarda as respostas para análise. Aqui, a saída dos próprios modelos vira o dado.",
-      cena: cenaFluxo, cfg: { passos: ["Pergunta sobre eleições", "Ferramentas de IA", "Coleta automática", "Base de respostas", "Análise"] } },
+      resumo: "Avaliadores leem decisões da Costa Rica, Guatemala e Uruguai num anotador próprio, que registra a pontuação clínica, a lista da OMS e o tempo gasto em cada caso.",
+      cena: cenaPembro, cfg: { paises: ["Costa Rica", "Guatemala", "Uruguai"],
+        casos: [{ pais: 0, seg: 74, nota: 4, oms: "sim" }, { pais: 1, seg: 112, nota: 2, oms: "não" }, { pais: 2, seg: 58, nota: 5, oms: "sim" }] } },
   ];
 
   let abrirApp = () => {};
@@ -260,6 +397,10 @@
     }
     desenharBench();
     montarApps();
+    montarMorfo();
+    gsap.set(".tl-item", { autoAlpha: 0 });
+    gsap.set(".tl-trilho", { scaleX: 0 });
+    gsap.set("#portas tbody tr", { autoAlpha: 0 });
     gsap.set("#fluxo .f-caixa", { opacity: 0.25 });
     gsap.set(["#a1", "#a2", "#a3"], { autoAlpha: 0 });
     Reveal.on("fragmentshown", (e) => e.fragments.forEach((f) => f.dataset.passo && aplicar(f)));

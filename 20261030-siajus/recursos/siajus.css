@@ -17,7 +17,7 @@
 /* três perguntas */
 .tres { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; margin: .7rem 0 1rem; }
 .tres-item { border-top: 3px solid var(--marca); padding-top: .45rem; font-size: .96em; }
-.tres-n { display: block; font-family: "Source Serif 4", serif; font-weight: 400; font-size: 2em; line-height: 1.1; color: var(--marca); }
+.tres-n { display: block; font-family: "GT Ultra Fine", serif; font-weight: 400; font-size: 2em; line-height: 1.1; color: var(--marca); }
 
 /* sentença e tabela */
 .sent-grade { display: grid; grid-template-columns: 1.35fr 1fr; gap: 1.4rem; align-items: start; }
@@ -81,7 +81,7 @@
 .pedido { padding: .5rem 0; border-bottom: 1px solid var(--superficie-borda); font-size: .92em; }
 .pedido > p { display: grid; grid-template-columns: 11.5em 1fr; gap: 1rem; align-items: baseline; margin: 0; }
 .ped-q { font-weight: 700; color: var(--marca); }
-.fecho { font-family: "Source Serif 4", serif; font-weight: 400; font-size: 1.32em; margin-top: 1rem; }
+.fecho { font-family: "GT Ultra Fine", serif; font-weight: 400; font-size: 1.32em; margin-top: 1rem; }
 .qrs { display: grid; grid-template-columns: repeat(3, 1fr); gap: .7rem; text-align: center; }
 .qrs img { width: 100%; }
 
@@ -92,10 +92,28 @@
 .reveal .quarto-title-block .quarto-title-author-name { padding: 0 !important; margin: 0 !important; }
 
 /* linha do tempo */
-.linha { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin: .5rem 0 .9rem; }
-.marco { border-top: 3px solid var(--regua); padding-top: .4rem; font-size: .76em; line-height: 1.35; }
-.marco p { margin: 0 0 .25rem; }
-.ano { font-family: "Source Serif 4", serif; font-size: 1.5em; color: var(--marca); }
+#tl { position: relative; display: grid; grid-template-columns: repeat(5, 1fr); gap: .8rem; margin: .4rem 0 .8rem; }
+.tl-trilho { position: absolute; left: 0; right: 0; top: 104px; height: 5px; background: var(--marca); transform-origin: left center; border-radius: 3px; }
+.tl-item { position: relative; text-align: center; font-size: .74em; line-height: 1.32; }
+.tl-item p { margin: 0 0 .3rem; }
+.ano { display: block; font-family: "GT Ultra Fine", serif; font-size: 1.45em; color: var(--marca); height: 1.5em; }
+.reveal .slides img.tl-foto { width: 118px; height: 118px; object-fit: cover; border-radius: 50%; border: 4px solid var(--marca); background: #ffffff; padding: 0; margin: 0 auto; display: block; }
+.tl-cnj { display: flex; align-items: center; justify-content: center; width: 118px; height: 118px; margin: 0 auto; border-radius: 50%; background: var(--marca); color: #ffffff; font-family: "GT Ultra Fine", serif; font-size: 1.5em; }
+
+/* ênfase em células */
+.realce { display: inline-block; border-radius: 4px; padding: 0 .2em; transition: background-color .3s, color .3s; }
+.realce.foco { background: color-mix(in srgb, var(--marca) 16%, transparent); color: var(--marca); font-weight: 600; }
+
+/* de dado público a dado aberto */
+#morfo { min-height: 330px; transition: border-color .5s; font-size: 1.04em; }
+.mf-base { margin: 0 0 .1rem; }
+.mf-pt { display: inline-grid; }
+.mf-pt > span { grid-area: 1 / 1; }
+.mf-cauda { display: grid; }
+.mf-cauda p { grid-area: 1 / 1; margin: 0; }
+.mf-cauda span { display: inline-block; margin-right: .27em; }
+.mf-cauda .mf-a { font-weight: 600; }
+#mf-fonte { display: block; margin-top: .6rem; }
 
 /* arquitetura */
 #arq { display: grid; gap: .45rem; margin-top: .3rem; font-size: .76em; }
@@ -118,7 +136,7 @@
 .app-b:hover, .app-b:focus-visible { border-left-color: var(--marca); }
 .app-b.ativo { background: color-mix(in srgb, var(--marca) 10%, var(--fundo)); border-left-color: var(--marca); font-weight: 600; }
 .app-painel { min-width: 0; }
-.reveal .app-painel h3 { font-family: "Source Serif 4", serif; font-weight: 400; font-size: 27px; margin: 0 0 .2rem; }
+.reveal .app-painel h3 { font-family: "GT Ultra Fine", serif; font-weight: 400; font-size: 27px; margin: 0 0 .2rem; }
 .reveal .app-resumo { font-size: 20px; line-height: 1.38; margin: 0 0 .5rem; }
 .reveal .app-vazio { font-size: 22px; color: var(--texto-fraco); padding-top: 6rem; text-align: center; }
 .cena { position: relative; height: 340px; background: var(--superficie); border-radius: 8px; overflow: hidden; font-family: "Inter", sans-serif; font-size: 16px; }
@@ -137,3 +155,36 @@
 .reveal .numerao { font-size: 1.55em; font-weight: 400; white-space: nowrap; }
 .reveal .numerao small { white-space: normal; font-size: .42em; }
 .reveal .quarto-title-block .quarto-title-authors, .reveal .quarto-title-block .quarto-title-author { padding: 0 !important; margin: 0 !important; }
+
+/* cenas: documento */
+.c-tit { font-weight: 600; font-size: 14px; color: var(--texto-fraco); margin-bottom: 6px; }
+.c-mini { position: absolute; width: 176px; background: var(--fundo); border: 1px solid var(--superficie-borda); border-radius: 6px; padding: 5px 8px; font-size: 14px; }
+.c-mini span { display: block; color: var(--texto-fraco); }
+.c-mini b { color: var(--marca); font-weight: 600; }
+.c-word { padding-top: 11px; }
+.c-w { position: absolute; right: 9px; top: 8px; width: 24px; height: 24px; border-radius: 4px; background: #1f63c6; color: #ffffff; font-weight: 700; display: flex; align-items: center; justify-content: center; font-size: 14px; }
+.c-frase { font-size: 14px; line-height: 1.3; margin-bottom: 10px; border-bottom: 1px solid var(--superficie-borda); padding-bottom: 6px; }
+
+/* cenas: auditoria */
+.c-plat { position: absolute; top: 12px; width: 82px; text-align: center; border: 1px solid var(--regua); border-radius: 999px; font-size: 13px; padding: 3px 0; }
+.c-bolha { position: absolute; width: 330px; min-height: 50px; padding: 7px 11px; border-radius: 10px; font-size: 15px; line-height: 1.3; box-sizing: border-box; opacity: 0; }
+.c-esq { left: 12px; background: color-mix(in srgb, var(--turquesa) 22%, var(--fundo)); }
+.c-dir { left: 62px; background: var(--fundo); border: 1px solid var(--superficie-borda); }
+.c-juiz { position: absolute; left: 12px; width: 380px; top: 214px; text-align: center; padding: 11px 0; border: 2.5px solid var(--marca); border-radius: 7px; color: var(--marca); font-weight: 700; transform-origin: center; }
+.c-tab-t { position: absolute; left: 468px; top: 12px; }
+.c-tab-l { position: absolute; left: 468px; width: 202px; display: flex; justify-content: space-between; border-bottom: 1px solid var(--superficie-borda); padding: 6px 2px; font-size: 15px; }
+.c-tab-l b { color: var(--marca); font-weight: 600; }
+
+/* cenas: pembrolizumabe */
+.c-pais { position: absolute; left: 14px; width: 118px; height: 70px; border: 1.5px solid var(--regua); border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: 15px; }
+.c-leitor { left: 176px; top: 34px; width: 214px; height: 262px; box-sizing: border-box; text-align: center; overflow: hidden; }
+.c-dec { width: 130px; height: 120px; margin: 8px auto; border: 1px solid var(--texto-fraco); border-radius: 5px; display: flex; align-items: center; justify-content: center; background: var(--superficie); }
+.c-relogio { font-family: "Cascadia Code", Consolas, monospace; font-size: 25px; font-variant-numeric: tabular-nums; }
+.c-escala { position: absolute; left: 412px; top: 34px; width: 258px; }
+.c-blocos { display: grid; grid-template-columns: repeat(5, 1fr); gap: 5px; margin-bottom: 14px; }
+.c-bloco { height: 66px; border: 1.5px solid var(--regua); border-radius: 5px; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 19px; }
+.c-oms { font-size: 17px; font-weight: 600; }
+.c-res { position: absolute; left: 412px; top: 232px; width: 258px; font-size: 15px; color: var(--texto-fraco); }
+
+#portas table { font-size: .72em; }
+#portas table td { vertical-align: top; padding-top: .26rem; padding-bottom: .26rem; }

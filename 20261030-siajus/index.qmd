@@ -43,7 +43,7 @@ format:
 # Direito" do 8º SIAJUS (Insper, 30/10/2026, 14h30).
 #
 # Tudo avança no clicker, exceto a galeria de aplicações, que abre no clique ou
-# nas teclas 1 a 8. Tecla "s" abre as notas com o tempo de cada bloco; tecla "d"
+# nas teclas 1 a 7. Tecla "s" abre as notas com o tempo de cada bloco; tecla "d"
 # troca claro e escuro.
 ---
 
@@ -247,7 +247,7 @@ Não digo que são melhores: não testamos ainda no LabDados. É um convite.
 :::
 
 ::: notes
-**5:30 a 7:30.** Clico em dois ou três exemplos, não em todos. Teclas 1 a 8 também abrem. Sugestão: PGE (classificação no órgão público, rodando local), Temas 6 e 1234 (pesquisa empírica), IC do Pedro (aluno de graduação faz).
+**5:30 a 7:30.** Clico em dois ou três exemplos, não em todos. Teclas 1 a 7 também abrem. Sugestão: começar pela auditoria de IA nas eleições, depois PGE (órgão público, rodando local) e TCU (da extração ao documento).
 As animações são ilustrativas: nenhuma mostra dados reais.
 :::
 
@@ -304,36 +304,58 @@ repositório, licença, documentação
 
 ## Por muito tempo, pesquisar o Judiciário dependia de papel e de robôs
 
-::: {.linha}
-::: {.marco .fragment}
+::: {#tl}
+::: {.tl-trilho}
+:::
+::: {.tl-item data-i="0"}
 [2010]{.ano}
 
-**Sem base pronta.** No estudo do CARF, aprendi a escrever robôs para baixar decisões.
-:::
-::: {.marco .fragment}
-[2012 a 2014]{.ano}
+![](recursos/img/tl-robo.jpg){.tl-foto .limpo}
 
-**LAI em papel.** No estudo de adoção com o CNJ, os dados vieram impressos, e algumas varas negaram acesso.
+**Sem base pronta.** No estudo do CARF, aprendi a escrever robôs.
 :::
-::: {.marco .fragment}
-[Anos 2010]{.ano}
+::: {.tl-item data-i="1"}
+[2012]{.ano}
 
-**Um raspador por tribunal.** Cada sistema pedia um código, com paginação, sessões e captchas.
+![](recursos/img/tl-papel.jpg){.tl-foto .limpo}
+
+**LAI em papel.** No estudo de adoção, os dados vieram impressos.
 :::
-::: {.marco .fragment}
+::: {.tl-item data-i="2"}
+[2014]{.ano}
+
+![](recursos/img/tl-hacker.jpg){.tl-foto .limpo}
+
+**Um raspador por tribunal**, com sessões e captchas.
+:::
+::: {.tl-item data-i="3"}
+[2016]{.ano}
+
+![](recursos/img/tl-abertos.jpg){.tl-foto .limpo}
+
+**Dados abertos** chegam ao Executivo, não ao Judiciário.
+:::
+::: {.tl-item data-i="4"}
 [2020 a 2024]{.ano}
 
-**O CNJ centraliza.** DataJud, PDPJ-Br, Jus.br e, por fim, o data lake.
+[CNJ]{.tl-cnj}
+
+**O CNJ centraliza** com DataJud, PDPJ-Br e Jus.br.
 :::
 :::
 
+[]{.fragment .passo data-passo="t0"}
+[]{.fragment .passo data-passo="t1"}
+[]{.fragment .passo data-passo="t2"}
+[]{.fragment .passo data-passo="t3"}
+[]{.fragment .passo data-passo="t4"}
+
 ::: {.fragment}
-O passo zero de toda pesquisa empírica em Direito sempre foi **engenharia**, não estatística.
-Quem não tinha essa equipe simplesmente não pesquisava com dados.
+O passo zero da pesquisa empírica em Direito sempre foi **engenharia**, não estatística.
 :::
 
 ::: notes
-**8:20 a 9:20.** História pessoal, curta. Lição: "público por lei" não é "utilizável na prática". O direito de acesso não é uma base de dados.
+**8:20 a 9:20.** Cinco cliques, um por marco. História pessoal, curta. Lição: "público por lei" não é "utilizável na prática". O direito de acesso não é uma base de dados.
 :::
 
 ## O CNJ passou a concentrar os dados dos tribunais na PDPJ-Br
@@ -377,24 +399,31 @@ Acesso a dados consolidados para instituições (Res. 574/2024 e Portaria 316/20
 **9:20 a 10:30.** Três cliques, de cima para baixo. Antes, cada tribunal com seu sistema. A PDPJ-Br foi a estratégia do CNJ contra essa fragmentação. O Codex é a ferramenta de extração. Dali saem três produtos com públicos diferentes: estatística, serviço ao usuário e venda de acesso.
 :::
 
-## Cada caminho de acesso entrega uma parte diferente dos dados
+## Cada caminho de acesso entrega uma parte diferente dos dados {#portas}
 
 | | O que entrega | Quem usa | Em massa? | Custo |
 |---|---|---|---|---|
-| **Site do tribunal** | processos e decisões | qualquer pessoa | [não]{.nok} | [grátis]{.ok} |
-| **API do DataJud** | só metadados, sem partes, valor nem texto | quem aceita os termos | [120 requisições/min]{.nok} | [grátis]{.ok} |
-| **Jus.br** | processo e documentos públicos | usuário com login | [não]{.nok} | [grátis]{.ok} |
-| **Data lake PDPJ** | partes e decisões, sem petições | instituições habilitadas | [até 200 milhões/mês]{.ok} | [R\$ 0,0015 a 0,0019 por chamada]{.nok} |
+| **Site do tribunal** | processos e decisões | qualquer pessoa | não | grátis |
+| **API do DataJud** | [só metadados, sem partes, valor nem texto]{#e-meta .realce} | quem aceita os termos | [120 requisições/min]{#e-lim .realce} | grátis |
+| **Jus.br** | processo e documentos públicos | usuário com login | não | grátis |
+| **Data lake PDPJ** | partes e decisões, sem petições | [instituições habilitadas]{#e-inst .realce} | até 200 milhões/mês | [R\$ 0,0015 a 0,0019 por chamada]{#e-custo .realce} |
 
 : {.tabela-comp}
 
+[]{.fragment .passo data-passo="r0"}
+[]{.fragment .passo data-passo="r1"}
+[]{.fragment .passo data-passo="r2"}
+[]{.fragment .passo data-passo="r3"}
+[]{.fragment .passo data-passo="e-dj"}
+[]{.fragment .passo data-passo="e-pd"}
+
 ::: {.fragment}
-O DataJud foi um avanço real para listar casos e sortear amostras. Mas a maior parte
-da pesquisa precisa de partes, valores e texto, que estão nos caminhos mais fechados.
+O DataJud ajuda a listar casos e sortear amostras, mas a pesquisa precisa de partes,
+valores e texto, que estão nos caminhos mais fechados.
 :::
 
 ::: notes
-**10:30 a 11:30.** Leio por linha, sem ler tudo. O contraste: quanto mais rico o dado, mais estreita a porta. Sobre o site do tribunal: é uma tela de busca, um registro por vez, e é daí que vêm os raspadores.
+**10:30 a 11:30.** Uma linha por clique. Depois, dois cliques de ênfase: os limites do DataJud e o custo e a barreira do data lake. O contraste: quanto mais rico o dado, mais estreita a porta. Sobre o site do tribunal: é uma tela de busca, um registro por vez, e é daí que vêm os raspadores.
 A Portaria 316 exclui petições e documentos do data lake, porque são "potencialmente sensíveis" (art. 4º).
 :::
 
@@ -459,24 +488,21 @@ Raspar resolve uma pesquisa, não a infraestrutura. Isso exige governança, fôl
 
 ::: {.colunas}
 ::: {}
-::: {.caixa .caso}
-[Dado público]{.rotulo}
+::: {#morfo .caixa .caso}
+[Dado público]{#mf-rot .rotulo}
 
-Qualquer pessoa pode **acessar**. Em geral, um registro por vez, numa tela de busca.
+::: {#mf-texto}
 :::
-::: {.caixa .ideia}
-[Dado aberto]{.rotulo}
 
-Qualquer pessoa pode **acessar, usar, modificar e compartilhar para qualquer finalidade**,
-em formato aberto, legível por máquina e sob licença aberta.
-
-[Open Knowledge Foundation, Open Definition]{.miudo}
+[Open Knowledge Foundation, Open Definition]{#mf-fonte .miudo}
 :::
 :::
 ::: {}
 ![](recursos/img/dadosgov.jpg)
 
 [`dados.gov.br`: mais de 19 mil conjuntos. A política federal é referência, mas alcança o Executivo, não o Judiciário.]{.miudo}
+
+[]{.fragment .passo data-passo="mf"}
 
 ::: {.fragment}
 **Todo dado público deveria ser aberto?**
@@ -485,7 +511,7 @@ em formato aberto, legível por máquina e sob licença aberta.
 :::
 
 ::: notes
-**13:20 a 14:10.** "Clicar e baixar" é o critério prático. A política do Executivo Federal não obriga o Judiciário, mas nada impede o Judiciário de abrir.
+**13:20 a 14:10.** Um clique transforma a definição de dado público na de dado aberto. "Clicar e baixar" é o critério prático. A política do Executivo Federal não obriga o Judiciário, mas nada impede o Judiciário de abrir.
 :::
 
 ## O próprio CNJ trata sentenças e nomes das partes como dados públicos
@@ -503,7 +529,7 @@ acessível, mas **em que condições** pode ser reutilizado.
 **14:10 a 14:40.** Citação curta, leio em voz alta. Petições e documentos são "potencialmente sensíveis" e ficam de fora; processos em segredo são "restritos".
 :::
 
-## O STJ e o TJDFT já publicam decisões como dados abertos
+## Como os tribunais têm tratado esses dados
 
 ::: {.colunas}
 ::: {}
@@ -625,8 +651,8 @@ Não é parecer jurídico: é uma proposta para o debate.
 ## O que precisamos de tribunais, comitês e universidades {.pedidos}
 
 ::: {.pedido .fragment}
-[Tribunais e CNJ]{.ped-q}
-Publiquem em massa, com licença aberta. STJ e TJDFT mostram que dá.
+[CNJ]{.ped-q}
+Abra a PDPJ para download em massa. Iniciativas dos tribunais ajudam, mas a chave está na base central.
 :::
 ::: {.pedido .fragment}
 [Comitês e reguladores]{.ped-q}
