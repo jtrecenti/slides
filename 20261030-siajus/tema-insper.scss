@@ -1,0 +1,959 @@
+/*-- scss:defaults --*/
+
+// Tema revealjs das aulas de CDAD II (Insper), adaptado para a palestra no SIAJUS.
+//
+// Uma coisa importante sobre este arquivo: as cores NAO sao definidas aqui em
+// variaveis do Sass, e sim em variaveis CSS, mais abaixo. O motivo e o
+// projetor da sala. O deck precisa virar escuro no meio da aula, sem
+// recarregar e sem existir em duas versoes que saem de sincronia. Variavel do
+// Sass e resolvida na compilacao; variavel CSS troca em tempo de execucao, que
+// e o que a tecla "d" faz.
+//
+// O que sobra aqui embaixo sao so os valores que o revealjs exige em Sass.
+
+$font-family-sans-serif: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !default;
+$presentation-font-size-root: 32px !default;
+$presentation-heading-font: "Source Serif 4", "Inter", sans-serif !default;
+$presentation-heading-font-weight: 700 !default;
+$presentation-line-height: 1.34 !default;
+
+$body-bg: #ffffff !default;
+$body-color: #14161a !default;
+$link-color: #e50505 !default;
+$selection-bg: #3acc9f !default;
+
+$code-block-font-size: 0.70em !default;
+
+/*-- scss:rules --*/
+
+/* ------------------------------------------------------------------ paleta */
+
+/*
+ * Claro e o padrao. Escuro entra por `data-tema="escuro"` no <html>, ligado na
+ * tecla "d" (ver recursos/tema.js).
+ *
+ * A regra que orienta os dois conjuntos: o texto nunca fica em cinza medio.
+ * Num projetor fraco o cinza medio some nos dois fundos, e foi exatamente isso
+ * que estragou a primeira versao escura do deck da aula 6. Texto secundario
+ * aqui e escuro-quase-preto no claro e claro-quase-branco no escuro, nunca no
+ * meio do caminho.
+ */
+
+:root {
+  --marca: #e50505;
+  --turquesa: #12996f;
+  --roxo: #730d9f;
+  --laranja: #c96a10;
+  --azul: #1f63c6;
+
+  --fundo: #ffffff;
+  --superficie: #f6f7f9;
+  --superficie-borda: #e3e6ea;
+  --regua: #d2d6dd;
+  --texto: #14161a;
+  --texto-fraco: #4a4f57;
+  --titulo: #14161a;
+  --codigo-fundo: #f6f7f9;
+  --codigo-texto: #14161a;
+}
+
+:root[data-tema="escuro"] {
+  --marca: #ff6b6b;
+  --turquesa: #5ad8a6;
+  --roxo: #c294e8;
+  --laranja: #ffb26b;
+  --azul: #7fb2ff;
+
+  --fundo: #0d0f12;
+  --superficie: #1b1e24;
+  --superficie-borda: #2f343c;
+  --regua: #3c414a;
+  --texto: #ffffff;
+  --texto-fraco: #d3d7de;
+  --titulo: #ffffff;
+  --codigo-fundo: #171a1f;
+  --codigo-texto: #eceef2;
+}
+
+/* --------------------------------------------------------------- estrutura */
+
+.reveal,
+.reveal .slides section { color: var(--texto); }
+
+body,
+.reveal-viewport { background: var(--fundo) !important; }
+
+.reveal .slides section {
+  text-align: left;
+  height: 100%;
+}
+
+/* ------------------------------------------------------------- cabecalho */
+
+/*
+ * Todo slide de conteudo tem tres coisas no alto, sempre nas mesmas posicoes:
+ * a parte da aula, o titulo e uma regua fina.
+ *
+ * A parte e escrita pelo recursos/tema.js, que percorre o deck e propaga o
+ * nome da ultima divisoria. Ela existe porque numa aula de trinta slides quem
+ * chegou atrasado precisa saber onde a turma esta sem perguntar.
+ */
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4 {
+  color: var(--titulo);
+  font-family: "Source Serif 4", "Inter", sans-serif;
+  text-transform: none;
+  letter-spacing: -0.005em;
+  margin: 0 0 0.35rem;
+}
+
+.reveal h2 {
+  font-size: 1.38em;
+  line-height: 1.2;
+}
+
+.reveal h3 {
+  font-size: 0.98em;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  margin-top: 0.15rem;
+}
+
+/*
+ * A etiqueta da parte, acima do titulo.
+ *
+ * O ::before fica na SECTION, e nao no h2: `attr()` so enxerga atributos do
+ * proprio elemento a que o pseudo pertence, e o data-parte esta na section.
+ */
+.reveal .slides section[data-parte]:not(.secao)::before {
+  content: attr(data-parte);
+  display: block;
+  font-family: "Inter", sans-serif;
+  font-size: 0.36em;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--texto-fraco);
+  margin-bottom: 0.42rem;
+}
+
+/* a regua fina embaixo do titulo, no lugar da tarja grossa */
+.reveal .slides section:not(.secao) > h2 {
+  border-bottom: 1px solid var(--regua);
+  padding-bottom: 0.45rem;
+  margin-bottom: 0.8rem;
+}
+
+.reveal a {
+  color: var(--marca);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+}
+
+.reveal strong {
+  color: var(--texto);
+  font-weight: 600;
+}
+
+.reveal ul,
+.reveal ol { margin-left: 1.05em; }
+
+.reveal li { margin-bottom: 0.26rem; }
+.reveal li::marker { color: var(--texto-fraco); }
+
+.reveal p { margin: 0 0 0.52rem; }
+.reveal p:last-child { margin-bottom: 0; }
+
+/* -------------------------------------------------------------- tipografia */
+
+.miudo {
+  font-size: 0.72em;
+  color: var(--texto-fraco);
+  line-height: 1.45;
+}
+
+.destaque {
+  color: var(--marca);
+  font-weight: 600;
+}
+
+.centro { text-align: center; }
+
+/* citacao de autor, usada uma vez por aula no maximo */
+.reveal blockquote {
+  background: none;
+  box-shadow: none;
+  border-left: 2px solid var(--regua);
+  margin: 0.6rem 0;
+  padding: 0.1rem 0 0.1rem 1rem;
+  font-style: normal;
+  width: auto;
+}
+
+.reveal blockquote p { font-size: 0.92em; }
+
+/* ------------------------------------------------------------------ caixas */
+
+/*
+ * Quatro papeis fixos, e eles nao se misturam: `ideia` para a definicao que
+ * fica, `atencao` para a armadilha, `caso` para o caso concreto e `exercicio`
+ * para o que a turma faz. Manter os papeis estaveis entre as aulas e o que
+ * permite a sala reconhecer o que esta olhando antes de ler.
+ *
+ * O desenho e discreto de proposito: regua vertical fina e fundo quase
+ * imperceptivel. A versao anterior tinha barra grossa e fundo cinza cheio, e
+ * num deck em que quase tudo e caixa isso vira ruido.
+ */
+.caixa {
+  background: var(--superficie);
+  border-left: 3px solid var(--regua);
+  border-radius: 0 6px 6px 0;
+  padding: 0.48rem 0.9rem;
+  margin: 0.42rem 0;
+}
+
+.caixa > :first-child { margin-top: 0; }
+.caixa > :last-child { margin-bottom: 0; }
+
+.caixa.ideia { border-left-color: var(--turquesa); }
+.caixa.atencao { border-left-color: var(--marca); }
+.caixa.caso { border-left-color: var(--roxo); }
+.caixa.exercicio { border-left-color: var(--laranja); }
+
+.caixa .rotulo,
+.rotulo {
+  display: block;
+  font-size: 0.55em;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--texto-fraco);
+  margin-bottom: 0.22rem;
+}
+
+.caixa.ideia .rotulo { color: var(--turquesa); }
+.caixa.atencao .rotulo { color: var(--marca); }
+.caixa.caso .rotulo { color: var(--roxo); }
+.caixa.exercicio .rotulo { color: var(--laranja); }
+
+/* ------------------------------------------------------------------ figuras */
+
+/*
+ * Fundo branco fixo, nos dois temas. Um grafico do matplotlib sai com fundo
+ * claro; deixa-lo transparente sobre o fundo escuro apagaria eixos e grade.
+ *
+ * O teto de altura e contra o erro mais comum de deck: a figura empurra a
+ * legenda para fora da tela e ninguem percebe ate a aula.
+ */
+.reveal .slides img,
+.figura img {
+  background: #ffffff;
+  border-radius: 6px;
+  padding: 0.3rem;
+  max-height: 480px;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  border: 1px solid var(--superficie-borda);
+}
+
+.reveal .slides img.limpo {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.qr img {
+  background: #ffffff;
+  padding: 0.5rem;
+  border-radius: 8px;
+}
+
+.reveal figure { margin: 0; }
+
+.reveal figcaption {
+  font-size: 0.6em;
+  color: var(--texto-fraco);
+  text-align: center;
+  margin-top: 0.3rem;
+}
+
+/* --------------------------------------------------------------- colunas */
+
+.colunas {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.colunas > * { flex: 1; min-width: 0; }
+.colunas.meio { align-items: center; }
+.colunas.larga-esquerda > *:first-child { flex: 1.7; }
+.colunas.larga-direita > *:last-child { flex: 1.7; }
+
+/* ------------------------------------------------------------------ codigo */
+
+.reveal pre {
+  box-shadow: none;
+  width: 100%;
+  margin: 0.4rem 0;
+}
+
+.reveal pre code {
+  background: var(--codigo-fundo);
+  color: var(--codigo-texto);
+  border: 1px solid var(--superficie-borda);
+  border-radius: 6px;
+  padding: 0.6rem 0.85rem;
+  max-height: none;
+  line-height: 1.45;
+  font-family: "Cascadia Code", "Consolas", ui-monospace, monospace;
+}
+
+.reveal code {
+  color: var(--roxo);
+  font-size: 0.92em;
+  font-family: "Cascadia Code", "Consolas", ui-monospace, monospace;
+}
+
+:root[data-tema="escuro"] .reveal code { color: var(--turquesa); }
+.reveal pre code span { color: inherit !important; }
+
+/*
+ * No escuro, o bloco de código ficava ilegível: a regra de cima, mais
+ * específica, pintava de verde-claro também o texto dos blocos, e o fundo claro
+ * que o Quarto põe em div.sourceCode continuava claro. Os blocos seguem as
+ * variáveis de código nos dois temas.
+ */
+.reveal div.sourceCode,
+.reveal pre.sourceCode { background: var(--codigo-fundo) !important; border: none; }
+:root[data-tema="escuro"] .reveal pre code { color: var(--codigo-texto); }
+
+/* ------------------------------------------------------------------ formulas */
+
+.reveal .math.display {
+  margin: 0.45rem 0;
+  font-size: 0.9em;
+}
+
+/* formula dentro de caixa nao precisa do respiro de formula solta */
+.caixa .math.display { margin: 0.35rem 0; }
+
+/* ------------------------------------------------------------------ tabelas */
+
+.reveal table {
+  font-size: 0.75em;
+  border-collapse: collapse;
+  margin: 0.35rem 0;
+  width: 100%;
+}
+
+.reveal table th {
+  background: none;
+  color: var(--texto-fraco);
+  border-bottom: 1px solid var(--texto-fraco);
+  text-align: left;
+  padding: 0.28rem 0.6rem;
+  font-size: 0.86em;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Formula no cabecalho da tabela nao pode virar caixa alta: em probabilidade,
+   X e x sao coisas diferentes, e o uppercase apagava justamente a distincao
+   que a notacao existe para marcar. */
+.reveal table th .math,
+.reveal table th mjx-container,
+.reveal table th .katex {
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.reveal table td {
+  border-bottom: 1px solid var(--superficie-borda);
+  padding: 0.34rem 0.6rem;
+  color: var(--texto);
+}
+
+.reveal table tr:last-child td { border-bottom: none; }
+
+/*
+ * Tabela de dupla entrada: a linha e a coluna dos totais sao marginais, e o
+ * miolo e a conjunta. Marcar a margem com fundo e o que faz a sala ver que
+ * sao dois objetos diferentes na mesma tabela.
+ */
+table .margem { background: var(--superficie); font-weight: 600; }
+table .conjunta { background: color-mix(in srgb, var(--turquesa) 14%, transparent); }
+table .marcado {
+  background: color-mix(in srgb, var(--marca) 16%, transparent);
+  font-weight: 700;
+}
+
+/* ------------------------------------------------------- slides apertados */
+
+/*
+ * A fonte base subiu de 29px para 32px porque a sala e grande e o fundo dela
+ * nao enxergava. O preco e que um punhado de slides, os mais carregados de
+ * cada deck, passou a estourar a borda de baixo.
+ *
+ * Baixar a fonte de volta puniria os outros cento e quarenta slides por causa
+ * de dez. Entao o ajuste e local: `.denso` devolve mais ou menos o tamanho
+ * antigo, e `.muito-denso` vai um pouco alem, nos dois ou tres em que nem isso
+ * basta. O titulo fica de fora nos dois casos, para a hierarquia da pagina nao
+ * mudar de slide para slide.
+ *
+ * Quem mexer no conteudo de um slide desses deve conferir se a classe ainda e
+ * necessaria: o certo e o slide caber sozinho, e a classe e o conserto.
+ */
+.reveal section.denso > *:not(h1):not(h2) { font-size: 0.88em; }
+.reveal section.muito-denso > *:not(h1):not(h2) { font-size: 0.78em; }
+
+/* ------------------------------------------------- arvore de frequencias */
+
+/*
+ * A arvore de frequencias naturais e o desenho central das aulas 7 e 9.
+ *
+ * Ela existe porque "P(fechado | reincidente) = 0,61" e uma frase que a turma
+ * copia sem entender, e "de 135 reincidentes, 83 pegaram fechado" e uma frase
+ * que ela entende na hora. A arvore poe as duas leituras no mesmo lugar: os
+ * numeros sao contagens, e a divisao acontece a vista.
+ *
+ * Sao dois niveis, e de proposito: com tres a figura fica ilegivel de longe, e
+ * nenhuma conta desta disciplina precisa de tres.
+ */
+.arvore {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0.45rem 0;
+}
+
+.arvore .no {
+  background: var(--fundo);
+  border: 1.5px solid var(--regua);
+  border-radius: 8px;
+  padding: 0.32rem 0.8rem;
+  text-align: center;
+  line-height: 1.22;
+  font-size: 0.76em;
+}
+
+.arvore .no b {
+  display: block;
+  font-size: 1.42em;
+  font-weight: 700;
+  line-height: 1.05;
+}
+
+.arvore .no small {
+  display: block;
+  font-size: 0.8em;
+  color: var(--texto-fraco);
+}
+
+.arvore .haste {
+  width: 1.5px;
+  height: 19px;
+  background: var(--regua);
+}
+
+.arvore .nivel {
+  display: flex;
+  gap: 2.6rem;
+  align-items: flex-start;
+}
+
+.arvore .galho {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.arvore .par { display: flex; gap: 0.55rem; }
+
+.arvore .no.esquerda { border-color: var(--turquesa); }
+.arvore .no.direita { border-color: var(--marca); }
+.arvore .no.foco {
+  border-width: 2.5px;
+  background: color-mix(in srgb, var(--marca) 9%, var(--fundo));
+}
+.arvore .no.apagado { opacity: 0.42; }
+
+/* ------------------------------------------------------- grade de exercicios */
+
+/*
+ * Exercicio em sala e para a lousa, nao para o slide. Entao o cartao traz o
+ * enunciado inteiro e nada da resposta: o que fica projetado enquanto a turma
+ * trabalha e exatamente o que ela precisa reler.
+ */
+.grade {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem 1.2rem;
+  margin-top: 0.45rem;
+}
+
+.grade.tres { grid-template-columns: repeat(3, 1fr); }
+
+/*
+ * Uma coluna so: e o formato do aquecimento, em que cada item e uma frase para
+ * traduzir. Com quatro frases empilhadas coladas o olho perde a conta de onde
+ * uma acaba, entao aqui o respiro e maior que na grade de duas colunas.
+ */
+.grade.uma {
+  grid-template-columns: 1fr;
+  gap: 0.85rem;
+}
+
+.grade.uma .item { padding-top: 0.5rem; font-size: 0.82em; }
+
+.grade .item {
+  border-top: 2px solid var(--laranja);
+  padding: 0.32rem 0 0;
+  font-size: 0.76em;
+  line-height: 1.4;
+}
+
+.grade .item b { color: var(--laranja); font-weight: 700; }
+
+/* ------------------------------------------------- grifo e esquema */
+
+/*
+ * O grifo acende no fragmento, mas o texto aparece desde o começo: o
+ * fragmento padrao do revealjs esconde o elemento, e aqui a frase inteira
+ * precisa estar na tela para a sala ler antes de os termos serem marcados.
+ * Cada cor casa com a peca do desenho esquematico que acende junto (mesmo
+ * `fragment-index`), e e isso que liga a palavra ao desenho.
+ */
+.reveal .slides section .fragment.grifo {
+  opacity: 1;
+  visibility: inherit;
+  border-radius: 4px;
+  padding: 0 .1em;
+  transition: background-color .45s ease, box-shadow .45s ease;
+}
+.reveal .slides section .fragment.grifo.visible.g-pop { background: color-mix(in srgb, var(--turquesa) 28%, transparent); }
+.reveal .slides section .fragment.grifo.visible.g-amo { background: color-mix(in srgb, var(--roxo) 24%, transparent); }
+.reveal .slides section .fragment.grifo.visible.g-par { background: color-mix(in srgb, var(--laranja) 30%, transparent); }
+.reveal .slides section .fragment.grifo.visible.g-esti { background: color-mix(in srgb, var(--azul) 24%, transparent); }
+
+.esquema { display: block; margin-top: .5rem; overflow: visible; }
+.esquema text { font-family: "Inter", sans-serif; fill: var(--texto); }
+.esquema .e-rot { font-size: 21px; font-weight: 700; }
+.esquema .e-mini { font-size: 15px; fill: var(--texto-fraco); }
+.esquema .e-num { font-size: 25px; font-weight: 700; }
+.esquema .e-ponto { fill: var(--regua); }
+.esquema .e-pop-borda { stroke: var(--turquesa); stroke-width: 3; }
+.esquema .e-pop-t { fill: var(--turquesa); }
+.esquema .e-sorteado, .esquema .e-amo-t, .esquema .e-amo-f { fill: var(--roxo); }
+.esquema .e-amo { fill: none; stroke: var(--roxo); stroke-width: 3; }
+.esquema .e-amo-l { stroke: var(--roxo); }
+.esquema .e-par-t { fill: var(--laranja); }
+.esquema .e-esti { fill: none; stroke: var(--azul); stroke-width: 3; }
+.esquema .e-esti-t, .esquema .e-esti-f { fill: var(--azul); }
+.esquema .e-esti-l { stroke: var(--azul); }
+.esquema .e-seta { stroke-width: 3; fill: none; }
+.esquema .e-volta { fill: none; stroke: var(--texto-fraco); stroke-width: 2; stroke-dasharray: 7 6; }
+.esquema .e-volta-f { fill: var(--texto-fraco); }
+
+/*
+ * Link para o painel da amostra, no canto de baixo do slide. E para o
+ * professor, e nao para a sala: discreto, e abre em outra aba.
+ */
+.link-painel {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  font-size: 0.5em;
+}
+.link-painel a { color: var(--texto-fraco); opacity: 0.7; text-decoration: none; }
+.link-painel a:hover { opacity: 1; text-decoration: underline; }
+
+/*
+ * A trilha dos seis passos do planejamento, no topo dos slides do estudo da
+ * aula 12: o passo do slide acende, os anteriores ficam marcados e os
+ * seguintes esperam apagados. Os passos sao os do Projeto 4.
+ */
+.passos p {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: -0.15rem 0 0.55rem;
+  font-size: 0.5em;
+}
+.passos span {
+  padding: 0.1em 0.75em;
+  border-radius: 999px;
+  border: 1px solid var(--superficie-borda);
+  color: var(--texto-fraco);
+}
+.passos span.feito { background: var(--superficie); color: var(--texto); }
+.passos span.agora {
+  background: var(--marca);
+  border-color: var(--marca);
+  color: #ffffff;
+  font-weight: 700;
+}
+
+/* os quatro controles do intervalo, dois por linha */
+.controles-ic {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 2rem;
+  font-size: 0.62em;
+}
+.controles-ic form { --label-width: 150px; --input-width: 260px; }
+
+/* Os três controles do TCL numa linha só: a altura do slide fica para os
+   dois histogramas. */
+.controles-tcl {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 0 1.1rem;
+  font-size: 0.76em;
+}
+.reveal .controles-tcl form[class*="oi-"] { margin: 0.2rem 0; font-size: 0.6em; flex-wrap: nowrap; }
+.reveal .controles-tcl form[class*="oi-"] input[type="range"] { width: 130px; }
+.reveal .controles-tcl form[class*="oi-"] > div { display: flex; flex-wrap: nowrap; align-items: center; gap: 0.4rem; }
+.reveal .controles-tcl form[class*="oi-"] input[type="number"] { width: 5.2em; }
+
+/* aula 16: tabela que muda com o controle, distribuição qui-quadrado */
+.controles-gl { display: flex; gap: 0 1.6rem; align-items: center; }
+.reveal form[class*="oi-"] { font-size: 0.5em; margin: 0.1rem 0; }
+.reveal form[class*="oi-"] input[type="range"] { width: 240px; }
+.reveal table.tabela-ojs { font-size: 0.48em; width: auto; margin: 0.3rem 0; }
+.reveal table.tabela-ojs th { white-space: nowrap; }
+.reveal table.tabela-ojs th,
+.reveal table.tabela-ojs td { padding: 0.25rem 0.9rem; text-align: right; }
+.reveal table.tabela-ojs th:first-child,
+.reveal table.tabela-ojs td:first-child { text-align: left; }
+.reveal table.tabela-ojs tr.total td { font-weight: 600; border-top: 2px solid #999; }
+.reveal table.tabela-ojs.pequena { font-size: 0.42em; }
+.reveal .resultado-qui { font-size: 0.5em; line-height: 1.6; margin-top: 0.5rem; }
+
+/* O aviso "Pyodide Status" do filtro aparece no canto da tela durante a aula
+   inteira. O carregamento continua igual; só o aviso some. */
+#qpyodide-status-message-area { display: none !important; }
+
+/* A celula do Pyodide (editor e saida) fica sempre clara, inclusive no modo
+   escuro. Sem isto, o modo escuro pinta o texto do <pre> de claro, e a saida,
+   que tem fundo branco, some. */
+.reveal .qpyodide-output-code-area,
+.reveal .qpyodide-output-code-area pre,
+.reveal .qpyodide-output-code-area code,
+.reveal .qpyodide-output-code-stdout,
+.reveal .qpyodide-output-code-stderr {
+  background: #ffffff !important;
+  color: #1b1b1b !important;
+}
+.reveal .qpyodide-output-code-stderr { color: #b00020 !important; }
+
+/* botoes dos controles OJS seguem as cores do tema, claro ou escuro */
+.reveal form[class*="oi-"] button {
+  background: var(--superficie);
+  color: var(--texto);
+  border: 1px solid var(--superficie-borda);
+  border-radius: 6px;
+  padding: 0.3em 0.9em;
+  font: inherit;
+  cursor: pointer;
+}
+.reveal form[class*="oi-"] input[type="number"] {
+  background: var(--superficie);
+  color: var(--texto);
+  border: 1px solid var(--superficie-borda);
+}
+
+/* --------------------------------------------------------------- numerao */
+
+/* Um numero sozinho, grande, quando o slide inteiro e sobre ele. */
+.numerao {
+  font-size: 2.3em;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--marca);
+  font-family: "Source Serif 4", "Inter", serif;
+}
+
+.numerao small {
+  display: block;
+  font-family: "Inter", sans-serif;
+  font-size: 0.28em;
+  font-weight: 400;
+  color: var(--texto-fraco);
+  margin-top: 0.35rem;
+  line-height: 1.35;
+}
+
+/* ------------------------------------------------------------------- quiz */
+
+/*
+ * O slide de quiz e sempre igual: QR a esquerda, o que fazer a direita. Ser
+ * sempre igual e o ponto. Na terceira vez a sala ja pegou o celular antes de o
+ * professor falar.
+ */
+.quiz {
+  display: flex;
+  gap: 2.2rem;
+  align-items: center;
+  margin-top: 0.6rem;
+}
+
+.quiz .qr { flex: none; width: 265px; }
+.quiz .qr img { width: 100%; }
+
+.quiz .endereco {
+  font-family: "Cascadia Code", Consolas, ui-monospace, monospace;
+  font-weight: 600;
+  font-size: 0.66em;
+  margin-top: 0.3rem;
+  text-align: center;
+  color: var(--texto-fraco);
+  word-break: break-all;
+}
+
+/* ---------------------------------------------------------- divisoria */
+
+/*
+ * Slide de divisoria: o numero da parte, o nome dela e uma linha de contexto.
+ *
+ * E um `##` como qualquer outro, e nao um `#`. Com `#` o pandoc empilha os
+ * slides seguintes na VERTICAL, e aula com pilha vertical e aula em que o
+ * professor erra a seta na frente da turma. Todo o deck anda para a direita.
+ */
+.reveal section.secao {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.reveal section.secao h2 {
+  font-size: 1.9em;
+  color: var(--titulo);
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.reveal section.secao[data-numero]::before {
+  content: "Parte " attr(data-numero);
+  display: block;
+  font-family: "Inter", sans-serif;
+  font-size: 0.5em;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--marca);
+  margin-bottom: 0.5rem;
+}
+
+.reveal section.secao .miudo {
+  margin-top: 0.7rem;
+  max-width: 30em;
+}
+
+/* ------------------------------------------------------------------- capa */
+
+.reveal .title-slide { text-align: left; }
+
+.reveal .title-slide h1 {
+  font-size: 1.7em;
+  line-height: 1.12;
+  border: none;
+}
+
+.reveal .title-slide .subtitle {
+  color: var(--texto-fraco);
+  font-size: 0.68em;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  margin-top: 0.55rem;
+}
+
+.reveal .title-slide .author,
+.reveal .title-slide .date {
+  color: var(--texto-fraco);
+  font-size: 0.55em;
+  margin-top: 0.15rem;
+}
+
+/* ------------------------------------------------------------------ rodape */
+
+/*
+ * O numero do slide fica sempre visivel, e nao so no modo apresentador. Num
+ * deck longo, saber a posicao e saber quanto falta, e isso muda o ritmo de
+ * quem esta na frente da sala.
+ */
+.reveal .slide-number {
+  background: none;
+  color: var(--texto-fraco);
+  font-family: "Inter", sans-serif;
+  font-size: 0.58em;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.75;
+  right: 16px;
+  bottom: 12px;
+}
+
+.reveal .slide-number a { border: none; color: inherit; }
+
+/* -------------------------------------------------------- botao do tema */
+
+#botao-tema {
+  position: fixed;
+  left: 12px;
+  bottom: 10px;
+  z-index: 60;
+  border: 1px solid var(--superficie-borda);
+  background: var(--fundo);
+  color: var(--texto-fraco);
+  border-radius: 999px;
+  padding: 0.18rem 0.62rem;
+  font-family: "Inter", sans-serif;
+  font-size: 11px;
+  cursor: pointer;
+  opacity: 0.3;
+  transition: opacity 0.15s;
+}
+
+#botao-tema:hover { opacity: 1; }
+
+/* --------------------------------------------------------------- impressao */
+
+@media print {
+  #botao-tema { display: none; }
+}
+
+/* ------------------------------------------- fundo destacado de slide */
+
+/*
+ * Alguns slides levam `background-color="var(--superficie)"` para se destacarem
+ * (quiz e exercicio). O revealjs tenta adivinhar se esse fundo e claro ou
+ * escuro para inverter o texto sozinho, e com uma variavel CSS ele nao
+ * consegue: assume escuro e pinta tudo de branco, o que some no fundo claro.
+ *
+ * Aqui a adivinhacao dele e desfeita. Quem decide a cor do texto e o tema, que
+ * ja sabe se esta no claro ou no escuro.
+ */
+.reveal .slides section.has-dark-background,
+.reveal .slides section.has-light-background,
+.reveal .slides section.has-dark-background *,
+.reveal .slides section.has-light-background * {
+  color: inherit;
+}
+
+.reveal .slides section.has-dark-background,
+.reveal .slides section.has-light-background { color: var(--texto); }
+
+.reveal section.has-dark-background h1,
+.reveal section.has-dark-background h2,
+.reveal section.has-dark-background h3,
+.reveal section.has-light-background h1,
+.reveal section.has-light-background h2,
+.reveal section.has-light-background h3 { color: var(--titulo); }
+
+.reveal section.has-dark-background .miudo,
+.reveal section.has-light-background .miudo,
+.reveal section.has-dark-background .rotulo,
+.reveal section.has-light-background .rotulo { color: var(--texto-fraco); }
+
+.reveal section.has-dark-background .caixa.ideia .rotulo,
+.reveal section.has-light-background .caixa.ideia .rotulo { color: var(--turquesa); }
+.reveal section.has-dark-background .caixa.atencao .rotulo,
+.reveal section.has-light-background .caixa.atencao .rotulo { color: var(--marca); }
+.reveal section.has-dark-background .caixa.caso .rotulo,
+.reveal section.has-light-background .caixa.caso .rotulo { color: var(--roxo); }
+.reveal section.has-dark-background .caixa.exercicio .rotulo,
+.reveal section.has-light-background .caixa.exercicio .rotulo { color: var(--laranja); }
+.reveal section.has-dark-background .grade .item b,
+.reveal section.has-light-background .grade .item b { color: var(--laranja); }
+.reveal section.has-dark-background .endereco,
+.reveal section.has-light-background .endereco { color: var(--texto-fraco); }
+
+/* ---------------------------------------------------- controles do OJS */
+
+/*
+ * As simulacoes interativas da aula 9 usam Observable Inputs, que vem com
+ * layout proprio pensado para notebook: rotulo numa coluna estreita a
+ * esquerda, tudo em corpo pequeno. Num slide isso quebra o rotulo em tres
+ * linhas e encosta no primeiro botao.
+ *
+ * Aqui o formulario vira uma linha so, com o rotulo do lado e o controle
+ * grande o suficiente para o professor arrastar na frente da turma.
+ */
+.reveal form[class*="oi-"] {
+  display: flex !important;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.1rem;
+  font-family: "Inter", sans-serif;
+  font-size: 0.6em;
+  max-width: 100%;
+  margin: 0.35rem 0 0.7rem;
+  color: var(--texto);
+}
+
+.reveal form[class*="oi-"] > label {
+  width: auto !important;
+  min-width: 0 !important;
+  flex: none;
+  white-space: nowrap;
+  color: var(--texto-fraco);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.85em;
+}
+
+.reveal form[class*="oi-"] input[type="range"] {
+  width: 340px;
+  max-width: 46vw;
+  accent-color: var(--marca);
+}
+
+.reveal form[class*="oi-"] input[type="number"] {
+  /* em, e nao rem: rem se ancora no html, que ficou em 16px, enquanto o texto
+     do slide cresceu para 32px. Com rem a caixa nao acompanhava a fonte e
+     valores de quatro digitos, como 0,45, saiam cortados. Com a confianca
+     indo a 0,9999 (aula 11), 4,6em virou "0....": 6,5em cabe. */
+  width: 6.5em;
+  background: var(--superficie);
+  color: var(--texto);
+  border: 1px solid var(--superficie-borda);
+  border-radius: 5px;
+  padding: 0.15rem 0.3rem;
+}
+
+/* o grupo de radio fica em linha, com respiro entre as opcoes */
+.reveal form[class*="oi-"] > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.3rem;
+  align-items: center;
+}
+
+.reveal form[class*="oi-"] label:not(:first-child) {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--texto);
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 400;
+  font-size: 1em;
+}
+
+.reveal form[class*="oi-"] input[type="radio"] { accent-color: var(--marca); }
+
+/* a saida de cada celula ojs nao leva a moldura de figura */
+.reveal .cell-output-display svg {
+  background: none;
+  border: none;
+  padding: 0;
+}

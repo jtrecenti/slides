@@ -1,0 +1,51 @@
+/*
+ * As declaracoes de fonte moram aqui, e nao no tema.
+ *
+ * O scss do tema e compilado para dentro de libs/revealjs/dist/theme/, e um
+ * caminho relativo escrito la aponta para outro lugar depois da compilacao: as
+ * fontes simplesmente nao carregavam. Este arquivo e copiado como esta, entao
+ * "fontes/..." continua valendo em relacao a pasta dos slides.
+ */
+
+@font-face {
+  font-family: "Inter";
+  src: url("fontes/Inter-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("fontes/Inter-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("fontes/Inter-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("fontes/Inter-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("fontes/Inter-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Source Serif 4";
+  src: url("fontes/SourceSerif4-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}

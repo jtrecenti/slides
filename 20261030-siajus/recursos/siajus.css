@@ -1,0 +1,110 @@
+/* Componentes da palestra no SIAJUS. As cores vêm do tema, claro e escuro. */
+
+/* capa com a marca */
+#logo-capa { display: block; height: 62px; margin: 0 0 3.2rem; background: none; border: none; padding: 0; border-radius: 0; }
+.reveal .slides section.quarto-title-block { text-align: left; padding-top: 3.5rem !important; top: 0 !important; }
+.reveal .quarto-title-block h1 { font-size: 2.3em; }
+.reveal .quarto-title-block .subtitle, .reveal .quarto-title-block .author, .reveal .quarto-title-block .date,
+.reveal .quarto-title-block .quarto-title-author-name, .reveal .quarto-title-block p { text-align: left; }
+.reveal .quarto-title-block .quarto-title-author-name { font-size: .62em; color: var(--texto-fraco); }
+.reveal .quarto-title-block .subtitle { font-size: .78em; }
+.reveal .quarto-title-block .author, .reveal .quarto-title-block .date { font-size: .62em; }
+.reveal .quarto-title-block h1, .reveal .quarto-title-block .quarto-title-authors,
+.reveal .quarto-title-block .quarto-title-author { text-align: left !important; justify-content: flex-start !important; }
+.reveal .quarto-title-block .date { font-size: .62em !important; color: var(--texto-fraco); }
+#evento-capa { margin-top: 1.4em; font-size: .5em; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--marca); }
+
+/* três perguntas */
+.tres { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; margin: .7rem 0 1rem; }
+.tres-item { border-top: 3px solid var(--marca); padding-top: .45rem; font-size: .96em; }
+.tres-n { display: block; font-family: "Source Serif 4", serif; font-weight: 700; font-size: 2em; line-height: 1.1; color: var(--marca); }
+
+/* sentença e tabela */
+.sent-grade { display: grid; grid-template-columns: 1.35fr 1fr; gap: 1.4rem; align-items: start; }
+.sent-texto { background: var(--superficie); border-radius: 6px; padding: .7rem .9rem; font-size: .92em; line-height: 1.55; }
+.sent-tabela table { font-size: .84em; }
+.marca { border-radius: 4px; padding: 0 .08em; }
+.val { font-weight: 700; color: var(--marca); visibility: hidden; }
+
+/* quatro formas */
+.etapas { display: grid; grid-template-columns: repeat(4, 1fr); gap: .8rem; font-size: .76em; margin-bottom: .55rem; }
+.etapa { background: var(--superficie); border-top: 3px solid var(--regua); border-radius: 0 0 6px 6px; padding: .45rem .6rem; }
+.etapa p { margin: 0 0 .2rem; }
+.destaque-etapa { border-top-color: var(--turquesa); }
+.reveal .etapas + div pre, .reveal div.sourceCode { margin: .2rem 0; }
+
+/* perguntas do Jev */
+.q-grade { display: grid; gap: .6rem; font-size: .84em; }
+.q-item { background: var(--superficie); border-radius: 6px; padding: .4rem .7rem; }
+.q-tipo { display: block; font-size: .7em; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--roxo); }
+.q-resp { display: inline-block; margin-top: .15rem; padding: 0 .5em; border-radius: 999px; font-weight: 600;
+          background: color-mix(in srgb, var(--turquesa) 20%, transparent); }
+.q-resp.incerta { background: color-mix(in srgb, var(--marca) 20%, transparent); }
+
+/* gráficos */
+.grafico-svg { width: 100%; height: auto; display: block; overflow: visible; }
+.grafico-svg text { font-family: "Inter", sans-serif; fill: var(--texto); }
+.grafico-svg .grade-linha { stroke: var(--superficie-borda); stroke-width: 1; }
+.grafico-svg .rotulo-eixo { font-size: 17px; fill: var(--texto-fraco); }
+.grafico-svg .titulo-eixo { font-size: 18px; font-weight: 600; fill: var(--texto-fraco); }
+.grafico-svg .bar-nome { font-size: 24px; font-weight: 600; }
+.grafico-svg .bar-val { font-size: 26px; font-weight: 700; }
+.grafico-svg .bar-titulo { font-size: 25px; font-weight: 700; fill: var(--marca); }
+.grafico-svg .bar { fill: var(--regua); }
+.grafico-svg .bar.jev { fill: var(--marca); }
+.grafico-svg .curva { fill: none; stroke: var(--marca); stroke-width: 4; }
+.grafico-svg .ref { stroke: var(--texto-fraco); stroke-width: 2; stroke-dasharray: 7 6; }
+.grafico-svg .ponto { fill: var(--marca); stroke: var(--fundo); stroke-width: 3; }
+#leg-bench { margin-top: .3rem; }
+
+.ctrl { margin: .1rem 0 .4rem; font-size: .66em; }
+.ctrl-rotulo { display: block; font-weight: 600; }
+.ctrl input[type="range"] { width: 100%; accent-color: var(--marca); }
+#conf-num { display: grid; grid-template-columns: 1fr 1fr; gap: .2em .8em; font-size: .66em; margin: .3em 0; }
+#conf-num b { display: block; font-family: "Source Serif 4", serif; font-size: 1.9em; color: var(--marca); line-height: 1.1; }
+
+/* tabelas */
+.reveal table { font-size: .8em; }
+.reveal table th { text-transform: none; letter-spacing: 0; }
+.ok { color: var(--turquesa); font-weight: 600; }
+.nok { color: var(--marca); font-weight: 600; }
+
+/* conta do TJSP */
+.conta { text-align: center; margin: .4rem 0 .5rem; }
+.conta-n { display: block; font-family: "Source Serif 4", serif; font-weight: 700; font-size: 2.5em; line-height: 1.05; color: var(--marca); }
+.conta-r { font-size: .68em; color: var(--texto-fraco); }
+.custos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: .5rem; }
+.custo { background: var(--superficie); border-radius: 6px; padding: .4rem .7rem; text-align: center; }
+.custo-jev { outline: 2px solid var(--marca); }
+.custo-m { display: block; font-size: .62em; font-weight: 600; color: var(--texto-fraco); }
+.custo-v { display: block; font-family: "Source Serif 4", serif; font-weight: 700; font-size: 1.7em; font-variant-numeric: tabular-nums; }
+
+/* fluxo */
+#fluxo { display: grid; grid-template-columns: repeat(5, 1fr); gap: .7rem; margin: .4rem 0 .7rem; }
+#fluxo .f-caixa { background: var(--superficie); border: 1px solid var(--superficie-borda); border-top: 5px solid var(--turquesa);
+                  border-radius: 6px; padding: .4em .55em; font-size: .72em; line-height: 1.3; min-height: 5.6em; }
+#fluxo .f-caixa[data-i="4"] { border-top-color: var(--marca); }
+#fluxo .f-caixa p { margin: 0 0 .2em; }
+
+/* camadas */
+.camadas { display: grid; gap: .5rem; margin-bottom: .7rem; font-size: .86em; }
+.camada { display: grid; grid-template-columns: 7.5em 1fr; align-items: center; padding: .35rem .8rem; border-radius: 6px; }
+.camada p { margin: 0; }
+.camada.c1 { background: color-mix(in srgb, var(--turquesa) 20%, transparent); width: 100%; }
+.camada.c2 { background: color-mix(in srgb, var(--laranja) 20%, transparent); width: 88%; }
+.camada.c3 { background: color-mix(in srgb, var(--marca) 16%, transparent); width: 76%; }
+.camada.fragment { display: grid; }
+
+/* pedidos e fim */
+.pedido { padding: .5rem 0; border-bottom: 1px solid var(--superficie-borda); font-size: .92em; }
+.pedido > p { display: grid; grid-template-columns: 11.5em 1fr; gap: 1rem; align-items: baseline; margin: 0; }
+.ped-q { font-weight: 700; color: var(--marca); }
+.fecho { font-family: "Source Serif 4", serif; font-weight: 700; font-size: 1.32em; margin-top: 1rem; }
+.qrs { display: grid; grid-template-columns: repeat(3, 1fr); gap: .7rem; text-align: center; }
+.qrs img { width: 100%; }
+
+.reveal .slides img { max-height: 400px; }
+.colunas img { width: 100%; }
+.centro { text-align: center; }
+.reveal .slides section.pedidos > h2 { margin-bottom: .4rem; }
+.reveal .quarto-title-block .quarto-title-author-name { padding: 0 !important; margin: 0 !important; }
