@@ -1,6 +1,6 @@
 ---
-title: "Do texto à base aberta"
-subtitle: "Estruturar dados judiciais ficou fácil. Falta poder fazer e conseguir acessar."
+title: "IA no judiciário e dados abertos"
+subtitle: "Como estruturar dados judiciais, acessá-los e abri-los para a pesquisa"
 author: "Julio Trecenti · Insper, LabDados FGV Direito SP, CEOE/Unifesp"
 date: "2026-10-30"
 date-format: "DD/MM/YYYY"
@@ -17,7 +17,6 @@ format:
           <link rel="stylesheet" href="recursos/siajus.css">
           <img id="logo-capa" src="recursos/img/logo_insper.png" alt="Insper">
           <script src="recursos/js/gsap.min.js"></script>
-          <script src="recursos/dados.js"></script>
           <script src="recursos/siajus.js"></script>
     embed-resources: true
     slide-number: c/t
@@ -43,12 +42,12 @@ format:
 # Palestra de 20 minutos na mesa "LLM, IA generativa e suas aplicações no
 # Direito" do 8º SIAJUS (Insper, 30/10/2026, 14h30).
 #
-# Tudo avança no clicker: os gráficos interativos têm passos em fragmento, e os
-# controles deslizantes são opcionais. Tecla "s" abre as notas com o tempo de
-# cada bloco; tecla "d" troca claro e escuro.
+# Tudo avança no clicker, exceto a galeria de aplicações, que abre no clique ou
+# nas teclas 1 a 8. Tecla "s" abre as notas com o tempo de cada bloco; tecla "d"
+# troca claro e escuro.
 ---
 
-## Três perguntas em 20 minutos {#roteiro}
+## Estruturar dados ficou fácil, mas acesso e legitimidade seguem em aberto {#roteiro}
 
 ::: {.tres}
 ::: {.fragment .tres-item}
@@ -61,39 +60,31 @@ Estruturar texto judicial ficou fácil e barato.
 ::: {.fragment .tres-item}
 [2]{.tres-n}
 
-**Podemos fazer?**
-
-Os dados são públicos, mas têm informação pessoal.
-:::
-::: {.fragment .tres-item}
-[3]{.tres-n}
-
 **Como acessamos?**
 
 Os grandes repositórios têm portas pagas e estreitas.
 :::
+::: {.fragment .tres-item}
+[3]{.tres-n}
+
+**Podemos fazer?**
+
+Os dados são públicos, mas têm informação pessoal.
+:::
 :::
 
 ::: {.fragment}
-::: {.caixa .ideia}
-[Tese]{.rotulo}
-
 Temos a chance de criar bases estruturadas do Judiciário em escala nunca vista.
-Talvez seja o projeto mais importante da área agora: **métodos seguros, baratos
-e fáceis**, e **repositórios abertos**.
-:::
+Talvez seja o projeto mais importante da área agora.
 :::
 
 ::: notes
-**0:00 a 0:45.** Me apresento em uma frase: estatístico, professor no Insper, trabalho com jurimetria desde 2010, hoje também no LabDados da FGV e no CEOE.
-Anuncio as três perguntas. A estrutura da fala é essa e nada mais.
+**0:00 a 0:40.** Me apresento em uma frase: estatístico, professor no Insper, trabalho com jurimetria desde 2010, hoje também no LabDados da FGV e no CEOE. Anuncio as três perguntas.
 :::
 
-## Estruturar texto ficou fácil {.secao}
+## Estruturar textos judiciais ficou fácil {.secao}
 
-Sentença entra, tabela sai.
-
-## O que queremos: da sentença à linha da tabela
+## Uma sentença pode virar uma linha de tabela
 
 ::: {.sent-grade}
 ::: {.sent-texto}
@@ -121,30 +112,26 @@ em regime inicial fechado ..."
 []{.fragment .passo data-passo="s4"}
 
 ::: {.fragment}
-::: {.caixa .caso}
-[Por que importa]{.rotulo}
-
 O Judiciário guarda quase tudo em **texto livre**. A variável que responde à
 pergunta de pesquisa quase nunca está nos metadados.
 :::
-:::
 
 ::: notes
-**0:45 a 1:45.** Clico quatro vezes: cada trecho do texto vira uma célula. Mensagem: a pergunta de pesquisa mora no texto, não nos metadados.
+**0:40 a 1:30.** Clico quatro vezes: cada trecho do texto vira uma célula.
 :::
 
-## Quatro formas de fazer isso
+## Saídas estruturadas reduziram a extração de dados a poucas linhas de código
 
 ::: {.etapas}
 ::: {.etapa .fragment}
-**Na mão**
+**Anotação manual**
 
-Padrão-ouro, mas caro e difícil de padronizar.
+Padrão-ouro, mas cara e difícil de padronizar.
 :::
 ::: {.etapa .fragment}
-**Regex**
+**Expressões regulares**
 
-Funciona no caso que você viu. Quebra no próximo.
+Funcionam no caso que você viu e quebram no próximo.
 :::
 ::: {.etapa .fragment}
 **Machine learning**
@@ -166,14 +153,14 @@ class Sentenca(BaseModel):
     pena_anos: float
 ```
 
-[O esquema vira uma gramática: o modelo só pode gerar o que cabe nela. Em Python, [dataframeit](https://github.com/bdcdo/dataframeit); em R, `ellmer`.]{.miudo}
+[O esquema vira uma gramática, e o modelo só pode gerar o que cabe nela. Em Python, [dataframeit](https://github.com/bdcdo/dataframeit); em R, `ellmer`.]{.miudo}
 :::
 
 ::: notes
-**1:45 a 3:00.** Passo rápido, quem viu sabe. Em 2 anos, a última coluna deixou de ser pesquisa e virou três linhas de código. Se perguntarem como funciona: o esquema vira uma máquina de estados que restringe os tokens em tempo de inferência, sem retreinar.
+**1:30 a 2:40.** Passo rápido. Se perguntarem como funciona: o esquema vira uma máquina de estados que restringe os tokens em tempo de inferência, sem retreinar.
 :::
 
-## Agora nem texto o modelo gera: o Jev
+## O Jev responde perguntas fechadas sem gerar texto
 
 ::: {.colunas .larga-direita}
 ::: {}
@@ -181,9 +168,9 @@ O **Jev** (TypeSafe AI, setembro de 2026) é um modelo "System One":
 
 - recebe o texto e **perguntas tipadas**;
 - devolve só as opções definidas;
-- entrega **probabilidade** em cada resposta.
+- dá uma **probabilidade** para cada resposta.
 
-[Não existe resposta fora do esquema, porque não há geração de texto. Modelo fechado, acesso por API.]{.miudo}
+[Modelo fechado, com acesso por API.]{.miudo}
 :::
 ::: {}
 ::: {.q-grade}
@@ -209,11 +196,10 @@ A sentença decide com base na inversão do ônus?
 :::
 
 ::: notes
-**3:00 a 4:00.** Três tipos: escolher, posicionar numa escala, sim ou não. O número ao lado é o que muda o jogo: o 0,52 está dizendo "não confie em mim aqui". Um LLM com JSON não dá isso de forma nativa.
-Os valores deste slide são ilustrativos, não saídas reais.
+**2:40 a 3:30.** Três tipos: escolher, posicionar numa escala, sim ou não. O 0,52 diz "não confie em mim aqui". Valores ilustrativos.
 :::
 
-## Testamos em 120 sentenças do TJSP
+## No nosso teste com sentenças do TJSP, o Jev foi mais rápido e o Gemini, mais preciso
 
 ::: {#g-bench}
 :::
@@ -222,157 +208,50 @@ Os valores deste slide são ilustrativos, não saídas reais.
 []{.fragment .passo data-passo="b-custo"}
 
 ::: {#leg-bench .miudo}
-12 variáveis fechadas, 120 sentenças cíveis, gabarito por consenso de modelos fortes com adjudicação cega. Sem juristas no gabarito. [LabDados, set/2026](https://lab-dados.github.io/jev-anotacao-sentencas/).
+12 variáveis fechadas em 120 sentenças cíveis, com gabarito por consenso de modelos fortes e adjudicação cega, sem juristas. [LabDados, set/2026](https://lab-dados.github.io/jev-anotacao-sentencas/).
 :::
 
 ::: notes
-**4:00 a 5:15.** Três cliques: qualidade, tempo, custo.
-Qualidade: Gemini 3.8 Flash ganha, 98,8%. GPT-5.6 Luna 96,8%, Jev 96,6%.
-Tempo: Jev cerca de 10 vezes mais rápido.
-Custo: 7 a 26 vezes mais barato.
-Limitação a dizer em voz alta: o gabarito é de modelos, sem juristas, e o preço do Jev veio da documentação.
+**3:30 a 4:30.** Três estados: qualidade, tempo, custo. Jev cerca de 10 vezes mais rápido, 7 a 26 vezes mais barato.
+Se perguntarem sobre confiança: com limiar 0,8, o Jev decidiu sozinho 91% das respostas com 99,3% de acurácia, e os outros 9% iriam para revisão humana.
+Dizer em voz alta: o gabarito é de modelos, sem juristas.
 :::
 
-## O diferencial é saber quando não sabe
+## Já existem alternativas abertas ao Jev que rodam na sua própria máquina
 
-::: {.colunas .larga-esquerda}
-::: {}
-::: {#g-conf}
-:::
-:::
-::: {}
-::: {.ctrl}
-<label class="ctrl-rotulo">limiar de confiança: <b id="conf-v"></b></label>
-<input type="range" id="conf" min="0" max="0.99" step="0.01" value="0">
-:::
-
-::: {#conf-num}
-:::
-
-::: {.caixa .ideia}
-[Humano no lugar certo]{.rotulo}
-
-Com limiar 0,8, o Jev decide sozinho **91%** das respostas com **99,3%** de
-acurácia. Os outros 9% vão para revisão.
-:::
-:::
-:::
-
-[]{.fragment .passo data-passo="c80"}
-[]{.fragment .passo data-passo="c95"}
-
-[Serve para ordenar e triar, não como probabilidade literal: na faixa baixa, o Jev é sobreconfiante. A cascata "aceita ou escala" também aparece em [Li et al. (2026)](https://arxiv.org/abs/2609.26550).]{.miudo}
-
-::: notes
-**5:15 a 6:15.** Clique 1: limiar 0,8. Clique 2: limiar 0,95, para mostrar o custo da exigência.
-A revisão humana deixa de ser amostra aleatória e vira triagem. É isso que torna o método defensável num paper.
-O slider funciona se eu estiver com mouse. No limiar zero aparece 96,5%, contra 96,6% do slide anterior: o relatório arredonda diferente nas perguntas sim ou não, e a diferença não muda nada.
-:::
-
-## Alternativas abertas: o movimento já começou
-
-| | O que é | Abertura | Atenção |
-|---|---|---|---|
-| **[this-that-model](https://arxiv.org/abs/2609.23886)** | modelo tipado de 2 bi de parâmetros, cerca de 30 ms em GPU de notebook | pesos no Hugging Face, MIT | números dos próprios autores |
-| **[poorjev](https://github.com/rupeshpoojary9/poorjev)** | mesma interface do Jev, com NLI local e calibração | código MIT | projeto novo, v0.1 |
-| **LLMs de pesos abertos** | modelo local com saída estruturada (Outlines, Ollama, vLLM) | varia por modelo | exige GPU |
+| | O que é | Abertura |
+|---|---|---|
+| **[Kev](https://github.com/jaredpalmer/kev)** | família de modelos tipados sobre Qwen, de 0,8B a 27B, compatível com o SDK do Jev | pesos e treino abertos, Apache-2.0 |
+| **[this-that-model](https://arxiv.org/abs/2609.23886)** | modelo tipado de 2 bilhões de parâmetros, cerca de 30 ms em GPU de notebook | pesos no Hugging Face, MIT |
+| **[poorjev](https://github.com/rupeshpoojary9/poorjev)** | mesma interface do Jev, com modelo de NLI local | código MIT |
+| **LLMs de pesos abertos** | modelo local com saída estruturada (Outlines, Ollama, vLLM) | varia por modelo |
 
 : {.tabela-abertas}
 
 ::: {.fragment}
-::: {.caixa .atencao}
-[Por que isso importa no Direito]{.rotulo}
-
 Modelo local significa **texto que não sai de casa**, custo marginal perto de zero e
-experimento reproduzível, sem depender da versão de um fornecedor. Ninguém
-testou essas alternativas a sério em português jurídico: **esse benchmark está por fazer**.
-:::
-:::
-
-::: notes
-**6:15 a 7:15.** Poucos dias depois do lançamento do Jev (15/09) já havia modelo aberto. Não vou dizer que são melhores: os números são dos próprios autores e nenhum foi testado em sentença brasileira. É um convite: alguém aqui pode fazer esse benchmark.
-Não testamos ainda no LabDados.
-:::
-
-## A oportunidade {.secao}
-
-Do estudo com amostra à pesquisa com o universo.
-
-## Quanto custaria anotar todo o 2º grau do TJSP?
-
-::: {.conta}
-[16.159.987]{.conta-n} [acórdãos na consulta pública do TJSP]{.conta-r}
-:::
-
-::: {.custos}
-::: {.custo}
-[Gemini 3.8 Flash]{.custo-m}
-[US$ 0]{#c-gem .custo-v}
-:::
-::: {.custo}
-[GPT-5.6 Luna]{.custo-m}
-[US$ 0]{#c-luna .custo-v}
-:::
-::: {.custo .custo-jev}
-[Jev]{.custo-m}
-[US$ 0]{#c-jev .custo-v}
-:::
-:::
-
-[]{.fragment .passo data-passo="cg"}
-[]{.fragment .passo data-passo="cl"}
-[]{.fragment .passo data-passo="cj"}
-
-::: {.fragment}
-::: {.caixa .ideia}
-[Ordem de grandeza]{.rotulo}
-
-Anotar **doze variáveis em todos os acórdãos dessa consulta, no maior tribunal do país**, cabe
-hoje num edital pequeno de pesquisa.
-:::
-:::
-
-[Multiplica o custo medido por mil sentenças cíveis (US$ 6,56, US$ 1,64 e US$ 0,25) pelo total de acórdãos. Acórdãos têm tamanho diferente, e isso não inclui validação nem coleta.]{.miudo}
-
-::: notes
-**7:15 a 8:15.** Este é o slide que eu quero que lembrem. Três cliques: 106 mil, 26 mil, 4 mil dólares.
-Sempre dizer: é conta de padeiro. O número de acórdãos é o que aparece na consulta do TJSP (out/2026). O maior custo real é coleta e validação, não o modelo.
-:::
-
-## Pesquisas que nunca foram possíveis
-
-::: {.grade .tres}
-::: {.item .fragment}
-**Efeito de precedentes**
-
-Mudança em como juízes decidem e fundamentam, antes e depois: é o desenho do nosso estudo sobre os Temas 6 e 1234 em saúde.
-:::
-::: {.item .fragment}
-**Desigualdade no tratamento**
-
-Comparar pena e quantidade de droga entre comarcas e varas, com a população de casos, e não com amostras de centenas.
-:::
-::: {.item .fragment}
-**Fundamentação em escala**
-
-Medir o que juízes citam, quais provas pesam e quando argumentos técnicos são usados.
-:::
-:::
-
-::: {.fragment}
-::: {.caixa .ideia}
-[A mudança]{.rotulo}
-
-A pergunta deixa de ser "o que dá para anotar com este orçamento?" e passa a ser
-"o que vale a pena medir?". Ganham também tribunais, defensorias, jornalistas e sociedade civil.
-:::
+experimento reproduzível. Mas falta testar essas alternativas em português jurídico:
+**esse benchmark ainda está por fazer**.
 :::
 
 ::: notes
-**8:15 a 9:15.** Exemplos concretos. O estudo de saúde é pré-registrado, com Daniel Wang: usa amostra estratificada por tribunal, estruturação por LLM ou análogos ao Jev e validação contra codificação humana.
+**4:30 a 5:30.** O Kev saiu dois dias depois do Jev e já tem milhares de estrelas no GitHub. Dá para fazer ajuste fino com dados próprios.
+Não digo que são melhores: não testamos ainda no LabDados. É um convite.
 :::
 
-## O projeto mais importante da área agora
+## Uma oportunidade para a pesquisa empírica em Direito {.secao}
+
+## Já usamos essas ferramentas em pesquisas e em órgãos públicos
+
+::: {#apps}
+:::
+
+::: notes
+**5:30 a 7:30.** Clico em dois ou três exemplos, não em todos. Teclas 1 a 8 também abrem. Sugestão: PGE (classificação no órgão público, rodando local), Temas 6 e 1234 (pesquisa empírica), IC do Pedro (aluno de graduação faz).
+As animações são ilustrativas: nenhuma mostra dados reais.
+:::
+
+## O projeto mais importante da área é criar métodos e repositórios abertos
 
 ::: {#fluxo}
 ::: {.f-caixa data-i="0"}
@@ -406,35 +285,177 @@ repositório, licença, documentação
 
 ::: {.colunas}
 ::: {.fragment}
-::: {.caixa .ideia}
-[Frente 1: métodos]{.rotulo}
-
-**Seguros, baratos e fáceis de usar**: quem faz pesquisa em Direito não pode depender de uma equipe de engenharia.
-:::
+**Métodos seguros, baratos e fáceis de usar**, para que pesquisar o Judiciário não dependa de uma equipe de engenharia.
 :::
 ::: {.fragment}
-::: {.caixa .caso}
-[Frente 2: repositórios]{.rotulo}
-
-**Bases estruturadas abertas**, para pesquisa e sociedade civil, sem que cada grupo refaça tudo do zero.
-:::
+**Repositórios estruturados abertos**, para pesquisadores e sociedade civil, sem que cada grupo refaça tudo do zero.
 :::
 :::
 
 ::: {.fragment}
-[Só que há duas perguntas no caminho.]{.destaque}
+[Só que há duas perguntas no caminho: como acessamos e se podemos usar.]{.destaque}
 :::
 
 ::: notes
-**9:15 a 10:15.** Falo a tese com todas as letras. Hoje cada grupo paga de novo a mesma coleta e a mesma anotação. Um repositório comum é bem público.
-Transição: "duas perguntas no caminho: podemos? e como acessamos?".
+**7:30 a 8:20.** Falo a tese com todas as letras. Hoje cada grupo paga de novo a mesma coleta e a mesma anotação. Um repositório comum é bem público.
 :::
 
-## Podemos fazer isso? {.secao}
+## Como acessamos os dados do Judiciário? {.secao}
 
-Os dados são públicos, mas contêm informações pessoais.
+## Por muito tempo, pesquisar o Judiciário dependia de papel e de robôs
 
-## Público não é o mesmo que aberto
+::: {.linha}
+::: {.marco .fragment}
+[2010]{.ano}
+
+**Sem base pronta.** No estudo do CARF, aprendi a escrever robôs para baixar decisões.
+:::
+::: {.marco .fragment}
+[2012 a 2014]{.ano}
+
+**LAI em papel.** No estudo de adoção com o CNJ, os dados vieram impressos, e algumas varas negaram acesso.
+:::
+::: {.marco .fragment}
+[Anos 2010]{.ano}
+
+**Um raspador por tribunal.** Cada sistema pedia um código, com paginação, sessões e captchas.
+:::
+::: {.marco .fragment}
+[2020 a 2024]{.ano}
+
+**O CNJ centraliza.** DataJud, PDPJ-Br, Jus.br e, por fim, o data lake.
+:::
+:::
+
+::: {.fragment}
+O passo zero de toda pesquisa empírica em Direito sempre foi **engenharia**, não estatística.
+Quem não tinha essa equipe simplesmente não pesquisava com dados.
+:::
+
+::: notes
+**8:20 a 9:20.** História pessoal, curta. Lição: "público por lei" não é "utilizável na prática". O direito de acesso não é uma base de dados.
+:::
+
+## O CNJ passou a concentrar os dados dos tribunais na PDPJ-Br
+
+::: {#arq}
+::: {.arq-linha .arq-trib}
+[PJe]{.chip} [eproc]{.chip} [e-SAJ]{.chip} [Projudi]{.chip} [outros sistemas]{.chip}
+:::
+::: {.arq-seta #a1}
+Codex extrai dados dos processos eletrônicos
+:::
+::: {.arq-linha .arq-pdpj #a2}
+**PDPJ-Br**, a plataforma que integra os tribunais (Res. CNJ 335/2020), com um **data lake** central
+:::
+::: {.arq-saidas #a3}
+::: {.arq-saida}
+**DataJud**
+
+Base nacional de estatísticas (Res. 331/2020), com API pública de metadados
+:::
+::: {.arq-saida}
+**Jus.br**
+
+Portal de serviços (Res. 455/2022), com consulta unificada de processos por login
+:::
+::: {.arq-saida}
+**API do data lake**
+
+Acesso a dados consolidados para instituições (Res. 574/2024 e Portaria 316/2024)
+:::
+:::
+:::
+
+[]{.fragment .passo data-passo="a1"}
+[]{.fragment .passo data-passo="a2"}
+[]{.fragment .passo data-passo="a3"}
+
+[Esquema simplificado.]{.miudo}
+
+::: notes
+**9:20 a 10:30.** Três cliques, de cima para baixo. Antes, cada tribunal com seu sistema. A PDPJ-Br foi a estratégia do CNJ contra essa fragmentação. O Codex é a ferramenta de extração. Dali saem três produtos com públicos diferentes: estatística, serviço ao usuário e venda de acesso.
+:::
+
+## Cada caminho de acesso entrega uma parte diferente dos dados
+
+| | O que entrega | Quem usa | Em massa? | Custo |
+|---|---|---|---|---|
+| **Site do tribunal** | processos e decisões | qualquer pessoa | [não]{.nok} | [grátis]{.ok} |
+| **API do DataJud** | só metadados, sem partes, valor nem texto | quem aceita os termos | [120 requisições/min]{.nok} | [grátis]{.ok} |
+| **Jus.br** | processo e documentos públicos | usuário com login | [não]{.nok} | [grátis]{.ok} |
+| **Data lake PDPJ** | partes e decisões, sem petições | instituições habilitadas | [até 200 milhões/mês]{.ok} | [R\$ 0,0015 a 0,0019 por chamada]{.nok} |
+
+: {.tabela-comp}
+
+::: {.fragment}
+O DataJud foi um avanço real para listar casos e sortear amostras. Mas a maior parte
+da pesquisa precisa de partes, valores e texto, que estão nos caminhos mais fechados.
+:::
+
+::: notes
+**10:30 a 11:30.** Leio por linha, sem ler tudo. O contraste: quanto mais rico o dado, mais estreita a porta. Sobre o site do tribunal: é uma tela de busca, um registro por vez, e é daí que vêm os raspadores.
+A Portaria 316 exclui petições e documentos do data lake, porque são "potencialmente sensíveis" (art. 4º).
+:::
+
+## O acesso completo foi desenhado para grandes instituições
+
+Para usar a API do data lake, a Portaria CNJ 316/2024, art. 5º, exige ao mesmo tempo:
+
+::: {.colunas .larga-esquerda}
+::: {}
+- políticas de privacidade e proteção de dados;
+- infraestrutura de segurança da informação;
+- auditoria capaz de reconstruir cada acesso;
+- disponibilidade acima de **95%**;
+- gestão de identidade para ao menos **200 mil usuários únicos por mês**.
+
+::: {.fragment}
+Universidades podem ser dispensadas dos dois últimos itens, a critério da Presidência do CNJ. Pesquisadores individuais não estão cobertos.
+:::
+:::
+::: {}
+::: {.fragment}
+::: {.numerao}
+R\$ 1 mil a 35 mil
+<small>por mês, em planos de uma API privada que revende dados judiciais públicos (abril de 2026)</small>
+:::
+:::
+:::
+:::
+
+::: notes
+**11:30 a 12:30.** O dado é público; o que se tornou privado foi o acesso. O problema não são as empresas agregarem valor, é não existir a camada pública por baixo.
+:::
+
+## Enquanto isso, a comunidade liberta os dados por conta própria
+
+::: {.colunas .larga-esquerda}
+::: {}
+Libertar dados é capturar, limpar, estruturar e publicar:
+
+- [`juscraper`](https://github.com/jtrecenti/juscraper): raspadores abertos para mais de 25 tribunais, DataJud e Jus.br
+- [`juscraper-app`](https://lab-dados.github.io/juscraper-app/): o mesmo, sem programar
+- **JudeData** (USP): dados do STF em CSV documentado
+- **Brasil.IO**, **Base dos Dados** e **Querido Diário**: a linhagem brasileira
+
+::: {.fragment}
+Raspar resolve uma pesquisa, não a infraestrutura. Isso exige governança, fôlego e
+**colaboração dos tribunais**.
+:::
+:::
+::: {}
+![](recursos/img/juscraper-app-inicio.png)
+:::
+:::
+
+::: notes
+**12:30 a 13:20.** Raspagem é método de pesquisa, não invasão. Mas é o plano B: o certo é a instituição abrir. Transição: e, conseguindo acessar, podemos usar?
+:::
+
+## Podemos usar esses dados em pesquisa? {.secao}
+
+## Dado público não é o mesmo que dado aberto
 
 ::: {.colunas}
 ::: {}
@@ -453,7 +474,7 @@ em formato aberto, legível por máquina e sob licença aberta.
 :::
 :::
 ::: {}
-![](recursos/img/dadosgov.jpg){.limpo-print}
+![](recursos/img/dadosgov.jpg)
 
 [`dados.gov.br`: mais de 19 mil conjuntos. A política federal é referência, mas alcança o Executivo, não o Judiciário.]{.miudo}
 
@@ -464,21 +485,35 @@ em formato aberto, legível por máquina e sob licença aberta.
 :::
 
 ::: notes
-**10:15 a 11:15.** "Clicar e baixar": esse é o critério prático. Se um computador consegue seguir o link, é legível por máquina.
-A política de dados abertos do Executivo Federal não obriga o Judiciário. Mas nada impede o Judiciário de abrir. E alguns abriram.
+**13:20 a 14:10.** "Clicar e baixar" é o critério prático. A política do Executivo Federal não obriga o Judiciário, mas nada impede o Judiciário de abrir.
 :::
 
-## Dentro do Judiciário, há quem já abriu
+## O próprio CNJ trata sentenças e nomes das partes como dados públicos
+
+> "dados públicos: dados estruturados e não estruturados relativos a número único, classe e assuntos do processo, nome das partes e de seus advogados, decisões, sentenças, votos e acórdãos [...]"
+
+[Portaria CNJ 316/2024, art. 2º, I, remetendo à Res. CNJ 121/2010]{.miudo}
+
+::: {.fragment}
+Ou seja, o dado é público **e** contém informação pessoal. A pergunta não é se ele é
+acessível, mas **em que condições** pode ser reutilizado.
+:::
+
+::: notes
+**14:10 a 14:40.** Citação curta, leio em voz alta. Petições e documentos são "potencialmente sensíveis" e ficam de fora; processos em segredo são "restritos".
+:::
+
+## O STJ e o TJDFT já publicam decisões como dados abertos
 
 ::: {.colunas}
 ::: {}
 **STJ**: espelhos de acórdãos
 
-![](recursos/img/stj.jpg){.print-alto}
+![](recursos/img/stj.jpg)
 
-[ZIP, CSV e JSON. Licença CC-BY. `dadosabertos.web.stj.jus.br`]{.miudo}
+[ZIP, CSV e JSON, com licença CC-BY. `dadosabertos.web.stj.jus.br`]{.miudo}
 :::
-::: {}
+::: {.fragment}
 **TJDFT**: API pública de jurisprudência
 
 ![](recursos/img/tjdft.jpg)
@@ -490,37 +525,34 @@ A política de dados abertos do Executivo Federal não obriga o Judiciário. Mas
 :::
 
 ::: notes
-**11:15 a 12:15.** STJ: qualquer pessoa ou máquina baixa o espelho de todos os acórdãos. Tribunal superior, então talvez seja prerrogativa?
-Não: o TJDFT é tribunal de justiça, "tão filho de Deus quanto o TJSP", e publica uma API aberta. Essas decisões também têm dados pessoais.
+**14:40 a 15:30.** Primeiro o STJ: qualquer pessoa ou máquina baixa os espelhos. Tribunal superior, então talvez seja prerrogativa?
+Clico: não, o TJDFT é tribunal de justiça, "tão filho de Deus quanto o TJSP", e publica API aberta. Essas decisões também têm dados pessoais.
 :::
 
-## E no TJSP?
+## O TJSP tem dados públicos, mas não abertos
 
 ::: {.colunas .larga-direita}
 ::: {}
-- Consulta **pública**: qualquer pessoa, sem cadastro.
-- Sem download em massa nem licença aberta.
+- A consulta é **pública**, sem cadastro.
+- Não há download em massa nem licença aberta.
 - Busque **"PIX"**: aparecem chaves que são CPFs.
 
 ::: {.fragment}
-Quem já baixou? As **empresas** de consulta processual.
-
-Quem esbarra? A **pesquisa**, que pode travar no comitê de ética.
+As **empresas** de consulta processual já baixaram tudo. Quem esbarra é a **pesquisa**, que pode travar no comitê de ética.
 :::
 :::
 ::: {}
 ![](recursos/img/tjsp.jpg)
 
-[Consulta de jurisprudência do TJSP: 16.159.987 acórdãos listados (out/2026).]{.miudo}
+[Consulta de jurisprudência do TJSP, com 16.159.987 acórdãos listados (out/2026).]{.miudo}
 :::
 :::
 
 ::: notes
-**12:15 a 13:00.** Não mostro nenhum CPF. Cito a busca como provocação, e quem quiser testa no celular.
-O ponto: o dado pessoal já está exposto a qualquer pessoa, e o único ator contido é o pesquisador.
+**15:30 a 16:15.** Não mostro nenhum CPF. Cito a busca como provocação. O dado pessoal já está exposto a qualquer pessoa, e o único ator contido é o pesquisador.
 :::
 
-## Mesmo Judiciário, respostas diferentes
+## A mesma decisão pode ser aberta ou não, dependendo do tribunal
 
 | | STJ | TJDFT | TJSP |
 |---|---|---|---|
@@ -534,16 +566,16 @@ O ponto: o dado pessoal já está exposto a qualquer pessoa, e o único ator con
 ::: {.colunas}
 ::: {.fragment}
 ::: {.caixa .ideia}
-[Caminho A]{.rotulo}
+[Primeiro caminho]{.rotulo}
 
 São públicos, logo **deveriam ser abertos**. O TJSP só está atrasado, e a pesquisa é legítima.
 :::
 :::
 ::: {.fragment}
 ::: {.caixa .atencao}
-[Caminho B]{.rotulo}
+[Segundo caminho]{.rotulo}
 
-Têm dados pessoais, logo **pede comitê de ética**. Mas aí a resposta muda com o tribunal.
+Têm dados pessoais, logo **pedem comitê de ética**. Mas aí a resposta muda com o tribunal.
 :::
 :::
 :::
@@ -553,17 +585,16 @@ Têm dados pessoais, logo **pede comitê de ética**. Mas aí a resposta muda co
 :::
 
 ::: notes
-**13:00 a 14:00.** Esta é a provocação do bloco. Dados iguais, mesmo Poder, e a resposta depende do CEP de quem publicou.
-Não digo que o Caminho B é errado: digo que ele precisa ser coerente.
+**16:15 a 17:10.** Provocação do bloco. Não digo que o segundo caminho é errado: digo que ele precisa ser coerente.
 :::
 
-## Minha proposta: abrir por camadas
+## Podemos abrir os dados em camadas, conforme o risco
 
 ::: {.camadas}
 ::: {.camada .c1 .fragment}
 **Aberta**
 
-Variáveis estruturadas e metadados, sem identificar pessoas. Para qualquer finalidade.
+Variáveis estruturadas e metadados, sem identificar pessoas, para qualquer finalidade.
 :::
 ::: {.camada .c2 .fragment}
 **Protegida**
@@ -573,100 +604,25 @@ Textos anonimizados, com finalidade declarada e termo de uso.
 ::: {.camada .c3 .fragment}
 **Restrita**
 
-Dados identificados e cruzamentos: sala segura e comitê de ética.
+Dados identificados e cruzamentos, em sala segura e com comitê de ética.
 :::
 :::
 
-::: {.colunas}
 ::: {.fragment}
-::: {.caixa .ideia}
-[Estruturar também protege]{.rotulo}
+Estruturar também protege: a base publica `decisao` e `pena_anos`, e não o texto. E a mesma IA ajuda a anonimizar.
+:::
 
-Uma base publica `decisao` e `pena_anos`, e não o texto. E a mesma IA ajuda a anonimizar.
-:::
-:::
-::: {.fragment}
-::: {.caixa .caso}
-[Base normativa]{.rotulo}
-
-LGPD, art. 7º, §3º (finalidade, boa-fé, interesse público) e IV (pesquisa). Res. CNS 510/2016, art. 1º, p.u. (acesso público).
-:::
-:::
+::: {.fragment .miudo}
+LGPD, art. 7º, §3º (finalidade, boa-fé e interesse público) e inciso IV (pesquisa). Res. CNS 510/2016, art. 1º, parágrafo único (informações de acesso público).
 :::
 
 ::: notes
-**14:00 a 15:00.** Resposta à pergunta "podemos?": sim, com desenho. Nem tudo aberto, nem tudo trancado.
-Exemplo real: no benchmark, as sentenças integrais não são redistribuídas (LGPD art. 6º, III), só metadados e anotações. Já o estudo de saúde, que cruza CPF com bases administrativas, foi para o comitê de ética.
+**17:10 a 18:10.** Resposta a "podemos?": sim, com desenho. Nem tudo aberto, nem tudo trancado.
+Exemplo real: no benchmark, as sentenças integrais não são redistribuídas, só metadados e anotações. Já o estudo de saúde, que cruza CPF com bases administrativas, foi para o comitê de ética.
 Não é parecer jurídico: é uma proposta para o debate.
 :::
 
-## Como acessamos? {.secao}
-
-As portas existem. Falta alguém caber nelas.
-
-## Duas portas para os dados do Judiciário
-
-| | API pública DataJud | Data lake PDPJ |
-|---|---|---|
-| Custo | [gratuita]{.ok} | [R$ 0,0015 a 0,0019 por chamada]{.nok} |
-| Conteúdo | [só metadados]{.nok} | [partes e texto]{.ok} |
-| Limite | [120 requisições/min]{.nok} | [200 milhões de chamadas/mês]{.ok} |
-| Quem entra | [aceita os termos]{.ok} | [instituição que cumpre o art. 5º]{.nok} |
-
-: {.tabela-comp}
-
-::: {.fragment}
-::: {.caixa .atencao}
-[Portaria CNJ 316/2024, art. 5º]{.rotulo}
-
-Além de políticas de privacidade e auditoria, exige disponibilidade acima de 95% e gestão de
-identidade para **ao menos 200 mil usuários únicos por mês**. Universidades podem ser dispensadas
-desses dois itens, a critério da Presidência. Pesquisador individual não está coberto.
-:::
-:::
-
-::: {.fragment}
-Enquanto isso, APIs privadas revendem esse dado público: de **R\$ 1 mil a R\$ 35 mil por mês** em um exemplo de abril de 2026.
-:::
-
-::: notes
-**15:00 a 16:30.** DataJud foi um avanço real: ótimo para listar casos e amostrar. Mas sem partes, sem valor da causa, sem texto.
-PDPJ: a porta foi desenhada para grandes instituições e lawtechs.
-O dado é público; o que se tornou privado foi o acesso. O problema não são as empresas agregarem valor, é não existir a camada pública por baixo.
-Fonte do preço do mercado: tabela de uma API comercial, abril de 2026. Não cito o nome.
-:::
-
-## Enquanto a porta não abre: libertação de dados {.denso}
-
-::: {.colunas .larga-esquerda}
-::: {}
-**Capturar, limpar, estruturar e publicar.**
-
-- [`juscraper`](https://github.com/jtrecenti/juscraper): raspadores abertos para mais de 25 tribunais, e DataJud
-- [`juscraper-app`](https://lab-dados.github.io/juscraper-app/): o mesmo, sem programar
-- **JudeData** (USP): dados do STF em CSV documentado
-- **Brasil.IO**, **Base dos Dados**, **Querido Diário**: a linhagem brasileira
-- **SCALES** (EUA): registros federais livres, contra o paywall do PACER
-
-::: {.fragment}
-::: {.caixa .atencao}
-[Limite]{.rotulo}
-
-Raspar resolve uma pesquisa, não a infraestrutura. Precisa de governança, fôlego e **colaboração dos tribunais**.
-:::
-:::
-:::
-::: {}
-![](recursos/img/juscraper-app-inicio.png)
-:::
-:::
-
-::: notes
-**16:30 a 17:45.** Raspagem é método de pesquisa, não invasão. Mas é o plano B: o certo é a instituição abrir.
-Comentar: a IA barateou a estruturação e o gargalo migrou para o acesso.
-:::
-
-## Três pedidos {.pedidos}
+## O que precisamos de tribunais, comitês e universidades {.pedidos}
 
 ::: {.pedido .fragment}
 [Tribunais e CNJ]{.ped-q}
@@ -686,7 +642,7 @@ Dado público só é público de verdade quando é aberto.
 :::
 
 ::: notes
-**17:45 a 19:15.** Fecho devagar. Recapitulo: dá para fazer, podemos com desenho por camadas, e o acesso é o gargalo.
+**18:10 a 19:30.** Fecho devagar. Recapitulo: dá para fazer, o acesso é o gargalo e podemos usar com desenho por camadas.
 :::
 
 ## Obrigado! {.fim}
@@ -697,7 +653,7 @@ Dado público só é público de verdade quando é aberto.
 
 `julioazt@insper.edu.br`
 
-[Deck, fontes e código abertos no repositório de slides. Redigido com apoio do Claude Code (Claude Opus 5.5). As afirmações e eventuais erros são meus.]{.miudo}
+[Slides e código abertos no repositório de slides. Redigido com apoio do Claude Code (Claude Opus 5.5). As afirmações e eventuais erros são meus.]{.miudo}
 :::
 ::: {}
 ::: {.qrs}
@@ -721,5 +677,5 @@ Dado público só é público de verdade quando é aberto.
 :::
 
 ::: notes
-**19:15 a 20:00.** Agradeço e deixo os QR codes na tela durante as perguntas.
+**19:30 a 20:00.** Agradeço e deixo os QR codes na tela durante as perguntas.
 :::

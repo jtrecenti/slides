@@ -14,7 +14,7 @@
 $font-family-sans-serif: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !default;
 $presentation-font-size-root: 32px !default;
 $presentation-heading-font: "Source Serif 4", "Inter", sans-serif !default;
-$presentation-heading-font-weight: 700 !default;
+$presentation-heading-font-weight: 400 !default;
 $presentation-line-height: 1.34 !default;
 
 $body-bg: #ffffff !default;
@@ -104,6 +104,7 @@ body,
 .reveal h3,
 .reveal h4 {
   color: var(--titulo);
+  font-weight: 400;
   font-family: "Source Serif 4", "Inter", sans-serif;
   text-transform: none;
   letter-spacing: -0.005em;
@@ -132,10 +133,10 @@ body,
   content: attr(data-parte);
   display: block;
   font-family: "Inter", sans-serif;
-  font-size: 0.36em;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
+  font-size: 0.5em;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
   color: var(--texto-fraco);
   margin-bottom: 0.42rem;
 }
@@ -226,10 +227,10 @@ body,
 .caixa .rotulo,
 .rotulo {
   display: block;
-  font-size: 0.55em;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  font-size: 0.68em;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
   color: var(--texto-fraco);
   margin-bottom: 0.22rem;
 }
@@ -359,8 +360,8 @@ body,
   padding: 0.28rem 0.6rem;
   font-size: 0.86em;
   font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  letter-spacing: 0;
+  text-transform: none;
 }
 
 /* Formula no cabecalho da tabela nao pode virar caixa alta: em probabilidade,
@@ -747,8 +748,8 @@ table .marcado {
   font-family: "Inter", sans-serif;
   font-size: 0.5em;
   font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
+  letter-spacing: 0;
+  text-transform: none;
   color: var(--marca);
   margin-bottom: 0.5rem;
 }
@@ -772,7 +773,7 @@ table .marcado {
   color: var(--texto-fraco);
   font-size: 0.68em;
   font-weight: 500;
-  letter-spacing: 0.02em;
+  letter-spacing: 0;
   margin-top: 0.55rem;
 }
 
@@ -906,8 +907,8 @@ table .marcado {
   white-space: nowrap;
   color: var(--texto-fraco);
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+  text-transform: none;
+  letter-spacing: 0;
   font-size: 0.85em;
 }
 

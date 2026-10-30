@@ -12,12 +12,12 @@
 .reveal .quarto-title-block h1, .reveal .quarto-title-block .quarto-title-authors,
 .reveal .quarto-title-block .quarto-title-author { text-align: left !important; justify-content: flex-start !important; }
 .reveal .quarto-title-block .date { font-size: .62em !important; color: var(--texto-fraco); }
-#evento-capa { margin-top: 1.4em; font-size: .5em; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--marca); }
+#evento-capa { margin-top: 1.4em; font-size: .5em; font-weight: 600;   color: var(--marca); }
 
 /* três perguntas */
 .tres { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; margin: .7rem 0 1rem; }
 .tres-item { border-top: 3px solid var(--marca); padding-top: .45rem; font-size: .96em; }
-.tres-n { display: block; font-family: "Source Serif 4", serif; font-weight: 700; font-size: 2em; line-height: 1.1; color: var(--marca); }
+.tres-n { display: block; font-family: "Source Serif 4", serif; font-weight: 400; font-size: 2em; line-height: 1.1; color: var(--marca); }
 
 /* sentença e tabela */
 .sent-grade { display: grid; grid-template-columns: 1.35fr 1fr; gap: 1.4rem; align-items: start; }
@@ -36,7 +36,7 @@
 /* perguntas do Jev */
 .q-grade { display: grid; gap: .6rem; font-size: .84em; }
 .q-item { background: var(--superficie); border-radius: 6px; padding: .4rem .7rem; }
-.q-tipo { display: block; font-size: .7em; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--roxo); }
+.q-tipo { display: block; font-size: .8em; font-weight: 700;   color: var(--roxo); }
 .q-resp { display: inline-block; margin-top: .15rem; padding: 0 .5em; border-radius: 999px; font-weight: 600;
           background: color-mix(in srgb, var(--turquesa) 20%, transparent); }
 .q-resp.incerta { background: color-mix(in srgb, var(--marca) 20%, transparent); }
@@ -48,36 +48,18 @@
 .grafico-svg .rotulo-eixo { font-size: 17px; fill: var(--texto-fraco); }
 .grafico-svg .titulo-eixo { font-size: 18px; font-weight: 600; fill: var(--texto-fraco); }
 .grafico-svg .bar-nome { font-size: 24px; font-weight: 600; }
-.grafico-svg .bar-val { font-size: 26px; font-weight: 700; }
-.grafico-svg .bar-titulo { font-size: 25px; font-weight: 700; fill: var(--marca); }
+.grafico-svg .bar-val { font-size: 26px; font-weight: 600; }
+.grafico-svg .bar-titulo { font-size: 26px; font-weight: 500; fill: var(--marca); }
 .grafico-svg .bar { fill: var(--regua); }
 .grafico-svg .bar.jev { fill: var(--marca); }
-.grafico-svg .curva { fill: none; stroke: var(--marca); stroke-width: 4; }
-.grafico-svg .ref { stroke: var(--texto-fraco); stroke-width: 2; stroke-dasharray: 7 6; }
-.grafico-svg .ponto { fill: var(--marca); stroke: var(--fundo); stroke-width: 3; }
 #leg-bench { margin-top: .3rem; }
 
-.ctrl { margin: .1rem 0 .4rem; font-size: .66em; }
-.ctrl-rotulo { display: block; font-weight: 600; }
-.ctrl input[type="range"] { width: 100%; accent-color: var(--marca); }
-#conf-num { display: grid; grid-template-columns: 1fr 1fr; gap: .2em .8em; font-size: .66em; margin: .3em 0; }
-#conf-num b { display: block; font-family: "Source Serif 4", serif; font-size: 1.9em; color: var(--marca); line-height: 1.1; }
 
 /* tabelas */
-.reveal table { font-size: .8em; }
+.reveal table { font-size: .76em; }
 .reveal table th { text-transform: none; letter-spacing: 0; }
 .ok { color: var(--turquesa); font-weight: 600; }
 .nok { color: var(--marca); font-weight: 600; }
-
-/* conta do TJSP */
-.conta { text-align: center; margin: .4rem 0 .5rem; }
-.conta-n { display: block; font-family: "Source Serif 4", serif; font-weight: 700; font-size: 2.5em; line-height: 1.05; color: var(--marca); }
-.conta-r { font-size: .68em; color: var(--texto-fraco); }
-.custos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: .5rem; }
-.custo { background: var(--superficie); border-radius: 6px; padding: .4rem .7rem; text-align: center; }
-.custo-jev { outline: 2px solid var(--marca); }
-.custo-m { display: block; font-size: .62em; font-weight: 600; color: var(--texto-fraco); }
-.custo-v { display: block; font-family: "Source Serif 4", serif; font-weight: 700; font-size: 1.7em; font-variant-numeric: tabular-nums; }
 
 /* fluxo */
 #fluxo { display: grid; grid-template-columns: repeat(5, 1fr); gap: .7rem; margin: .4rem 0 .7rem; }
@@ -99,7 +81,7 @@
 .pedido { padding: .5rem 0; border-bottom: 1px solid var(--superficie-borda); font-size: .92em; }
 .pedido > p { display: grid; grid-template-columns: 11.5em 1fr; gap: 1rem; align-items: baseline; margin: 0; }
 .ped-q { font-weight: 700; color: var(--marca); }
-.fecho { font-family: "Source Serif 4", serif; font-weight: 700; font-size: 1.32em; margin-top: 1rem; }
+.fecho { font-family: "Source Serif 4", serif; font-weight: 400; font-size: 1.32em; margin-top: 1rem; }
 .qrs { display: grid; grid-template-columns: repeat(3, 1fr); gap: .7rem; text-align: center; }
 .qrs img { width: 100%; }
 
@@ -108,3 +90,50 @@
 .centro { text-align: center; }
 .reveal .slides section.pedidos > h2 { margin-bottom: .4rem; }
 .reveal .quarto-title-block .quarto-title-author-name { padding: 0 !important; margin: 0 !important; }
+
+/* linha do tempo */
+.linha { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin: .5rem 0 .9rem; }
+.marco { border-top: 3px solid var(--regua); padding-top: .4rem; font-size: .76em; line-height: 1.35; }
+.marco p { margin: 0 0 .25rem; }
+.ano { font-family: "Source Serif 4", serif; font-size: 1.5em; color: var(--marca); }
+
+/* arquitetura */
+#arq { display: grid; gap: .45rem; margin-top: .3rem; font-size: .76em; }
+.arq-trib p { display: flex; gap: .5rem; flex-wrap: wrap; justify-content: center; margin: 0; }
+.chip { background: var(--superficie); border: 1px solid var(--superficie-borda); border-radius: 999px; padding: .1em .85em; }
+.arq-seta { text-align: center; color: var(--texto-fraco); font-size: .9em; }
+.arq-seta p { margin: 0; }
+.arq-pdpj { background: color-mix(in srgb, var(--turquesa) 16%, transparent); border-radius: 6px; padding: .5rem .9rem; text-align: center; }
+.arq-pdpj p { margin: 0; }
+.arq-saidas { display: grid; grid-template-columns: repeat(3, 1fr); gap: .7rem; }
+.arq-saida { background: var(--superficie); border-top: 3px solid var(--marca); border-radius: 0 0 6px 6px; padding: .4rem .65rem; font-size: .92em; line-height: 1.32; }
+.arq-saida p { margin: 0 0 .15rem; }
+
+/* galeria de aplicações */
+#apps { display: grid; grid-template-columns: 370px 1fr; gap: 1.1rem; margin-top: .1rem; }
+.app-lista { display: grid; gap: .32rem; align-content: start; }
+.app-b { all: unset; box-sizing: border-box; cursor: pointer; display: block; width: 100%; padding: .34rem .6rem; border-radius: 6px;
+         background: var(--superficie); border-left: 3px solid var(--regua); font-family: "Inter", sans-serif; font-size: 18px; line-height: 1.25; color: var(--texto); }
+.app-b small { display: block; font-size: 15px; color: var(--texto-fraco); }
+.app-b:hover, .app-b:focus-visible { border-left-color: var(--marca); }
+.app-b.ativo { background: color-mix(in srgb, var(--marca) 10%, var(--fundo)); border-left-color: var(--marca); font-weight: 600; }
+.app-painel { min-width: 0; }
+.reveal .app-painel h3 { font-family: "Source Serif 4", serif; font-weight: 400; font-size: 27px; margin: 0 0 .2rem; }
+.reveal .app-resumo { font-size: 20px; line-height: 1.38; margin: 0 0 .5rem; }
+.reveal .app-vazio { font-size: 22px; color: var(--texto-fraco); padding-top: 6rem; text-align: center; }
+.cena { position: relative; height: 340px; background: var(--superficie); border-radius: 8px; overflow: hidden; font-family: "Inter", sans-serif; font-size: 16px; }
+.reveal .cena-nota { font-size: 14px; color: var(--texto-fraco); margin: .25rem 0 0; }
+.c-doc { position: absolute; background: var(--fundo); border: 1px solid var(--superficie-borda); border-radius: 6px; padding: 9px 11px; line-height: 1.5; }
+.c-linha { padding: 1px 4px; border-radius: 3px; margin-bottom: 6px; }
+.c-campo { position: absolute; left: 372px; right: 14px; display: flex; justify-content: space-between; gap: 10px; border-bottom: 1px solid var(--superficie-borda); padding: 5px 2px; }
+.c-campo b { color: var(--marca); font-weight: 600; opacity: 0; }
+.c-bin { position: absolute; width: 150px; height: 58px; border: 1.5px dashed var(--regua); border-radius: 6px; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 15px; }
+.c-papel { position: absolute; width: 120px; height: 54px; border-radius: 5px; background: var(--fundo); border: 1px solid var(--texto-fraco); display: flex; align-items: center; justify-content: center; font-size: 15px; }
+.c-passo { position: absolute; top: 122px; width: 118px; height: 96px; border-radius: 7px; background: var(--fundo); border: 1.5px solid var(--regua); display: flex; align-items: center; justify-content: center; text-align: center; padding: 6px; font-size: 15px; line-height: 1.25; box-sizing: border-box; }
+.c-barra { position: absolute; bottom: 44px; width: 62px; background: var(--regua); border-radius: 4px 4px 0 0; }
+.c-barra.fim { background: var(--marca); }
+.c-rot { position: absolute; font-size: 15px; color: var(--texto-fraco); text-align: center; }
+.c-marco { position: absolute; top: 24px; bottom: 28px; width: 0; border-left: 2px dashed var(--texto-fraco); }
+.reveal .numerao { font-size: 1.55em; font-weight: 400; white-space: nowrap; }
+.reveal .numerao small { white-space: normal; font-size: .42em; }
+.reveal .quarto-title-block .quarto-title-authors, .reveal .quarto-title-block .quarto-title-author { padding: 0 !important; margin: 0 !important; }
