@@ -78,3 +78,4 @@ contato comigo pelo Telegram ([jtrecenti](https://t.me/jtrecenti)).
 | 2025-04-25 | 15 anos de jurimetria                                                     | [aqui](https://jtrecenti.github.io/slides/docs/15anos/index.html)            |
 | 2025-08-12 | juscraper                                                     | [aqui](https://jtrecenti.github.io/slides/docs/juscraper/index.html)            |
 | 2026-10-30 | IA no judiciário e dados abertos (8º SIAJUS)                               | [aqui](https://jtrecenti.github.io/slides/20261030-siajus/index.html)            |
+| 2026-11-26 | Estruturação de dados com IA e dados abertos no Judiciário (STF)          | [aqui](https://jtrecenti.github.io/slides/20261126-stf/index.html)               |
