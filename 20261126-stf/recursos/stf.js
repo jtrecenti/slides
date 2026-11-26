@@ -185,6 +185,110 @@
     });
   }
 
+  /* ---------- máquina de estados guiando o LLM ---------------------------- */
+
+  const FSM_TOK = [["1", 0.14, 1], ["2", 0.10, 1], ["34", 0.08, 1], ["567", 0.12, 0], ["3B", 0.09, 1],
+    ["B", 0.11, 1], ["BCE", 0.07, 0], ["C", 0.13, 0], ["dog", 0.16, 0]];
+  const FSM_LEG = [
+    "Exemplo: um número de 1 a 4 dígitos, seguido ou não de BC. Em expressão regular, <code>[0-9]{1,4}(BC)?</code>",
+    "O esquema vira uma expressão regular, e a expressão regular vira uma <b>máquina de estados</b>.",
+    "O modelo já gerou <b>19</b> e está no estado 2. Ele dá uma probabilidade para <b>cada token</b> do vocabulário.",
+    "A máquina de estados <b>zera</b> os tokens que levariam a um caminho inválido.",
+    "As probabilidades restantes são <b>normalizadas</b>, e o próximo token é sorteado entre elas: <b>3B</b>.",
+  ];
+  function montarFsm() {
+    const caixa = $("#g-fsm"), leg = $("#leg-fsm");
+    if (!caixa) return;
+    const W = 1140, H = 320;
+    const s = el("svg", { viewBox: `0 0 ${W} ${H}`, class: "grafico-svg" }, caixa);
+    const defs = el("defs", {}, s);
+    [["fsm-ponta", "fsm-ponta"], ["fsm-ponta-ok", "fsm-ponta ok"]].forEach(([id, cl]) => {
+      const mk = el("marker", { id, viewBox: "0 0 10 10", refX: 9, refY: 5, markerWidth: 7, markerHeight: 7, orient: "auto" }, defs);
+      el("path", { d: "M0 0 L10 5 L0 10 z", class: cl }, mk);
+    });
+    /* tokens candidatos, à esquerda */
+    const ger = texto(s, 0, 26, "", { class: "fsm-ger" });
+    const xb = 92, lb = 200;
+    const toks = FSM_TOK.map(([t, p, ok], i) => {
+      const y = 50 + i * 30;
+      const g = el("g", { class: "fsm-tok" }, s);
+      const tx = texto(g, 0, y + 19, t, { class: "fsm-tok-t" });
+      const b = el("rect", { x: xb, y: y + 4, width: 0, height: 20, rx: 3, class: "fsm-tok-b" }, g);
+      const v = texto(g, xb + 8, y + 20, "", { class: "fsm-tok-v" });
+      return { t, p, ok, g, tx, b, v };
+    });
+    const somaOk = FSM_TOK.reduce((a, x) => a + (x[2] ? x[1] : 0), 0);
+    /* máquina de estados, à direita */
+    const P = [[430, 70], [575, 70], [720, 70], [865, 70], [1010, 70], [940, 250], [1095, 250]];
+    const R = 28;
+    const arestas = [[0, 1, "0-9"], [1, 2, "0-9"], [2, 3, "0-9"], [3, 4, "0-9"], [1, 5, "B"], [2, 5, "B"], [3, 5, "B"], [4, 5, "B"], [5, 6, "C"]];
+    const gA = el("g", {}, s), gE = el("g", {}, s);
+    const ars = arestas.map(([a, b, r]) => {
+      const [x1, y1] = P[a], [x2, y2] = P[b];
+      const d = Math.hypot(x2 - x1, y2 - y1), ux = (x2 - x1) / d, uy = (y2 - y1) / d;
+      const ln = el("line", { x1: x1 + ux * R, y1: y1 + uy * R, x2: x2 - ux * (R + 3), y2: y2 - uy * (R + 3), class: "fsm-ar" }, gA);
+      const mx = (x1 + x2) / 2 + (uy === 0 ? 0 : -uy * 18), my = (y1 + y2) / 2 + (uy === 0 ? -12 : ux * 18 + 6);
+      const lt = texto(gA, mx, my, r, { "text-anchor": "middle", class: "fsm-lab" });
+      const len = d - 2 * R - 3;
+      gsap.set(ln, { strokeDasharray: len, strokeDashoffset: len });
+      return { a, b, ln, lt, len };
+    });
+    const ests = P.map(([x, y], i) => {
+      const g = el("g", { class: "fsm-est" }, gE);
+      el("circle", { cx: x, cy: y, r: R }, g);
+      if ([1, 2, 3, 4, 6].includes(i)) el("circle", { cx: x, cy: y, r: R - 6, class: "fsm-aceita" }, g);
+      texto(g, x, y + 8, String(i), { "text-anchor": "middle" });
+      return g;
+    });
+    const regua = el("line", { x1: 360, y1: 10, x2: 360, y2: H - 10, class: "fsm-div" }, s);
+    const marca = (lista) => ests.forEach((g, i) => g.classList.toggle("atual", lista.includes(i)));
+    const legenda = (k) => { if (leg) leg.innerHTML = FSM_LEG[k]; };
+    const okDe2 = (x) => (x.a === 2 && (x.b === 3 || x.b === 5));
+    gsap.set([...ests, ...ars.map((x) => x.lt)], { autoAlpha: 0 });
+    gsap.set([...toks.map((x) => x.g), ger, regua], { autoAlpha: 0 });
+    legenda(0);
+    const larg = (p) => (p / 0.3) * lb;
+    passo("f1", (on) => {
+      legenda(on ? 1 : 0);
+      if (on) {
+        gsap.fromTo(ests, { autoAlpha: 0, scale: 0, transformOrigin: "50% 50%" }, { autoAlpha: 1, scale: 1, duration: 0.4, stagger: 0.12, ease: "back.out(2)", overwrite: true });
+        ars.forEach((x, k) => {
+          gsap.to(x.ln, { strokeDashoffset: 0, duration: 0.4, delay: 0.3 + k * 0.1, overwrite: true });
+          gsap.to(x.lt, { autoAlpha: 1, duration: 0.3, delay: 0.5 + k * 0.1, overwrite: true });
+        });
+      } else {
+        gsap.to(ests, { autoAlpha: 0, duration: 0.2, overwrite: true });
+        ars.forEach((x) => { gsap.set(x.ln, { strokeDashoffset: x.len }); gsap.set(x.lt, { autoAlpha: 0 }); });
+      }
+    });
+    const mostraTok = (fase) => {
+      /* fase 0: escondido; 1: todos; 2: inválidos cortados; 3: normalizados e sorteio */
+      gsap.to([ger, regua], { autoAlpha: fase ? 1 : 0, duration: 0.3, overwrite: true });
+      ger.textContent = fase === 3 ? "Gerado até aqui: 193B" : "Gerado até aqui: 19";
+      toks.forEach((x, i) => {
+        const corta = fase >= 2 && !x.ok;
+        x.g.classList.toggle("ok", fase >= 2 && !!x.ok);
+        x.g.classList.toggle("nok", corta);
+        x.g.classList.toggle("sorteado", fase === 3 && x.t === "3B");
+        const p = corta ? 0 : fase === 3 ? x.p / somaOk : x.p;
+        const o = { v: 0 };
+        gsap.to(x.g, { autoAlpha: fase ? (corta ? 0.55 : 1) : 0, duration: 0.3, delay: fase === 1 ? i * 0.06 : 0, overwrite: true });
+        gsap.to(x.b, { attr: { width: fase ? larg(p) : 0 }, duration: 0.6, delay: fase === 1 ? 0.2 + i * 0.06 : 0, ease: "power2.out", overwrite: true });
+        gsap.to(x.v, { attr: { x: xb + (fase ? larg(p) : 0) + 8 }, duration: 0.6, delay: fase === 1 ? 0.2 + i * 0.06 : 0, ease: "power2.out", overwrite: true });
+        gsap.fromTo(o, { v: x.p }, { v: p, duration: 0.6, overwrite: true, onUpdate: () => { x.v.textContent = num(o.v, 2); } });
+      });
+      ars.forEach((x) => x.ln.classList.toggle("ok", fase >= 2 && okDe2(x)));
+      if (fase === 3) {
+        marca([2]);
+        gsap.delayedCall(0.8, () => marca([3]));
+        gsap.delayedCall(1.4, () => marca([5]));
+      } else marca(fase ? [2] : []);
+    };
+    passo("f2", (on) => { legenda(on ? 2 : 1); mostraTok(on ? 1 : 0); });
+    passo("f3", (on) => { legenda(on ? 3 : 2); mostraTok(on ? 2 : 1); });
+    passo("f4", (on) => { legenda(on ? 4 : 3); mostraTok(on ? 3 : 2); });
+  }
+
   /* ---------- classificador da PGE: petição, modelo local, limiar ---------- */
 
   const PGE_ROT = ["Saúde", "Tributário", "Servidor", "Outros"];
@@ -742,6 +846,7 @@
     montarGran();
     montarFicha();
     montarPge();
+    montarFsm();
     gsap.set(".quem-card, .quem-linha", { autoAlpha: 0 });
     gsap.set(".tl-item", { autoAlpha: 0 });
     gsap.set(".tl-trilho", { scaleX: 0 });

@@ -47,42 +47,11 @@ format:
 # troca claro e escuro.
 ---
 
-## Acessar, estruturar e abrir os dados do Judiciário {#roteiro}
-
-::: {.tres}
-::: {.fragment .tres-item}
-[1]{.tres-n}
-
-**Como acessamos?**
-
-Os dados existem, mas raramente em massa e com o texto.
-:::
-::: {.fragment .tres-item}
-[2]{.tres-n}
-
-**Dá para estruturar?**
-
-Estruturar texto judicial ficou fácil e barato.
-:::
-::: {.fragment .tres-item}
-[3]{.tres-n}
-
-**Podemos abrir?**
-
-Os dados são públicos, mas têm informação pessoal.
-:::
-:::
-
-::: {.fragment}
-Temos a chance de criar bases estruturadas do Judiciário em escala nunca vista, e o
-STF tem um papel especial nisso.
-:::
+## Como acessamos os dados do Judiciário? {.secao}
 
 ::: notes
-**0:00 a 1:30.** Agradeço o convite do programa Estratégia em movimento. Anuncio as três perguntas, nessa ordem. Quem somos e onde fazemos isso fica para o fim, em cinco minutos.
+**0:00 a 1:30.** Agradeço o convite do programa Estratégia em movimento. Conto o percurso em três perguntas: como acessamos os dados, se dá para estruturá-los e se podemos abri-los. Quem somos e onde fazemos isso fica para o fim, em cinco minutos.
 :::
-
-## Como acessamos os dados do Judiciário? {.secao}
 
 ## Por muito tempo, pesquisar o Judiciário dependia de papel e de robôs
 
@@ -185,49 +154,6 @@ Supremo seguem outro caminho: o **Corte Aberta**.
 O data lake exige da instituição, entre outros, gestão de identidade para 200 mil usuários por mês e cobra R$ 0,0015 a 0,0019 por chamada (Portaria 316, art. 5º). Não afirmo se o STF envia dados ao DataJud: não encontrei confirmação.
 :::
 
-## O STF em números, pelo Corte Aberta {#numeros}
-
-::: {.colunas}
-::: {}
-::: {.num-grade}
-::: {.num-card}
-[21636]{.num-v data-fmt="int"}
-processos em tramitação
-:::
-::: {.num-card}
-[110832]{.num-v data-fmt="int"}
-decisões em 2026, até agora
-:::
-::: {.num-card}
-[1502]{.num-v data-fmt="int"}
-temas de repercussão geral apreciados
-:::
-::: {.num-card}
-[5.4]{.num-v data-fmt="pct"}
-taxa atual de provimento recursal
-:::
-:::
-
-[Painéis do Corte Aberta, consultados em 25/11/2026. Atualização diária.]{.miudo}
-:::
-::: {}
-::: {#waffle}
-:::
-
-::: {#waffle-leg .miudo}
-Em 2025, **94.934 decisões monocráticas**, cerca de 80% do total (Relatório de Atividades 2025).
-:::
-:::
-:::
-
-[]{.fragment .passo data-passo="n1"}
-[]{.fragment .passo data-passo="n2"}
-
-::: notes
-**4:00 a 5:15.** Primeiro clique: os contadores sobem até os valores do painel de ontem. Segundo: o quadro de cem quadradinhos mostra que quatro em cada cinco decisões são monocráticas.
-Pergunta para a plateia: que pergunta de gestão vocês responderiam com isso? E qual precisaria do texto?
-:::
-
 ## O Corte Aberta publica bases para download {#bases}
 
 ::: {.colunas .larga-direita}
@@ -246,7 +172,7 @@ Pergunta para a plateia: que pergunta de gestão vocês responderiam com isso? E
 []{.fragment .passo data-passo="g2"}
 
 ::: notes
-**5:15 a 6:30.** É um avanço real, e mais do que muitos tribunais oferecem: acervo, decisões desde 2000, recebidos e baixados, repercussão geral, controle concentrado, reclamações, plenário virtual, pautas.
+**4:00 a 5:15.** É um avanço real, e mais do que muitos tribunais oferecem: acervo, decisões desde 2000, recebidos e baixados, repercussão geral, controle concentrado, reclamações, plenário virtual, pautas.
 Dois cliques: primeiro as bases encaixam nas três granularidades (processo, decisão, parte). Depois aparece a coluna que falta: o texto da decisão.
 :::
 
@@ -268,13 +194,8 @@ Dois cliques: primeiro as bases encaixam nas três granularidades (processo, dec
 []{.fragment .passo data-passo="e-dj"}
 []{.fragment .passo data-passo="e-pd"}
 
-::: {.fragment}
-O metadado já é aberto. O **texto**, que é onde a IA agrega valor, só sai um a um, e
-o acesso automatizado não tem regras públicas.
-:::
-
 ::: notes
-**6:30 a 8:00.** Uma linha por clique, depois duas ênfases: falta o texto nas bases; e o texto só sai um a um, sem termos de uso que digam o que é permitido.
+**5:15 a 6:30.** Uma linha por clique, depois duas ênfases: falta o texto nas bases; e o texto só sai um a um, sem termos de uso que digam o que é permitido.
 Cuidado ao falar: a pesquisa de jurisprudência tem uma API interna não documentada, e o portal fica atrás de um firewall de aplicação. Não é proibição, é ausência de regra clara. Não encontrei Plano de Dados Abertos nem API documentada; digo "não localizei", não "não existe".
 :::
 
@@ -288,8 +209,7 @@ Cuidado ao falar: a pesquisa de jurisprudência tem uma API interna não documen
 - **JudeData** (USP) e pacotes em R: dados do STF em formato documentado
 
 ::: {.fragment}
-Raspar resolve uma pesquisa, não a infraestrutura. Cada grupo refaz a coleta, com
-regras diferentes e sem saber se está incomodando o tribunal.
+[O que poderíamos fazer agora?]{.destaque}
 :::
 :::
 ::: {}
@@ -300,8 +220,8 @@ regras diferentes e sem saber se está incomodando o tribunal.
 :::
 
 ::: notes
-**8:00 a 9:15.** A base de votos foi noticiada pela Pesquisa FAPESP em abril de 2025. A mesma matéria aponta limites: os dados mostram os vencidos, mas não quem formou a maioria, e o plenário virtual não registra os debates.
-Raspagem é método de pesquisa, não invasão. Mas é o plano B: o certo é a instituição abrir.
+**6:30 a 7:45.** A base de votos foi noticiada pela Pesquisa FAPESP em abril de 2025. A mesma matéria aponta limites: os dados mostram os vencidos, mas não quem formou a maioria, e o plenário virtual não registra os debates.
+Clico e deixo a pergunta no ar. Raspar resolve uma pesquisa, não a infraestrutura: cada grupo refaz a coleta, com regras diferentes e sem saber se está incomodando o tribunal. Raspagem é método de pesquisa, não invasão, mas é o plano B. A resposta completa vem no fim, em "O que o STF pode fazer agora".
 :::
 
 ## Estruturar textos judiciais ficou fácil {.secao}
@@ -341,7 +261,7 @@ metadados, mas o **sentido da decisão** só está no texto.
 :::
 
 ::: notes
-**9:15 a 10:15.** Quatro cliques, cada trecho vira uma célula. Ementa curta e pública. Num acórdão inteiro, as variáveis interessantes (fundamentos, divergência, modulação) estão espalhadas por dezenas de páginas.
+**7:45 a 8:45.** Quatro cliques, cada trecho vira uma célula. Ementa curta e pública. Num acórdão inteiro, as variáveis interessantes (fundamentos, divergência, modulação) estão espalhadas por dezenas de páginas.
 :::
 
 ## Saídas estruturadas reduziram a extração de dados a poucas linhas de código
@@ -381,8 +301,48 @@ class Acordao(BaseModel):
 :::
 
 ::: notes
-**10:15 a 11:45.** O VICTOR, de 2018, é exemplo da terceira etapa: precisou de milhares de recursos anotados para treinar. Hoje, para muitas perguntas, basta escrever o esquema.
-Se perguntarem como funciona: o esquema vira uma máquina de estados que restringe os tokens em tempo de inferência, sem retreinar.
+**8:45 a 10:00.** O VICTOR, de 2018, é exemplo da terceira etapa: precisou de milhares de recursos anotados para treinar. Hoje, para muitas perguntas, basta escrever o esquema.
+Como funciona por dentro fica para o próximo slide.
+:::
+
+## Uma máquina de estados impede o LLM de sair do esquema {#fsm}
+
+::: {#g-fsm}
+:::
+
+::: {#leg-fsm}
+:::
+
+[]{.fragment .passo data-passo="f1"}
+[]{.fragment .passo data-passo="f2"}
+[]{.fragment .passo data-passo="f3"}
+[]{.fragment .passo data-passo="f4"}
+
+::: {.colunas .fsm-comp}
+::: {.fragment}
+::: {.caixa .caso}
+[LLM com saída estruturada]{.rotulo}
+
+Gera **token a token**. A máquina de estados só corta o que sai do esquema; o modelo
+continua sendo um gerador de texto.
+:::
+:::
+::: {.fragment}
+::: {.caixa .ideia}
+[Jev]{.rotulo}
+
+**Não gera texto.** Lê o documento e devolve uma probabilidade para cada opção
+definida. Por isso é mais rápido e a confiança vem pronta.
+:::
+:::
+:::
+
+[Exemplo da minha palestra no IME-USP (2025), a partir de [Structured Output from LLMs](https://www.youtube.com/watch?v=xpvFinvqRCA). Probabilidades ilustrativas.]{.miudo}
+
+::: notes
+**10:00 a 12:00.** Quatro cliques e duas caixas. Exemplo de brinquedo: um número de até 4 dígitos, seguido ou não de "BC". O esquema Pydantic vira uma expressão regular, que vira uma máquina de estados. O modelo já gerou "19" e está no estado 2. Ele dá probabilidade a todo o vocabulário, inclusive "dog"; a máquina zera o que é inválido ("567" daria 5 dígitos, "C" sem o B, "BCE" passa do fim); renormaliza e sorteia. Tudo em tempo de inferência, sem retreinar.
+Limitação: o LLM gera tokens, não caracteres, e restringir demais pode piorar a qualidade.
+Comparação: o LLM com máquina de estados ainda gera, um token por vez; o Jev classifica, sem gerar, como um modelo de classificação que recebe as opções na pergunta. Por isso ele é mais rápido e mais barato no benchmark, e a probabilidade de cada opção é o que alimenta a triagem por confiança.
 :::
 
 ## O Jev responde perguntas fechadas sem gerar texto
@@ -421,7 +381,7 @@ A decisão modula os efeitos?
 :::
 
 ::: notes
-**11:45 a 12:45.** Três tipos: escolher, posicionar numa escala, sim ou não. O 0,52 diz "não confie em mim aqui". Valores ilustrativos.
+**12:00 a 13:00.** Três tipos: escolher, posicionar numa escala, sim ou não. O 0,52 diz "não confie em mim aqui". Valores ilustrativos.
 :::
 
 ## No nosso teste com sentenças do TJSP, o Jev foi mais rápido e o Gemini, mais preciso
@@ -437,7 +397,7 @@ A decisão modula os efeitos?
 :::
 
 ::: notes
-**12:45 a 13:45.** Três estados: qualidade, tempo, custo. Jev cerca de 10 vezes mais rápido, 7 a 26 vezes mais barato.
+**13:00 a 14:00.** Três estados: qualidade, tempo, custo. Jev cerca de 10 vezes mais rápido, 7 a 26 vezes mais barato.
 Dizer em voz alta: o gabarito é de modelos, sem juristas.
 :::
 
@@ -464,7 +424,7 @@ Com um limiar de **0,8**, o que fica à direita é aceito sem revisão.
 [Pontos dispostos para ilustrar as proporções do benchmark do Jev (limiar 0,8).]{.miudo}
 
 ::: notes
-**13:45 a 15:00.** Esse é o slide que interessa a quem decide adotar IA: não é "a máquina faz tudo", é "a máquina diz quando não sabe". Isso conversa com o que o próprio STF diz das suas ferramentas: supervisão e revisão humana.
+**14:00 a 15:15.** Esse é o slide que interessa a quem decide adotar IA: não é "a máquina faz tudo", é "a máquina diz quando não sabe". Isso conversa com o que o próprio STF diz das suas ferramentas: supervisão e revisão humana.
 :::
 
 ## Já existem alternativas abertas ao Jev que rodam na sua própria máquina
@@ -484,7 +444,7 @@ experimento reproduzível. Para um tribunal, isso pesa tanto quanto a acurácia.
 :::
 
 ::: notes
-**15:00 a 16:00.** Não digo que são melhores: ainda não testamos em português jurídico. O ponto para o STF: dá para ter IA de estruturação sem mandar processo para fora.
+**15:15 a 16:15.** Não digo que são melhores: ainda não testamos em português jurídico. O ponto para o STF: dá para ter IA de estruturação sem mandar processo para fora.
 :::
 
 ## Uma oportunidade para a pesquisa e para a gestão {.secao}
@@ -545,7 +505,7 @@ quase sempre só tem os metadados.
 [Fontes: notícias do STF de 16/12/2024, 25/09/2025, 25/09/2026 e 28/09/2026.]{.miudo}
 
 ::: notes
-**16:00 a 17:30.** Cinco cliques. Vocês conhecem essas ferramentas melhor do que eu; o ponto é o contraste. A RAFA aparece até na pesquisa pública de jurisprudência: os selos dos ODS ao lado de cada acórdão.
+**16:15 a 17:45.** Cinco cliques. Vocês conhecem essas ferramentas melhor do que eu; o ponto é o contraste. A RAFA aparece até na pesquisa pública de jurisprudência: os selos dos ODS ao lado de cada acórdão.
 A Maria Shield (set/2026) mostra que IA também cria riscos novos: prompt injection numa petição, com multa aplicada pelo relator.
 :::
 
@@ -555,7 +515,7 @@ A Maria Shield (set/2026) mostra que IA também cria riscos novos: prompt inject
 :::
 
 ::: notes
-**17:30 a 20:00.** Clico em três ou quatro exemplos. Teclas 1 a 7 também abrem. Começar pelos Temas 6 e 1234 (precedentes do STF), depois a auditoria eleitoral e o TCU (da extração ao documento). A PGE eu detalho no fim, no bloco do Insper.
+**17:45 a 20:15.** Clico em três ou quatro exemplos. Teclas 1 a 7 também abrem. Começar pelos Temas 6 e 1234 (precedentes do STF), depois a auditoria eleitoral e o TCU (da extração ao documento). A PGE eu detalho no fim, no bloco do Insper.
 As animações são ilustrativas: nenhuma mostra dados reais.
 :::
 
@@ -605,7 +565,7 @@ repositório, licença, documentação
 :::
 
 ::: notes
-**20:00 a 21:00.** Falo a tese com todas as letras. Hoje cada grupo paga de novo a mesma coleta e a mesma anotação. Um repositório comum é bem público.
+**20:15 a 21:15.** Falo a tese com todas as letras. Hoje cada grupo paga de novo a mesma coleta e a mesma anotação. Um repositório comum é bem público.
 :::
 
 ## Podemos abrir esses dados? {.secao}
@@ -637,7 +597,7 @@ repositório, licença, documentação
 :::
 
 ::: notes
-**21:00 a 22:15.** Um clique transforma a definição de dado público na de dado aberto. "Clicar e baixar" é o critério prático. As bases do Corte Aberta já cumprem boa parte disso para metadados; falta a licença explícita e o texto.
+**21:15 a 22:30.** Um clique transforma a definição de dado público na de dado aberto. "Clicar e baixar" é o critério prático. As bases do Corte Aberta já cumprem boa parte disso para metadados; falta a licença explícita e o texto.
 :::
 
 ## O CNJ trata sentenças e nomes das partes como dados públicos
@@ -653,7 +613,7 @@ condições** pode ser reutilizado.
 :::
 
 ::: notes
-**22:15 a 23:15.** Citação curta, leio em voz alta. Petições e documentos são "potencialmente sensíveis" e ficam de fora do data lake; processos em segredo são "restritos".
+**22:30 a 23:30.** Citação curta, leio em voz alta. Petições e documentos são "potencialmente sensíveis" e ficam de fora do data lake; processos em segredo são "restritos".
 :::
 
 ## Como os tribunais têm tratado esses dados
@@ -678,7 +638,7 @@ condições** pode ser reutilizado.
 :::
 
 ::: notes
-**23:15 a 24:30.** Primeiro o STJ: qualquer pessoa ou máquina baixa os espelhos, com licença. Clico: o TJDFT, tribunal de justiça, publica API aberta. Essas decisões também têm dados pessoais.
+**23:30 a 24:45.** Primeiro o STJ: qualquer pessoa ou máquina baixa os espelhos, com licença. Clico: o TJDFT, tribunal de justiça, publica API aberta. Essas decisões também têm dados pessoais.
 :::
 
 ## O TJSP tem dados públicos, mas não abertos
@@ -701,7 +661,7 @@ As **empresas** de consulta processual já baixaram tudo. Quem esbarra é a **pe
 :::
 
 ::: notes
-**24:30 a 25:30.** Não mostro nenhum CPF. Cito a busca como provocação. O dado pessoal já está exposto a qualquer pessoa, e o único ator contido é o pesquisador.
+**24:45 a 25:45.** Não mostro nenhum CPF. Cito a busca como provocação. O dado pessoal já está exposto a qualquer pessoa, e o único ator contido é o pesquisador.
 :::
 
 ## A mesma decisão pode ser aberta ou não, dependendo do tribunal {#comp}
@@ -736,7 +696,7 @@ Têm dados pessoais, logo **pedem cuidado**. Mas aí a resposta não pode mudar 
 :::
 
 ::: notes
-**25:30 a 27:00.** Um clique acende a coluna do STF: ele está no meio do caminho, melhor que o TJSP nos metadados, atrás do STJ e do TJDFT no texto. Mudar de tribunal não deveria mudar o que é ético pesquisar.
+**25:45 a 27:15.** Um clique acende a coluna do STF: ele está no meio do caminho, melhor que o TJSP nos metadados, atrás do STJ e do TJDFT no texto. Mudar de tribunal não deveria mudar o que é ético pesquisar.
 :::
 
 ## Podemos abrir os dados em camadas, conforme o risco
@@ -769,7 +729,7 @@ LGPD, art. 7º, §3º (finalidade, boa-fé e interesse público) e inciso IV (pe
 :::
 
 ::: notes
-**27:00 a 28:30.** Resposta a "podemos?": sim, com desenho. Nem tudo aberto, nem tudo trancado.
+**27:15 a 28:45.** Resposta a "podemos?": sim, com desenho. Nem tudo aberto, nem tudo trancado.
 Exemplo real: no benchmark, as sentenças integrais não são redistribuídas, só metadados e anotações. Já o estudo de saúde, que cruza dados com bases administrativas, passou pelo comitê de ética.
 Não é parecer jurídico: é uma proposta para o debate.
 :::
@@ -801,7 +761,7 @@ pesquisa ajudasse a **avaliar** essas ferramentas.
 []{.fragment .passo data-passo="fi"}
 
 ::: notes
-**28:30 a 29:45.** Um clique preenche a ficha campo a campo, com marcas do que já é público (finalidade, supervisão) e do que ainda não encontrei (métricas, auditoria). A própria notícia de 28/09/2026 sobre a VitorIA diz que os relatórios não trazem taxa de acerto.
+**28:45 a 30:00.** Um clique preenche a ficha campo a campo, com marcas do que já é público (finalidade, supervisão) e do que ainda não encontrei (métricas, auditoria). A própria notícia de 28/09/2026 sobre a VitorIA diz que os relatórios não trazem taxa de acerto.
 Tom: proposta construtiva, não crítica. Abrir avaliação é o que dá legitimidade às ferramentas.
 :::
 
@@ -833,7 +793,7 @@ Dado público só é público de verdade quando é aberto.
 :::
 
 ::: notes
-**29:45 a 32:00.** Fecho devagar. O Corte Aberta já mostrou que o STF sabe abrir dados; a proposta é dar o próximo passo. Recapitulo: o acesso é o gargalo, estruturar já é fácil e podemos abrir com desenho por camadas.
+**30:00 a 32:15.** Fecho devagar. O Corte Aberta já mostrou que o STF sabe abrir dados; a proposta é dar o próximo passo. Recapitulo: o acesso é o gargalo, estruturar já é fácil e podemos abrir com desenho por camadas.
 Emendo: "para terminar, cinco minutos sobre quem faz esse trabalho".
 :::
 
@@ -868,7 +828,7 @@ Pesquisador.
 []{.fragment .passo data-passo="q2"}
 
 ::: notes
-**32:00 a 33:00.** Três cliques. Sou estatístico, trabalho com jurimetria desde 2010. O fio comum: transformar processos em dados para responder perguntas sobre o sistema de justiça.
+**32:15 a 33:15.** Três cliques. Sou estatístico, trabalho com jurimetria desde 2010. O fio comum: transformar processos em dados para responder perguntas sobre o sistema de justiça.
 :::
 
 ## No Insper, ensinamos ciência de dados com problemas jurídicos reais {#insper}
@@ -899,7 +859,7 @@ livro aberto: [jtrecenti.github.io/cdad-book](https://jtrecenti.github.io/cdad-b
 []{.fragment .passo data-passo="cd"}
 
 ::: notes
-**33:00 a 34:15.** Um clique desenha a trilha da disciplina, da estatística à IA e à LGPD, sempre com dados de tribunais. Depois, três números da turma de 2026.
+**33:15 a 34:30.** Um clique desenha a trilha da disciplina, da estatística à IA e à LGPD, sempre com dados de tribunais. Depois, três números da turma de 2026.
 Também orientamos iniciação científica e projetos com órgãos públicos, como a PGE-SP, que vem a seguir.
 :::
 
@@ -936,7 +896,7 @@ modelo.
 []{.fragment .passo data-passo="pg3" fragment-index="3"}
 
 ::: notes
-**34:15 a 35:45.** É o exemplo mais próximo do STF: um órgão público com muito volume, que precisa triar peças e não pode mandar processo para fora. Clique 1: a petição entra e vira texto, tudo dentro da linha tracejada, que é a rede da PGE. Clique 2: o modelo dá a probabilidade de cada assunto e passa do limiar. Clique 3: outra petição fica abaixo do limiar e vai para um procurador. Clique 4: a validação cega.
+**34:30 a 36:00.** É o exemplo mais próximo do STF: um órgão público com muito volume, que precisa triar peças e não pode mandar processo para fora. Clique 1: a petição entra e vira texto, tudo dentro da linha tracejada, que é a rede da PGE. Clique 2: o modelo dá a probabilidade de cada assunto e passa do limiar. Clique 3: outra petição fica abaixo do limiar e vai para um procurador. Clique 4: a validação cega.
 É o mesmo desenho da triagem por confiança que mostrei com o Jev, só que com um modelo pequeno, que roda numa máquina comum. Não cito números internos da PGE.
 :::
 
@@ -960,7 +920,7 @@ Ciência aberta: código aberto e métodos documentados.
 []{.fragment .passo data-passo="lf"}
 
 ::: notes
-**35:45 a 36:45.** Um clique faz as cinco frentes orbitarem o laboratório: pesquisa e publicações, formação, escritório de apoio à pesquisa, tecnologias, parcerias.
+**36:00 a 37:00.** Um clique faz as cinco frentes orbitarem o laboratório: pesquisa e publicações, formação, escritório de apoio à pesquisa, tecnologias, parcerias.
 :::
 
 ## Ferramentas abertas do LabDados {#ferramentas .fgv}
@@ -992,7 +952,7 @@ Ciência aberta: código aberto e métodos documentados.
 []{.fragment .passo data-passo="js2"}
 
 ::: notes
-**36:45 a 37:45.** Dois cliques: primeiro acendem os 32 tribunais cobertos, incluindo o STF; depois os 5 agregadores (DataJud, Jus.br, Comunica, PDPJ, Falcão). Ao lado, as outras ferramentas.
+**37:00 a 38:00.** Dois cliques: primeiro acendem os 32 tribunais cobertos, incluindo o STF; depois os 5 agregadores (DataJud, Jus.br, Comunica, PDPJ, Falcão). Ao lado, as outras ferramentas.
 :::
 
 ## Plano do LabDados para 2027 {#plano .fgv}
@@ -1027,7 +987,7 @@ Novas frentes com sociedade civil e universidades estrangeiras.
 [Plano em discussão com a coordenação.]{.miudo}
 
 ::: notes
-**37:45 a 38:45.** Passo rápido, uma frase por cartão. O cartão de saúde é o gancho com o STF: estamos medindo o efeito de precedentes do próprio Supremo.
+**38:00 a 39:00.** Passo rápido, uma frase por cartão. O cartão de saúde é o gancho com o STF: estamos medindo o efeito de precedentes do próprio Supremo.
 :::
 
 ## Obrigado! {.fim}
@@ -1062,5 +1022,5 @@ Novas frentes com sociedade civil e universidades estrangeiras.
 :::
 
 ::: notes
-**38:45 em diante.** Agradeço e deixo os QR codes na tela durante as perguntas.
+**39:00 em diante.** Agradeço e deixo os QR codes na tela durante as perguntas.
 :::

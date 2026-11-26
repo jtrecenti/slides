@@ -344,3 +344,30 @@ html[data-tema="escuro"] .reveal .slides section.fgv {
 #g-pge { max-width: 640px; margin: 0 auto; }
 
 html[data-tema="escuro"] .reveal section.fgv .centro-lab circle { fill: #1b3a6b; }
+
+/* máquina de estados */
+#g-fsm { margin-top: .2rem; }
+#leg-fsm { font-size: .8em; min-height: 1.5em; margin: .1rem 0 .5rem; }
+#leg-fsm code { font-size: .95em; }
+.fsm-comp { margin-top: .2rem; }
+.fsm-comp .caixa { font-size: .74em; margin: 0; }
+.fsm-comp .caixa p { margin: .15rem 0 0; }
+.grafico-svg .fsm-ger { font-size: 21px; font-weight: 600; }
+.grafico-svg .fsm-tok-t { font-family: "Cascadia Code", Consolas, monospace; font-size: 20px; font-weight: 600; }
+.grafico-svg .fsm-tok-b { fill: var(--regua); }
+.grafico-svg .fsm-tok-v { font-size: 16px; font-variant-numeric: tabular-nums; fill: var(--texto-fraco); }
+.grafico-svg .fsm-tok.ok .fsm-tok-t { fill: var(--turquesa); }
+.grafico-svg .fsm-tok.ok .fsm-tok-b { fill: var(--turquesa); }
+.grafico-svg .fsm-tok.nok .fsm-tok-t { fill: var(--marca); text-decoration: line-through; }
+.grafico-svg .fsm-tok.sorteado .fsm-tok-b { fill: var(--laranja); }
+.grafico-svg .fsm-tok.sorteado .fsm-tok-t { fill: var(--laranja); }
+.grafico-svg .fsm-div { stroke: var(--superficie-borda); stroke-width: 2; }
+.grafico-svg .fsm-est circle { fill: var(--fundo); stroke: var(--texto); stroke-width: 2; transition: fill .3s; }
+.grafico-svg .fsm-est circle.fsm-aceita { fill: none; }
+.grafico-svg .fsm-est text { font-size: 22px; }
+.grafico-svg .fsm-est.atual circle:first-child { fill: color-mix(in srgb, var(--laranja) 45%, var(--fundo)); stroke: var(--laranja); stroke-width: 3; }
+.grafico-svg .fsm-ar { stroke: var(--texto-fraco); stroke-width: 2; marker-end: url(#fsm-ponta); }
+.grafico-svg .fsm-ar.ok { stroke: var(--turquesa); stroke-width: 4; marker-end: url(#fsm-ponta-ok); }
+.grafico-svg .fsm-ponta { fill: var(--texto-fraco); }
+.grafico-svg .fsm-ponta.ok { fill: var(--turquesa); }
+.grafico-svg .fsm-lab { font-size: 18px; fill: var(--texto-fraco); }
