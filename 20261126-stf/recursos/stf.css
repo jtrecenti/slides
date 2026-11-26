@@ -260,12 +260,13 @@
 .wf-leg .wf { width: .9em; vertical-align: middle; margin: 0 .2em 0 .8em; }
 
 /* granularidade */
-#gran { display: grid; grid-template-columns: 1fr 1fr; gap: .6rem; font-size: .66em; }
+#gran { display: grid; grid-template-columns: repeat(4, 1fr); gap: .6rem; font-size: .62em; margin-top: .3rem; }
 .gr-col { background: var(--superficie); border-radius: 8px; padding: .4rem .5rem; }
 .gr-t { font-weight: 700; color: var(--marca); margin-bottom: .3rem; }
-.gr-b { background: var(--fundo); border: 1px solid var(--superficie-borda); border-radius: 5px; padding: .15rem .4rem; margin-bottom: .25rem; }
-.gr-falta { border: 2.5px dashed var(--marca); background: color-mix(in srgb, var(--marca) 8%, var(--fundo)); }
-.gr-vazio { color: var(--marca); font-weight: 600; padding-top: .5rem; }
+.gr-b { background: var(--fundo); border: 1px solid var(--superficie-borda); border-radius: 5px; padding: .15rem .4rem; margin-bottom: .25rem; display: flex; justify-content: space-between; align-items: center; gap: .3rem; }
+.reveal .gr-b a { color: var(--texto); text-decoration: none; border-bottom: 1px dotted var(--texto-fraco); }
+.gr-tag { font-size: .78em; font-weight: 700; color: #ffffff; background: var(--turquesa); border-radius: 4px; padding: 0 .35rem; white-space: nowrap; }
+.gr-falta { grid-column: 1 / -1; border: 2.5px dashed var(--marca); background: color-mix(in srgb, var(--marca) 8%, var(--fundo)); border-radius: 8px; padding: .45rem .7rem; font-size: 1.25em; }
 
 /* comparação com o STF */
 #comp table { font-size: .68em; }

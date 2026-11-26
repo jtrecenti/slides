@@ -487,32 +487,46 @@
 
   /* ---------- granularidade das bases do Corte Aberta --------------------- */
 
+  /* cada base aponta para o seu dicionário de dados (o download em si é por script no portal);
+     t = texto que a base traz, segundo o dicionário */
+  const DIC = "https://www.stf.jus.br/arquivo/cms/publicacaoBOInternet/anexo/link_download/dados_abertos/ods/dicionario_";
   const GRAN = [
-    { nome: "Processo", bases: ["Acervo", "Recebidos e baixados", "Registrados e distribuídos", "Controle concentrado", "Pautas"] },
-    { nome: "Decisão", bases: ["Decisões desde 2000", "Plenário Virtual", "Repercussão geral", "Decisões em reclamações"] },
-    { nome: "Parte", bases: ["Partes do acervo", "Partes em reclamações", "Legitimados e amici"] },
+    { nome: "Processo", bases: [["Acervo", "Acervo_Processos"], ["Recebidos", "Recebidos_2026"], ["Baixados", "Baixados_2026"],
+      ["Registrados e distribuídos", "Registrados_Distribuidos_2026"], ["Controle concentrado", "Controle%20Concentrado_Processos"],
+      ["Reclamações", "Reclamacoes_Processos"], ["Ações COVID-19", "Acoes_Covid_19_Processos"], ["Pautas", "Pauta_Plenario"]] },
+    { nome: "Decisão", bases: [["Decisões desde 2000", "Decisoes_2026", "dispositivo"], ["Controle concentrado", "Controle%20Concentrado_Decisoes", "dispositivo"],
+      ["Reclamações", "Reclamacoes_Decisoes", "trecho"], ["Ações COVID-19", "Acoes_Covid_19_Decisoes", "trechos"]] },
+    { nome: "Parte", bases: [["Partes do acervo", "Acervo_Partes"], ["Partes em reclamações", "Reclamacoes_Partes"],
+      ["Legitimados", "Controle%20Concentrado_Legitimados"], ["Amici curiae", "Controle%20Concentrado_Amicus_Curiae"]] },
+    { nome: "Tema e tese", bases: [["Repercussão geral", "Repercussao_Geral_Temas", "tese"], ["Suspensão nacional", "Repercussao_Geral_Suspensao_Nacional", "tese"],
+      ["Representativos", "Repercussao_Geral_Representativo_da_Controversia", "tese"], ["Informação à sociedade", "Informacao_a_Sociedade", "resumo"],
+      ["Omissão inconstitucional", "Omissao_Inconstitucional", "ementa"]] },
   ];
   function montarGran() {
     const caixa = $("#gran");
     if (!caixa) return;
+    const etiquetas = [];
     const cols = GRAN.map((g) => {
       const c = div("gr-col", {}, `<div class="gr-t">${g.nome}</div>`, caixa);
-      const bs = g.bases.map((b) => div("gr-b", {}, b, c));
-      return bs;
+      return g.bases.map(([nome, arq, t]) => {
+        const b = div("gr-b", {}, `<a href="${DIC}${arq}.ods" target="_blank" rel="noopener">${nome}</a>`, c);
+        if (t) etiquetas.push(div("gr-tag", {}, t, b));
+        return b;
+      });
     });
-    const falta = div("gr-col gr-falta", {}, '<div class="gr-t">Texto da decisão</div><div class="gr-vazio">não disponível em lote</div>', caixa);
+    const falta = div("gr-falta", {}, '<b>Inteiro teor</b> (relatório, votos, fundamentação): fora das bases. Algumas trazem o link, para abrir um documento por vez.', caixa);
     const todas = cols.flat();
     gsap.set(todas, { autoAlpha: 0 });
-    gsap.set(falta, { autoAlpha: 0 });
+    gsap.set([falta, ...etiquetas], { autoAlpha: 0 });
     passo("g1", (on) => {
       if (on) gsap.fromTo(todas, { autoAlpha: 0, x: -260, rotation: -8 }, { autoAlpha: 1, x: 0, rotation: 0, duration: 0.5, stagger: 0.09, ease: "power3.out", overwrite: true });
       else gsap.to(todas, { autoAlpha: 0, duration: 0.2, overwrite: true });
     });
     passo("g2", (on) => {
       if (on) {
-        gsap.fromTo(falta, { autoAlpha: 0, scale: 0.85 }, { autoAlpha: 1, scale: 1, duration: 0.5, ease: "back.out(2)", overwrite: true });
-        gsap.fromTo(falta, { x: -6 }, { x: 6, duration: 0.07, repeat: 5, yoyo: true, delay: 0.5, clearProps: "x" });
-      } else gsap.to(falta, { autoAlpha: 0, duration: 0.2, overwrite: true });
+        gsap.fromTo(etiquetas, { autoAlpha: 0, scale: 0 }, { autoAlpha: 1, scale: 1, duration: 0.35, stagger: 0.1, ease: "back.out(2.5)", overwrite: true });
+        gsap.fromTo(falta, { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.5, delay: 1.1, ease: "power2.out", overwrite: true });
+      } else gsap.to([falta, ...etiquetas], { autoAlpha: 0, duration: 0.2, overwrite: true });
     });
   }
 
