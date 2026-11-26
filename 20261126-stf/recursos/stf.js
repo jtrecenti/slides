@@ -185,6 +185,83 @@
     });
   }
 
+  /* ---------- classificador da PGE: petição, modelo local, limiar ---------- */
+
+  const PGE_ROT = ["Saúde", "Tributário", "Servidor", "Outros"];
+  const PGE_DOCS = [[0.91, 0.05, 0.03, 0.01], [0.46, 0.31, 0.15, 0.08]];
+  function montarPge() {
+    const caixa = $("#g-pge");
+    if (!caixa) return;
+    const W = 640, H = 470, x0 = 150, xMax = 540, lim = 0.8;
+    const s = el("svg", { viewBox: `0 0 ${W} ${H}`, class: "grafico-svg" }, caixa);
+    const defs = el("defs", {}, s);
+    const mk = el("marker", { id: "pge-ponta", viewBox: "0 0 10 10", refX: 8, refY: 5, markerWidth: 7, markerHeight: 7, orient: "auto" }, defs);
+    el("path", { d: "M0 0 L10 5 L0 10 z", class: "pge-ponta" }, mk);
+    const borda = el("rect", { x: 6, y: 6, width: W - 12, height: H - 46, rx: 14, class: "pge-borda" }, s);
+    const rede = texto(s, 22, H - 12, "dentro da rede da PGE: nada sai para a nuvem", { class: "pge-rede" });
+    const doc = el("g", {}, s);
+    el("path", { d: "M40 34 h84 l26 26 v120 h-110 z", class: "pge-doc" }, doc);
+    const linhas = [0, 1, 2, 3, 4, 5].map((k) => el("line", { x1: 56, y1: 76 + k * 18, x2: 56 + [74, 64, 78, 50, 70, 40][k], y2: 76 + k * 18, class: "pge-lin" }, doc));
+    texto(doc, 95, 206, "petição inicial", { "text-anchor": "middle", class: "pge-rot" });
+    const s1 = el("line", { x1: 162, y1: 108, x2: 228, y2: 108, class: "pge-seta" }, s);
+    const mod = el("g", { class: "pge-mod" }, s);
+    el("rect", { x: 236, y: 70, width: 150, height: 76, rx: 10 }, mod);
+    texto(mod, 311, 104, "modelo", { "text-anchor": "middle" });
+    texto(mod, 311, 130, "local", { "text-anchor": "middle" });
+    const s2 = el("line", { x1: 394, y1: 108, x2: 440, y2: 108, class: "pge-seta" }, s);
+    const saida = el("g", { class: "pge-saida" }, s);
+    el("rect", { x: 448, y: 76, width: 176, height: 64, rx: 8 }, saida);
+    const saidaT = texto(saida, 536, 116, "", { "text-anchor": "middle" });
+    const yb = 250, alt = 30, gap = 14, larg = xMax - x0;
+    const barras = PGE_ROT.map((r, i) => {
+      const y = yb + i * (alt + gap);
+      texto(s, x0 - 12, y + alt / 2 + 7, r, { "text-anchor": "end", class: "pge-rot" });
+      const b = el("rect", { x: x0, y, width: 0, height: alt, rx: 4, class: "pge-bar" + (i === 0 ? " top" : "") }, s);
+      const v = texto(s, x0 + 8, y + alt / 2 + 7, "", { class: "pge-val" });
+      return { b, v, y };
+    });
+    const xl = x0 + lim * larg;
+    const limL = el("line", { x1: xl, y1: yb - 22, x2: xl, y2: yb + 4 * (alt + gap) - gap + 6, class: "pge-lim" }, s);
+    const limT = texto(s, xl, yb - 30, "limiar 0,8", { "text-anchor": "middle", class: "pge-lim-t" });
+    const graf = [...barras.map((x) => x.v), limL, limT];
+    let atual = -1;
+    const mostra = (k) => {
+      atual = k;
+      const ps = k < 0 ? [0, 0, 0, 0] : PGE_DOCS[k];
+      barras.forEach((x, i) => {
+        const w = ps[i] * larg, o = { v: 0 };
+        gsap.to(x.b, { attr: { width: w }, duration: 0.8, ease: "power2.out", overwrite: true });
+        gsap.to(x.v, { attr: { x: x0 + w + 8 }, duration: 0.8, ease: "power2.out", overwrite: true });
+        gsap.fromTo(o, { v: ps[i] * 0.5 }, { v: ps[i], duration: 0.8, overwrite: true, onUpdate: () => { x.v.textContent = k < 0 ? "" : num(o.v, 2); } });
+      });
+      const baixa = k === 1;
+      barras[0].b.classList.toggle("baixa", baixa);
+      saida.classList.toggle("baixa", baixa);
+      saidaT.textContent = k < 0 ? "" : baixa ? "revisão humana" : "Saúde · 0,91";
+      gsap.to(graf, { autoAlpha: k < 0 ? 0 : 1, duration: 0.3, overwrite: "auto" });
+      if (k >= 0) gsap.fromTo(saida, { autoAlpha: 0, x: -20 }, { autoAlpha: 1, x: 0, duration: 0.5, delay: 0.6, overwrite: true });
+      else gsap.to(saida, { autoAlpha: 0, duration: 0.2, overwrite: true });
+    };
+    gsap.set([borda, doc, s1, mod, s2, saida, rede, ...graf], { autoAlpha: 0 });
+    gsap.set(linhas, { scaleX: 0, transformOrigin: "0% 50%" });
+    passo("pg1", (on) => {
+      if (on) gsap.fromTo(borda, { autoAlpha: 0, scale: 1.06, transformOrigin: "50% 50%" }, { autoAlpha: 1, scale: 1, duration: 0.8, ease: "power2.out", overwrite: true });
+      else gsap.to(borda, { autoAlpha: 0, duration: 0.2, overwrite: true });
+      gsap.to(rede, { autoAlpha: on ? 1 : 0, duration: 0.4, delay: on ? 0.9 : 0, overwrite: true });
+      if (on) {
+        gsap.fromTo(doc, { autoAlpha: 0, x: -40 }, { autoAlpha: 1, x: 0, duration: 0.5, overwrite: true });
+        gsap.fromTo(linhas, { scaleX: 0 }, { scaleX: 1, duration: 0.3, stagger: 0.1, delay: 0.4, overwrite: true });
+        gsap.to([s1, mod, s2], { autoAlpha: 1, duration: 0.4, stagger: 0.25, delay: 1, overwrite: true });
+        gsap.fromTo(mod, { scale: 0.8, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.5, delay: 1.25, ease: "back.out(2)" });
+      } else gsap.to([doc, s1, mod, s2], { autoAlpha: 0, duration: 0.2, overwrite: true });
+    });
+    passo("pg2", (on) => mostra(on ? 0 : -1));
+    passo("pg3", (on) => {
+      if (on) gsap.fromTo(linhas, { scaleX: 0 }, { scaleX: 1, duration: 0.25, stagger: 0.06, overwrite: true });
+      mostra(on ? 1 : 0);
+    });
+  }
+
   /* ---------- cobertura do juscraper -------------------------------------- */
 
   const TRIBUNAIS = ["STF", "TSE", "STM", "TRF1", "TRF3", "TRF5", "TRF6", "TJAC", "TJAL", "TJAM", "TJAP", "TJBA", "TJCE",
@@ -664,6 +741,7 @@
     montarNumeros();
     montarGran();
     montarFicha();
+    montarPge();
     gsap.set(".quem-card, .quem-linha", { autoAlpha: 0 });
     gsap.set(".tl-item", { autoAlpha: 0 });
     gsap.set(".tl-trilho", { scaleX: 0 });

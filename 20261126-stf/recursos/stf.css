@@ -279,3 +279,68 @@
 #tl-ia .tl-cnj { font-size: 1.05em; }
 #tl-ia .tl-item { font-size: .7em; }
 html[data-tema="escuro"] #logo-capa { filter: brightness(0) invert(1); }
+
+/* identidade FGV nos slides do LabDados: azul-marinho, azul institucional, coral e verde-limão */
+.reveal .slides section.fgv {
+  --marca: #1b3a6b; --turquesa: #4f7cc0; --laranja: #e0556a; --titulo: #13294b;
+  --superficie: #eef3f9; --superficie-borda: #cdd8ea; --regua: #b7c6dd;
+  --fgv-faixa: #13294b; --fgv-lima: #a6ce39; --fgv-coral: #e0556a;
+}
+html[data-tema="escuro"] .reveal .slides section.fgv {
+  --marca: #8fb3ea; --turquesa: #6f9be0; --laranja: #ff8a9a; --titulo: #ffffff;
+  --superficie: #16233a; --superficie-borda: #2b3d5c; --regua: #3a4f74;
+  --fgv-faixa: #1b3a6b;
+}
+.reveal .slides section.fgv[data-parte]::before {
+  content: "LabDados · FGV Direito SP";
+  display: inline-block; background: var(--fgv-faixa); color: #ffffff;
+  font-family: "Century Gothic", "URW Gothic", "Questrial", "Inter", sans-serif; font-weight: 700;
+  padding: .18rem .7rem .18rem .6rem; border-left: 6px solid var(--fgv-lima); border-radius: 0 4px 4px 0;
+}
+.reveal .slides section.fgv > h2 {
+  font-family: "Century Gothic", "URW Gothic", "Questrial", "Inter", sans-serif; font-weight: 700;
+  font-size: 1.24em; letter-spacing: -0.01em;
+  border-bottom: none; padding-bottom: .5rem;
+  background: linear-gradient(var(--fgv-coral), var(--fgv-coral)) left bottom / 4.5em 4px no-repeat,
+              linear-gradient(var(--marca), var(--marca)) left bottom / 100% 2px no-repeat;
+}
+.reveal section.fgv .pl-t,
+.reveal section.fgv .js-cont b,
+.reveal section.fgv .grafico-svg .centro-lab text {
+  font-family: "Century Gothic", "URW Gothic", "Questrial", "Inter", sans-serif; font-weight: 700;
+}
+.reveal section.fgv .pl-t { font-size: 1.15em; color: var(--marca); }
+.reveal section.fgv .plano-card { border-left-color: var(--marca); }
+.reveal section.fgv .plano-card:nth-child(2) { border-left-color: var(--fgv-coral); }
+.reveal section.fgv .plano-card:nth-child(4) { border-left-color: var(--fgv-lima); }
+.reveal section.fgv .destaque { color: var(--marca); }
+.reveal section.fgv .frente:nth-of-type(2n) circle { fill: var(--fgv-coral); }
+.reveal section.fgv .frente:nth-of-type(3n) circle { fill: var(--fgv-lima); }
+.reveal section.fgv .js-chip.ag { background: color-mix(in srgb, var(--fgv-coral) 24%, var(--fundo)); }
+.reveal section.fgv .ferr { border-left: 4px solid var(--marca); border-radius: 0 6px 6px 0; }
+
+/* classificador da PGE */
+#pge .colunas > div:first-child > p { font-size: .9em; margin-top: 0; }
+.pge-item { border-left: 4px solid var(--turquesa); padding: .1rem 0 .1rem .7rem; margin: .55rem 0; font-size: .76em; line-height: 1.35; }
+.pge-item p { margin: 0; }
+.grafico-svg .pge-borda { fill: none; stroke: var(--turquesa); stroke-width: 2.5; stroke-dasharray: 9 7; }
+.grafico-svg .pge-rede { fill: var(--turquesa); font-size: 18px; font-weight: 600; }
+.grafico-svg .pge-doc { fill: var(--superficie); stroke: var(--texto-fraco); stroke-width: 2; }
+.grafico-svg .pge-lin { stroke: var(--texto-fraco); stroke-width: 5; stroke-linecap: round; }
+.grafico-svg .pge-seta { stroke: var(--texto-fraco); stroke-width: 3; marker-end: url(#pge-ponta); }
+.grafico-svg .pge-ponta { fill: var(--texto-fraco); }
+.grafico-svg .pge-mod rect { fill: var(--marca); }
+.grafico-svg .pge-mod text { fill: #ffffff; font-size: 21px; font-weight: 600; }
+.grafico-svg .pge-rot { font-size: 18px; }
+.grafico-svg .pge-bar { fill: var(--regua); }
+.grafico-svg .pge-bar.top { fill: var(--turquesa); }
+.grafico-svg .pge-bar.top.baixa { fill: var(--laranja); }
+.grafico-svg .pge-val { font-size: 18px; font-variant-numeric: tabular-nums; }
+.grafico-svg .pge-lim { stroke: var(--texto); stroke-width: 2; stroke-dasharray: 5 4; }
+.grafico-svg .pge-lim-t { font-size: 16px; fill: var(--texto-fraco); }
+.grafico-svg .pge-saida rect { fill: var(--superficie); stroke: var(--turquesa); stroke-width: 2.5; }
+.grafico-svg .pge-saida.baixa rect { stroke: var(--laranja); }
+.grafico-svg .pge-saida text { font-size: 19px; font-weight: 600; }
+#g-pge { max-width: 640px; margin: 0 auto; }
+
+html[data-tema="escuro"] .reveal section.fgv .centro-lab circle { fill: #1b3a6b; }
